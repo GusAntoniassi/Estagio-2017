@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CakePHP Application Skeleton
 
 [![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
@@ -49,3 +50,7 @@ configuration relevant for your application.
 The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) CSS
 framework by default. You can, however, replace it with any other library or
 custom styles.
+=======
+# Estagio2017
+Estágio 2017 - Controle Financeiro Restaurante Recanto do Peixe (CakePHP)
+>>>>>>> c36e6e697228f2ea6c5ab467986312c494c82b84
