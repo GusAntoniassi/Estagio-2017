@@ -1,0 +1,187 @@
+@charset "UTF-8";
+/* Importar input-groups do Bootstrap */
+.input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate; }
+  .input-group[class*="col-"] {
+    float: none;
+    padding-left: 0;
+    padding-right: 0; }
+  .input-group .form-control {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0; }
+    .input-group .form-control:focus {
+      z-index: 3; }
+
+.input-group-addon,
+.input-group-btn,
+.input-group .form-control {
+  display: table-cell; }
+  .input-group-addon:not(:first-child):not(:last-child),
+  .input-group-btn:not(:first-child):not(:last-child),
+  .input-group .form-control:not(:first-child):not(:last-child) {
+    border-radius: 0; }
+
+.input-group-addon,
+.input-group-btn {
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle; }
+
+.input-group-addon {
+  font-weight: normal;
+  line-height: 1;
+  text-align: center; }
+  .input-group-addon input[type="radio"],
+  .input-group-addon input[type="checkbox"] {
+    margin-top: 0; }
+
+.input-group .form-control:first-child,
+.input-group-addon:first-child,
+.input-group-btn:first-child > .btn,
+.input-group-btn:first-child > .btn-group > .btn,
+.input-group-btn:first-child > .dropdown-toggle,
+.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+  border-right-radius: 0; }
+
+.input-group-addon:first-child {
+  border-right: 0; }
+
+.input-group .form-control:last-child,
+.input-group-addon:last-child,
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .btn-group > .btn,
+.input-group-btn:last-child > .dropdown-toggle,
+.input-group-btn:first-child > .btn:not(:first-child),
+.input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+  border-left-radius: 0; }
+
+.input-group-addon:last-child {
+  border-left: 0; }
+
+.input-group-btn {
+  position: relative;
+  font-size: 0;
+  white-space: nowrap; }
+  .input-group-btn > .btn {
+    position: relative; }
+    .input-group-btn > .btn + .btn {
+      margin-left: -1px; }
+    .input-group-btn > .btn:hover, .input-group-btn > .btn:focus, .input-group-btn > .btn:active {
+      z-index: 2; }
+  .input-group-btn:first-child > .btn,
+  .input-group-btn:first-child > .btn-group {
+    margin-right: -1px; }
+  .input-group-btn:last-child > .btn,
+  .input-group-btn:last-child > .btn-group {
+    z-index: 2;
+    margin-left: -1px; }
+
+/* Ícones material design */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/material-icons/MaterialIcons-Regular.eot");
+  /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url("../fonts/material-icons/MaterialIcons-Regular.woff2") format("woff2"), url("../fonts/material-icons/MaterialIcons-Regular.woff") format("woff"), url("../fonts/material-icons/MaterialIcons-Regular.ttf") format("truetype"); }
+.material-icons, th[scope="col"] a.asc:after, th[scope="col"] a.desc:after {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga'; }
+
+body {
+  background: #efefef; }
+
+main > .container {
+  width: 95%; }
+
+header, main, footer {
+  padding-left: 300px; }
+
+@media only screen and (max-width: 992px) {
+  header, main, footer {
+    padding-left: 0; } }
+.btn input {
+  outline: 0; }
+
+th[scope="col"] a.asc, th[scope="col"] a.desc {
+  float: left; }
+  th[scope="col"] a.asc:after, th[scope="col"] a.asc:after, th[scope="col"] a.desc:after, th[scope="col"] a.desc:after {
+    content: 'arrow_drop_down';
+    margin-top: -2px;
+    float: right; }
+
+.filtros .submit .btn {
+  height: 46px;
+  width: 100%; }
+  .filtros .submit .btn input {
+    height: 100%; }
+
+.paginator li > a:not(.number) {
+  padding: 0; }
+
+.card-panel .breadcrumb {
+  font-size: 14px;
+  color: #666; }
+  .card-panel .breadcrumb:last-of-type {
+    color: #333333;
+    font-weight: 500; }
+
+.card-panel .breadcrumb:before {
+  color: #666;
+  font-size: 18px !important;
+  line-height: 22px !important; }
+
+.row.title h4 {
+  margin: 0; }
+
+label.active {
+  z-index: 1; }
+
+.select.input-field .select2 {
+  margin-bottom: 20px; }
+
+/* Forms */
+.input-group {
+  margin-bottom: 20px; }
+
+.switch-wrapper {
+  height: 50px; }
+  .switch-wrapper .switch label input[type=checkbox]:checked + .lever + .lever-ativo {
+    color: #26a69a;
+    font-weight: bold;
+    transition: 0.3s all; }
+
+.input-field.checkbox:not(.switch-wrapper) label {
+  left: 0 !important; }
+
+.ativo {
+  color: darkgreen; }
+
+.inativo {
+  color: darkred; }
+
+/*# sourceMappingURL=style.css.map */

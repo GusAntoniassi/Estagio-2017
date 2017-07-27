@@ -1,0 +1,88 @@
+<?php
+use Cake\Routing\Router;
+/**
+  * @var \App\View\AppView $this
+  */
+?>
+<div class="usuarios index list row card-panel">
+    <?= $this->element('breadcrumbs', ['crumbs' => $crumbs]); ?>
+    <?php $this->assign('title', 'Usuario'); ?>
+    <div class="row filtros">
+        <div class="col s12">
+            <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header"><?= $this->Gus->materialIcon('filter_list'); ?> Filtros</div>
+                    <div class="collapsible-body">
+                        <div class="row">
+                            <?= $this->Gus->create(); ?>
+                                                        <?= $this->Gus->control('id', ['div' => 'col s2 m1 l1', 'label' => 'Id']); ?>
+                                                        <?= $this->Gus->control('login', ['div' => 'col s2 m1 l1', 'label' => 'Login']); ?>
+                                                        <?= $this->Gus->control('senha', ['div' => 'col s2 m1 l1', 'label' => 'Senha']); ?>
+                                                        <?= $this->Gus->control('salt', ['div' => 'col s2 m1 l1', 'label' => 'Salt']); ?>
+                                                        <?= $this->Gus->control('status', ['div' => 'col s2 m1 l1', 'label' => 'Status']); ?>
+                                                        <?= $this->Gus->control('grupo_usuario_id', ['div' => 'col s2 m1 l1', 'label' => 'Grupo Usuario Id']); ?>
+                                                        <?= $this->Gus->control('Filtrar', ['div' => 'col s12 m2 l2 right', 'type' => 'submit', 'class' => 'btn waves-effect waves-light']); ?>
+                            <?= $this->Gus->end(); ?>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <?= $this->Gus->create('Usuario', [
+        'url' => ['controller' => 'usuarios', 'action' => 'delete'],
+        'method' => 'post',
+        'class' => 'hide',
+        'id' => 'form-delete',
+    ]); ?>
+    <?php // <input name="ids[]" type="hidden" value="1" /> ?>
+    <?= $this->Gus->end(); ?>
+
+    <table class="responsive-table index highlight">
+        <thead>
+        <tr>
+            <th scope="col">
+                <input type="checkbox" class="filled-in" id="check-all" /><label for="check-all">&nbsp;</label>
+            </th>
+                        <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                        <th scope="col"><?= $this->Paginator->sort('login') ?></th>
+                        <th scope="col"><?= $this->Paginator->sort('senha') ?></th>
+                        <th scope="col"><?= $this->Paginator->sort('salt') ?></th>
+                        <th scope="col"><?= $this->Paginator->sort('status') ?></th>
+                        <th scope="col"><?= $this->Paginator->sort('grupo_usuario_id') ?></th>
+                        <th scope="col" class="actions"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($usuarios as $usuario): ?>
+            <tr>
+                <td><?= $this->Number->format($usuario->id) ?></td>
+                <td><input type="checkbox" id="check<?= $usuario->id ?>" class="filled-in" name="data[ids][<?= $usuario->id ?>]" value="<?= $usuario->id ?>" /><label for="check<?= $usuario->id ?>">&nbsp;</label></td>
+                <td><?= h($usuario->login) ?></td>
+                <td><?= h($usuario->senha) ?></td>
+                <td><?= h($usuario->salt) ?></td>
+                <td><?= $this->Gus->formataStatus($usuario->status) ?></td>
+                <td><?= $usuario->has('grupo_usuario') ? $this->Html->link($usuario->grupo_usuario->nome, ['controller' => 'GrupoUsuarios', 'action' => 'view', $usuario->grupo_usuario->id]) : '' ?></td>
+                <td class="actions">
+                    <?= $this->Html->link($this->Gus->materialIcon('edit'), ['action' => 'edit', $usuario->id], ['escape' => false, 'class' => 'btn btn-floating btn-sm waves-effect waves-light edit']) ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Gus->paginatorControls(); ?>
+        </ul>
+        <p><?= $this->Paginator->counter() ?></p>
+    </div>
+</div>
+<script>
+    var addLink = '<?= Router::url(['controller' => 'usuarios', 'action' => 'add'], true); ?>';
+    var editLink = '<?= Router::url(['controller' => 'usuarios', 'action' => 'edit', '--id--'], true); ?>';
+    var viewLink = '<?= Router::url(['controller' => 'usuarios', 'action' => 'view', '--id--'], true); ?>';
+    var deleteLink = '<?= Router::url(['controller' => 'usuarios', 'action' => 'delete'], true); ?>';
+</script>
+<?= $this->element('botao_fixo', ['controller' => $this->request->getParam('controller')]) ?>

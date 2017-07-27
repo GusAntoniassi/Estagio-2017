@@ -1,0 +1,126 @@
+/* Importar input-groups do Bootstrap */
+@import 'input-groups.scss';
+
+/* Ícones material design */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/material-icons/MaterialIcons-Regular.eot'); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url('../fonts/material-icons/MaterialIcons-Regular.woff2') format('woff2'),
+       url('../fonts/material-icons/MaterialIcons-Regular.woff') format('woff'),
+       url('../fonts/material-icons/MaterialIcons-Regular.ttf') format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+body {
+	background: #efefef;
+}
+main > .container {
+	width: 95%;
+}
+header, main, footer {
+	padding-left: 300px;
+}
+@media only screen and (max-width : 992px) {
+	header, main, footer {
+		padding-left: 0;
+	}
+}
+.btn input {
+	outline: 0;
+}
+th[scope="col"] {
+	a.asc, a.desc {
+		float: left;
+		&:after, &:after {
+			content: 'arrow_drop_down';
+			margin-top: -2px;
+			float: right;
+			@extend .material-icons;
+		}
+	}
+}
+.filtros .submit .btn {
+	height: 46px;
+	width: 100%;
+	input {
+		height: 100%;
+	}
+}
+.paginator li > a:not(.number) {	
+	padding: 0;
+}
+$breadcrumb-color: #666;
+.card-panel .breadcrumb {
+  font-size: 14px;
+  color: $breadcrumb-color;
+  &:last-of-type {
+    color: darken($breadcrumb-color, 20%);
+    font-weight: 500;
+  }
+}
+
+.card-panel .breadcrumb:before {
+  color: $breadcrumb-color;
+  font-size: 18px !important;
+  line-height: 22px !important;
+}
+.row.title h4 {
+  margin: 0;
+}
+label.active {
+  z-index: 1;
+}
+.select.input-field .select2 {
+  margin-bottom: 20px;
+}
+
+/* Forms */
+.input-group {
+  margin-bottom: 20px;
+}
+.switch-wrapper {
+  height: 50px;
+  .switch label input[type=checkbox]:checked + .lever + .lever-ativo {
+    color: #26a69a;
+    font-weight: bold;
+    transition: 0.3s all;
+  }
+}
+.input-field.checkbox:not(.switch-wrapper) label {
+  left: 0 !important;
+}
+
+.ativo {
+  color: darkgreen;
+}
+.inativo {
+  color: darkred;
+}
