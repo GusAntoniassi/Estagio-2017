@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c8181edc-cae8-49d6-a19a-18742a0159c9" name="Default" comment="" />
+    <list default="true" id="c8181edc-cae8-49d6-a19a-18742a0159c9" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Element/Controller/add.ctp" afterPath="$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Element/Controller/add.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Element/Controller/edit.ctp" afterPath="$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Element/Controller/edit.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Element/form.ctp" afterPath="$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Element/form.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Template/index.ctp" afterPath="$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Template/index.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Gus/src/View/Helper/GusHelper.php" afterPath="$PROJECT_DIR$/plugins/Gus/src/View/Helper/GusHelper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/AppController.php" afterPath="$PROJECT_DIR$/src/Controller/AppController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/PaisesController.php" afterPath="$PROJECT_DIR$/src/Controller/PaisesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Table/PaisesTable.php" afterPath="$PROJECT_DIR$/src/Model/Table/PaisesTable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/js/scripts.js" afterPath="$PROJECT_DIR$/webroot/js/scripts.js" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,90 +24,81 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="add.ctp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Template/Usuarios/add.ctp">
+      <file leaf-file-name="PaisesController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/PaisesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="328">
+              <caret line="183" column="0" lean-forward="true" selection-start-line="183" selection-start-column="0" selection-end-line="191" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Template/Usuarios/edit.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="15" column="139" lean-forward="false" selection-start-line="15" selection-start-column="139" selection-end-line="15" selection-end-column="139" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Template/Usuarios/view.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-              <folding>
-                <marker date="1501112280460" expanded="true" signature="208:211" ph="..." />
-                <marker date="1501112280460" expanded="true" signature="251:1046" ph="..." />
-                <marker date="1501112280460" expanded="true" signature="288:401" ph="..." />
-                <marker date="1501112280460" expanded="true" signature="321:334" ph="..." />
-                <marker date="1501112280460" expanded="true" signature="361:381" ph="..." />
-                <marker date="1501112280460" expanded="true" signature="438:551" ph="..." />
-                <marker date="1501112280460" expanded="true" signature="471:484" ph="..." />
-                <marker date="1501112280460" expanded="true" signature="511:531" ph="..." />
-                <marker date="1501112280460" expanded="true" signature="588:699" ph="..." />
-                <marker date="1501112280460" expanded="true" signature="621:633" ph="..." />
-                <marker date="1501112280460" expanded="true" signature="660:679" ph="..." />
-                <marker date="1501112280460" expanded="true" signature="736:1009" ph="..." />
-                <marker date="1501112280460" expanded="true" signature="769:790" ph="..." />
-                <marker date="1501112280460" expanded="true" signature="817:989" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Template/view.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="62" column="54" lean-forward="false" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
-              <folding>
-                <marker date="1501112278483" expanded="true" signature="2314:2345" ph="..." />
-                <marker date="1501112278483" expanded="true" signature="2548:2584" ph="..." />
-                <marker date="1501112278483" expanded="true" signature="3041:3077" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Template/index.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UsuariosController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/UsuariosController.php">
+      <file leaf-file-name="add.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Template/Cidades/add.ctp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
-              <caret line="25" column="21" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+              <caret line="22" column="47" lean-forward="false" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Template/Layout/default.ctp">
+      <file leaf-file-name="CidadesController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/CidadesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+            <state relative-caret-position="396">
+              <caret line="97" column="134" lean-forward="false" selection-start-line="97" selection-start-column="134" selection-end-line="97" selection-end-column="134" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Query.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/ORM/Query.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="356">
+              <caret line="160" column="20" lean-forward="false" selection-start-line="160" selection-start-column="20" selection-end-line="160" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scripts.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webroot/js/scripts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="98" column="7" lean-forward="true" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EstadosController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/EstadosController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="447">
+              <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GusHelper.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/Gus/src/View/Helper/GusHelper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="76" column="9" lean-forward="false" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Template/Estados/add.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="19" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -114,30 +117,49 @@
       <find>Gi</find>
       <find>Gin</find>
       <find>Ginástica</find>
+      <find>options</find>
     </findStrings>
     <replaceStrings>
       <replace />
     </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Model/Table/GrupoUsuariosTable.php" />
         <option value="$PROJECT_DIR$/vendor/cakephp/cakephp/src/View/Helper/FormHelper.php" />
-        <option value="$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Template/index.ctp" />
-        <option value="$PROJECT_DIR$/webroot/js/scripts.js" />
         <option value="$PROJECT_DIR$/src/Controller/GrupoUsuariosController.php" />
-        <option value="$PROJECT_DIR$/plugins/Gus/src/View/Helper/GusHelper.php" />
         <option value="$PROJECT_DIR$/webroot/css/style.scss" />
         <option value="$PROJECT_DIR$/src/Template/GrupoUsuarios/add.ctp" />
         <option value="$PROJECT_DIR$/src/Template/GrupoUsuarios/edit.ctp" />
-        <option value="$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Element/form.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Layout/default.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Usuarios/add.ctp" />
         <option value="$PROJECT_DIR$/src/Controller/UsuariosController.php" />
         <option value="$PROJECT_DIR$/src/Template/Usuarios/edit.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Usuarios/view.ctp" />
         <option value="$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Template/view.ctp" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/Template/Paises/add.ctp" />
+        <option value="$PROJECT_DIR$/src/Model/Table/PaisesTable.php" />
+        <option value="$PROJECT_DIR$/src/Template/Estados/add.ctp" />
+        <option value="$PROJECT_DIR$/src/Model/Table.php" />
+        <option value="$PROJECT_DIR$/src/Controller/AppController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/PaisesController.php" />
+        <option value="$PROJECT_DIR$/plugins/Gus/src/View/Helper/GusHelper.php" />
+        <option value="$PROJECT_DIR$/src/Model/Table/EstadosTable.php" />
+        <option value="$PROJECT_DIR$/src/Template/Estados/index.ctp" />
+        <option value="$PROJECT_DIR$/src/Model/Table/CidadesTable.php" />
+        <option value="$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Element/Controller/add.ctp" />
+        <option value="$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Element/Controller/edit.ctp" />
+        <option value="$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Template/index.ctp" />
+        <option value="$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Element/form.ctp" />
+        <option value="$PROJECT_DIR$/src/Controller/EstadosController.php" />
+        <option value="$PROJECT_DIR$/src/Template/Cidades/add.ctp" />
+        <option value="$PROJECT_DIR$/src/Controller/CidadesController.php" />
+        <option value="$PROJECT_DIR$/webroot/js/scripts.js" />
       </list>
     </option>
   </component>
@@ -154,6 +176,7 @@
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -419,6 +442,10 @@
               <option name="myItemId" value="Bake" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -506,6 +533,74 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Template" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bake" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Element" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gus" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Template" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bake" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gus" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -517,7 +612,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="usuar/view&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Usuarios/view.ctp&#10;view&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/Template/Bake/Template/view.ctp&#10;usuarios&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/UsuariosController.php&#10;usuarioscontrol&#9;null&#9;null&#10;grupo/index&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/GrupoUsuarios/index.ctp&#10;style&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/css/style.scss&#10;grupousuario/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/GrupoUsuarios/edit.ctp&#10;grupousuarioscontro&#9;null&#9;null&#10;script.js&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/scripts.js&#10;default.ctp&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Layout/default.ctp&#10;controll&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/GrupoUsuariosController.php&#10;style.scss&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/css/style.scss&#10;gushel&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;gushelper&#9;null&#9;null&#10;grupousuar/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/GrupoUsuarios/add.ctp&#10;grupousuarioscontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/GrupoUsuariosController.php" />
+    <property name="SearchEverywhereHistoryKey" value="cidadescontr&#9;null&#9;null&#10;script.js&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/scripts.js&#10;estados/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Estados/add.ctp&#10;gushel&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;paisesco&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/PaisesController.php&#10;bake-element-for-&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/tmp/bake/Bake-Element-form-ctp.php&#10;paisescontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/PaisesController.php&#10;estadoscontr&#9;null&#9;null&#10;cidades/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/add.ctp&#10;cidades/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/edit.ctp&#10;cidadestable&#9;null&#9;null&#10;estados/index&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Estados/index.ctp&#10;paisestable&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/PaisesTable.php&#10;estadostab&#9;null&#9;null&#10;appcontro&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/AppController.php&#10;gushelper&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;paisestab&#9;null&#9;null&#10;pais/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Paises/add.ctp&#10;usuar/view&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Usuarios/view.ctp&#10;view&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/Template/Bake/Template/view.ctp&#10;usuarios&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/UsuariosController.php&#10;usuarioscontrol&#9;null&#9;null&#10;grupo/index&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/GrupoUsuarios/index.ctp&#10;style&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/css/style.scss&#10;grupousuario/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/GrupoUsuarios/edit.ctp&#10;grupousuarioscontro&#9;null&#9;null&#10;default.ctp&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Layout/default.ctp&#10;controll&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/GrupoUsuariosController.php&#10;style.scss&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/css/style.scss&#10;grupousuar/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/GrupoUsuarios/add.ctp&#10;grupousuarioscontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/GrupoUsuariosController.php" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -530,6 +625,75 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -546,24 +710,31 @@
       <updated>1501031352627</updated>
       <workItem from="1501031353917" duration="4733000" />
       <workItem from="1501106258162" duration="6215000" />
+      <workItem from="1501170956574" duration="2865000" />
+      <workItem from="1501203217621" duration="3620000" />
+      <workItem from="1501256407555" duration="1765000" />
+      <workItem from="1501279871454" duration="1643000" />
+      <workItem from="1501282647217" duration="719000" />
+      <workItem from="1501284845847" duration="4589000" />
+      <workItem from="1501292491898" duration="3846000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10948000" />
+    <option name="totallyTimeSpent" value="29995000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -571,8 +742,28 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -590,7 +781,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#33#66#0#PHP" expanded="true" />
+            <element signature="e#33#66#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -599,7 +790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -607,11 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-          <folding>
-            <element signature="e#34#53#0#PHP" expanded="true" />
-            <marker date="1501041248104" expanded="true" signature="136:177" ph=" GrupoUsuarios Model ..." />
-            <marker date="1501041248104" expanded="true" signature="1442:1450" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -619,7 +804,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -627,17 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding>
-            <element signature="e#28#62#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Form/form.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-199">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -645,7 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -653,9 +825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
-          <folding>
-            <marker date="1501106887372" expanded="true" signature="3820:3833" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -663,7 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -671,11 +839,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-          <folding>
-            <element signature="e#34#53#0#PHP" expanded="true" />
-            <marker date="1501041248104" expanded="true" signature="136:177" ph=" GrupoUsuarios Model ..." />
-            <marker date="1501041248104" expanded="true" signature="1442:1450" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -683,17 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Entity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding>
-            <element signature="e#28#62#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -701,7 +853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -709,7 +860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-561">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -717,15 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="116" column="41" lean-forward="false" selection-start-line="116" selection-start-column="41" selection-end-line="116" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/Gus/src/View/Helper/GusHelper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="37" column="100" lean-forward="false" selection-start-line="37" selection-start-column="100" selection-end-line="37" selection-end-column="100" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -734,16 +875,8 @@
         <state relative-caret-position="294">
           <caret line="157" column="17" lean-forward="false" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="17" />
           <folding>
-            <element signature="e#33#66#0#PHP" expanded="true" />
+            <element signature="e#33#66#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webroot/js/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="217" column="33" lean-forward="false" selection-start-line="217" selection-start-column="33" selection-end-line="217" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -751,7 +884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="11" column="50" lean-forward="false" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -759,14 +891,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="11" column="50" lean-forward="false" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Element/form.ctp">
+    <entry file="file://$PROJECT_DIR$/src/Template/Usuarios/edit.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="29" column="14" lean-forward="false" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+        <state relative-caret-position="221">
+          <caret line="15" column="139" lean-forward="false" selection-start-line="15" selection-start-column="139" selection-end-line="15" selection-end-column="139" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Usuarios/view.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Usuarios/add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UsuariosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="25" column="21" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -779,69 +938,227 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UsuariosController.php">
+    <entry file="file://$PROJECT_DIR$/src/Template/Paises/add.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" column="21" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="187">
+          <caret line="13" column="108" lean-forward="false" selection-start-line="13" selection-start-column="108" selection-end-line="13" selection-end-column="108" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Usuarios/edit.ctp">
+    <entry file="file://$PROJECT_DIR$/vendor/cakephp/bake/src/Template/Bake/Plugin/src/Controller/AppController.php.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="139" lean-forward="false" selection-start-line="15" selection-start-column="139" selection-end-line="15" selection-end-column="139" />
-          <folding />
+        <state relative-caret-position="357">
+          <caret line="21" column="6" lean-forward="false" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Usuarios/view.ctp">
+    <entry file="file://$PROJECT_DIR$/src/Model/Entity.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <marker date="1501112280460" expanded="true" signature="208:211" ph="..." />
-            <marker date="1501112280460" expanded="true" signature="251:1046" ph="..." />
-            <marker date="1501112280460" expanded="true" signature="288:401" ph="..." />
-            <marker date="1501112280460" expanded="true" signature="321:334" ph="..." />
-            <marker date="1501112280460" expanded="true" signature="361:381" ph="..." />
-            <marker date="1501112280460" expanded="true" signature="438:551" ph="..." />
-            <marker date="1501112280460" expanded="true" signature="471:484" ph="..." />
-            <marker date="1501112280460" expanded="true" signature="511:531" ph="..." />
-            <marker date="1501112280460" expanded="true" signature="588:699" ph="..." />
-            <marker date="1501112280460" expanded="true" signature="621:633" ph="..." />
-            <marker date="1501112280460" expanded="true" signature="660:679" ph="..." />
-            <marker date="1501112280460" expanded="true" signature="736:1009" ph="..." />
-            <marker date="1501112280460" expanded="true" signature="769:790" ph="..." />
-            <marker date="1501112280460" expanded="true" signature="817:989" ph="..." />
+            <element signature="e#28#62#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Template/index.ctp">
+    <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/ORM/Table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="125" column="6" lean-forward="false" selection-start-line="125" selection-start-column="6" selection-end-line="125" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Table.php" />
+    <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/Http/ServerRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="60" column="11" lean-forward="false" selection-start-line="60" selection-start-column="11" selection-end-line="60" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AppController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="71" column="14" lean-forward="false" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Table/EstadosTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="36" column="36" lean-forward="false" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Estados/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="50" column="84" lean-forward="false" selection-start-line="50" selection-start-column="84" selection-end-line="50" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Table/PaisesTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="35" column="36" lean-forward="false" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Model/table.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/GrupoUsuarios/view.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="60" lean-forward="false" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Form/form.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/bake/Bake-Element-form-ctp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="52" column="13" lean-forward="false" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Element/form.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <caret line="52" column="13" lean-forward="false" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Template/view.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
+        <state relative-caret-position="422">
           <caret line="62" column="54" lean-forward="false" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
-          <folding>
-            <marker date="1501112278483" expanded="true" signature="2314:2345" ph="..." />
-            <marker date="1501112278483" expanded="true" signature="2548:2584" ph="..." />
-            <marker date="1501112278483" expanded="true" signature="3041:3077" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Usuarios/add.ctp">
+    <entry file="file://$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Template/index.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="388">
+          <caret line="94" column="164" lean-forward="false" selection-start-line="94" selection-start-column="164" selection-end-line="94" selection-end-column="164" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Element/Controller/add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="27" column="80" lean-forward="false" selection-start-line="27" selection-start-column="80" selection-end-line="30" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Element/Controller/edit.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="35" column="66" lean-forward="false" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Cidades/edit.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Table/CidadesTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="36" column="36" lean-forward="false" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Gus/src/View/Helper/GusHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="76" column="9" lean-forward="false" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/EstadosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Estados/add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="19" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PaisesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="183" column="0" lean-forward="true" selection-start-line="183" selection-start-column="0" selection-end-line="191" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Cidades/add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" column="47" lean-forward="false" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/ORM/Query.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="160" column="20" lean-forward="false" selection-start-line="160" selection-start-column="20" selection-end-line="160" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/CidadesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="97" column="134" lean-forward="false" selection-start-line="97" selection-start-column="134" selection-end-line="97" selection-end-column="134" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webroot/js/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="98" column="7" lean-forward="true" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
           <folding />
         </state>
       </provider>

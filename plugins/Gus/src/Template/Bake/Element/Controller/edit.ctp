@@ -33,6 +33,9 @@ $compact = ["'" . $singularName . "'"];
         if ($this->request->is(['patch', 'post', 'put'])) {
             $<%= $singularName %> = $this-><%= $currentModelName %>->patchEntity($<%= $singularName %>, $this->request->getData());
             if ($this-><%= $currentModelName; %>->save($<%= $singularName %>)) {
+                if (!empty($this->request->getQuery('extends'))) {
+                    $this->_fechaExtends();
+                }
                 $this->Flash->success(__('Registro salvo com sucesso.'));
 
                 return $this->redirect(['action' => 'index']);

@@ -66,4 +66,9 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
     }
+
+    protected function _fechaExtends() {
+        echo "<script>window.close();</script>";
+        die();
+    }
 }

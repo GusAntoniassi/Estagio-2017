@@ -7,13 +7,13 @@ use \Cake\Datasource\Exception\RecordNotFoundException;
 use \Cake\Datasource\ConnectionManager;
 
 /**
- * Paises Controller
+ * Cidades Controller
  *
- * @property \App\Model\Table\PaisesTable $Paises
+ * @property \App\Model\Table\CidadesTable $Cidades
  *
- * @method \App\Model\Entity\Pais[] paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Cidade[] paginate($object = null, array $settings = [])
  */
-class PaisesController extends AppController {
+class CidadesController extends AppController {
     private $_crumbs;
     public function initialize() {
         parent::initialize();
@@ -23,7 +23,7 @@ class PaisesController extends AppController {
 
         $this->_crumbs = [
             'Painel' => Router::url(['controller' => 'users', 'action' => 'dashboard'], true),
-            'Paises' => Router::url(['action' => 'index'])
+            'Cidades' => Router::url(['action' => 'index'])
         ];
     }
 
@@ -35,15 +35,16 @@ class PaisesController extends AppController {
     public function index()
     {
 
-        $query = $this->Paises
+        $query = $this->Cidades
             ->find('search', ['search' => $this->request->getQueryParams()])
-                        ;
+                        ->contain(['Estados'])
+            ;
 
         $this->paginate = ['limit' => 20];
-        $paises = $this->paginate($query);
+        $cidades = $this->paginate($query);
 
-        $this->set(compact('paises'));
-        $this->set('_serialize', ['paises']);
+        $this->set(compact('cidades'));
+        $this->set('_serialize', ['cidades']);
 
         $this->set('crumbs', $this->_crumbs);
     }
@@ -51,18 +52,18 @@ class PaisesController extends AppController {
     /**
      * View method
      *
-     * @param string|null $id Pais id.
+     * @param string|null $id Cidade id.
      * @return \Cake\Http\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-        $pais = $this->Paises->get($id, [
-            'contain' => ['Estados']
+        $cidade = $this->Cidades->get($id, [
+            'contain' => ['Estados', 'Pessoas']
         ]);
 
-        $this->set('pais', $pais);
-        $this->set('_serialize', ['pais']);
+        $this->set('cidade', $cidade);
+        $this->set('_serialize', ['cidade']);
 
         $this->_crumbs['Visualização'] = Router::url(['action' => 'view']);
         $this->set('crumbs', $this->_crumbs);
@@ -75,22 +76,28 @@ class PaisesController extends AppController {
      */
     public function add()
     {
-        $pais = $this->Paises->newEntity();
+        $cidade = $this->Cidades->newEntity();
         if ($this->request->is('post')) {
-            $pais = $this->Paises->patchEntity($pais, $this->request->getData());
-            if ($this->Paises->save($pais)) {
+            $cidade = $this->Cidades->patchEntity($cidade, $this->request->getData());
+            if ($this->Cidades->save($cidade)) {
                 if (!empty($this->request->getQuery('extends'))) {
                     $this->_fechaExtends();
                 }
-
                 $this->Flash->success(__('Registro salvo com sucesso.'));
 
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
-        $this->set(compact('pais'));
-        $this->set('_serialize', ['pais']);
+        $paises = $this->Cidades->Estados->Paises->find('list', ['limit' => 200]);
+        if (!empty($paises)) {
+            $primeiro_pais_id = array_keys($paises->toArray())[0];
+        } else {
+            $primeiro_pais_id = 0;
+        }
+        $estados = $this->Cidades->Estados->find('list')->where(['pais_id' => $primeiro_pais_id]); // Primeiro país já vem selecionado
+        $this->set(compact('cidade', 'estados', 'paises'));
+        $this->set('_serialize', ['cidade']);
 
         $this->_crumbs['Cadastro'] = Router::url(['action' => 'add']);
         $this->set('crumbs', $this->_crumbs);
@@ -99,18 +106,18 @@ class PaisesController extends AppController {
     /**
      * Edit method
      *
-     * @param string|null $id Pais id.
+     * @param string|null $id Cidade id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
     public function edit($id = null)
     {
-        $pais = $this->Paises->get($id, [
+        $cidade = $this->Cidades->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $pais = $this->Paises->patchEntity($pais, $this->request->getData());
-            if ($this->Paises->save($pais)) {
+            $cidade = $this->Cidades->patchEntity($cidade, $this->request->getData());
+            if ($this->Cidades->save($cidade)) {
                 if (!empty($this->request->getQuery('extends'))) {
                     $this->_fechaExtends();
                 }
@@ -120,8 +127,9 @@ class PaisesController extends AppController {
             }
             $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
-        $this->set(compact('pais'));
-        $this->set('_serialize', ['pais']);
+        $estados = $this->Cidades->Estados->find('list', ['limit' => 200]);
+        $this->set(compact('cidade', 'estados'));
+        $this->set('_serialize', ['cidade']);
 
         $this->_crumbs['Edição'] = Router::url(['action' => 'edit']);
         $this->set('crumbs', $this->_crumbs);
@@ -130,7 +138,7 @@ class PaisesController extends AppController {
     /**
      * Delete method
      *
-     * @param string|null $id Pais id.
+     * @param string|null $id Cidade id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -154,7 +162,7 @@ class PaisesController extends AppController {
     /**
      * Handle delete method
      *
-     * @param int|array $ids Paises ids.
+     * @param int|array $ids Cidades ids.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException Quando o registro não é encontrado.
      */
     private function _handleDelete($ids) {
@@ -162,12 +170,12 @@ class PaisesController extends AppController {
             $ids = [$ids];
         }
 
-        $conn = ConnectionManager::get($this->Paises->defaultConnectionName());
+        $conn = ConnectionManager::get($this->Cidades->defaultConnectionName());
         $conn->begin();
         try {
             foreach ($ids as $id) {
-                $pais = $this->Paises->get($id);
-                if (!$this->Paises->delete($pais)) {
+                $cidade = $this->Cidades->get($id);
+                if (!$this->Cidades->delete($cidade)) {
                     throw new \Exception();
                 }
             }
@@ -180,14 +188,5 @@ class PaisesController extends AppController {
             $conn->rollback();
             $this->Flash->error(__('Erro ao excluir o(s) registro(s)! Por favor tente novamente.'));
         }
-    }
-
-    public function getAll() {
-        $paises = $this->Paises->find('list', ['valueField' => 'nome'])
-            ->where(['status' => true])
-            ->orderAsc('nome');
-
-        echo json_encode($paises);
-        die();
     }
 }

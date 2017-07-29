@@ -101,15 +101,27 @@ function maskInputs() {
     $('[data-select-2-ajax]').addClass('browser-default').select2();
 
 }
+/* ============= Helpers ================== */
+String.prototype.appendParameter = function(key, value) {
+	return this + ((this.indexOf('?') != -1) ? '&' : '?') + encodeURIComponent(key) + '=' + encodeURIComponent(value);
+}
 /* ============= Extends * ================ */
+function listenFocus(e) {
+    window.onfocus = function() {
+        refreshSelect(e);
+        // Reseta os listeners de focus e blur
+        window.onfocus = function() {};
+    }
+}
 function extendAdd(e) {
 	e = e || window.event;
 	var target = e.target || e.srcElement;
 	var link = $(target).closest('a').attr('href');
-	link += '&extends=true';
+	link = link.toString().appendParameter('extends', 'true');
 
 	window.open(link);
-	e.preventDefault();
+    listenFocus($(target).closest('.input-group').find('.btn.refresh'));
+    e.preventDefault();
 	return false;
 }
 function extendEdit(e) {
@@ -117,19 +129,56 @@ function extendEdit(e) {
     var target = e.target || e.srcElement;
     var link = $(target).closest('a').attr('href');
     var select = $(target).closest('.input-group').find('select');
-	link += '/' + $(select).val() + '&extends=true';
+    if (!$(select).val()) { // Se não tiver selecionado nenhuma opção, não fazer nada.
+		e.preventDefault();
+    	return;
+	}
+	link += '/' + $(select).val();
+	link = link.appendParameter('extends', 'true');
 
     window.open(link);
+	listenFocus($(target).closest('.input-group').find('.btn.refresh'));
     e.preventDefault();
     return false;
 }
-function refreshSelect(e) {
-    e = e || window.event;
-    var target = e.target || e.srcElement;
-    var select = $(target).closest('.input-group').find('select');
+function refreshSelect(target) {
+    var $select = $(target).closest('.input-group').find('select');
+    var $refresh = $(target).closest('.btn.refresh');
+	var params = {};
+	if ($select.attr('data-dependencias')) {
+		var dependencias = $select.attr('data-dependencias').split(',');
+		for (var dependencia in dependencias) {
+			var valor = $('select[name="' + dependencia + '"]').val();
+			valor = (!valor ? 0 : valor);
 
-    console.log(select);
+			params[dependencia] = valor;
+		}
+	}
+    $.ajax({
+        url: $refresh.attr('data-href'),
+		type: 'GET',
+        data: '',
+    }).done(function(data) {
+        console.log(data);
+        var json = JSON.parse(data);
+        data = [];
+        if (json) {
+            for (var id in json) {
+                data.push({'id': id, 'text': json[id]});
+            }
+        }
 
+        var selected = $select.val();
+        $select.empty().select2({
+            data: data
+        });
+        $select.val(selected);
+        $select.trigger("change").trigger('refresh');
+    }).fail(function() {
+        alert('Erro ao atualizar o select');
+    });
+
+    console.log(target);
     return false;
 }
 

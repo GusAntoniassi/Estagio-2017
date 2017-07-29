@@ -43,15 +43,13 @@ uasort($fields, function($a, $b) {
         }
         if (isset($keyFields[$field])) {
             $fieldData = $schema->column($field);
-            if (!empty($fieldData['null'])) {
 %>
-        echo $this->Gus->control('<%= $field %>', ['div' => 'col s12 input-field select2-field', 'label' => ['text' => '<%= Inflector::humanize($field) %>', 'class' => 'active'], 'options' => $<%= $keyFields[$field] %>, 'empty' => true, 'data-select-2']);
+            echo $this->Gus->selectExtends('<%= $field %>', $<%= $keyFields[$field] %>->toArray(), [
+                'div' => 'col s12 input-field select2-field',
+                'label' => ['text' => '<%= Inflector::humanize(Inflector::singularize($keyFields[$field])) %>', 'class' => 'active'],
+                'controller' => '<%= $keyFields[$field] %>',
+            ]);
 <%
-            } else {
-%>
-        echo $this->Gus->control('<%= $field %>', ['div' => 'col s12 input-field select2-field', 'label' => ['text' => '<%= Inflector::humanize($field) %>', 'class' => 'active'], 'options' => $<%= $keyFields[$field] %>, 'data-select-2']);
-<%
-            }
             continue;
         }
         if (!in_array($field, ['created', 'modified', 'updated'])) {
