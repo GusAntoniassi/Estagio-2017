@@ -8,19 +8,19 @@ use Cake\Validation\Validator;
 use Search\Manager;
 
 /**
- * Paises Model
+ * TipoProdutos Model
  *
- * @property \Cake\ORM\Association\HasMany $Estados
+ * @property \Cake\ORM\Association\HasMany $Produtos
  *
- * @method \App\Model\Entity\Pais get($primaryKey, $options = [])
- * @method \App\Model\Entity\Pais newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\Pais[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Pais|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Pais patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Pais[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\Pais findOrCreate($search, callable $callback = null, $options = [])
+ * @method \App\Model\Entity\TipoProduto get($primaryKey, $options = [])
+ * @method \App\Model\Entity\TipoProduto newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\TipoProduto[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\TipoProduto|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\TipoProduto patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\TipoProduto[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\TipoProduto findOrCreate($search, callable $callback = null, $options = [])
  */
-class PaisesTable extends Table
+class TipoProdutosTable extends Table
 {
 
     /**
@@ -33,12 +33,12 @@ class PaisesTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('paises');
+        $this->setTable('tipo_produtos');
         $this->setDisplayField('nome');
         $this->setPrimaryKey('id');
 
-        $this->hasMany('Estados', [
-            'foreignKey' => 'pais_id'
+        $this->hasMany('Produtos', [
+            'foreignKey' => 'tipo_produto_id'
         ]);
 
         $this->addBehavior('Search.Search');
@@ -59,9 +59,6 @@ class PaisesTable extends Table
         $validator
             ->requirePresence('nome', 'create')
             ->notEmpty('nome');
-
-        $validator
-            ->allowEmpty('sigla');
 
         $validator
             ->boolean('status')
@@ -85,7 +82,7 @@ class PaisesTable extends Table
                 'after' => true,
             ])
             ->like('sigla', [
-                'after' => true
+                'after' => true,
             ])
             ->value('status');
         return $search;

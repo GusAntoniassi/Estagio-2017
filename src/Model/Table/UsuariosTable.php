@@ -5,6 +5,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Search\Manager;
 
 /**
  * Usuarios Model
@@ -89,5 +90,23 @@ class UsuariosTable extends Table
         $rules->add($rules->existsIn(['grupo_usuario_id'], 'GrupoUsuarios'));
 
         return $rules;
+    }
+
+    /**
+     * Configuração dos campos utilizados pelo plugin Search
+     *
+     * @return \Search\Manager
+     */
+    public function searchConfiguration() {
+        $search = new Manager($this);
+        $search
+            ->value('id')
+            ->like('login', [
+                'before' => true,
+                'after' => true,
+            ])
+            ->value('grupo_usuario_id')
+            ->value('status');
+        return $search;
     }
 }

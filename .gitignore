@@ -5,6 +5,7 @@
 /logs/*
 =======
 # PHPStorm
+.idea/workspace.xml
 .idea/*
 # CakePHP 3
 

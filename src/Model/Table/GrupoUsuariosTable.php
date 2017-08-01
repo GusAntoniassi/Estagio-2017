@@ -5,6 +5,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Search\Manager;
 
 /**
  * GrupoUsuarios Model
@@ -65,5 +66,23 @@ class GrupoUsuariosTable extends Table
             ->notEmpty('status');
 
         return $validator;
+    }
+
+
+    /**
+     * Configuração dos campos utilizados pelo plugin Search
+     *
+     * @return \Search\Manager
+     */
+    public function searchConfiguration() {
+        $search = new Manager($this);
+        $search
+            ->value('id')
+            ->like('nome', [
+                'before' => true,
+                'after' => true,
+            ])
+            ->value('status');
+        return $search;
     }
 }

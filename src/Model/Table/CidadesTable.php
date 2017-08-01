@@ -5,6 +5,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Search\Manager;
 
 /**
  * Cidades Model
@@ -84,5 +85,22 @@ class CidadesTable extends Table
         $rules->add($rules->existsIn(['estado_id'], 'Estados'));
 
         return $rules;
+    }
+
+    /**
+     * Configuração dos campos utilizados pelo plugin Search
+     *
+     * @return \Search\Manager
+     */
+    public function searchConfiguration() {
+        $search = new Manager($this);
+        $search
+            ->value('id')
+            ->like('nome', [
+                'before' => true,
+                'after' => true,
+            ])
+            ->value('status');
+        return $search;
     }
 }
