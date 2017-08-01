@@ -114,8 +114,8 @@ if (!empty($indexColumns)) {
 <%
                 } else {
 %>
-                <td><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></td>
                 <td><input type="checkbox" id="check<?= $<%= $singularVar %>-><%= $field %> ?>" class="filled-in" name="data[ids][<?= $<%= $singularVar %>-><%= $field %> ?>]" value="<?= $<%= $singularVar %>-><%= $field %> ?>" /><label for="check<?= $<%= $singularVar %>-><%= $field %> ?>">&nbsp;</label></td>
+                <td><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></td>
 <%
                 }
             }

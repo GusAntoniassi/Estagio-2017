@@ -4,9 +4,6 @@
 /tmp/*
 /logs/*
 =======
-# PHPStorm
-.idea/workspace.xml
-.idea/*
 # CakePHP 3
 
 /vendor/*

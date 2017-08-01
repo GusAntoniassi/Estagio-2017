@@ -16,9 +16,9 @@ use Cake\Routing\Router;
                         <div class="collapsible-body">
                             <div class="row">
                                 <?= $this->Gus->create(); ?>
-                                <?= $this->Gus->control('id', ['div' => 'col s2 m1 l1', 'label' => 'Id']); ?>
-                                <?= $this->Gus->control('nome', ['div' => 'col s2 m1 l1', 'label' => 'Nome']); ?>
-                                <?= $this->Gus->control('status', ['type' => 'select', 'data-material-select', 'div' => 'col s2 m1 l1', 'label' => 'Status', 'options' => $this->Gus->getStatusOptions(), 'value' => '']); ?>
+                                <?= $this->Gus->control('id', ['div' => 'col s2 m1 l1', 'label' => 'ID']); ?>
+                                <?= $this->Gus->control('nome', ['div' => 'col s7 m7 l7', 'label' => 'Nome']); ?>
+                                <?= $this->Gus->control('status', ['type' => 'select', 'data-material-select', 'div' => 'col s3 m2 l2', 'label' => 'Status', 'options' => $this->Gus->getStatusOptions(), 'value' => '']); ?>
                                 <?= $this->Gus->control('Filtrar', ['div' => 'col s12 m2 l2 right', 'type' => 'submit', 'class' => 'btn waves-effect waves-light']); ?>
                                 <?= $this->Gus->end(); ?>
                             </div>
@@ -43,7 +43,7 @@ use Cake\Routing\Router;
                 <th scope="col">
                     <input type="checkbox" class="filled-in" id="check-all"/><label for="check-all">&nbsp;</label>
                 </th>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('id', 'ID') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nome') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('status') ?></th>
                 <th scope="col" class="actions"></th>
@@ -52,10 +52,10 @@ use Cake\Routing\Router;
             <tbody>
             <?php foreach ($tipoProdutos as $tipoProduto): ?>
                 <tr>
-                    <td><?= $this->Number->format($tipoProduto->id) ?></td>
                     <td><input type="checkbox" id="check<?= $tipoProduto->id ?>" class="filled-in"
                                name="data[ids][<?= $tipoProduto->id ?>]" value="<?= $tipoProduto->id ?>"/><label
                                 for="check<?= $tipoProduto->id ?>">&nbsp;</label></td>
+                    <td><?= $this->Number->format($tipoProduto->id) ?></td>
                     <td><?= h($tipoProduto->nome) ?></td>
                     <td><?= $this->Gus->formataStatus($tipoProduto->status) ?></td>
                     <td class="actions">
