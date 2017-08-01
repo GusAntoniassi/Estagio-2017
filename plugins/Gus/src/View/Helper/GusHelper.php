@@ -67,6 +67,9 @@ class GusHelper extends FormHelper {
 	        'data-select-2'
         ], $attributes);
 
+	    $settings = array_merge([
+	        'refreshParams' => []
+        ], $settings);
 
 	    if (empty($settings['controller'])) {
             if (strpos($fieldName, '.') !== FALSE) {
@@ -78,15 +81,19 @@ class GusHelper extends FormHelper {
 
         $settings['linkEdit'] = Router::url(['controller' => $settings['controller'], 'action' => 'edit'], true);
         $settings['linkAdd'] = Router::url(['controller' => $settings['controller'], 'action' => 'add'], true);
-        $settings['linkRefresh'] = Router::url(['controller' => $settings['controller'], 'action' => 'getAll', $settings['refreshParams']], true);
+        $routeRefresh = ['controller' => $settings['controller'], 'action' => 'getAll'];
+        foreach ($settings['refreshParams'] as $param) {
+            $routeRefresh[] = $param;
+        }
+        $settings['linkRefresh'] = Router::url($routeRefresh, true);
 
         $select =
             '<div class="input-group ' . (empty($settings['div']) ? '' : $settings['div']) . ' ' . $fieldName . '">' .
                 parent::select($fieldName, $options, $attributes) .
                 '<span class="input-group-btn">' .
-                    '<a class="btn waves-effect waves-light refresh" data-href="' . $settings['linkRefresh'] . '" onclick="return refreshSelect(event.target || event.srcElement);">' . $this->materialIcon('autorenew') . '</a>' .
-                    '<a class="btn waves-effect waves-light edit" href="' . $settings['linkEdit'] . '" onclick="return extendEdit(event);">' . $this->materialIcon('edit') . '</a>' .
-                    '<a class="btn waves-effect waves-light add" href="' . $settings['linkAdd'] . '" onclick="return extendAdd(event);">' . $this->materialIcon('add') . '</a>' .
+                    '<a class="btn btn-small waves-effect waves-light refresh" data-href="' . $settings['linkRefresh'] . '" onclick="return refreshSelect(event.target || event.srcElement);">' . $this->materialIcon('autorenew') . '</a>' .
+                    '<a class="btn btn-small waves-effect waves-light edit" href="' . $settings['linkEdit'] . '" onclick="return extendEdit(event);">' . $this->materialIcon('edit') . '</a>' .
+                    '<a class="btn btn-small waves-effect waves-light add" href="' . $settings['linkAdd'] . '" onclick="return extendAdd(event);">' . $this->materialIcon('add') . '</a>' .
                 '</span>' .
             '</div>';
 	    return $select;

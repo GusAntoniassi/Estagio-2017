@@ -1,19 +1,19 @@
 <?php
 /**
-  * @var \App\View\AppView $this
-  */
+ * @var \App\View\AppView $this
+ */
 ?>
 <div class="paises view card-panel">
     <?= $this->element('breadcrumbs', ['crumbs' => $crumbs]); ?>
-    <?php $this->assign('title', 'Visualizar Pais'); ?>
+    <?php $this->assign('title', 'Visualizar País'); ?>
     <table class="bordered highlight">
-                                <tr>
+        <tr>
             <th scope="row"><?= __('Nome') ?></th>
             <td><?= h($pais->nome) ?></td>
         </tr>
-                                <tr>
+        <tr>
             <th scope="row"><?= __('Sigla') ?></th>
             <td><?= h($pais->sigla) ?></td>
         </tr>
-                            </table>
+    </table>
 </div>

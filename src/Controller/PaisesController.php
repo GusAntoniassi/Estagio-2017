@@ -22,8 +22,8 @@ class PaisesController extends AppController {
         ]);
 
         $this->_crumbs = [
-            'Painel' => Router::url(['controller' => 'users', 'action' => 'dashboard'], true),
-            'Paises' => Router::url(['action' => 'index'])
+            'Painel' => Router::url(['controller' => 'usuarios', 'action' => 'dashboard'], true),
+            'Países' => Router::url(['action' => 'index'])
         ];
     }
 

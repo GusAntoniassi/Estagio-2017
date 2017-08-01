@@ -168,6 +168,13 @@ label.active {
 .input-group {
   margin-bottom: 20px; }
 
+.input-group-btn {
+  padding: 9px 0; }
+
+.btn.btn-small {
+  padding-left: 10px;
+  padding-right: 10px; }
+
 .switch-wrapper {
   height: 50px; }
   .switch-wrapper .switch label input[type=checkbox]:checked + .lever + .lever-ativo {

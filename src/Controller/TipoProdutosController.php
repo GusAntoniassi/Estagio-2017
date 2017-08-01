@@ -22,7 +22,7 @@ class TipoProdutosController extends AppController {
         ]);
 
         $this->_crumbs = [
-            'Painel' => Router::url(['controller' => 'users', 'action' => 'dashboard'], true),
+            'Painel' => Router::url(['controller' => 'usuarios', 'action' => 'dashboard'], true),
             'Tipos de Produtos' => Router::url(['action' => 'index'])
         ];
     }

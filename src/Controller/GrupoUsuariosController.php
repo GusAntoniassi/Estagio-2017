@@ -22,7 +22,7 @@ class GrupoUsuariosController extends AppController {
         ]);
 
         $this->_crumbs = [
-            'Painel' => Router::url(['controller' => 'users', 'action' => 'dashboard'], true),
+            'Painel' => Router::url(['controller' => 'usuarios', 'action' => 'dashboard'], true),
             'Grupos de Usuários' => Router::url(['action' => 'index'])
         ];
     }

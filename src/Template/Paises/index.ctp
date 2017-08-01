@@ -7,7 +7,7 @@ use Cake\Routing\Router;
 ?>
     <div class="paises index list row card-panel">
         <?= $this->element('breadcrumbs', ['crumbs' => $crumbs]); ?>
-        <?php $this->assign('title', 'Pais'); ?>
+        <?php $this->assign('title', 'País'); ?>
         <div class="row filtros">
             <div class="col s12">
                 <ul class="collapsible" data-collapsible="accordion">
@@ -16,10 +16,10 @@ use Cake\Routing\Router;
                         <div class="collapsible-body">
                             <div class="row">
                                 <?= $this->Gus->create(); ?>
-                                <?= $this->Gus->control('id', ['div' => 'col s2 m1 l1', 'label' => 'Id']); ?>
-                                <?= $this->Gus->control('nome', ['div' => 'col s2 m1 l1', 'label' => 'Nome']); ?>
-                                <?= $this->Gus->control('sigla', ['div' => 'col s2 m1 l1', 'label' => 'Sigla']); ?>
-                                <?= $this->Gus->control('status', ['type' => 'select', 'data-material-select', 'div' => 'col s2 m1 l1', 'label' => 'Status', 'options' => $this->Gus->getStatusOptions(), 'value' => '']); ?>
+                                <?= $this->Gus->control('id', ['div' => 'col s2 m1 l1', 'label' => 'ID']); ?>
+                                <?= $this->Gus->control('nome', ['div' => 'col s5 m5 l6', 'label' => 'Nome']); ?>
+                                <?= $this->Gus->control('sigla', ['div' => 'col s2 m2 l1', 'label' => 'Sigla']); ?>
+                                <?= $this->Gus->control('status', ['type' => 'select', 'data-material-select', 'div' => 'col s3 m2 l2', 'label' => 'Status', 'options' => $this->Gus->getStatusOptions(), 'value' => '']); ?>
                                 <?= $this->Gus->control('Filtrar', ['div' => 'col s12 m2 l2 right', 'type' => 'submit', 'class' => 'btn waves-effect waves-light']); ?>
                                 <?= $this->Gus->end(); ?>
                             </div>
@@ -44,7 +44,7 @@ use Cake\Routing\Router;
                 <th scope="col">
                     <input type="checkbox" class="filled-in" id="check-all"/><label for="check-all">&nbsp;</label>
                 </th>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('id', 'ID') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nome') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('sigla') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('status') ?></th>
@@ -54,10 +54,10 @@ use Cake\Routing\Router;
             <tbody>
             <?php foreach ($paises as $pais): ?>
                 <tr>
-                    <td><?= $this->Number->format($pais->id) ?></td>
                     <td><input type="checkbox" id="check<?= $pais->id ?>" class="filled-in"
                                name="data[ids][<?= $pais->id ?>]" value="<?= $pais->id ?>"/><label
                                 for="check<?= $pais->id ?>">&nbsp;</label></td>
+                    <td><?= $this->Number->format($pais->id) ?></td>
                     <td><?= h($pais->nome) ?></td>
                     <td><?= h($pais->sigla) ?></td>
                     <td><?= $this->Gus->formataStatus($pais->status) ?></td>

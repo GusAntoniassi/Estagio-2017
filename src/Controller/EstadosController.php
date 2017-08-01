@@ -22,7 +22,7 @@ class EstadosController extends AppController {
         ]);
 
         $this->_crumbs = [
-            'Painel' => Router::url(['controller' => 'users', 'action' => 'dashboard'], true),
+            'Painel' => Router::url(['controller' => 'usuarios', 'action' => 'dashboard'], true),
             'Estados' => Router::url(['action' => 'index'])
         ];
     }
@@ -43,7 +43,9 @@ class EstadosController extends AppController {
         $this->paginate = ['limit' => 20];
         $estados = $this->paginate($query);
 
-        $this->set(compact('estados'));
+        $paises = array_merge(['' => 'Todos'], $this->Estados->Paises->find('list')->toArray());
+
+        $this->set(compact('estados', 'paises'));
         $this->set('_serialize', ['estados']);
 
         $this->set('crumbs', $this->_crumbs);

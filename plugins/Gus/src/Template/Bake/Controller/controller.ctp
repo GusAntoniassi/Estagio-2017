@@ -52,7 +52,7 @@ class <%= $name %>Controller extends AppController {
         ]);
 
         $this->_crumbs = [
-            'Painel' => Router::url(['controller' => 'users', 'action' => 'dashboard'], true),
+            'Painel' => Router::url(['controller' => 'usuarios', 'action' => 'dashboard'], true),
             '<%= $name %>' => Router::url(['action' => 'index'])
         ];
     }
