@@ -92,14 +92,17 @@ function maskInputs() {
     });
     $('[data-type="cpf"]').mask('999.999.999-99');
     $('[data-type="cnpj"]').mask('99.999.999/9999-99');
-    $('.required input, .required select, .required textarea').each(function() {
-    	if ($(this).attr('required') == null) {
-    		$(this).attr('required', 'required');
-		}
-	});
+    $('.required input, .required select, .required textarea').each(function () {
+        if ($(this).attr('required') == null) {
+            $(this).attr('required', 'required');
+        }
+    });
     $('[data-select-2]').addClass('browser-default').select2();
     $('[data-select-2-ajax]').addClass('browser-default').select2();
-
+    $('[data-material-select]').each(function() {
+    	$(this).siblings('label').addClass('active');
+    	$(this).material_select();
+	});
 }
 /* ============= Helpers ================== */
 String.prototype.appendParameter = function(key, value) {

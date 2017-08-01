@@ -112,4 +112,12 @@ class GusHelper extends FormHelper {
             return '<span class="inativo">Inativo</span>';
         }
     }
+
+    public function getStatusOptions() {
+	    return [
+	        '' => 'Todos',
+	        1 => 'Ativo',
+            0 => 'Inativo'
+        ];
+    }
 }
