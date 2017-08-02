@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -13,9 +14,12 @@ use \Cake\Datasource\ConnectionManager;
  *
  * @method \App\Model\Entity\Estado[] paginate($object = null, array $settings = [])
  */
-class EstadosController extends AppController {
+class EstadosController extends AppController
+{
     private $_crumbs;
-    public function initialize() {
+
+    public function initialize()
+    {
         parent::initialize();
         $this->loadComponent('Search.Prg', [
             'actions' => 'index',
@@ -37,13 +41,12 @@ class EstadosController extends AppController {
 
         $query = $this->Estados
             ->find('search', ['search' => $this->request->getQueryParams()])
-                        ->contain(['Paises'])
-            ;
+            ->contain(['Paises']);
 
         $this->paginate = ['limit' => 20];
         $estados = $this->paginate($query);
 
-        $paises = array_merge(['' => 'Todos'], $this->Estados->Paises->find('list')->toArray());
+        $paises = $this->Gus->getOptionsArray($this->Estados->Paises->find('list'));
 
         $this->set(compact('estados', 'paises'));
         $this->set('_serialize', ['estados']);
@@ -157,13 +160,15 @@ class EstadosController extends AppController {
 
         return $this->redirect(['action' => 'index']);
     }
+
     /**
      * Handle delete method
      *
      * @param int|array $ids Estados ids.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException Quando o registro não é encontrado.
      */
-    private function _handleDelete($ids) {
+    private function _handleDelete($ids)
+    {
         if (!is_array($ids)) {
             $ids = [$ids];
         }
@@ -188,7 +193,8 @@ class EstadosController extends AppController {
         }
     }
 
-    public function getAll() {
+    public function getAll()
+    {
         $pais_id = (!empty($this->request->getQuery('pais_id')) ? $this->request->getQuery('pais_id') : 0);
         $estados = $this->Estados->find('list', ['valueField' => 'nome'])
             ->where(['status' => true, 'pais_id' => $pais_id])

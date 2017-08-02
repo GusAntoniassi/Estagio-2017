@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -13,9 +14,12 @@ use \Cake\Datasource\ConnectionManager;
  *
  * @method \App\Model\Entity\Usuario[] paginate($object = null, array $settings = [])
  */
-class UsuariosController extends AppController {
+class UsuariosController extends AppController
+{
     private $_crumbs;
-    public function initialize() {
+
+    public function initialize()
+    {
         parent::initialize();
         $this->loadComponent('Search.Prg', [
             'actions' => 'index',
@@ -37,13 +41,14 @@ class UsuariosController extends AppController {
 
         $query = $this->Usuarios
             ->find('search', ['search' => $this->request->getQueryParams()])
-                        ->contain(['GrupoUsuarios'])
-            ;
+            ->contain(['GrupoUsuarios']);
 
         $this->paginate = ['limit' => 20];
         $usuarios = $this->paginate($query);
 
-        $this->set(compact('usuarios'));
+        $grupoUsuarios = $this->Gus->getOptionsArray($this->Usuarios->GrupoUsuarios->find('list'));
+
+        $this->set(compact('usuarios', 'grupoUsuarios'));
         $this->set('_serialize', ['usuarios']);
 
         $this->set('crumbs', $this->_crumbs);
@@ -147,13 +152,15 @@ class UsuariosController extends AppController {
 
         return $this->redirect(['action' => 'index']);
     }
+
     /**
      * Handle delete method
      *
      * @param int|array $ids Usuarios ids.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException Quando o registro não é encontrado.
      */
-    private function _handleDelete($ids) {
+    private function _handleDelete($ids)
+    {
         if (!is_array($ids)) {
             $ids = [$ids];
         }

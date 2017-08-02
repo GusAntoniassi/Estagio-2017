@@ -7,7 +7,7 @@ use Cake\Routing\Router;
 ?>
     <div class="usuarios index list row card-panel">
         <?= $this->element('breadcrumbs', ['crumbs' => $crumbs]); ?>
-        <?php $this->assign('title', 'Usuario'); ?>
+        <?php $this->assign('title', 'Usuário'); ?>
         <div class="row filtros">
             <div class="col s12">
                 <ul class="collapsible" data-collapsible="accordion">
@@ -16,12 +16,10 @@ use Cake\Routing\Router;
                         <div class="collapsible-body">
                             <div class="row">
                                 <?= $this->Gus->create(); ?>
-                                <?= $this->Gus->control('id', ['div' => 'col s2 m1 l1', 'label' => 'Id']); ?>
-                                <?= $this->Gus->control('login', ['div' => 'col s2 m1 l1', 'label' => 'Login']); ?>
-                                <?= $this->Gus->control('senha', ['div' => 'col s2 m1 l1', 'label' => 'Senha']); ?>
-                                <?= $this->Gus->control('salt', ['div' => 'col s2 m1 l1', 'label' => 'Salt']); ?>
-                                <?= $this->Gus->control('status', ['type' => 'select', 'data-material-select', 'div' => 'col s2 m1 l1', 'label' => 'Status', 'options' => $this->Gus->getStatusOptions(), 'value' => '']); ?>
-                                <?= $this->Gus->control('grupo_usuario_id', ['div' => 'col s2 m1 l1', 'data-material-select', 'label' => 'Grupo Usuario Id']); ?>
+                                <?= $this->Gus->control('id', ['div' => 'col s2 m1 l1', 'label' => 'ID']); ?>
+                                <?= $this->Gus->control('login', ['div' => 'col s4 m4 l4', 'label' => 'E-mail']); ?>
+                                <?= $this->Gus->control('status', ['type' => 'select', 'data-material-select', 'div' => 'col s3 m2 l2', 'label' => 'Status', 'options' => $this->Gus->getStatusOptions(), 'value' => '']); ?>
+                                <?= $this->Gus->control('grupo_usuario_id', ['div' => 'col s3 m3 l3', 'data-material-select', 'label' => 'Grupo de Usuários']); ?>
                                 <?= $this->Gus->control('Filtrar', ['div' => 'col s12 m2 l2 right', 'type' => 'submit', 'class' => 'btn waves-effect waves-light']); ?>
                                 <?= $this->Gus->end(); ?>
                             </div>
@@ -46,25 +44,21 @@ use Cake\Routing\Router;
                 <th scope="col">
                     <input type="checkbox" class="filled-in" id="check-all"/><label for="check-all">&nbsp;</label>
                 </th>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('login') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('senha') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('salt') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('id', 'ID') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('login', 'E-mail') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('status') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('grupo_usuario_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('grupo_usuario_id', 'Grupo de Usuários') ?></th>
                 <th scope="col" class="actions"></th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($usuarios as $usuario): ?>
                 <tr>
-                    <td><?= $this->Number->format($usuario->id) ?></td>
                     <td><input type="checkbox" id="check<?= $usuario->id ?>" class="filled-in"
                                name="data[ids][<?= $usuario->id ?>]" value="<?= $usuario->id ?>"/><label
                                 for="check<?= $usuario->id ?>">&nbsp;</label></td>
+                    <td><?= $this->Number->format($usuario->id) ?></td>
                     <td><?= h($usuario->login) ?></td>
-                    <td><?= h($usuario->senha) ?></td>
-                    <td><?= h($usuario->salt) ?></td>
                     <td><?= $this->Gus->formataStatus($usuario->status) ?></td>
                     <td><?= $usuario->has('grupo_usuario') ? $this->Html->link($usuario->grupo_usuario->nome, ['controller' => 'GrupoUsuarios', 'action' => 'view', $usuario->grupo_usuario->id]) : '' ?></td>
                     <td class="actions">
