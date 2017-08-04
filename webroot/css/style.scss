@@ -104,7 +104,7 @@ label.active {
 
 /* Forms */
 .input-group {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 .input-group-btn {
   padding: 9px 0;
@@ -130,4 +130,19 @@ label.active {
 }
 .inativo {
   color: darkred;
+}
+
+.input-field {
+  transition: 0.3s all ease-in-out;
+  opacity: 1;
+  visibility: visible;
+  max-height: 100%;
+  transform: translateY(0%);
+}
+.invisible {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+  visibility: hidden;
+  transform: translateY(-50%);
 }

@@ -14,9 +14,7 @@ class GusHelper extends FormHelper {
 			'inputContainerError' => '<div class="input-field {{type}}{{required}} {{div}} error">{{content}}{{error}}</div>',
 			'submitContainer' => '<div class="input-field submit {{div}}">{{content}}</div>',
 			'textarea' => '<textarea name="{{name}}" class="materialize-textarea {{class}}" {{attrs}}>{{value}}</textarea>',
-            'checkbox' => '<input type="checkbox" name="{{name}}" class="filled-in" value="{{value}}"{{attrs}}>',
             'checkboxFormGroup' => '{{label}}',
-            'nestingLabel' => '{{hidden}}{{input}}<label{{attrs}}>{{text}}</label>',
             'checkboxWrapper' => '<div class="checkbox">{{label}}</div>',
 		]);
 	}
@@ -36,6 +34,11 @@ class GusHelper extends FormHelper {
 		    $this->setTemplates([
                 'checkbox' => '<input type="checkbox" name="{{name}}" value="{{value}}"{{attrs}}>',
 		        'nestingLabel' => '{{hidden}}<div class="switch"><label{{attrs}}><span class="lever-inativo">Inativo</span>{{input}}<span class="lever"></span><span class="lever-ativo">Ativo</span></label></div>'
+            ]);
+        } else {
+		    $this->setTemplates([
+                'checkbox' => '<input type="checkbox" name="{{name}}" class="filled-in" value="{{value}}"{{attrs}}>',
+                'nestingLabel' => '{{hidden}}{{input}}<label{{attrs}}>{{text}}</label>',
             ]);
         }
 		
@@ -87,8 +90,15 @@ class GusHelper extends FormHelper {
         }
         $settings['linkRefresh'] = Router::url($routeRefresh, true);
 
+        if (!isset($settings['label'])) {
+            $settings['label'] = '';
+        }
+
+        $labelText = (is_array($settings['label']) ? $settings['label']['text'] : $settings['label']);
+
         $select =
             '<div class="input-group ' . (empty($settings['div']) ? '' : $settings['div']) . ' ' . $fieldName . '">' .
+                parent::label($fieldName, $labelText, $settings['label']) .
                 parent::select($fieldName, $options, $attributes) .
                 '<span class="input-group-btn">' .
                     '<a class="btn btn-small waves-effect waves-light refresh" data-href="' . $settings['linkRefresh'] . '" onclick="return refreshSelect(event.target || event.srcElement);">' . $this->materialIcon('autorenew') . '</a>' .
@@ -120,11 +130,27 @@ class GusHelper extends FormHelper {
         }
     }
 
+    public function formataBoolean($status) {
+        if (!empty($status)) {
+            return '<span class="ativo">Sim</span>';
+        } else {
+            return '<span class="inativo">Não</span>';
+        }
+    }
+
     public function getStatusOptions() {
 	    return [
 	        '' => 'Todos',
 	        1 => 'Ativo',
             0 => 'Inativo'
+        ];
+    }
+
+    public function getBooleanOptions() {
+        return [
+            '' => 'Todos',
+            1 => 'Sim',
+            0 => 'Não'
         ];
     }
 }

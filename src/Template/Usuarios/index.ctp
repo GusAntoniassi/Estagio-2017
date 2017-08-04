@@ -16,7 +16,7 @@ use Cake\Routing\Router;
                         <div class="collapsible-body">
                             <div class="row">
                                 <?= $this->Gus->create(); ?>
-                                <?= $this->Gus->control('id', ['div' => 'col s2 m1 l1', 'label' => 'ID']); ?>
+                                <?= $this->Gus->control('id', ['div' => 'colF s2 m1 l1', 'label' => 'ID']); ?>
                                 <?= $this->Gus->control('login', ['div' => 'col s4 m4 l4', 'label' => 'E-mail']); ?>
                                 <?= $this->Gus->control('status', ['type' => 'select', 'data-material-select', 'div' => 'col s3 m2 l2', 'label' => 'Status', 'options' => $this->Gus->getStatusOptions(), 'value' => '']); ?>
                                 <?= $this->Gus->control('grupo_usuario_id', ['div' => 'col s3 m3 l3', 'data-material-select', 'label' => 'Grupo de Usuários']); ?>

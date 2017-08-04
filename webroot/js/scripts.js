@@ -97,12 +97,19 @@ function maskInputs() {
             $(this).attr('required', 'required');
         }
     });
+    $('[data-type="money"]').mask('#.##0,00', {reverse: true}).removeAttr('maxlength');
     $('[data-select-2]').addClass('browser-default').select2();
     $('[data-select-2-ajax]').addClass('browser-default').select2();
     $('[data-material-select]').each(function() {
     	$(this).siblings('label').addClass('active');
     	$(this).material_select();
 	});
+
+}
+/* ===== Condições de esconder ===== */
+
+function checkHideConditions(conditions) {
+
 }
 /* ============= Helpers ================== */
 String.prototype.appendParameter = function(key, value) {
