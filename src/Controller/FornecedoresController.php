@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -8,18 +7,15 @@ use \Cake\Datasource\Exception\RecordNotFoundException;
 use \Cake\Datasource\ConnectionManager;
 
 /**
- * Paises Controller
+ * Fornecedores Controller
  *
- * @property \App\Model\Table\PaisesTable $Paises
+ * @property \App\Model\Table\FornecedoresTable $Fornecedores
  *
- * @method \App\Model\Entity\Pais[] paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Fornecedor[] paginate($object = null, array $settings = [])
  */
-class PaisesController extends AppController
-{
+class FornecedoresController extends AppController {
     private $_crumbs;
-
-    public function initialize()
-    {
+    public function initialize() {
         parent::initialize();
         $this->loadComponent('Search.Prg', [
             'actions' => 'index',
@@ -27,7 +23,7 @@ class PaisesController extends AppController
 
         $this->_crumbs = [
             'Painel' => Router::url(['controller' => 'usuarios', 'action' => 'dashboard'], true),
-            'Países' => Router::url(['action' => 'index'])
+            'Fornecedores' => Router::url(['action' => 'index'])
         ];
     }
 
@@ -39,14 +35,16 @@ class PaisesController extends AppController
     public function index()
     {
 
-        $query = $this->Paises
-            ->find('search', ['search' => $this->request->getQueryParams()]);
+        $query = $this->Fornecedores
+            ->find('search', ['search' => $this->request->getQueryParams()])
+                        ->contain(['Pessoas'])
+            ;
 
         $this->paginate = ['limit' => 20];
-        $paises = $this->paginate($query);
+        $fornecedores = $this->paginate($query);
 
-        $this->set(compact('paises'));
-        $this->set('_serialize', ['paises']);
+        $this->set(compact('fornecedores'));
+        $this->set('_serialize', ['fornecedores']);
 
         $this->set('crumbs', $this->_crumbs);
     }
@@ -54,18 +52,18 @@ class PaisesController extends AppController
     /**
      * View method
      *
-     * @param string|null $id Pais id.
+     * @param string|null $id Fornecedor id.
      * @return \Cake\Http\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-        $pais = $this->Paises->get($id, [
-            'contain' => ['Estados']
+        $fornecedor = $this->Fornecedores->get($id, [
+            'contain' => ['Pessoas', 'Compras', 'ContaPagars', 'Orcamentos', 'PedidoCompras']
         ]);
 
-        $this->set('pais', $pais);
-        $this->set('_serialize', ['pais']);
+        $this->set('fornecedor', $fornecedor);
+        $this->set('_serialize', ['fornecedor']);
 
         $this->_crumbs['Visualização'] = Router::url(['action' => 'view']);
         $this->set('crumbs', $this->_crumbs);
@@ -78,22 +76,22 @@ class PaisesController extends AppController
      */
     public function add()
     {
-        $pais = $this->Paises->newEntity();
+        $fornecedor = $this->Fornecedores->newEntity();
         if ($this->request->is('post')) {
-            $pais = $this->Paises->patchEntity($pais, $this->request->getData());
-            if ($this->Paises->save($pais)) {
+            $fornecedor = $this->Fornecedores->patchEntity($fornecedor, $this->request->getData());
+            if ($this->Fornecedores->save($fornecedor)) {
                 if (!empty($this->request->getQuery('extends'))) {
                     $this->_fechaExtends();
                 }
-
                 $this->Flash->success(__('Registro salvo com sucesso.'));
 
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
-        $this->set(compact('pais'));
-        $this->set('_serialize', ['pais']);
+        $pessoas = $this->Fornecedores->Pessoas->find('list', ['limit' => 200]);
+        $this->set(compact('fornecedor', 'pessoas'));
+        $this->set('_serialize', ['fornecedor']);
 
         $this->_crumbs['Cadastro'] = Router::url(['action' => 'add']);
         $this->set('crumbs', $this->_crumbs);
@@ -102,18 +100,18 @@ class PaisesController extends AppController
     /**
      * Edit method
      *
-     * @param string|null $id Pais id.
+     * @param string|null $id Fornecedor id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
     public function edit($id = null)
     {
-        $pais = $this->Paises->get($id, [
+        $fornecedor = $this->Fornecedores->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $pais = $this->Paises->patchEntity($pais, $this->request->getData());
-            if ($this->Paises->save($pais)) {
+            $fornecedor = $this->Fornecedores->patchEntity($fornecedor, $this->request->getData());
+            if ($this->Fornecedores->save($fornecedor)) {
                 if (!empty($this->request->getQuery('extends'))) {
                     $this->_fechaExtends();
                 }
@@ -123,8 +121,9 @@ class PaisesController extends AppController
             }
             $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
-        $this->set(compact('pais'));
-        $this->set('_serialize', ['pais']);
+        $pessoas = $this->Fornecedores->Pessoas->find('list', ['limit' => 200]);
+        $this->set(compact('fornecedor', 'pessoas'));
+        $this->set('_serialize', ['fornecedor']);
 
         $this->_crumbs['Edição'] = Router::url(['action' => 'edit']);
         $this->set('crumbs', $this->_crumbs);
@@ -133,7 +132,7 @@ class PaisesController extends AppController
     /**
      * Delete method
      *
-     * @param string|null $id Pais id.
+     * @param string|null $id Fornecedor id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -154,25 +153,23 @@ class PaisesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
     /**
      * Handle delete method
      *
-     * @param int|array $ids Paises ids.
+     * @param int|array $ids Fornecedores ids.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException Quando o registro não é encontrado.
      */
-    private function _handleDelete($ids)
-    {
+    private function _handleDelete($ids) {
         if (!is_array($ids)) {
             $ids = [$ids];
         }
 
-        $conn = ConnectionManager::get($this->Paises->defaultConnectionName());
+        $conn = ConnectionManager::get($this->Fornecedores->defaultConnectionName());
         $conn->begin();
         try {
             foreach ($ids as $id) {
-                $pais = $this->Paises->get($id);
-                if (!$this->Paises->delete($pais)) {
+                $fornecedor = $this->Fornecedores->get($id);
+                if (!$this->Fornecedores->delete($fornecedor)) {
                     throw new \Exception();
                 }
             }
@@ -185,15 +182,5 @@ class PaisesController extends AppController
             $conn->rollback();
             $this->Flash->error(__('Erro ao excluir o(s) registro(s)! Por favor tente novamente.'));
         }
-    }
-
-    public function getAll()
-    {
-        $paises = $this->Paises->find('list', ['valueField' => 'nome'])
-            ->where(['status' => true])
-            ->orderAsc('nome');
-
-        echo json_encode($paises);
-        die();
     }
 }

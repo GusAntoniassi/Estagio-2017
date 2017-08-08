@@ -97,6 +97,20 @@ function maskInputs() {
             $(this).attr('required', 'required');
         }
     });
+    $('[data-type="cep"]').mask('99999-999');
+
+    // Behavior personalizado para telefone com múltiplos dígitos
+    var SPMaskBehavior = function (val) {
+		return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+	},
+	spOptions = {
+		onKeyPress: function(val, e, field, options) {
+			field.mask(SPMaskBehavior.apply({}, arguments), options);
+		}
+	};
+
+    $('[data-type="phone"]').mask(SPMaskBehavior, spOptions);
+
     $('[data-type="money"]').mask('#.##0,00', {reverse: true}).removeAttr('maxlength');
     $('[data-select-2]').addClass('browser-default').select2();
     $('[data-select-2-ajax]').addClass('browser-default').select2();

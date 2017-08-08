@@ -8,13 +8,13 @@ use \Cake\Datasource\Exception\RecordNotFoundException;
 use \Cake\Datasource\ConnectionManager;
 
 /**
- * Paises Controller
+ * Lotes Controller
  *
- * @property \App\Model\Table\PaisesTable $Paises
+ * @property \App\Model\Table\LotesTable $Lotes
  *
- * @method \App\Model\Entity\Pais[] paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Lote[] paginate($object = null, array $settings = [])
  */
-class PaisesController extends AppController
+class LotesController extends AppController
 {
     private $_crumbs;
 
@@ -27,7 +27,7 @@ class PaisesController extends AppController
 
         $this->_crumbs = [
             'Painel' => Router::url(['controller' => 'usuarios', 'action' => 'dashboard'], true),
-            'Países' => Router::url(['action' => 'index'])
+            'Lotes' => Router::url(['action' => 'index'])
         ];
     }
 
@@ -39,14 +39,15 @@ class PaisesController extends AppController
     public function index()
     {
 
-        $query = $this->Paises
-            ->find('search', ['search' => $this->request->getQueryParams()]);
+        $query = $this->Lotes
+            ->find('search', ['search' => $this->request->getQueryParams()])
+            ->contain(['Produtos']);
 
         $this->paginate = ['limit' => 20];
-        $paises = $this->paginate($query);
+        $lotes = $this->paginate($query);
 
-        $this->set(compact('paises'));
-        $this->set('_serialize', ['paises']);
+        $this->set(compact('lotes'));
+        $this->set('_serialize', ['lotes']);
 
         $this->set('crumbs', $this->_crumbs);
     }
@@ -54,18 +55,18 @@ class PaisesController extends AppController
     /**
      * View method
      *
-     * @param string|null $id Pais id.
+     * @param string|null $id Lote id.
      * @return \Cake\Http\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-        $pais = $this->Paises->get($id, [
-            'contain' => ['Estados']
+        $lote = $this->Lotes->get($id, [
+            'contain' => ['Produtos', 'BaixaProduto']
         ]);
 
-        $this->set('pais', $pais);
-        $this->set('_serialize', ['pais']);
+        $this->set('lote', $lote);
+        $this->set('_serialize', ['lote']);
 
         $this->_crumbs['Visualização'] = Router::url(['action' => 'view']);
         $this->set('crumbs', $this->_crumbs);
@@ -78,22 +79,22 @@ class PaisesController extends AppController
      */
     public function add()
     {
-        $pais = $this->Paises->newEntity();
+        $lote = $this->Lotes->newEntity();
         if ($this->request->is('post')) {
-            $pais = $this->Paises->patchEntity($pais, $this->request->getData());
-            if ($this->Paises->save($pais)) {
+            $lote = $this->Lotes->patchEntity($lote, $this->request->getData());
+            if ($this->Lotes->save($lote)) {
                 if (!empty($this->request->getQuery('extends'))) {
                     $this->_fechaExtends();
                 }
-
                 $this->Flash->success(__('Registro salvo com sucesso.'));
 
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
-        $this->set(compact('pais'));
-        $this->set('_serialize', ['pais']);
+        $produtos = $this->Lotes->Produtos->find('list', ['limit' => 200]);
+        $this->set(compact('lote', 'produtos'));
+        $this->set('_serialize', ['lote']);
 
         $this->_crumbs['Cadastro'] = Router::url(['action' => 'add']);
         $this->set('crumbs', $this->_crumbs);
@@ -102,18 +103,18 @@ class PaisesController extends AppController
     /**
      * Edit method
      *
-     * @param string|null $id Pais id.
+     * @param string|null $id Lote id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
     public function edit($id = null)
     {
-        $pais = $this->Paises->get($id, [
+        $lote = $this->Lotes->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $pais = $this->Paises->patchEntity($pais, $this->request->getData());
-            if ($this->Paises->save($pais)) {
+            $lote = $this->Lotes->patchEntity($lote, $this->request->getData());
+            if ($this->Lotes->save($lote)) {
                 if (!empty($this->request->getQuery('extends'))) {
                     $this->_fechaExtends();
                 }
@@ -123,8 +124,9 @@ class PaisesController extends AppController
             }
             $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
-        $this->set(compact('pais'));
-        $this->set('_serialize', ['pais']);
+        $produtos = $this->Lotes->Produtos->find('list', ['limit' => 200]);
+        $this->set(compact('lote', 'produtos'));
+        $this->set('_serialize', ['lote']);
 
         $this->_crumbs['Edição'] = Router::url(['action' => 'edit']);
         $this->set('crumbs', $this->_crumbs);
@@ -133,7 +135,7 @@ class PaisesController extends AppController
     /**
      * Delete method
      *
-     * @param string|null $id Pais id.
+     * @param string|null $id Lote id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -158,7 +160,7 @@ class PaisesController extends AppController
     /**
      * Handle delete method
      *
-     * @param int|array $ids Paises ids.
+     * @param int|array $ids Lotes ids.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException Quando o registro não é encontrado.
      */
     private function _handleDelete($ids)
@@ -167,12 +169,12 @@ class PaisesController extends AppController
             $ids = [$ids];
         }
 
-        $conn = ConnectionManager::get($this->Paises->defaultConnectionName());
+        $conn = ConnectionManager::get($this->Lotes->defaultConnectionName());
         $conn->begin();
         try {
             foreach ($ids as $id) {
-                $pais = $this->Paises->get($id);
-                if (!$this->Paises->delete($pais)) {
+                $lote = $this->Lotes->get($id);
+                if (!$this->Lotes->delete($lote)) {
                     throw new \Exception();
                 }
             }
@@ -185,15 +187,5 @@ class PaisesController extends AppController
             $conn->rollback();
             $this->Flash->error(__('Erro ao excluir o(s) registro(s)! Por favor tente novamente.'));
         }
-    }
-
-    public function getAll()
-    {
-        $paises = $this->Paises->find('list', ['valueField' => 'nome'])
-            ->where(['status' => true])
-            ->orderAsc('nome');
-
-        echo json_encode($paises);
-        die();
     }
 }

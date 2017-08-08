@@ -8,13 +8,13 @@ use \Cake\Datasource\Exception\RecordNotFoundException;
 use \Cake\Datasource\ConnectionManager;
 
 /**
- * Paises Controller
+ * Funcionarios Controller
  *
- * @property \App\Model\Table\PaisesTable $Paises
+ * @property \App\Model\Table\FuncionariosTable $Funcionarios
  *
- * @method \App\Model\Entity\Pais[] paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Funcionario[] paginate($object = null, array $settings = [])
  */
-class PaisesController extends AppController
+class FuncionariosController extends AppController
 {
     private $_crumbs;
 
@@ -27,7 +27,7 @@ class PaisesController extends AppController
 
         $this->_crumbs = [
             'Painel' => Router::url(['controller' => 'usuarios', 'action' => 'dashboard'], true),
-            'Países' => Router::url(['action' => 'index'])
+            'Funcionarios' => Router::url(['action' => 'index'])
         ];
     }
 
@@ -39,14 +39,15 @@ class PaisesController extends AppController
     public function index()
     {
 
-        $query = $this->Paises
-            ->find('search', ['search' => $this->request->getQueryParams()]);
+        $query = $this->Funcionarios
+            ->find('search', ['search' => $this->request->getQueryParams()])
+            ->contain(['Pessoas']);
 
         $this->paginate = ['limit' => 20];
-        $paises = $this->paginate($query);
+        $funcionarios = $this->paginate($query);
 
-        $this->set(compact('paises'));
-        $this->set('_serialize', ['paises']);
+        $this->set(compact('funcionarios'));
+        $this->set('_serialize', ['funcionarios']);
 
         $this->set('crumbs', $this->_crumbs);
     }
@@ -54,18 +55,18 @@ class PaisesController extends AppController
     /**
      * View method
      *
-     * @param string|null $id Pais id.
+     * @param string|null $id Funcionario id.
      * @return \Cake\Http\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-        $pais = $this->Paises->get($id, [
-            'contain' => ['Estados']
+        $funcionario = $this->Funcionarios->get($id, [
+            'contain' => ['Pessoas', 'Caixa', 'Comandas', 'LancamentoHoras']
         ]);
 
-        $this->set('pais', $pais);
-        $this->set('_serialize', ['pais']);
+        $this->set('funcionario', $funcionario);
+        $this->set('_serialize', ['funcionario']);
 
         $this->_crumbs['Visualização'] = Router::url(['action' => 'view']);
         $this->set('crumbs', $this->_crumbs);
@@ -78,22 +79,31 @@ class PaisesController extends AppController
      */
     public function add()
     {
-        $pais = $this->Paises->newEntity();
+        $funcionario = $this->Funcionarios->newEntity();
+        $pessoa = $this->Funcionarios->Pessoas->newEntity();
         if ($this->request->is('post')) {
-            $pais = $this->Paises->patchEntity($pais, $this->request->getData());
-            if ($this->Paises->save($pais)) {
-                if (!empty($this->request->getQuery('extends'))) {
-                    $this->_fechaExtends();
+            $pessoa = $this->Funcionarios->Pessoas->patchEntity($pessoa, $this->request->getdata());
+            if ($this->Funcionarios->Pessoas->save($pessoa)) {
+                debug($pessoa->id);
+                debug($this->Funcionarios->Pessoas->getPrimaryKey());
+                $data = $this->request->withData('pessoa_id', $pessoa->id);
+                $funcionario = $this->Funcionarios->patchEntity($funcionario, $data);
+                if ($this->Funcionarios->save($funcionario)) {
+                    if (!empty($this->request->getQuery('extends'))) {
+                        $this->_fechaExtends();
+                    }
+                    $this->Flash->success(__('Registro salvo com sucesso.'));
+
+                    return $this->redirect(['action' => 'index']);
                 }
-
-                $this->Flash->success(__('Registro salvo com sucesso.'));
-
-                return $this->redirect(['action' => 'index']);
             }
+            debug($this->Funcionarios->getTable()->validationErrors);
             $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
-        $this->set(compact('pais'));
-        $this->set('_serialize', ['pais']);
+        $cidades = $this->Funcionarios->Pessoas->Cidades->find('list');
+        $fornecedores = $this->Funcionarios->Pessoas->Fornecedores->find('list');
+        $this->set(compact('funcionario', 'pessoas', 'cidades', 'fornecedores'));
+        $this->set('_serialize', ['funcionario']);
 
         $this->_crumbs['Cadastro'] = Router::url(['action' => 'add']);
         $this->set('crumbs', $this->_crumbs);
@@ -102,18 +112,18 @@ class PaisesController extends AppController
     /**
      * Edit method
      *
-     * @param string|null $id Pais id.
+     * @param string|null $id Funcionario id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
     public function edit($id = null)
     {
-        $pais = $this->Paises->get($id, [
+        $funcionario = $this->Funcionarios->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $pais = $this->Paises->patchEntity($pais, $this->request->getData());
-            if ($this->Paises->save($pais)) {
+            $funcionario = $this->Funcionarios->patchEntity($funcionario, $this->request->getData());
+            if ($this->Funcionarios->save($funcionario)) {
                 if (!empty($this->request->getQuery('extends'))) {
                     $this->_fechaExtends();
                 }
@@ -123,8 +133,9 @@ class PaisesController extends AppController
             }
             $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
-        $this->set(compact('pais'));
-        $this->set('_serialize', ['pais']);
+        $pessoas = $this->Funcionarios->Pessoas->find('list', ['limit' => 200]);
+        $this->set(compact('funcionario', 'pessoas'));
+        $this->set('_serialize', ['funcionario']);
 
         $this->_crumbs['Edição'] = Router::url(['action' => 'edit']);
         $this->set('crumbs', $this->_crumbs);
@@ -133,7 +144,7 @@ class PaisesController extends AppController
     /**
      * Delete method
      *
-     * @param string|null $id Pais id.
+     * @param string|null $id Funcionario id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -158,7 +169,7 @@ class PaisesController extends AppController
     /**
      * Handle delete method
      *
-     * @param int|array $ids Paises ids.
+     * @param int|array $ids Funcionarios ids.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException Quando o registro não é encontrado.
      */
     private function _handleDelete($ids)
@@ -167,12 +178,12 @@ class PaisesController extends AppController
             $ids = [$ids];
         }
 
-        $conn = ConnectionManager::get($this->Paises->defaultConnectionName());
+        $conn = ConnectionManager::get($this->Funcionarios->defaultConnectionName());
         $conn->begin();
         try {
             foreach ($ids as $id) {
-                $pais = $this->Paises->get($id);
-                if (!$this->Paises->delete($pais)) {
+                $funcionario = $this->Funcionarios->get($id);
+                if (!$this->Funcionarios->delete($funcionario)) {
                     throw new \Exception();
                 }
             }
@@ -185,15 +196,5 @@ class PaisesController extends AppController
             $conn->rollback();
             $this->Flash->error(__('Erro ao excluir o(s) registro(s)! Por favor tente novamente.'));
         }
-    }
-
-    public function getAll()
-    {
-        $paises = $this->Paises->find('list', ['valueField' => 'nome'])
-            ->where(['status' => true])
-            ->orderAsc('nome');
-
-        echo json_encode($paises);
-        die();
     }
 }

@@ -16,6 +16,8 @@ class GusHelper extends FormHelper {
 			'textarea' => '<textarea name="{{name}}" class="materialize-textarea {{class}}" {{attrs}}>{{value}}</textarea>',
             'checkboxFormGroup' => '{{label}}',
             'checkboxWrapper' => '<div class="checkbox">{{label}}</div>',
+            'radio' => '<input type="radio" class="with-gap" name="{{name}}" value="{{value}}"{{attrs}}>',
+            'radioWrapper' => '{{label}}',
 		]);
 	}
 	
