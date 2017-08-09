@@ -226,7 +226,7 @@ Plugin::load('CakePtbr', ['bootstrap' => true]);
 Inflector::rules('irregular', [
     'posição' => 'posições',
 ]);
-Plugin::load('Gus', ['autoload' => true]);
+Plugin::load('Gus', ['autoload' => true, 'bootstrap' => true]);
 
 Plugin::load('Search');
 

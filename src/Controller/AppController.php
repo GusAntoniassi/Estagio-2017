@@ -16,6 +16,8 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\Core\Configure;
+
 
 /**
  * Application Controller
@@ -45,6 +47,7 @@ class AppController extends Controller
         $this->loadComponent('Flash');
 
         $this->loadComponent('Gus.Gus');
+        $this->set('paginas', Configure::read('paginas'));
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html

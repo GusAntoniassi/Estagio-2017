@@ -12,7 +12,8 @@
  * @since         0.10.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
+use Cake\Routing\Router;
+use Cake\Utility\Inflector;
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,20 +47,57 @@
 	<header>
 		<nav>
 			<div class="nav-wrapper">
+                <div id="expandir-menu" class="waves-effect waves-light"><?= $this->Gus->materialIcon('menu'); ?></div>
 				<div class="brand-logo"><?= $this->fetch('title'); ?></div>
 				<ul id="nav-links" class="right">
-					<li><a href="#">Links</a></li>
-					<li><a href="#">Uteis</a></li>
-					<li><a href="#">Depois</a></li>
-					<li><a href="#">Vejo</a></li>
+<!--					<li><a href="#">Links</a></li>-->
+<!--					<li><a href="#">Uteis</a></li>-->
+<!--					<li><a href="#">Depois</a></li>-->
+<!--					<li><a href="#">Vejo</a></li>-->
 				</ul>
 			</div>
 		</nav>
 		<ul class="side-nav fixed hide-on-med-and-down">
-			<li><a href="#!">Link</a></li>
-			<li><a href="#!">Link</a></li>
-			<li><a href="#!">Link</a></li>
+            <li class="logo">
+                <a id="logo-container" href="<?= Router::url(['controller' => 'users', 'action' => 'dashboard']); ?>" class="brand-logo" title="Clique aqui para ir ao painel">
+                <?= $this->Html->image('recanto.svg', ['alt' => 'Logomarca do Recanto do Peixe']); ?>
+                </a>
+                <div class="nav-separator"></div>
+            </li>
+            <li><a href="<?= Router::url(['controller' => 'usuarios', 'action' => 'dashboard']); ?>" class="collapsible-header">Painel</a></li>
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <?php $menuAtivo = 1; // Por padrão, deixa o menu "Movimentações" expandido ?>
+                    <?php foreach ($paginas as $categoria => $links) { ?>
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-light"><?= h($categoria); ?></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <?php foreach ($links as $link) { ?>
+                                    <?php if (Inflector::underscore($this->request->controller) == $link['controller'] && $this->request->action != 'dashboard') { ?>
+                                        <li class="active"><a href="<?= Router::url(['controller' => $link['controller']]);  ?>"><?= h($link['nome']); ?></a></li>
+                                        <?php $menuAtivo = array_search($categoria, array_keys($paginas)); ?>
+                                    <?php } else { ?>
+                                        <li><a href="<?= Router::url(['controller' => $link['controller']]);  ?>"><?= h($link['nome']); ?></a></li>
+                                    <?php } ?>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    </li>
+                    <?php } ?>
+                </ul>
+            </li>
 		</ul>
+        <script type="text/javascript">
+            // Expandir o menu ativo
+            $('.side-nav ul.collapsible').collapsible('open', <?= $menuAtivo; ?>);
+            $('ul.side-nav').animate({
+                scrollTop: $('ul.side-nav .collapsible-body li.active').offset().top - 45
+            });
+            $('#expandir-menu').click(function() {
+                $('body').toggleClass('hide-side-nav');
+            })
+        </script>
 	</header>
 	<main>
 	    <div class="container">
