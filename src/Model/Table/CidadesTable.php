@@ -100,6 +100,7 @@ class CidadesTable extends Table
                 'before' => true,
                 'after' => true,
             ])
+            ->value('estado_id')
             ->value('status');
         return $search;
     }

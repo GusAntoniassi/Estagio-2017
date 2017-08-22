@@ -108,6 +108,7 @@ class EstadosTable extends Table
             ->like('sigla', [
                 'after' => true,
             ])
+            ->value('pais_id')
             ->value('status');
         return $search;
     }

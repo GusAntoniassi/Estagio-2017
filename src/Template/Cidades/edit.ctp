@@ -11,16 +11,16 @@ use Cake\Routing\Router;
     <?= $this->Gus->create($cidade, ['class' => 'row']) ?>
     <?php
     echo $this->Gus->control('status', ['div' => 'col s12 input-field', 'label' => 'Status']);
-    echo $this->Gus->control('nome', ['div' => 'col s12 input-field', 'label' => 'Nome']);
+    echo $this->Gus->control('nome', ['div' => 'col s6 input-field', 'label' => 'Nome']);
     echo $this->Gus->selectAjaxExtends('estado_id',
         [
-            'div' => 'col s12 input-field',
+            'div' => 'col s6 input-field',
             'attributes' => [
                 'class' => 'browser-default select2ajax',
                 'type' => 'select',
-                'label' => ['text' => 'Estado', 'class' => 'active'],
                 'placeholder' => 'Digite para buscar...'
             ],
+            'label' => ['text' => 'Estado', 'class' => 'active'],
             'controller' => 'estados',
             'ajax' => true
         ],

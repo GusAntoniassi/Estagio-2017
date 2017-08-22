@@ -16,10 +16,10 @@ use Cake\Routing\Router;
                         <div class="collapsible-body">
                             <div class="row">
                                 <?= $this->Gus->create(); ?>
-                                <?= $this->Gus->control('id', ['div' => 'col s2 m1 l1', 'label' => 'Id']); ?>
-                                <?= $this->Gus->control('nome', ['div' => 'col s2 m1 l1', 'label' => 'Nome']); ?>
-                                <?= $this->Gus->control('status', ['type' => 'select', 'data-material-select', 'div' => 'col s2 m1 l1', 'label' => 'Status', 'options' => $this->Gus->getStatusOptions(), 'value' => '']); ?>
-                                <?= $this->Gus->control('estado_id', ['div' => 'col s2 m1 l1', 'label' => 'Estado Id']); ?>
+                                <?= $this->Gus->control('id', ['div' => 'col s2 m1 l1', 'label' => 'ID']); ?>
+                                <?= $this->Gus->control('nome', ['div' => 'col s10 m3 l3', 'label' => 'Nome']); ?>
+                                <?= $this->Gus->control('status', ['type' => 'select', 'data-material-select', 'div' => 'col s6 m3 l3', 'label' => 'Status', 'options' => $this->Gus->getStatusOptions(), 'value' => '']); ?>
+                                <?= $this->Gus->control('estado_id', ['div' => 'col s6 m3 l3', 'label' => 'Estado', 'data-material-select']); ?>
                                 <?= $this->Gus->control('Filtrar', ['div' => 'col s12 m2 l2 right', 'type' => 'submit', 'class' => 'btn waves-effect waves-light']); ?>
                                 <?= $this->Gus->end(); ?>
                             </div>
@@ -35,7 +35,6 @@ use Cake\Routing\Router;
             'class' => 'hide',
             'id' => 'form-delete',
         ]); ?>
-        <?php // <input name="ids[]" type="hidden" value="1" /> ?>
         <?= $this->Gus->end(); ?>
 
         <table class="responsive-table index highlight">
@@ -44,7 +43,7 @@ use Cake\Routing\Router;
                 <th scope="col">
                     <input type="checkbox" class="filled-in" id="check-all"/><label for="check-all">&nbsp;</label>
                 </th>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('id', 'ID') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nome') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('status') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('estado_id') ?></th>
@@ -54,10 +53,10 @@ use Cake\Routing\Router;
             <tbody>
             <?php foreach ($cidades as $cidade): ?>
                 <tr>
-                    <td><?= $this->Number->format($cidade->id) ?></td>
                     <td><input type="checkbox" id="check<?= $cidade->id ?>" class="filled-in"
                                name="data[ids][<?= $cidade->id ?>]" value="<?= $cidade->id ?>"/><label
                                 for="check<?= $cidade->id ?>">&nbsp;</label></td>
+                    <td><?= $this->Number->format($cidade->id) ?></td>
                     <td><?= h($cidade->nome) ?></td>
                     <td><?= $this->Gus->formataStatus($cidade->status) ?></td>
                     <td><?= $cidade->has('estado') ? $this->Html->link($cidade->estado->displayField, ['controller' => 'Estados', 'action' => 'view', $cidade->estado->id]) : '' ?></td>

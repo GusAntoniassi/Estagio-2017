@@ -46,7 +46,9 @@ class CidadesController extends AppController
         $this->paginate = ['limit' => 20];
         $cidades = $this->paginate($query);
 
-        $this->set(compact('cidades'));
+        $estados = $this->Gus->getOptionsArray($this->Cidades->Estados->find('list'));
+
+        $this->set(compact('cidades', 'estados'));
         $this->set('_serialize', ['cidades']);
 
         $this->set('crumbs', $this->_crumbs);

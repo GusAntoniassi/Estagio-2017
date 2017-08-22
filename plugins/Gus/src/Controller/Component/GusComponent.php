@@ -8,6 +8,6 @@ class GusComponent extends Component {
         if (!is_array($query)) {
             $query = $query->toArray();
         }
-        return array_merge(['' => 'Todos'], $query);
+        return ['' => 'Todos'] + $query;
     }
 }
