@@ -68,9 +68,11 @@ class GusHelper extends FormHelper {
     public function selectExtends($fieldName, array $options = [], array $settings = []) {
 	    $attributes = (empty($settings['attributes']) ? array() : $settings['attributes']);
 
-	    $attributes = array_merge([
-	        'data-select-2'
-        ], $attributes);
+	    if (!empty($options)) {
+            $attributes = array_merge([
+                'data-select-2'
+            ], $attributes);
+        }
 
 	    $settings = array_merge([
 	        'refreshParams' => []
@@ -93,7 +95,7 @@ class GusHelper extends FormHelper {
         $settings['linkRefresh'] = Router::url($routeRefresh, true);
 
         if (!isset($settings['label'])) {
-            $settings['label'] = '';
+            $settings['label'] = [];
         }
 
         $labelText = (is_array($settings['label']) ? $settings['label']['text'] : $settings['label']);
@@ -110,12 +112,16 @@ class GusHelper extends FormHelper {
             '</div>';
 	    return $select;
     }
-	
+
+    public function selectAjaxExtends($fieldName, array $settings = [], array $options = []) {
+	    return $this->selectExtends($fieldName, $options, $settings);
+    }
+
 	public function paginatorControls() {
 		if (!empty($this->Paginator->numbers())) {
-			return 
+			return
 				$this->Paginator->first() .
-				$this->Paginator->prev() . 
+				$this->Paginator->prev() .
 				$this->Paginator->numbers() .
 				$this->Paginator->next() .
 				$this->Paginator->last();

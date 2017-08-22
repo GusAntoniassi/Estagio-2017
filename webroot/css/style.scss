@@ -50,7 +50,7 @@ header, main, footer {
     transition: 0.3s ease-in-out;
 }
 .side-nav {
-  transition: 0.3s ease-in-out 0.05s;
+  transition: 0.3s ease-in-out;
 }
 body.hide-side-nav {
   .side-nav {
@@ -128,7 +128,7 @@ label.active {
 .switch-wrapper {
   height: 50px;
   .switch label input[type=checkbox]:checked + .lever + .lever-ativo {
-    color: #26a69a;
+    color: #2e4e6a;
     font-weight: bold;
     transition: 0.3s all;
   }

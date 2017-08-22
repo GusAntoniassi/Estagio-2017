@@ -168,20 +168,15 @@ function extendEdit(e) {
 function refreshSelect(target) {
     var $select = $(target).closest('.input-group').find('select');
     var $refresh = $(target).closest('.btn.refresh');
-	var params = {};
-	if ($select.attr('data-dependencias')) {
-		var dependencias = $select.attr('data-dependencias').split(',');
-		for (var dependencia in dependencias) {
-			var valor = $('select[name="' + dependencia + '"]').val();
-			valor = (!valor ? 0 : valor);
-
-			params[dependencia] = valor;
-		}
+    var data = {};
+    if ($select.hasClass('select2ajax')) {
+		data = {ajax_id: $select.val()};
 	}
+
     $.ajax({
         url: $refresh.attr('data-href'),
 		type: 'GET',
-        data: '',
+        data: data,
     }).done(function(data) {
         console.log(data);
         var json = JSON.parse(data);
@@ -193,9 +188,18 @@ function refreshSelect(target) {
         }
 
         var selected = $select.val();
-        $select.empty().select2({
-            data: data
-        });
+        if ($select.hasClass('select2ajax')) {
+			$select.empty().select2({
+				data: data,
+				ajax: $select.data('ajax'),
+                minimumInputLength: 1,
+                placeholder: $('select[name="estado_id"]').attr('placeholder')
+			});
+		} else {
+			$select.empty().select2({
+				data: data
+			});
+		}
         $select.val(selected);
         $select.trigger("change").trigger('refresh');
     }).fail(function() {
@@ -249,9 +253,9 @@ function atualizaBotaoFixo() {
     }
 }
 
+$.fn.select2.defaults.set('language', 'pt-BR');
 $(document).ready(function() {
 	jQuery.datetimepicker.setLocale('pt-BR');
-    $.fn.select2.defaults.set('language', 'pt-BR');
 	maskInputs();
 
     /* Seleção de linhas da tabela */

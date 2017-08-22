@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Network\Exception\NotFoundException;
 use Cake\Routing\Router;
 use \Cake\Datasource\Exception\RecordNotFoundException;
 use \Cake\Datasource\ConnectionManager;
@@ -195,11 +196,41 @@ class EstadosController extends AppController
 
     public function getAll()
     {
-        $pais_id = (!empty($this->request->getQuery('pais_id')) ? $this->request->getQuery('pais_id') : 0);
-        $estados = $this->Estados->find('list', ['valueField' => 'nome'])
-            ->where(['status' => true, 'pais_id' => $pais_id])
-            ->orderAsc('nome');
+        $conditions = ['status' => true];
+        if (!empty($this->request->getQuery('ajax_id'))) {
+            $conditions['id'] = $this->request->getQuery('ajax_id');
+            $estado = $this->Estados->findById($this->request->getQuery('ajax_id'))->first();
+            $estados = [$estado->id => $estado->estadoPais];
+        } else {
+            $conditions['pais_id'] = (!empty($this->request->getQuery('pais_id')) ? $this->request->getQuery('pais_id') : 0);
+            $estados = $this->Estados->find('list', ['valueField' => 'nome'])
+                ->where($conditions)
+                ->orderAsc('nome');
+        }
         echo json_encode($estados);
+        die();
+    }
+
+    public function select2ajax() {
+        $query = $this->request->getquery('q');
+        if (empty($query)) {
+            die(json_encode([]));
+        }
+
+        $query = mb_strtolower($query) . '%';
+
+        $estados = $this->Estados->find('list', [
+            'contain' => ['Paises'],
+            'valueField' => function($estado) {
+                return $estado->nome . ', ' . $estado->pais->sigla;
+            }
+        ])->where(['Estados.nome LIKE ' => $query]);
+
+        $resultados = [];
+        foreach ($estados as $id => $estado) {
+            $resultados[] = ['id' => $id, 'name' => $estado];
+        }
+        echo json_encode($resultados);
         die();
     }
 }

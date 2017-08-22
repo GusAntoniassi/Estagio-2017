@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -13,9 +14,12 @@ use \Cake\Datasource\ConnectionManager;
  *
  * @method \App\Model\Entity\Cidade[] paginate($object = null, array $settings = [])
  */
-class CidadesController extends AppController {
+class CidadesController extends AppController
+{
     private $_crumbs;
-    public function initialize() {
+
+    public function initialize()
+    {
         parent::initialize();
         $this->loadComponent('Search.Prg', [
             'actions' => 'index',
@@ -37,8 +41,7 @@ class CidadesController extends AppController {
 
         $query = $this->Cidades
             ->find('search', ['search' => $this->request->getQueryParams()])
-                        ->contain(['Estados'])
-            ;
+            ->contain(['Estados']);
 
         $this->paginate = ['limit' => 20];
         $cidades = $this->paginate($query);
@@ -89,14 +92,7 @@ class CidadesController extends AppController {
             }
             $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
-        $paises = $this->Cidades->Estados->Paises->find('list', ['limit' => 200]);
-        if (!empty($paises)) {
-            $primeiro_pais_id = array_keys($paises->toArray())[0];
-        } else {
-            $primeiro_pais_id = 0;
-        }
-        $estados = $this->Cidades->Estados->find('list')->where(['pais_id' => $primeiro_pais_id]); // Primeiro país já vem selecionado
-        $this->set(compact('cidade', 'estados', 'paises'));
+        $this->set(compact('cidade'));
         $this->set('_serialize', ['cidade']);
 
         $this->_crumbs['Cadastro'] = Router::url(['action' => 'add']);
@@ -127,7 +123,9 @@ class CidadesController extends AppController {
             }
             $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
-        $estados = $this->Cidades->Estados->find('list', ['limit' => 200]);
+        $estado = $this->Cidades->Estados->findById($cidade->estado_id)->first();
+        $estados = [$cidade->estado_id => $estado->estadoPais];
+
         $this->set(compact('cidade', 'estados'));
         $this->set('_serialize', ['cidade']);
 
@@ -159,13 +157,15 @@ class CidadesController extends AppController {
 
         return $this->redirect(['action' => 'index']);
     }
+
     /**
      * Handle delete method
      *
      * @param int|array $ids Cidades ids.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException Quando o registro não é encontrado.
      */
-    private function _handleDelete($ids) {
+    private function _handleDelete($ids)
+    {
         if (!is_array($ids)) {
             $ids = [$ids];
         }

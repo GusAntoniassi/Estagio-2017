@@ -1,7 +1,10 @@
 <?php
 namespace App\Model\Entity;
 
-use App\Model\Entity;;
+use App\Model\Entity;
+use Cake\ORM\TableRegistry;
+
+;
 
 /**
  * Estado Entity
@@ -31,4 +34,20 @@ class Estado extends Entity
         '*' => true,
         'id' => false
     ];
+
+    protected $_virtual = [
+        'estado_pais'
+    ];
+
+    protected function _getEstadoPais() {
+        $estados = TableRegistry::get('Estados');
+        $pais = $estados->Paises->find('all')
+            ->where(['Paises.id' => $this->pais_id])
+            ->first();
+        if (!empty($pais)) {
+            return $this->nome . ', ' . $pais->sigla;
+        } else {
+            return $this->nome;
+        }
+    }
 }
