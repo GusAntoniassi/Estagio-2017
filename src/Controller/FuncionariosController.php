@@ -97,7 +97,8 @@ class FuncionariosController extends AppController
                     return $this->redirect(['action' => 'index']);
                 }
             }
-            debug($this->Funcionarios->getTable()->validationErrors);
+            debug($this->Funcionarios->getTable());
+            die();
             $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
         $cidades = $this->Funcionarios->Pessoas->Cidades->find('list');

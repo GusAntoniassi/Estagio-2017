@@ -5,14 +5,15 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Search\Manager;
 
 /**
  * FormaPagamentos Model
  *
- * @property \App\Model\Table\ComprasTable|\Cake\ORM\Association\HasMany $Compras
- * @property \App\Model\Table\ContaPagarsTable|\Cake\ORM\Association\HasMany $ContaPagars
- * @property \App\Model\Table\ContaRecebersTable|\Cake\ORM\Association\HasMany $ContaRecebers
- * @property \App\Model\Table\PedidoComprasTable|\Cake\ORM\Association\HasMany $PedidoCompras
+ * @property \Cake\ORM\Association\HasMany $Compras
+ * @property \Cake\ORM\Association\HasMany $ContaPagars
+ * @property \Cake\ORM\Association\HasMany $ContaRecebers
+ * @property \Cake\ORM\Association\HasMany $PedidoCompras
  *
  * @method \App\Model\Entity\FormaPagamento get($primaryKey, $options = [])
  * @method \App\Model\Entity\FormaPagamento newEntity($data = null, array $options = [])
@@ -51,6 +52,8 @@ class FormaPagamentosTable extends Table
         $this->hasMany('PedidoCompras', [
             'foreignKey' => 'forma_pagamento_id'
         ]);
+
+        $this->addBehavior('Search.Search');
     }
 
     /**
@@ -89,4 +92,22 @@ class FormaPagamentosTable extends Table
 
         return $validator;
     }
+
+    /**
+     * Configuração dos campos utilizados pelo plugin Search
+     *
+     * @return \Search\Manager
+     */
+    public function searchConfiguration() {
+        $search = new Manager($this);
+        $search
+            ->value('id')
+            ->like('nome', [
+                'before' => true,
+                'after' => true,
+            ])
+            ->value('status');
+        return $search;
+    }
+
 }

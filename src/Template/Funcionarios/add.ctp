@@ -11,23 +11,23 @@
     <?php
     echo $this->Gus->control('status', ['div' => 'col s12 input-field', 'label' => 'Status', 'checked' => 'checked']);
 
-    echo $this->Gus->control('tipo_pessoa', ['div' => 'col s12 input-field', 'label' => false, 'type' => 'radio', 'options' => ['F' => 'Pessoa física', 'J' => 'Pessoa jurídica']]);
-    echo $this->Gus->control('nome_razaosocial', ['div' => 'col s12 input-field', 'label' => 'Nome']);
-    echo $this->Gus->control('sobrenome_nomefantasia', ['div' => 'col s12 input-field', 'label' => 'Sobrenome']);
-    echo $this->Gus->control('cpfcnpj', ['div' => 'col s12 input-field', 'label' => 'CPF', 'data-type' => 'cpf']);
-    echo $this->Gus->control('cep', ['div' => 'col s12 input-field', 'label' => 'CEP', 'data-type' => 'cep']);
-    echo $this->Gus->control('rua', ['div' => 'col s12 input-field', 'label' => 'Endereço']);
-    echo $this->Gus->control('numero', ['div' => 'col s12 input-field', 'label' => 'Número']);
-    echo $this->Gus->control('bairro', ['div' => 'col s12 input-field', 'label' => 'Bairro']);
-    echo $this->Gus->control('telefone_1', ['div' => 'col s12 input-field', 'label' => 'Telefone principal', 'data-type' => 'phone']);
-    echo $this->Gus->control('telefone_2', ['div' => 'col s12 input-field', 'label' => 'Telefone secundário', 'data-type' => 'phone']);
-    echo $this->Gus->control('email', ['div' => 'col s12 input-field', 'label' => 'E-mail']);
-    echo $this->Gus->selectExtends('cidade_id', $cidades->toArray(), [
+    echo $this->Gus->control('Pessoa.tipo_pessoa', ['div' => 'col s12 input-field', 'label' => false, 'type' => 'radio', 'options' => ['F' => 'Pessoa física', 'J' => 'Pessoa jurídica']]);
+    echo $this->Gus->control('Pessoa.nome_razaosocial', ['div' => 'col s12 input-field', 'label' => 'Nome']);
+    echo $this->Gus->control('Pessoa.sobrenome_nomefantasia', ['div' => 'col s12 input-field', 'label' => 'Sobrenome']);
+    echo $this->Gus->control('Pessoa.cpfcnpj', ['div' => 'col s12 input-field', 'label' => 'CPF', 'data-type' => 'cpf']);
+    echo $this->Gus->control('Pessoa.cep', ['div' => 'col s12 input-field', 'label' => 'CEP', 'data-type' => 'cep']);
+    echo $this->Gus->control('Pessoa.rua', ['div' => 'col s12 input-field', 'label' => 'Endereço']);
+    echo $this->Gus->control('Pessoa.numero', ['div' => 'col s12 input-field', 'label' => 'Número']);
+    echo $this->Gus->control('Pessoa.bairro', ['div' => 'col s12 input-field', 'label' => 'Bairro']);
+    echo $this->Gus->control('Pessoa.telefone_1', ['div' => 'col s12 input-field', 'label' => 'Telefone principal', 'data-type' => 'phone']);
+    echo $this->Gus->control('Pessoa.telefone_2', ['div' => 'col s12 input-field', 'label' => 'Telefone secundário', 'data-type' => 'phone']);
+    echo $this->Gus->control('Pessoa.email', ['div' => 'col s12 input-field', 'label' => 'E-mail']);
+    echo $this->Gus->selectExtends('Pessoa.cidade_id', $cidades->toArray(), [
         'div' => 'col s12 input-field select2-field',
         'label' => ['text' => 'Cidade', 'class' => 'active'],
         'controller' => 'cidades',
     ]);
-    echo $this->Gus->selectExtends('fornecedor_pertencente_id', $fornecedores->toArray(), [
+    echo $this->Gus->selectExtends('Pessoa.fornecedor_pertencente_id', $fornecedores->toArray(), [
         'div' => 'col s12 input-field select2-field',
         'label' => ['text' => 'Fornecedor a quem pertence', 'class' => 'active'],
         'controller' => 'fornecedores',

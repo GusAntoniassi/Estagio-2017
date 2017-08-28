@@ -193,7 +193,7 @@ function refreshSelect(target) {
 				data: data,
 				ajax: $select.data('ajax'),
                 minimumInputLength: 1,
-                placeholder: $('select[name="estado_id"]').attr('placeholder')
+                placeholder: $select.attr('placeholder')
 			});
 		} else {
 			$select.empty().select2({
@@ -302,3 +302,124 @@ $(document).ready(function() {
 		}
 	});
 });
+
+$(function() {
+	$(document).on('change', 'input[data-type="cep"]', function() {
+		completaCep();
+	});
+});
+
+function completaCep() {
+	var deferred = new $.Deferred();
+	var cepInvalido = function() {
+		alert('CEP inválido!');
+
+        $('.cep-toggle').each(function(i, input) {
+            setTimeout(function() {
+                $(input).addClass('invisible');
+                $(input).val('');
+            }, (25 * i))
+        });
+
+        deferred.reject();
+	};
+	var erroConexao = function() {
+		alert('Houve um erro ao buscar o CEP solicitado. Por favor recarregue a página e tente novamente.');
+
+        $('.cep-toggle').each(function(i, input) {
+            setTimeout(function() {
+                $(input).addClass('invisible');
+                $(input).val('');
+            }, (25 * i))
+        });
+
+		deferred.reject();
+	}
+	var cep = $('input[data-type="cep"]').val();
+
+	if (cep.length != 9) {
+		cepInvalido();
+		return;
+	}
+
+	$('input[data-type="cep"]').closest('form').find('.progress').removeClass('invisible');
+
+	$.get({
+		url: 'https://viacep.com.br/ws/' + cep + '/json/',
+		dataType: 'json',
+	}).done(function(json) {
+		if (!json) {
+			cepInvalido();
+			return;
+		}
+		var jsonCep = json;
+		// Webservice viacep retorna a cidade e a sigla do estado, buscar a cidade e seu ID no banco por ajax
+		$.get({
+			url: base_url + 'cidades/getCidadesCEP',
+			data: {
+				cidade: json['localidade'],
+				estado: json['uf'],
+			}
+		}).done(function(json) {
+			json = JSON.parse(json);
+			if (!json) {
+				erroConexao();
+				return;
+            }
+            // inserir os dados do cep no formulário
+			$('input[data-cep="logradouro"]').val(jsonCep['logradouro']);
+			$('input[data-cep="bairro"]').val(jsonCep['bairro']);
+
+			// atualizar o select2 da cidade
+            data = [];
+            console.log(json)
+            if (json) {
+                for (var id in json) {
+                    data.push({'id': id, 'text': json[id]});
+                }
+            }
+            var $select = $('select[data-cep="cidade"]');
+            $select.empty().select2({
+                data: data,
+                ajax: $select.data('ajax'),
+                minimumInputLength: 1,
+                placeholder: $select.attr('placeholder')
+            });
+            Materialize.updateTextFields();
+			// reconstruir o select2
+			$('.cep-toggle').each(function(i, input) {
+				setTimeout(function() {
+					$(input).removeClass('invisible');
+				}, (25 * i))
+			});
+            $('input[data-type="cep"]').closest('form').find('.progress').addClass('invisible');
+        }).fail(function() {
+			erroConexao();
+		});
+	}).fail(function() {
+		erroConexao();
+	});
+
+    return deferred.promise();
+}
+
+function tipoPessoa(input) {
+	var labelNome = 'Nome';
+	var labelSobrenome = 'Sobrenome';
+	var labelCPF = 'CPF';
+	var dataTypeCPF = 'cpf';
+
+	if ($(input).val() == 'J') {
+		labelNome = 'Razão social';
+		labelSobrenome = 'Nome fantasia';
+		labelCPF = 'CNPJ';
+		dataTypeCPF = 'cnpj';
+	}
+
+	$('input[name="Pessoa[nome_razaosocial]"]').parent().find('label').text(labelNome);
+	$('input[name="Pessoa[sobrenome_nomefantasia]"]').parent().find('label').text(labelSobrenome);
+	$('input[name="Pessoa[cpfcnpj]"]').attr('data-type', dataTypeCPF).val(null).parent().find('label').text(labelCPF);
+
+	maskInputs();
+    Materialize.updateTextFields();
+}

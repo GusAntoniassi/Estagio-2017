@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Network\Exception\NotFoundException;
 use Cake\Routing\Router;
 use \Cake\Datasource\Exception\RecordNotFoundException;
 use \Cake\Datasource\ConnectionManager;
@@ -190,5 +191,68 @@ class CidadesController extends AppController
             $conn->rollback();
             $this->Flash->error(__('Erro ao excluir o(s) registro(s)! Por favor tente novamente.'));
         }
+    }
+
+    public function getCidadesCEP() {
+        $cidade = $this->request->getQuery('cidade');
+        $estado = $this->request->getQuery('estado');
+        if (empty($cidade) || empty($estado)) {
+            throw new NotFoundException();
+        }
+
+        $cidades = $this->Cidades->find('list', [
+            'contain' => ['Estados'],
+            'valueField' => function($cidade) {
+                return $cidade->nome . ', ' . $cidade->estado->sigla;
+            }
+        ])->where(['Cidades.nome' => $cidade, 'Estados.sigla' => $estado]);
+
+        if ($cidades->isEmpty()) {
+            echo json_encode([]);
+        } else {
+            echo json_encode($cidades, true);
+        }
+
+        die();
+    }
+
+    public function getAll()
+    {
+        $conditions = ['status' => true];
+        if (!empty($this->request->getQuery('ajax_id'))) {
+            $conditions['id'] = $this->request->getQuery('ajax_id');
+            $cidade = $this->Cidades->findById($this->request->getQuery('ajax_id'))->contain('Estados')->first();
+            $cidades = [$cidade->id => $cidade->nome . ', ' . $cidade->estado->sigla];
+        } else {
+            $conditions['estado_id'] = (!empty($this->request->getQuery('estado_id')) ? $this->request->getQuery('estado_id') : 0);
+            $cidades = $this->Cidades->find('list', ['valueField' => 'nome'])
+                ->where($conditions)
+                ->orderAsc('nome');
+        }
+        echo json_encode($cidades);
+        die();
+    }
+
+    public function select2ajax() {
+        $query = $this->request->getquery('q');
+        if (empty($query)) {
+            die(json_encode([]));
+        }
+
+        $query = mb_strtolower($query) . '%';
+
+        $estados = $this->Cidades->find('list', [
+            'contain' => ['Estados'],
+            'valueField' => function($cidade) {
+                return $cidade->nome . ', ' . $cidade->estado->sigla;
+            }
+        ])->where(['Cidades.nome LIKE ' => $query]);
+
+        $resultados = [];
+        foreach ($estados as $id => $estado) {
+            $resultados[] = ['id' => $id, 'name' => $estado];
+        }
+        echo json_encode($resultados);
+        die();
     }
 }

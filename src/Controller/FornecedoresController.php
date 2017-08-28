@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -13,9 +14,12 @@ use \Cake\Datasource\ConnectionManager;
  *
  * @method \App\Model\Entity\Fornecedor[] paginate($object = null, array $settings = [])
  */
-class FornecedoresController extends AppController {
+class FornecedoresController extends AppController
+{
     private $_crumbs;
-    public function initialize() {
+
+    public function initialize()
+    {
         parent::initialize();
         $this->loadComponent('Search.Prg', [
             'actions' => 'index',
@@ -37,8 +41,7 @@ class FornecedoresController extends AppController {
 
         $query = $this->Fornecedores
             ->find('search', ['search' => $this->request->getQueryParams()])
-                        ->contain(['Pessoas'])
-            ;
+            ->contain(['Pessoas']);
 
         $this->paginate = ['limit' => 20];
         $fornecedores = $this->paginate($query);
@@ -76,21 +79,35 @@ class FornecedoresController extends AppController {
      */
     public function add()
     {
-        $fornecedor = $this->Fornecedores->newEntity();
-        if ($this->request->is('post')) {
-            $fornecedor = $this->Fornecedores->patchEntity($fornecedor, $this->request->getData());
-            if ($this->Fornecedores->save($fornecedor)) {
-                if (!empty($this->request->getQuery('extends'))) {
-                    $this->_fechaExtends();
-                }
-                $this->Flash->success(__('Registro salvo com sucesso.'));
+        $fornecedor = $this->Fornecedores->newEntity($this->request->getdata('Fornecedor'));
+        $pessoa = $this->Fornecedores->Pessoas->newEntity($this->request->getdata('Pessoa'));
 
-                return $this->redirect(['action' => 'index']);
+        if ($this->request->is('post')) {
+            // Tenta salvar a pessoa primeiro
+            if ($this->Fornecedores->Pessoas->save($pessoa)) {
+                // Se obteve sucesso, armazena o id da pessoa no fornecedor
+                $fornecedor->pessoa_id = $pessoa->id;
+                // Tenta salvar o fornecedor
+                if ($this->Fornecedores->save($fornecedor)) {
+                    if (!empty($this->request->getQuery('extends'))) {
+                        $this->_fechaExtends();
+                    }
+                    $this->Flash->success(__('Registro salvo com sucesso.'));
+
+                    return $this->redirect(['action' => 'index']);
+                } else {
+                    $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
+                }
+            } else {
+                $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
             }
-            $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
+
+        $cidades = $this->Fornecedores->Pessoas->Cidades->find('list');
+        $fornecedores = $this->Fornecedores->Pessoas->Fornecedores->find('list');
         $pessoas = $this->Fornecedores->Pessoas->find('list', ['limit' => 200]);
-        $this->set(compact('fornecedor', 'pessoas'));
+        $diasSemana = $this->Gus->getDiasSemanaArray();
+        $this->set(compact('fornecedor', 'pessoas', 'fornecedores', 'cidades', 'diasSemana'));
         $this->set('_serialize', ['fornecedor']);
 
         $this->_crumbs['Cadastro'] = Router::url(['action' => 'add']);
@@ -153,13 +170,15 @@ class FornecedoresController extends AppController {
 
         return $this->redirect(['action' => 'index']);
     }
+
     /**
      * Handle delete method
      *
      * @param int|array $ids Fornecedores ids.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException Quando o registro não é encontrado.
      */
-    private function _handleDelete($ids) {
+    private function _handleDelete($ids)
+    {
         if (!is_array($ids)) {
             $ids = [$ids];
         }

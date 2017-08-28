@@ -212,7 +212,7 @@ class EstadosController extends AppController
     }
 
     public function select2ajax() {
-        $query = $this->request->getquery('q');
+        $query = $this->request->getQuery('q');
         if (empty($query)) {
             die(json_encode([]));
         }

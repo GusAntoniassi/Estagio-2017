@@ -74,14 +74,4 @@ class FormaPagamentosTableTest extends TestCase
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
-
-    /**
-     * Test searchConfiguration method
-     *
-     * @return void
-     */
-    public function testSearchConfiguration()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
 }

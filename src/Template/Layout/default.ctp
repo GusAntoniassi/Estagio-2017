@@ -31,7 +31,7 @@ use Cake\Utility\Inflector;
     <?= $this->Html->css('/js/jquery.datetimepicker.css') ?>
     <?= $this->Html->css('/js/select2/css/select2.min.css') ?>
     <?= $this->Html->css('/js/select2/css/select2-materialize.css') ?>
-
+    <script type="text/javascript"> var base_url = '<?= $base_url; ?>'; </script>
     <?= $this->Html->script('jquery-3.2.1.min.js') ?>
     <?= $this->Html->script('materialize.min.js') ?>
     <?= $this->Html->script('jquery.datetimepicker.min.js') ?>

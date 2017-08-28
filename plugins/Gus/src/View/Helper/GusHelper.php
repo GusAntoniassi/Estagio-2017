@@ -31,7 +31,8 @@ class GusHelper extends FormHelper {
 			unset($options['div']);
 		}
 
-		if ($fieldName == 'status') {
+		// Se for um campo do tipo status
+		if ($fieldName == 'status' || preg_match('/.*?\.status/', $fieldName)) {
 		    $options['templateVars']['div'] .= ' switch-wrapper';
 		    $this->setTemplates([
                 'checkbox' => '<input type="checkbox" name="{{name}}" value="{{value}}"{{attrs}}>',

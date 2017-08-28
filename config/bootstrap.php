@@ -230,6 +230,8 @@ Plugin::load('Gus', ['autoload' => true, 'bootstrap' => true]);
 
 Plugin::load('Search');
 
+Plugin::load('Cake/Localized');
+
 /* Ajuste de data e hora */
 date_default_timezone_set('America/Sao_Paulo');
 setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');

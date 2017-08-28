@@ -194,6 +194,12 @@ label.active {
 .input-field.checkbox:not(.switch-wrapper) label {
   left: 0 !important; }
 
+[type="radio"]:not(:checked) + label, [type="radio"]:checked + label {
+  top: 0;
+  left: 0 !important; }
+  [type="radio"]:not(:checked) + label:not(:last-of-type), [type="radio"]:checked + label:not(:last-of-type) {
+    margin-right: 15px; }
+
 .ativo {
   color: darkgreen; }
 

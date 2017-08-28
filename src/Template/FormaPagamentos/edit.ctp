@@ -3,38 +3,18 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $formaPagamento->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $formaPagamento->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Forma Pagamentos'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Compras'), ['controller' => 'Compras', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Compra'), ['controller' => 'Compras', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Conta Pagars'), ['controller' => 'ContaPagars', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Conta Pagar'), ['controller' => 'ContaPagars', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Conta Recebers'), ['controller' => 'ContaRecebers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Conta Receber'), ['controller' => 'ContaRecebers', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Pedido Compras'), ['controller' => 'PedidoCompras', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Pedido Compra'), ['controller' => 'PedidoCompras', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="formaPagamentos form large-9 medium-8 columns content">
-    <?= $this->Form->create($formaPagamento) ?>
-    <fieldset>
-        <legend><?= __('Edit Forma Pagamento') ?></legend>
-        <?php
-            echo $this->Form->control('nome');
-            echo $this->Form->control('num_parcelas');
-            echo $this->Form->control('dias_carencia_primeira_parcela');
-            echo $this->Form->control('entrada');
-            echo $this->Form->control('status');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<div class="formaPagamentos form edit row card-panel">
+    <?= $this->element('breadcrumbs', ['crumbs' => $crumbs]); ?>
+    <?php $this->assign('title', 'Edição de FormaPagamento'); ?>
+
+    <?= $this->Gus->create($formaPagamento, ['class' => 'row']) ?>
+    <?php
+                    echo $this->Gus->control('status', ['div' => 'col s12 input-field', 'label' => 'Status']);
+                    echo $this->Gus->control('nome', ['div' => 'col s12 input-field', 'label' => 'Nome']);
+                    echo $this->Gus->control('num_parcelas', ['div' => 'col s12 input-field', 'label' => 'Num Parcelas']);
+                    echo $this->Gus->control('dias_carencia_primeira_parcela', ['div' => 'col s12 input-field', 'label' => 'Dias Carencia Primeira Parcela']);
+                    echo $this->Gus->control('entrada', ['div' => 'col s12 input-field', 'label' => 'Entrada']);
+    ?>
+    <?= $this->Gus->button('Enviar', ['div' => 'input-field col s2 right', 'class' => 'btn right waves-effect waves-light']) ?>
+    <?= $this->Gus->end() ?>
 </div>

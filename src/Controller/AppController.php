@@ -17,6 +17,7 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\Core\Configure;
+use Cake\Routing\Router;
 
 
 /**
@@ -48,6 +49,7 @@ class AppController extends Controller
 
         $this->loadComponent('Gus.Gus');
         $this->set('paginas', Configure::read('paginas'));
+        $this->set('base_url', Router::url('/', true));
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html

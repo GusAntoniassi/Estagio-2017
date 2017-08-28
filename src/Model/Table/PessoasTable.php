@@ -7,6 +7,8 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 use Search\Manager;
 
+use Cake\Localized\Validation\BrValidation;
+
 /**
  * Pessoas Model
  *
@@ -86,8 +88,13 @@ class PessoasTable extends Table
             ->notEmpty('sobrenome_nomefantasia');
 
         $validator
+            ->setProvider('br', 'Localized\Validation\BrValidation')
             ->requirePresence('cpfcnpj', 'create')
-            ->notEmpty('cpfcnpj');
+            ->notEmpty('cpfcnpj')
+            ->add('cpfcnpj', 'validaCPFCNPJ', [
+                'rule' => 'personId',
+                'provider' => 'br',
+            ]);
 
         $validator
             ->requirePresence('rua', 'create')
