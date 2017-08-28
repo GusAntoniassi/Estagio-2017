@@ -111,7 +111,15 @@ class FornecedoresTable extends Table
         $search = new Manager($this);
         $search
             ->value('id')
-            ->like('nome', [
+            ->like('Pessoas.cpfcnpj', [
+                'before' => true,
+                'after' => true,
+            ])
+            ->like('Pessoas.nome_razaosocial', [
+                'before' => true,
+                'after' => true,
+            ])
+            ->like('Pessoas.sobrenome_nomefantasia', [
                 'before' => true,
                 'after' => true,
             ])

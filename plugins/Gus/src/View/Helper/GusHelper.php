@@ -162,4 +162,8 @@ class GusHelper extends FormHelper {
             0 => 'Não'
         ];
     }
+
+    public function tipoPessoaPorExtenso($tipo) {
+	    return ($tipo == 'F' ? 'Física' : 'Jurídica');
+    }
 }

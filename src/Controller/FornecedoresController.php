@@ -43,7 +43,13 @@ class FornecedoresController extends AppController
             ->find('search', ['search' => $this->request->getQueryParams()])
             ->contain(['Pessoas']);
 
-        $this->paginate = ['limit' => 20];
+        $this->paginate = [
+            'limit' => 20,
+            'contain' => ['Pessoas'],
+            'sortWhitelist' => ['Fornecedores.id', 'Fornecedores.status', 'Pessoas.nome_razaosocial',
+                'Pessoas.sobrenome_nomefantasia', 'Pessoas.tipo_pessoa', 'Pessoas.cpfcnpj', 'Pessoas.telefone_1']
+        ];
+
         $fornecedores = $this->paginate($query);
 
         $this->set(compact('fornecedores'));
