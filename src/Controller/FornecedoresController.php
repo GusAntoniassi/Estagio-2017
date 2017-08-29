@@ -68,10 +68,12 @@ class FornecedoresController extends AppController
     public function view($id = null)
     {
         $fornecedor = $this->Fornecedores->get($id, [
-            'contain' => ['Pessoas', 'Compras', 'ContaPagars', 'Orcamentos', 'PedidoCompras']
+            'contain' => ['Pessoas' => ['Cidades' => 'Estados'], 'Compras', 'ContaPagars', 'Orcamentos', 'PedidoCompras']
         ]);
 
-        $this->set('fornecedor', $fornecedor);
+        $diasSemana = $this->Gus->getDiasSemanaArray();
+
+        $this->set(compact('fornecedor', 'diasSemana'));
         $this->set('_serialize', ['fornecedor']);
 
         $this->_crumbs['Visualização'] = Router::url(['action' => 'view']);

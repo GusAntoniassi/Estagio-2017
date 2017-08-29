@@ -29,9 +29,9 @@ use Cake\Routing\Router;
     ?>
     <div class="clearfix"></div>
     <?php
-        echo $this->Gus->control('Pessoa.nome_razaosocial', ['div' => 'col s6 input-field', 'label' => 'Nome']);
-        echo $this->Gus->control('Pessoa.sobrenome_nomefantasia', ['div' => 'col s6 input-field', 'label' => 'Sobrenome']);
-        echo $this->Gus->control('Pessoa.cpfcnpj', ['div' => 'col s3 input-field', 'label' => 'CPF', 'data-type' => 'cpf']);
+        echo $this->Gus->control('Pessoa.nome_razaosocial', ['div' => 'col s6 input-field', 'label' => $this->Gus->getPessoaLabel('nome_razaosocial', $tipoPessoa)]);
+        echo $this->Gus->control('Pessoa.sobrenome_nomefantasia', ['div' => 'col s6 input-field', 'label' => $this->Gus->getPessoaLabel('sobrenome_nomefantasia', $tipoPessoa)]);
+        echo $this->Gus->control('Pessoa.cpfcnpj', ['div' => 'col s3 input-field', 'label' => $this->Gus->getPessoaLabel('cpfcnpj', $tipoPessoa), 'data-type' => 'cpf']);
         echo $this->Gus->control('Pessoa.email', ['div' => 'col s3 input-field', 'label' => 'E-mail']);
         echo $this->Gus->control('Pessoa.telefone_1', ['div' => 'col s3 input-field', 'label' => 'Telefone principal', 'data-type' => 'phone']);
         echo $this->Gus->control('Pessoa.telefone_2', ['div' => 'col s3 input-field', 'label' => 'Telefone secundário', 'data-type' => 'phone']);

@@ -166,4 +166,15 @@ class GusHelper extends FormHelper {
     public function tipoPessoaPorExtenso($tipo) {
 	    return ($tipo == 'F' ? 'Física' : 'Jurídica');
     }
+
+    public function getPessoaLabel($campo, $tipoPessoa) {
+	    switch ($campo) {
+            case 'nome_razaosocial':
+                return ($tipoPessoa == 'F' ? 'Nome' : 'Razão social');
+            case 'sobrenome_nomefantasia':
+                return ($tipoPessoa == 'F' ? 'Sobrenome' : 'Nome fantasia');
+            case 'cpfcnpj':
+                return ($tipoPessoa == 'F' ? 'CPF' : 'CNPJ');
+        }
+    }
 }

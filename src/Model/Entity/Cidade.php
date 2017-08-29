@@ -1,7 +1,8 @@
 <?php
 namespace App\Model\Entity;
 
-use App\Model\Entity;;
+use App\Model\Entity;
+use Cake\ORM\TableRegistry;
 
 /**
  * Cidade Entity
@@ -30,4 +31,18 @@ class Cidade extends Entity
         '*' => true,
         'id' => false
     ];
+
+    protected $_virtual = [
+        'cidade_estado'
+    ];
+
+    protected function _getCidadeEstado() {
+        $cidades = TableRegistry::get('Cidades');
+        $estado = $cidades->Estados->findById($this->estado_id)->first();
+        if (!empty($estado)) {
+            return $this->nome . ', ' . $estado->sigla;
+        } else {
+            return $this->nome;
+        }
+    }
 }
