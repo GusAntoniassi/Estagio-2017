@@ -88,11 +88,12 @@ class PessoasTable extends Table
             ->notEmpty('sobrenome_nomefantasia');
 
         $validator
-            ->setProvider('br', 'Localized\Validation\BrValidation')
+            ->setProvider('br', BrValidation::class)
             ->requirePresence('cpfcnpj', 'create')
             ->notEmpty('cpfcnpj')
             ->add('cpfcnpj', 'validaCPFCNPJ', [
                 'rule' => 'personId',
+                'message' => 'CPF/CNPJ inválido!',
                 'provider' => 'br',
             ]);
 
@@ -107,7 +108,7 @@ class PessoasTable extends Table
             ->allowEmpty('bairro');
 
         $validator
-            ->allowEmpty('cep');
+            ->notEmpty('cep');
 
         $validator
             ->requirePresence('telefone_1', 'create')
@@ -118,7 +119,7 @@ class PessoasTable extends Table
 
         $validator
             ->email('email')
-            ->allowEmpty('email');
+            ->notEmpty('email');
 
         return $validator;
     }
@@ -132,6 +133,7 @@ class PessoasTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
+        $rules->add($rules->isUnique(['cpfcnpj']));
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->existsIn(['cidade_id'], 'Cidades'));
         $rules->add($rules->existsIn(['fornecedor_pertencente_id'], 'Fornecedores'));

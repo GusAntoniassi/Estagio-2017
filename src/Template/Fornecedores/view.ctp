@@ -9,18 +9,18 @@
     <table class="bordered highlight">
         <tr>
             <th scope="row"><?= __('Tipo de pessoa') ?></th>
-            <td><?= $this->Gus->tipoPessoaPorExtenso($fornecedor->pessoa->tipo) ?></td>
+            <td><?= $this->Gus->tipoPessoaPorExtenso($fornecedor->pessoa->tipo_pessoa) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= $this->Gus->getPessoaLabel('nome_razaosocial', $fornecedor->pessoa->tipo) ?></th>
+            <th scope="row"><?= $this->Gus->getPessoaLabel('nome_razaosocial', $fornecedor->pessoa->tipo_pessoa) ?></th>
             <td><?= $fornecedor->pessoa->nome_razaosocial ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= $this->Gus->getPessoaLabel('sobrenome_nomefantasia', $fornecedor->pessoa->tipo) ?></th>
+            <th scope="row"><?= $this->Gus->getPessoaLabel('sobrenome_nomefantasia', $fornecedor->pessoa->tipo_pessoa) ?></th>
             <td><?= $fornecedor->pessoa->sobrenome_nomefantasia ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= $this->Gus->getPessoaLabel('cpfcnpj', $fornecedor->pessoa->tipo) ?></th>
+            <th scope="row"><?= $this->Gus->getPessoaLabel('cpfcnpj', $fornecedor->pessoa->tipo_pessoa) ?></th>
             <td><?= $fornecedor->pessoa->cpfcnpj ?></td>
         </tr>
         <tr>

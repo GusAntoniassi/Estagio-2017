@@ -11,7 +11,7 @@ class GusHelper extends FormHelper {
 		parent::__construct($View, $config);
 		$this->setTemplates([
 			'inputContainer' => '<div class="input-field {{type}}{{required}} {{div}}">{{content}}</div>',
-			'inputContainerError' => '<div class="input-field {{type}}{{required}} {{div}} error">{{content}}{{error}}</div>',
+			'inputContainerError' => '<div class="input-field {{type}}{{required}} {{div}} has-error">{{content}}{{error}}</div>',
 			'submitContainer' => '<div class="input-field submit {{div}}">{{content}}</div>',
 			'textarea' => '<textarea name="{{name}}" class="materialize-textarea {{class}}" {{attrs}}>{{value}}</textarea>',
             'checkboxFormGroup' => '{{label}}',

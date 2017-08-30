@@ -10,15 +10,15 @@ use Cake\Routing\Router;
 
     <?= $this->Gus->create($fornecedor, ['class' => 'row']) ?>
 
-    <?= $this->Gus->control('Fornecedor.status', ['div' => 'col s12 input-field', 'label' => 'Status', 'checked' => 'checked']); ?>
+    <?= $this->Gus->control('status', ['div' => 'col s12 input-field', 'label' => 'Status', 'checked' => 'checked']); ?>
     <div class="col s12">
         <h5><strong>Dados da pessoa</strong></h5>
     </div>
     <?php
-        $tipoPessoa = (!empty($this->request->getData('Pessoa.tipo_pessoa')) ?
-            $this->request->getData('Pessoa.tipo_pessoa') : 'F');
-        // Campos cadastro de pessoa
-        echo $this->Gus->control('Pessoa.tipo_pessoa', [
+        $tipoPessoa = (!empty($this->request->getData('pessoa.tipo_pessoa')) ?
+            $this->request->getData('pessoa.tipo_pessoa') : 'F');
+
+        echo $this->Gus->control('pessoa.tipo_pessoa', [
             'div' => 'col s12 input-field',
             'label' => false,
             'type' => 'radio',
@@ -29,22 +29,22 @@ use Cake\Routing\Router;
     ?>
     <div class="clearfix"></div>
     <?php
-        echo $this->Gus->control('Pessoa.nome_razaosocial', ['div' => 'col s6 input-field', 'label' => $this->Gus->getPessoaLabel('nome_razaosocial', $tipoPessoa)]);
-        echo $this->Gus->control('Pessoa.sobrenome_nomefantasia', ['div' => 'col s6 input-field', 'label' => $this->Gus->getPessoaLabel('sobrenome_nomefantasia', $tipoPessoa)]);
-        echo $this->Gus->control('Pessoa.cpfcnpj', ['div' => 'col s3 input-field', 'label' => $this->Gus->getPessoaLabel('cpfcnpj', $tipoPessoa), 'data-type' => 'cpf']);
-        echo $this->Gus->control('Pessoa.email', ['div' => 'col s3 input-field', 'label' => 'E-mail']);
-        echo $this->Gus->control('Pessoa.telefone_1', ['div' => 'col s3 input-field', 'label' => 'Telefone principal', 'data-type' => 'phone']);
-        echo $this->Gus->control('Pessoa.telefone_2', ['div' => 'col s3 input-field', 'label' => 'Telefone secundário', 'data-type' => 'phone']);
+        echo $this->Gus->control('pessoa.nome_razaosocial', ['div' => 'col s6 input-field', 'label' => $this->Gus->getPessoaLabel('nome_razaosocial', $tipoPessoa)]);
+        echo $this->Gus->control('pessoa.sobrenome_nomefantasia', ['div' => 'col s6 input-field', 'label' => $this->Gus->getPessoaLabel('sobrenome_nomefantasia', $tipoPessoa)]);
+        echo $this->Gus->control('pessoa.cpfcnpj', ['div' => 'col s3 input-field', 'label' => $this->Gus->getPessoaLabel('cpfcnpj', $tipoPessoa), 'data-type' => 'cpf']);
+        echo $this->Gus->control('pessoa.email', ['div' => 'col s3 input-field', 'label' => 'E-mail']);
+        echo $this->Gus->control('pessoa.telefone_1', ['div' => 'col s3 input-field', 'label' => 'Telefone principal', 'data-type' => 'phone']);
+        echo $this->Gus->control('pessoa.telefone_2', ['div' => 'col s3 input-field', 'label' => 'Telefone secundário', 'data-type' => 'phone']);
     ?>
     <div class="col s12">
         <h5><strong>Endereço</strong></h5>
     </div>
     <?php
-        echo $this->Gus->control('Pessoa.cep', ['div' => 'col s3 input-field', 'label' => 'CEP', 'data-type' => 'cep']);
-        echo $this->Gus->control('Pessoa.rua', ['div' => 'col s7 input-field invisible cep-toggle', 'data-cep' => 'logradouro', 'label' => 'Logradouro']);
-        echo $this->Gus->control('Pessoa.numero', ['div' => 'col s2 input-field invisible cep-toggle', 'label' => 'Número']);
-        echo $this->Gus->control('Pessoa.bairro', ['div' => 'col s3 input-field invisible cep-toggle', 'data-cep' => 'bairro',  'label' => 'Bairro']);
-        echo $this->Gus->selectAjaxExtends('Pessoa.cidade_id',
+        echo $this->Gus->control('pessoa.cep', ['div' => 'col s3 input-field', 'label' => 'CEP', 'data-type' => 'cep']);
+        echo $this->Gus->control('pessoa.rua', ['div' => 'col s7 input-field invisible cep-toggle', 'data-cep' => 'logradouro', 'label' => 'Logradouro']);
+        echo $this->Gus->control('pessoa.numero', ['div' => 'col s2 input-field invisible cep-toggle', 'label' => 'Número']);
+        echo $this->Gus->control('pessoa.bairro', ['div' => 'col s3 input-field invisible cep-toggle', 'data-cep' => 'bairro',  'label' => 'Bairro']);
+        echo $this->Gus->selectAjaxExtends('pessoa.cidade_id',
         [
             'div' => 'col s4 input-field invisible cep-toggle',
             'attributes' => [
@@ -67,7 +67,7 @@ use Cake\Routing\Router;
     <script> // Configurar select2ajax
         $(function() {
             $.fn.select2.defaults.set('language', 'pt-BR');
-            $('select[name="Pessoa[cidade_id]"]').data('ajax', {
+            $('select[name="pessoa[cidade_id]"]').data('ajax', {
                 url: '<?= Router::url(['controller' => 'cidades', 'action' => 'select2ajax']); ?>',
                 dataType: 'json',
                 type: 'GET',
@@ -86,10 +86,10 @@ use Cake\Routing\Router;
                     }
                 }
             });
-            $('select[name="Pessoa[cidade_id]"]').select2({
+            $('select[name="pessoa[cidade_id]"]').select2({
                 ajax: $(this).data('ajax'),
                 minimumInputLength: 1,
-                placeholder: $('select[name="Pessoa[cidade_id]"]').attr('placeholder'),
+                placeholder: $('select[name="pessoa[cidade_id]"]').attr('placeholder'),
             });
         });
     </script>
@@ -98,8 +98,8 @@ use Cake\Routing\Router;
     </div>
     <?php
         // Campos exclusivos ao cadastro de fornecedores
-        echo $this->Gus->control('Fornecedor.comentarios', ['div' => 'col s12 input-field', 'label' => 'Comentários']);
-        echo $this->Gus->control('Fornecedor.dia_semana_visita', ['type' => 'select', 'div' => 'col s3 input-field', 'data-material-select', 'label' => 'Dia da semana em que visita', 'options' => $diasSemana]);
+        echo $this->Gus->control('comentarios', ['div' => 'col s12 input-field', 'label' => 'Comentários']);
+        echo $this->Gus->control('dia_semana_visita', ['type' => 'select', 'div' => 'col s3 input-field', 'data-material-select', 'label' => 'Dia da semana em que visita', 'options' => $diasSemana]);
     ?>
     <div class="clearfix"></div>
     <?= $this->Gus->button('Enviar', ['div' => 'input-field col s2 right', 'class' => 'btn right waves-effect waves-light']) ?>

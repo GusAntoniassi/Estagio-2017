@@ -6,6 +6,7 @@ use App\Controller\AppController;
 use Cake\Routing\Router;
 use \Cake\Datasource\Exception\RecordNotFoundException;
 use \Cake\Datasource\ConnectionManager;
+use \Exception;
 
 /**
  * Fornecedores Controller
@@ -87,16 +88,17 @@ class FornecedoresController extends AppController
      */
     public function add()
     {
-        $fornecedor = $this->Fornecedores->newEntity($this->request->getdata('Fornecedor'));
-        $pessoa = $this->Fornecedores->Pessoas->newEntity($this->request->getdata('Pessoa'));
+        $fornecedor = $this->Fornecedores->newEntity($this->request->getdata(), [
+            'associated' => ['Pessoas']
+        ]);
 
         if ($this->request->is('post')) {
-            // Tenta salvar a pessoa primeiro
-            if ($this->Fornecedores->Pessoas->save($pessoa)) {
-                // Se obteve sucesso, armazena o id da pessoa no fornecedor
-                $fornecedor->pessoa_id = $pessoa->id;
-                // Tenta salvar o fornecedor
+            $conn = ConnectionManager::get($this->Fornecedores->defaultConnectionName());
+            $conn->begin();
+
+            try {
                 if ($this->Fornecedores->save($fornecedor)) {
+                    $conn->commit();
                     if (!empty($this->request->getQuery('extends'))) {
                         $this->_fechaExtends();
                     }
@@ -104,18 +106,17 @@ class FornecedoresController extends AppController
 
                     return $this->redirect(['action' => 'index']);
                 } else {
-                    $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
+                    throw new Exception();
                 }
-            } else {
+            } catch (Exception $e) {
+                $conn->rollback();
                 $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
             }
         }
 
         $cidades = $this->Fornecedores->Pessoas->Cidades->find('list');
-        $fornecedores = $this->Fornecedores->Pessoas->Fornecedores->find('list');
-        $pessoas = $this->Fornecedores->Pessoas->find('list', ['limit' => 200]);
         $diasSemana = $this->Gus->getDiasSemanaArray();
-        $this->set(compact('fornecedor', 'pessoas', 'fornecedores', 'cidades', 'diasSemana'));
+        $this->set(compact('fornecedor', 'cidades', 'diasSemana'));
         $this->set('_serialize', ['fornecedor']);
 
         $this->_crumbs['Cadastro'] = Router::url(['action' => 'add']);
@@ -132,22 +133,36 @@ class FornecedoresController extends AppController
     public function edit($id = null)
     {
         $fornecedor = $this->Fornecedores->get($id, [
-            'contain' => []
+            'contain' => ['Pessoas' => ['Cidades']]
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $fornecedor = $this->Fornecedores->patchEntity($fornecedor, $this->request->getData());
-            if ($this->Fornecedores->save($fornecedor)) {
-                if (!empty($this->request->getQuery('extends'))) {
-                    $this->_fechaExtends();
-                }
-                $this->Flash->success(__('Registro salvo com sucesso.'));
 
-                return $this->redirect(['action' => 'index']);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $fornecedor = $this->Fornecedores->patchEntity($fornecedor, $this->request->getData(), [
+                'associated' => ['Pessoas']
+            ]);
+
+            $conn = ConnectionManager::get($this->Fornecedores->defaultConnectionName());
+            $conn->begin();
+
+            try {
+                if ($this->Fornecedores->save($fornecedor)) {
+                    $conn->commit();
+                    if (!empty($this->request->getQuery('extends'))) {
+                        $this->_fechaExtends();
+                    }
+                    $this->Flash->success(__('Registro salvo com sucesso.'));
+
+                    return $this->redirect(['action' => 'index']);
+                }
+            } catch (Exception $e) {
+                $conn->rollback();
+                $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
             }
-            $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
-        $pessoas = $this->Fornecedores->Pessoas->find('list', ['limit' => 200]);
-        $this->set(compact('fornecedor', 'pessoas'));
+
+        $cidades = $this->Fornecedores->Pessoas->Cidades->find('list');
+        $diasSemana = $this->Gus->getDiasSemanaArray();
+        $this->set(compact('fornecedor', 'cidades', 'diasSemana'));
         $this->set('_serialize', ['fornecedor']);
 
         $this->_crumbs['Edição'] = Router::url(['action' => 'edit']);

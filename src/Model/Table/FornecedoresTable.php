@@ -75,7 +75,6 @@ class FornecedoresTable extends Table
 
         $validator
             ->boolean('status')
-            ->requirePresence('status', 'create')
             ->notEmpty('status');
 
         $validator

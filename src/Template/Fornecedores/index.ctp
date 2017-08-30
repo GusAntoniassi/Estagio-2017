@@ -63,7 +63,7 @@ use Cake\Routing\Router;
                     <td><?= $this->Number->format($fornecedor->id) ?></td>
                     <td><?= h($fornecedor->pessoa->nome_razaosocial) ?></td>
                     <td><?= h($fornecedor->pessoa->sobrenome_nomefantasia) ?></td>
-                    <td><?= $this->Gus->tipoPessoaPorExtenso($fornecedor->pessoa->tipo) ?></td>
+                    <td><?= $this->Gus->tipoPessoaPorExtenso($fornecedor->pessoa->tipo_pessoa) ?></td>
                     <td><?= h($fornecedor->pessoa->cpfcnpj) ?></td>
                     <td><?= h($fornecedor->pessoa->telefone_1) ?></td>
                     <td><?= $this->Gus->formataStatus($fornecedor->status) ?></td>

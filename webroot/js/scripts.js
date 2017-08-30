@@ -119,6 +119,9 @@ function maskInputs() {
     	$(this).material_select();
 	});
 
+    // Adicionar classe invalid aos inputs que tem erro
+	$('.has-error input').addClass('invalid');
+
 }
 /* ===== Condições de esconder ===== */
 
@@ -416,9 +419,9 @@ function tipoPessoa(input) {
 		dataTypeCPF = 'cnpj';
 	}
 
-	$('input[name="Pessoa[nome_razaosocial]"]').parent().find('label').text(labelNome);
-	$('input[name="Pessoa[sobrenome_nomefantasia]"]').parent().find('label').text(labelSobrenome);
-	$('input[name="Pessoa[cpfcnpj]"]').attr('data-type', dataTypeCPF).val(null).parent().find('label').text(labelCPF);
+	$('input[name="pessoa[nome_razaosocial]"]').parent().find('label').text(labelNome);
+	$('input[name="pessoa[sobrenome_nomefantasia]"]').parent().find('label').text(labelSobrenome);
+	$('input[name="pessoa[cpfcnpj]"]').attr('data-type', dataTypeCPF).val(null).parent().find('label').text(labelCPF);
 
 	maskInputs();
     Materialize.updateTextFields();

@@ -220,6 +220,11 @@ label.active {
   visibility: hidden;
   transform: translateY(-50%); }
 
+.error-message {
+  color: #F44336;
+  font-size: 11px;
+  transform: translateY(-16px); }
+
 /* Menu lateral (nav) */
 #logo-container {
   height: 98px;
