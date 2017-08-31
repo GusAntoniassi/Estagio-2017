@@ -29,10 +29,12 @@ class GusHelper extends FormHelper {
 		if (!empty($options['div'])) {
 			$options['templateVars']['div'] = $options['div'];
 			unset($options['div']);
-		}
+		} else if (isset($options['div']) && $options['div'] === FALSE) {
+            $options['templates']['inputContainer'] = '{{content}}';
+        }
 
-		// Se for um campo do tipo status
-		if ($fieldName == 'status' || preg_match('/.*?\.status/', $fieldName)) {
+		// Se for um campo do tipo status (e não estiver declarado type radio)
+		if (($fieldName == 'status' || preg_match('/.*?\.status/', $fieldName)) && (empty($options['type']) || $options['type'] == 'rsadio')) {
 		    $options['templateVars']['div'] .= ' switch-wrapper';
 		    $this->setTemplates([
                 'checkbox' => '<input type="checkbox" name="{{name}}" value="{{value}}"{{attrs}}>',

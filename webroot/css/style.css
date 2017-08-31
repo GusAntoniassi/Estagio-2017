@@ -249,4 +249,9 @@ label.active {
 .brand-logo {
   font-weight: 100; }
 
+/* Tabela de compras */
+.remover-item i {
+  color: red;
+  line-height: 140%; }
+
 /*# sourceMappingURL=style.css.map */

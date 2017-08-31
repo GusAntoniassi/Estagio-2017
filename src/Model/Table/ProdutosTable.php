@@ -63,6 +63,19 @@ class ProdutosTable extends Table
         ]);
 
         $this->addBehavior('Search.Search');
+
+        $this->addBehavior('Proffer.Proffer', [
+            'foto' => [
+                'dir' => 'foto_dir',
+                'thumbnailSizes' => [
+                    'thumb' => [
+                        'w' => 45,
+                        'h' => 45,
+                        'fit' => true
+                    ]
+                ]
+            ]
+        ]);
     }
 
     /**
@@ -146,5 +159,4 @@ class ProdutosTable extends Table
             ->value('status');
         return $search;
     }
-
 }

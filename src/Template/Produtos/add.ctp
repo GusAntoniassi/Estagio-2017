@@ -7,7 +7,7 @@
     <?= $this->element('breadcrumbs', ['crumbs' => $crumbs]); ?>
     <?php $this->assign('title', 'Cadastro de Produto'); ?>
 
-    <?= $this->Gus->create($produto, ['class' => 'row']) ?>
+    <?= $this->Gus->create($produto, ['class' => 'row', 'type' => 'file']) ?>
     <?php
     echo $this->Gus->control('status', ['div' => 'col s12 input-field', 'label' => 'Status', 'checked' => 'checked']);
     echo $this->Gus->control('nome', ['div' => 'col s6 m5 input-field', 'label' => 'Nome']);
@@ -18,6 +18,21 @@
     ]);
     echo $this->Gus->control('custo', ['div' => 'col s6 m3 input-field', 'label' => 'Custo (R$)', 'type' => 'text', 'data-type' => 'money']);
     echo '<div class="clearfix"></div>';
+    ?>
+
+    <?= $this->Gus->input('foto', ['div' => false, 'label' => false, 'type' => 'file']); ?>
+
+    <div class="file-field input-field">
+        <div class="btn">
+            <span>File</span>
+            <input type="file">
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+        </div>
+    </div>
+    <?php
+    echo $this->Gus->control('foto', ['div' => 'col s12 input-field', 'type' => 'file']);
     echo $this->Gus->control('produto_acabado', ['div' => 'col input-field', 'label' => 'Produto acabado']);
     echo $this->Gus->control('reduz_estoque', ['div' => 'col input-field', 'label' => 'Reduz estoque']);
     echo $this->Gus->control('possui_lote', ['div' => 'col input-field', 'label' => 'Possui lote']);
