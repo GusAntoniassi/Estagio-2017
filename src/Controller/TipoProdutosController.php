@@ -15,6 +15,8 @@ use \Cake\Datasource\ConnectionManager;
  */
 class TipoProdutosController extends AppController {
     private $_crumbs;
+    public $helpers = ['Proffer.Proffer'];
+
     public function initialize() {
         parent::initialize();
         $this->loadComponent('Search.Prg', [

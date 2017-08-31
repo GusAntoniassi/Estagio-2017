@@ -17,6 +17,7 @@ use \Cake\Datasource\ConnectionManager;
 class ProdutosController extends AppController
 {
     private $_crumbs;
+    public $helpers = ['Proffer.Proffer'];
 
     public function initialize()
     {

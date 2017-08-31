@@ -30,8 +30,9 @@
     <?= $this->Gus->button('Enviar', ['div' => 'input-field col s2 right', 'class' => 'btn right waves-effect waves-light']) ?>
     <?= $this->Gus->end() ?>
 
+
     <?php if ($produto->foto) {
-        echo $this->Html->image('../files/produtos/foto/' . $produto->foto_dir . '/thumb_' . $produto->foto);
+        echo $this->Proffer->uploadImage($produto, 'foto', ['thumb' => 'thumb']);
     } ?>
 
     <script>

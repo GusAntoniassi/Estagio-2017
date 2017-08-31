@@ -42,6 +42,19 @@ class TipoProdutosTable extends Table
         ]);
 
         $this->addBehavior('Search.Search');
+
+        $this->addBehavior('Proffer.Proffer', [
+            'nome' => [
+                'dir' => 'nome_dir',
+                'thumbnailSizes' => [
+                    'thumb' => [
+                        'w' => 45,
+                        'h' => 45,
+                        'fit' => true
+                    ]
+                ]
+            ]
+        ]);
     }
 
     /**

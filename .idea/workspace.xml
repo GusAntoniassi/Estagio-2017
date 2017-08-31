@@ -3,16 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c8181edc-cae8-49d6-a19a-18742a0159c9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/bootstrap.php" afterPath="$PROJECT_DIR$/config/bootstrap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/Gus/src/View/Helper/GusHelper.php" afterPath="$PROJECT_DIR$/plugins/Gus/src/View/Helper/GusHelper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Table/ProdutosTable.php" afterPath="$PROJECT_DIR$/src/Model/Table/ProdutosTable.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Produtos/add.ctp" afterPath="$PROJECT_DIR$/src/Template/Produtos/add.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ProdutosController.php" afterPath="$PROJECT_DIR$/src/Controller/ProdutosController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/TipoProdutosController.php" afterPath="$PROJECT_DIR$/src/Controller/TipoProdutosController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Table/TipoProdutosTable.php" afterPath="$PROJECT_DIR$/src/Model/Table/TipoProdutosTable.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Produtos/edit.ctp" afterPath="$PROJECT_DIR$/src/Template/Produtos/edit.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/css/style.css" afterPath="$PROJECT_DIR$/webroot/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/css/style.css.map" afterPath="$PROJECT_DIR$/webroot/css/style.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/css/style.scss" afterPath="$PROJECT_DIR$/webroot/css/style.scss" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,72 +21,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GusHelper.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/Gus/src/View/Helper/GusHelper.php">
+      <file leaf-file-name="ProfferHelper.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vendor/davidyell/proffer/src/View/Helper/ProfferHelper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="32" column="68" lean-forward="false" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
+            <state relative-caret-position="226">
+              <caret line="39" column="10" lean-forward="false" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
+              <folding>
+                <element signature="e#37#58#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HtmlHelper.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/View/Helper/HtmlHelper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="344" column="25" lean-forward="false" selection-start-line="344" selection-start-column="20" selection-end-line="344" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="add.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Template/Compras/add.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="85" column="84" lean-forward="false" selection-start-line="85" selection-start-column="84" selection-end-line="85" selection-end-column="84" />
-              <folding>
-                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#5;n#tr#1;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-                <marker date="1504139339454" expanded="true" signature="4734:6627" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ComprasController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/ComprasController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="200" column="5" lean-forward="false" selection-start-line="200" selection-start-column="5" selection-end-line="200" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/bootstrap.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="234" column="31" lean-forward="false" selection-start-line="234" selection-start-column="31" selection-end-line="234" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProdutosTable.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Table/ProdutosTable.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="73" column="37" lean-forward="false" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add.ctp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Template/Produtos/add.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="22" column="69" lean-forward="false" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
+            <state relative-caret-position="17">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
-                <marker date="1504141974419" expanded="true" signature="1102:1330" ph="..." />
-                <marker date="1504141974419" expanded="true" signature="1128:1205" ph="..." />
-                <marker date="1504141974419" expanded="true" signature="1245:1319" ph="..." />
-                <marker date="1504141974419" expanded="true" signature="2241:2252" ph="..." />
+                <marker date="1504149297981" expanded="true" signature="1102:1330" ph="..." />
+                <marker date="1504149297981" expanded="true" signature="1128:1205" ph="..." />
+                <marker date="1504149297981" expanded="true" signature="1245:1319" ph="..." />
+                <marker date="1504149297981" expanded="true" signature="2241:2252" ph="..." />
               </folding>
             </state>
           </provider>
@@ -101,40 +61,50 @@
       <file leaf-file-name="edit.ctp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Template/Produtos/edit.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="33" column="89" lean-forward="false" selection-start-line="33" selection-start-column="89" selection-end-line="33" selection-end-column="89" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Produto.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Entity/Produto.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-408">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FormHelper.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/View/Helper/FormHelper.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="106" column="56" lean-forward="false" selection-start-line="106" selection-start-column="56" selection-end-line="106" selection-end-column="56" />
+            <state relative-caret-position="187">
+              <caret line="34" column="77" lean-forward="false" selection-start-line="34" selection-start-column="77" selection-end-line="34" selection-end-column="77" />
               <folding>
-                <marker date="1504141818908" expanded="true" signature="3820:3833" ph="..." />
+                <marker date="1504151121087" expanded="true" signature="1973:1984" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CidadesController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/CidadesController.php">
+      <file leaf-file-name="ProdutosController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ProdutosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-321">
-              <caret line="210" column="32" lean-forward="false" selection-start-line="210" selection-start-column="32" selection-end-line="210" selection-end-column="32" />
+            <state relative-caret-position="272">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProdutosTable.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Table/ProdutosTable.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="77" column="11" lean-forward="false" selection-start-line="66" selection-start-column="8" selection-end-line="77" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TipoProdutosTable.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Table/TipoProdutosTable.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="47" column="30" lean-forward="false" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TipoProdutosController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/TipoProdutosController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="77">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -144,18 +114,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$pesso-&gt;tipo</find>
-      <find>$pessoa-&gt;tipo</find>
-      <find>pes</find>
-      <find>pessoa-</find>
-      <find>pessoa-&gt;ti</find>
-      <find>pessoa-&gt;tipo</find>
-      <find>fornecedor.</find>
-      <find>'</find>
-      <find>templatevars</find>
-      <find>template</find>
-      <find>templates</find>
-      <find>t</find>
       <find>this.clas</find>
       <find>this.class</find>
       <find>this.classList</find>
@@ -173,7 +131,19 @@
       <find>file</find>
       <find>input-</find>
       <find>input-field f</find>
+      <find>help</find>
+      <find>helper</find>
       <find>input-field</find>
+      <find>G</find>
+      <find>Gus</find>
+      <find>GusH</find>
+      <find>GusHelper</find>
+      <find>'</find>
+      <find>'Gus</find>
+      <find>'Gus'</find>
+      <find>he</find>
+      <find>helpers</find>
+      <find>link(</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -202,13 +172,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Model/Table/LotesTable.php" />
-        <option value="$PROJECT_DIR$/src/Template/Pessoas/add.ctp" />
-        <option value="$PROJECT_DIR$/src/Controller/PessoasController.php" />
-        <option value="$PROJECT_DIR$/config/routes.php" />
-        <option value="$PROJECT_DIR$/src/Controller/PaisesController.php" />
-        <option value="$PROJECT_DIR$/plugins/Gus/src/Template/Bake/Element/form.ctp" />
-        <option value="$PROJECT_DIR$/webroot/css/components/_variables.scss" />
         <option value="$PROJECT_DIR$/plugins/Gus/config/bootstrap.php" />
         <option value="$PROJECT_DIR$/src/Template/Estados/add.ctp" />
         <option value="$PROJECT_DIR$/src/Model/Table/EstadosTable.php" />
@@ -249,10 +212,17 @@
         <option value="$PROJECT_DIR$/src/Controller/ComprasController.php" />
         <option value="$PROJECT_DIR$/config/bootstrap.php" />
         <option value="$PROJECT_DIR$/src/Model/Table/ProdutosTable.php" />
-        <option value="$PROJECT_DIR$/src/Template/Produtos/edit.ctp" />
         <option value="$PROJECT_DIR$/vendor/cakephp/cakephp/src/View/Helper/FormHelper.php" />
         <option value="$PROJECT_DIR$/plugins/Gus/src/View/Helper/GusHelper.php" />
+        <option value="$PROJECT_DIR$/plugins/Proffer/src/View/Helper/ProfferHelper.php" />
+        <option value="$PROJECT_DIR$/src/Controller/ProdutosController.php" />
+        <option value="$PROJECT_DIR$/src/Model/Table/TipoProdutosTable.php" />
+        <option value="$PROJECT_DIR$/src/Controller/TipoProdutosController.php" />
         <option value="$PROJECT_DIR$/src/Template/Produtos/add.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/TipoProdutos/add.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/TipoProdutos/edit.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Produtos/edit.ctp" />
+        <option value="$PROJECT_DIR$/vendor/davidyell/proffer/src/View/Helper/ProfferHelper.php" />
       </list>
     </option>
   </component>
@@ -349,6 +319,166 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="materialize.scss" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="davidyell" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proffer" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="davidyell" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proffer" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Helper" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="davidyell" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proffer" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="davidyell" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proffer" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="davidyell" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proffer" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Behavior" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -537,9 +667,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="gus&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;form&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/vendor/cakephp/cakephp/src/View/Helper/FormHelper.php&#10;produtos/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Produtos/edit.ctp&#10;produtos/add.c&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Produtos/add.ctp&#10;produto.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Produto.php&#10;conf/bootstra&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/config/bootstrap.php&#10;cidadescontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/CidadesController.php&#10;produtostab&#9;null&#9;null&#10;comprascontr&#9;null&#9;null&#10;style.s&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/css/style.scss&#10;style.ss&#9;null&#9;null&#10;gushelper&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;fornecedores/add.&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Fornecedores/add.ctp&#10;script&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/scripts.js&#10;formhelper&#9;null&#9;null&#10;fornecedore&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/FornecedoresTable.php&#10;fornecedor.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Fornecedor.php&#10;fornecedoresta&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/FornecedoresTable.php&#10;script.&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/scripts.js&#10;cidades/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/edit.ctp&#10;fornecedores/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Fornecedores/edit.ctp&#10;guscompo&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/Controller/Component/GusComponent.php&#10;guscomp&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/Controller/Component/GusComponent.php&#10;cidade.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Cidade.php&#10;estado&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Estado.php&#10;estadostabl&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/EstadosTable.php&#10;addc&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Fornecedores/add.ctp&#10;add.ctp&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Fornecedores/add.ctp&#10;fornece/view.&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Fornecedores/view.ctp&#10;botao&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Element/botao_fixo.ctp&#10;bootstra&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/config/bootstrap.php&#10;bootstar&#9;null&#9;null&#10;app.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/config/app.php&#10;pessoastab&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/PessoasTable.php&#10;guscompon&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/Controller/Component/GusComponent.php&#10;forneced&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/FornecedoresController.php&#10;gushelpe&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;style.scss&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/css/style.scss&#10;default.c&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Layout/default.ctp&#10;appcontro&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/AppController.php&#10;cidadesta&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/CidadesTable.php&#10;estadoscontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/EstadosController.php&#10;cidades/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/add.ctp&#10;script.js&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/scripts.js&#10;funcionarios&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/FuncionariosController.php&#10;funcionarios/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Funcionarios/add.ctp&#10;cidades/inde&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/index.ctp&#10;fornecedorest&#9;null&#9;null&#10;fornecedor&#9;null&#9;null&#10;fornecedorescontr&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="tipoprod/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/TipoProdutos/edit.ctp&#10;htmlhelper&#9;null&#9;null&#10;produtos/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Produtos/edit.ctp&#10;tipoprodutoscontr&#9;null&#9;null&#10;tipoprodutos/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/TipoProdutos/add.ctp&#10;tipoprodutostab&#9;null&#9;null&#10;tipopr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/TipoProduto.php&#10;tipoProduto&#9;null&#9;null&#10;appcontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/AppController.php&#10;Entity.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity.php&#10;produtoscontr&#9;null&#9;null&#10;produto.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Produto.php&#10;gus&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;form&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/vendor/cakephp/cakephp/src/View/Helper/FormHelper.php&#10;produtos/add.c&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Produtos/add.ctp&#10;conf/bootstra&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/config/bootstrap.php&#10;cidadescontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/CidadesController.php&#10;produtostab&#9;null&#9;null&#10;comprascontr&#9;null&#9;null&#10;style.s&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/css/style.scss&#10;style.ss&#9;null&#9;null&#10;gushelper&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;fornecedores/add.&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Fornecedores/add.ctp&#10;script&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/scripts.js&#10;formhelper&#9;null&#9;null&#10;fornecedore&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/FornecedoresTable.php&#10;fornecedor.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Fornecedor.php&#10;fornecedoresta&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/FornecedoresTable.php&#10;script.&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/scripts.js&#10;cidades/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/edit.ctp&#10;fornecedores/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Fornecedores/edit.ctp&#10;guscompo&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/Controller/Component/GusComponent.php&#10;guscomp&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/Controller/Component/GusComponent.php&#10;cidade.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Cidade.php&#10;estado&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Estado.php&#10;estadostabl&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/EstadosTable.php&#10;addc&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Fornecedores/add.ctp&#10;add.ctp&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Fornecedores/add.ctp&#10;fornece/view.&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Fornecedores/view.ctp&#10;botao&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Element/botao_fixo.ctp&#10;bootstra&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/config/bootstrap.php&#10;bootstar&#9;null&#9;null&#10;app.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/config/app.php&#10;pessoastab&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/PessoasTable.php&#10;guscompon&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/Controller/Component/GusComponent.php&#10;forneced&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/FornecedoresController.php&#10;gushelpe&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;style.scss&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/css/style.scss&#10;default.c&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Layout/default.ctp&#10;appcontro&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/AppController.php" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\estagio2017\vendor\davidyell\proffer\src" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -664,7 +799,7 @@
       <workItem from="1504020721018" duration="9238000" />
       <workItem from="1504064420153" duration="369000" />
       <workItem from="1504107368781" duration="124000" />
-      <workItem from="1504130361049" duration="7683000" />
+      <workItem from="1504130361049" duration="12824000" />
     </task>
     <task id="LOCAL-00001" summary="SelectExtends pronto com funcionalidade básica.&#10;Trabalhando no caso de Cidades onde o select de estado depende do comportamento do select de País.">
       <created>1501296478716</created>
@@ -754,7 +889,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138922000" />
+    <option name="totallyTimeSpent" value="144063000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -856,116 +991,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Controller/FuncionariosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="86" column="35" lean-forward="false" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Funcionarios/add.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="33" column="7" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="33" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Cidades/add.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Table/CidadesTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1419">
-          <caret line="102" column="30" lean-forward="false" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/EstadosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="195" column="0" lean-forward="true" selection-start-line="195" selection-start-column="0" selection-end-line="211" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AppController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-442">
-          <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Layout/default.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="33" column="71" lean-forward="false" selection-start-line="33" selection-start-column="71" selection-end-line="33" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/jrbasso/cake_ptbr/src/Locale/pt_BR/cake.po">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="35" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Locale/pt_BR/cake.po">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="261" column="0" lean-forward="true" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="41" column="59" lean-forward="false" selection-start-line="41" selection-start-column="59" selection-end-line="41" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FormaPagamentosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Element/botao_fixo.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="103" lean-forward="false" selection-start-line="9" selection-start-column="103" selection-end-line="9" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/View/Helper/PaginatorHelper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6902">
           <caret line="422" column="20" lean-forward="false" selection-start-line="422" selection-start-column="20" selection-end-line="422" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/Datasource/EntityInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="48" column="10" lean-forward="false" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/ORM/Entity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="24" column="36" lean-forward="false" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Entity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="15" lean-forward="false" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -1136,7 +1165,7 @@
         <state relative-caret-position="526">
           <caret line="136" column="49" lean-forward="false" selection-start-line="136" selection-start-column="49" selection-end-line="136" selection-end-column="49" />
           <folding>
-            <element signature="e#34#53#0#PHP" expanded="true" />
+            <element signature="e#34#53#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1173,14 +1202,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Table/ProdutosTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="73" column="37" lean-forward="false" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/View/Helper/FormHelper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="121">
@@ -1191,34 +1212,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Produtos/edit.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="33" column="89" lean-forward="false" selection-start-line="33" selection-start-column="89" selection-end-line="33" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Entity/Produto.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ComprasController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="200" column="5" lean-forward="false" selection-start-line="200" selection-start-column="5" selection-end-line="200" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/Gus/src/View/Helper/GusHelper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="32" column="68" lean-forward="false" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
           <folding />
         </state>
       </provider>
@@ -1237,15 +1234,173 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Produtos/add.ctp">
+    <entry file="file://$PROJECT_DIR$/src/Model/Entity/Produto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/Gus/src/View/Helper/GusHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="32" column="68" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/davidyell/proffer/src/Model/Behavior/ProfferBehavior.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/ORM/BehaviorRegistry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2752">
+          <caret line="30" column="6" lean-forward="false" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Entity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AppController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
-          <caret line="22" column="69" lean-forward="false" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
+          <caret line="25" column="43" lean-forward="false" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
           <folding>
-            <marker date="1504141974419" expanded="true" signature="1102:1330" ph="..." />
-            <marker date="1504141974419" expanded="true" signature="1128:1205" ph="..." />
-            <marker date="1504141974419" expanded="true" signature="1245:1319" ph="..." />
-            <marker date="1504141974419" expanded="true" signature="2241:2252" ph="..." />
+            <element signature="e#602#633#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Entity/TipoProduto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-32">
+          <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/ORM/Entity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-76">
+          <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/ORM/Table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="850" column="31" lean-forward="false" selection-start-line="850" selection-start-column="31" selection-end-line="850" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/TipoProdutosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ProdutosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Table/ProdutosTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="77" column="11" lean-forward="false" selection-start-line="66" selection-start-column="8" selection-end-line="77" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/TipoProdutos/add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="87" lean-forward="false" selection-start-line="12" selection-start-column="87" selection-end-line="12" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/TipoProdutos/edit.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="94" lean-forward="true" selection-start-line="11" selection-start-column="94" selection-end-line="11" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Table/TipoProdutosTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="47" column="30" lean-forward="false" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/Datasource/EntityInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="38" column="3" lean-forward="false" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/View/Helper/HtmlHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="344" column="25" lean-forward="false" selection-start-line="344" selection-start-column="20" selection-end-line="344" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Produtos/add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <marker date="1504149297981" expanded="true" signature="1102:1330" ph="..." />
+            <marker date="1504149297981" expanded="true" signature="1128:1205" ph="..." />
+            <marker date="1504149297981" expanded="true" signature="1245:1319" ph="..." />
+            <marker date="1504149297981" expanded="true" signature="2241:2252" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Produtos/edit.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="34" column="77" lean-forward="false" selection-start-line="34" selection-start-column="77" selection-end-line="34" selection-end-column="77" />
+          <folding>
+            <marker date="1504151121087" expanded="true" signature="1973:1984" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/davidyell/proffer/src/View/Helper/ProfferHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="39" column="10" lean-forward="false" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
+          <folding>
+            <element signature="e#37#58#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
