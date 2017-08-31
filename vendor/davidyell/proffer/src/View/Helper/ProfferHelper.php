@@ -1,5 +1,7 @@
 <?php
+
 namespace Proffer\View\Helper;
+
 use Cake\View\Helper;
 use Cake\Routing\Router;
 
@@ -9,10 +11,12 @@ use Cake\Routing\Router;
  *
  * @author Gus Antoniassi (scripts.gus@gmail.com)
  */
-class ProfferHelper extends Helper {
+class ProfferHelper extends Helper
+{
     public $helpers = ['Url', 'Html'];
 
-    public function __construct(\Cake\View\View $View, array $config = []) {
+    public function __construct(\Cake\View\View $View, array $config = [])
+    {
         parent::__construct($View, $config);
     }
 
@@ -27,7 +31,8 @@ class ProfferHelper extends Helper {
      *
      * @throws \Exception
      */
-    public function uploadUrl(\Cake\Datasource\EntityInterface $entity, $field, array $options = []) {
+    public function getUploadUrl(\Cake\Datasource\EntityInterface $entity, $field, array $options = [])
+    {
         $options += [
             'folder' => 'files',
             'dir' => $field . '_dir',
@@ -37,12 +42,12 @@ class ProfferHelper extends Helper {
 
         if (!empty($options['thumb'])) {
             $options['thumb'] .= '_';
-        } 
+        }
 
         $table = strtolower($entity->getSource());
         $dir = $entity->get($options['dir']);
         if (empty($dir)) {
-            throw new \Exception(__('Could not find the dir column for the ' . $field . ' field.'));
+            return '';
         }
 
         return Router::url("/{$options['folder']}/{$table}/{$field}/{$dir}/{$options['thumb']}{$entity->get($field)}", $options['fullUrl']);
@@ -59,8 +64,9 @@ class ProfferHelper extends Helper {
      *
      * @return string The anchor tag
      */
-    public function uploadLink($title, \Cake\Datasource\EntityInterface $entity, $field, array $options = [], array $htmlOptions = []) {
-        return $this->Html->link($title, $this->uploadUrl($entity, $field, $options), $htmlOptions);
+    public function getUploadLink($title, \Cake\Datasource\EntityInterface $entity, $field, array $options = [], array $htmlOptions = [])
+    {
+        return $this->Html->link($title, $this->getUploadUrl($entity, $field, $options), $htmlOptions);
     }
 
     /**
@@ -73,7 +79,8 @@ class ProfferHelper extends Helper {
      *
      * @return string The image tag
      */
-    public function uploadImage(\Cake\Datasource\EntityInterface $entity, $field, $options = [], $htmlOptions = []) {
-        return $this->Html->image($this->uploadUrl($entity, $field, $options), $htmlOptions);
+    public function getUploadImage(\Cake\Datasource\EntityInterface $entity, $field, $options = [], $htmlOptions = [])
+    {
+        return $this->Html->image($this->getUploadUrl($entity, $field, $options), $htmlOptions);
     }
 }

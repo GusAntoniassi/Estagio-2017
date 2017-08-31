@@ -22,7 +22,7 @@ use App\Model\Entity;;
  * @property \App\Model\Entity\ItemCompra[] $item_compras
  * @property \App\Model\Entity\ItemOrcamento[] $item_orcamentos
  * @property \App\Model\Entity\ItemPedidoCompra[] $item_pedido_compras
- * @property \App\Model\Entity\Lote[] $lote
+ * @property \App\Model\Entity\Lote[] $lotes
  */
 class Produto extends Entity
 {

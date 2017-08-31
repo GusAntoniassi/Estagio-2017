@@ -25,6 +25,7 @@ class ProdutosController extends AppController
         $this->loadComponent('Search.Prg', [
             'actions' => 'index',
         ]);
+        $this->loadComponent('Proffer.Proffer');
 
         $this->_crumbs = [
             'Painel' => Router::url(['controller' => 'usuarios', 'action' => 'dashboard'], true),
@@ -65,7 +66,7 @@ class ProdutosController extends AppController
     public function view($id = null)
     {
         $produto = $this->Produtos->get($id, [
-            'contain' => ['TipoProdutos', 'ItemComandas', 'ItemCompras', 'ItemOrcamentos', 'ItemPedidoCompras', 'Lote']
+            'contain' => ['TipoProdutos', 'ItemComandas', 'ItemCompras', 'ItemOrcamentos', 'ItemPedidoCompras', 'Lotes']
         ]);
 
         $this->set('produto', $produto);
@@ -190,5 +191,27 @@ class ProdutosController extends AppController
             $conn->rollback();
             $this->Flash->error(__('Erro ao excluir o(s) registro(s)! Por favor tente novamente.'));
         }
+    }
+
+    public function getProdutosCompraveis() {
+        $produtosDisponiveis = $this->Produtos->find('all')
+            ->contain(['TipoProdutos'])
+            ->where(['Produtos.status' => true])
+            ->limit(10);
+
+        $produtos = [];
+
+        foreach ($produtosDisponiveis as $produto) {
+            $produtos[] = [
+                'id' => $produto->id,
+                'nome' => $produto->nome,
+                'foto' => $this->Proffer->getUploadUrl($produto, 'foto', ['thumb' => 'thumb']),
+                'preco' => $produto->preco,
+                'tipoProduto' => $produto->tipo_produto->nome,
+            ];
+        }
+
+        echo json_encode($produtos);
+        die();
     }
 }

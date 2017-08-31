@@ -15,7 +15,7 @@ use Search\Manager;
  * @property \Cake\ORM\Association\HasMany $ItemCompras
  * @property \Cake\ORM\Association\HasMany $ItemOrcamentos
  * @property \Cake\ORM\Association\HasMany $ItemPedidoCompras
- * @property \Cake\ORM\Association\HasMany $Lote
+ * @property \Cake\ORM\Association\HasMany $Lotes
  *
  * @method \App\Model\Entity\Produto get($primaryKey, $options = [])
  * @method \App\Model\Entity\Produto newEntity($data = null, array $options = [])
@@ -58,7 +58,7 @@ class ProdutosTable extends Table
         $this->hasMany('ItemPedidoCompras', [
             'foreignKey' => 'produto_id'
         ]);
-        $this->hasMany('Lote', [
+        $this->hasMany('Lotes', [
             'foreignKey' => 'produto_id'
         ]);
 

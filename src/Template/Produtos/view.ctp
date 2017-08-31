@@ -15,6 +15,12 @@
             <th scope="row"><?= __('Tipo de Produto') ?></th>
             <td><?= $produto->has('tipo_produto') ? $this->Html->link($produto->tipo_produto->nome, ['controller' => 'TipoProdutos', 'action' => 'view', $produto->tipo_produto->id]) : '' ?></td>
         </tr>
+        <?php if (!empty($produto->foto)) { ?>
+            <tr>
+                <th scope="row"><?= __('Foto') ?></th>
+                <td><?= $this->Proffer->getUploadImage($produto, 'foto', ['thumb' => 'thumb']); ?></td>
+            </tr>
+        <?php } ?>
         <tr>
             <th scope="row"><?= __('Custo') ?></th>
             <td><?= h($this->Number->currency($produto->custo, 'BRL')) ?></td>
@@ -32,10 +38,10 @@
             <td><?= $this->Gus->formataBoolean($produto->reduz_estoque) ?></td>
         </tr>
         <?php if (!empty($produto->qtde_estoque)) { ?>
-        <tr>
-            <th scope="row"><?= __('Quantidade em estoque') ?></th>
-            <td><?= h($produto->qtde_estoque) ?></td>
-        </tr>
+            <tr>
+                <th scope="row"><?= __('Quantidade em estoque') ?></th>
+                <td><?= h($produto->qtde_estoque) ?></td>
+            </tr>
         <?php } ?>
         <tr>
             <th scope="row"><?= __('Possui lote') ?></th>

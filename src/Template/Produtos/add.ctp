@@ -20,19 +20,17 @@
     echo '<div class="clearfix"></div>';
     ?>
 
-    <?= $this->Gus->input('foto', ['div' => false, 'label' => false, 'type' => 'file']); ?>
 
-    <div class="file-field input-field">
+    <div class="col s6 file-field input-field">
         <div class="btn">
-            <span>File</span>
-            <input type="file">
+            <span>Foto</span>
+            <?= $this->Gus->input('foto', ['div' => false, 'label' => false, 'type' => 'file']); ?>
         </div>
         <div class="file-path-wrapper">
-            <input class="file-path validate" type="text">
+            <input class="file-path" type="text">
         </div>
     </div>
     <?php
-    echo $this->Gus->control('foto', ['div' => 'col s12 input-field', 'type' => 'file']);
     echo $this->Gus->control('produto_acabado', ['div' => 'col input-field', 'label' => 'Produto acabado']);
     echo $this->Gus->control('reduz_estoque', ['div' => 'col input-field', 'label' => 'Reduz estoque']);
     echo $this->Gus->control('possui_lote', ['div' => 'col input-field', 'label' => 'Possui lote']);
