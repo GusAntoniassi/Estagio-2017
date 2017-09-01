@@ -29,9 +29,10 @@ use Cake\Routing\Router;
     </div>
     <div class="clearfix"></div>
 
-    <div class="input-field col s12">
+    <div class="input-field input-group col s12">
         <select id="autocomplete-input" class="autocomplete browser-default"></select>
         <label for="autocomplete-input">Produto</label>
+        <span class="input-group-btn"><a class="btn btn-small waves-effect waves-light refresh" data-href="http://localhost/estagio2017/fornecedores/get-all" onclick="return refreshSelect(event.target || event.srcElement);"><i class="material-icons">autorenew</i></a><a class="btn btn-small waves-effect waves-light edit" href="http://localhost/estagio2017/fornecedores/edit" onclick="return extendEdit(event);"><i class="material-icons">edit</i></a><a class="btn btn-small waves-effect waves-light add" href="http://localhost/estagio2017/fornecedores/add" onclick="return extendAdd(event);"><i class="material-icons">add</i></a></span>
     </div>
     <script>
         $(document).ready(function() {
@@ -61,12 +62,10 @@ use Cake\Routing\Router;
 
                     var foto = (dados.foto ? dados.foto : 'http://via.placeholder.com/45x45')
 
-                    var html = '<div class="valign-wrapper"><img src="' + foto + '" class="circle"><span>&nbsp; ' + dados.nome + '</span></div>';
-
-//                    var html = "<div class='select-option clearfix'>" +
-//                        "<div class='circle select-foto'><img src='" + foto + "' /></div>" +
-//                        "<div class='select-nome'>" + dados.nome + "</div>" +
-//                        "</div>";
+                    var html = '<div class="valign-wrapper">' +
+                        '<img src="' + foto + '" class="circle">' +
+                        '<span>&nbsp; ' + dados.nome + '</span>' +
+                        '</div>';
 
                     return html;
                 },
@@ -79,6 +78,12 @@ use Cake\Routing\Router;
                     console.log(e.params);
                     var data = e.data;
                     alert('selecionou');
+                    /* Fazer uma tabela com inputs mesmo, sem gravar na sesion nem nada.
+                        Quando selecionar, verificar se o produto tem lote ou não, se tiver abrir campos
+                        pra digitar a data de validade e o código do lote.
+
+                        Forma de pagamento fazer uma combobox mesmo
+                     */
                 }
             });
 
