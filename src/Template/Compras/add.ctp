@@ -2,6 +2,7 @@
 /**
   * @var \App\View\AppView $this
   */
+use Cake\Routing\Router;
 ?>
 <div class="compras form add row card-panel">
     <?= $this->element('breadcrumbs', ['crumbs' => $crumbs]); ?>
@@ -22,35 +23,82 @@
         'label' => ['text' => 'Fornecedor', 'class' => 'active'],
         'controller' => 'fornecedores',
     ]); ?>
-    <div class="input-field col s2">
+    <div class="input-field col s3">
         <input type="text" id="data" data-type="date" value="<?= date('d/m/Y'); ?>">
         <label for="data">Data da compra</label>
     </div>
     <div class="clearfix"></div>
 
-    <div class="input-field col s5">
-        <input type="text" id="autocomplete-input" class="autocomplete">
+    <div class="input-field col s12">
+        <select id="autocomplete-input" class="autocomplete browser-default"></select>
         <label for="autocomplete-input">Produto</label>
     </div>
     <script>
         $(document).ready(function() {
-            $('input.autocomplete').autocomplete({
-                data: {
-                    "Apple": null,
-                    "Microsoft": null,
-                    "Google": 'https://placehold.it/250x250'
+            $('#autocomplete-input').select2({
+                ajax: {
+                    url: '<?= Router::url(['controller' => 'produtos', 'action' => 'getProdutosCompraveis']); ?>',
+                    dataType: 'json',
+                    type: 'GET',
+                    data: function(params) {
+                        return {q: params.term}
+                    },
+                    processResults: function(data) {
+                        return {
+                            results: $.map(data, function(item) {
+                                return {
+                                    id: item.id,
+                                    nome: item.nome,
+                                    foto: item.foto,
+                                }
+                            })
+                        }
+                    },
                 },
-                limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
-                onAutocomplete: function(val) {
-                    // Callback function when value is autcompleted.
+                escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+                templateResult: function(dados) {
+                    if (dados.loading) return null;
+
+                    var foto = (dados.foto ? dados.foto : 'http://via.placeholder.com/45x45')
+
+                    var html = '<div class="valign-wrapper"><img src="' + foto + '" class="circle"><span>&nbsp; ' + dados.nome + '</span></div>';
+
+//                    var html = "<div class='select-option clearfix'>" +
+//                        "<div class='circle select-foto'><img src='" + foto + "' /></div>" +
+//                        "<div class='select-nome'>" + dados.nome + "</div>" +
+//                        "</div>";
+
+                    return html;
                 },
-                minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+                templateSelection: function(dados) {
+                    return dados.nome;
+                }
+            }).on('select2:select', function(e) {
+                if (e) {
+                    $(this).siblings('label').addClass('active');
+                    console.log(e.params);
+                    var data = e.data;
+                    alert('selecionou');
+                }
             });
+
+//            $('input.autocomplete').autocomplete({
+//                data: {
+//                    "Apple": null,
+//                    "Microsoft": null,
+//                    "Google": 'https://placehold.it/250x250'
+//                },
+//                limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+//                onAutocomplete: function(val) {
+//                    // Callback function when value is autcompleted.
+//                },
+//                minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+//            });
         });
     </script>
     <div class="clearfix"></div>
     <br/>
-    <div class="col s12">
+    <div class="col s12 tabela">
         <table class="bordered responsive-table">
             <thead>
                 <tr>

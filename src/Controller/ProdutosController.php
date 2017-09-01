@@ -194,9 +194,16 @@ class ProdutosController extends AppController
     }
 
     public function getProdutosCompraveis() {
+        $q = (!empty($this->request->getQuery('q')) ? h($this->request->getQuery('q')) : '');
+
         $produtosDisponiveis = $this->Produtos->find('all')
             ->contain(['TipoProdutos'])
-            ->where(['Produtos.status' => true])
+            ->where([
+                'Produtos.status' => true,
+                'OR' => [
+                    'Produtos.nome LIKE ' => $q . '%',
+                ],
+            ])
             ->limit(10);
 
         $produtos = [];
