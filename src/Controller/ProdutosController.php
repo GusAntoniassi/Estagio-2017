@@ -213,8 +213,8 @@ class ProdutosController extends AppController
                 'id' => $produto->id,
                 'nome' => $produto->nome,
                 'foto' => $this->Proffer->getUploadUrl($produto, 'foto', ['thumb' => 'thumb']),
-                'preco' => $produto->preco,
-                'tipoProduto' => $produto->tipo_produto->nome,
+                'custo' => $produto->custo,
+                'possuiLote' => $produto->possui_lote,
             ];
         }
 

@@ -7,7 +7,7 @@
     <?= $this->element('breadcrumbs', ['crumbs' => $crumbs]); ?>
     <?php $this->assign('title', 'Edição de Produto'); ?>
 
-    <?= $this->Gus->create($produto, ['class' => 'row']) ?>
+    <?= $this->Gus->create($produto, ['class' => 'row', 'type' => 'file']) ?>
     <?php
     echo $this->Gus->control('status', ['div' => 'col s12 input-field', 'label' => 'Status']);
     echo $this->Gus->control('nome', ['div' => 'col s6 m5 input-field', 'label' => 'Nome']);

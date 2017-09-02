@@ -38,6 +38,8 @@ class Produto extends Entity
      */
     protected $_accessible = [
         '*' => true,
-        'id' => false
+        'id' => false,
+        'foto' => true,
+        'foto_dir' => true,
     ];
 }

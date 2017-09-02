@@ -254,4 +254,22 @@ label.active {
   color: red;
   line-height: 140%; }
 
+tr.produto .input-field {
+  margin-top: 0; }
+  tr.produto .input-field input {
+    margin-bottom: 0; }
+
+tr.lote td {
+  background: #f9f9f9;
+  padding: 10px 5px; }
+
+.input-small {
+  margin-top: 0.8rem; }
+  .input-small input {
+    margin: 0 !important;
+    height: 2rem !important; }
+  .input-small label {
+    font-size: 0.8rem !important;
+    transform: translateY(-140%) !important; }
+
 /*# sourceMappingURL=style.css.map */
