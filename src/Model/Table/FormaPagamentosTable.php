@@ -106,6 +106,7 @@ class FormaPagamentosTable extends Table
                 'before' => true,
                 'after' => true,
             ])
+            ->value('num_parcelas')
             ->value('status');
         return $search;
     }

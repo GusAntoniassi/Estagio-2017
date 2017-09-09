@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -13,9 +14,12 @@ use \Cake\Datasource\ConnectionManager;
  *
  * @method \App\Model\Entity\FormaPagamento[] paginate($object = null, array $settings = [])
  */
-class FormaPagamentosController extends AppController {
+class FormaPagamentosController extends AppController
+{
     private $_crumbs;
-    public function initialize() {
+
+    public function initialize()
+    {
         parent::initialize();
         $this->loadComponent('Search.Prg', [
             'actions' => 'index',
@@ -23,7 +27,7 @@ class FormaPagamentosController extends AppController {
 
         $this->_crumbs = [
             'Painel' => Router::url(['controller' => 'usuarios', 'action' => 'dashboard'], true),
-            'FormaPagamentos' => Router::url(['action' => 'index'])
+            'Formas de Pagamento' => Router::url(['action' => 'index'])
         ];
     }
 
@@ -36,8 +40,7 @@ class FormaPagamentosController extends AppController {
     {
 
         $query = $this->FormaPagamentos
-            ->find('search', ['search' => $this->request->getQueryParams()])
-                        ;
+            ->find('search', ['search' => $this->request->getQueryParams()]);
 
         $this->paginate = ['limit' => 20];
         $formaPagamentos = $this->paginate($query);
@@ -150,13 +153,15 @@ class FormaPagamentosController extends AppController {
 
         return $this->redirect(['action' => 'index']);
     }
+
     /**
      * Handle delete method
      *
      * @param int|array $ids FormaPagamentos ids.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException Quando o registro não é encontrado.
      */
-    private function _handleDelete($ids) {
+    private function _handleDelete($ids)
+    {
         if (!is_array($ids)) {
             $ids = [$ids];
         }
