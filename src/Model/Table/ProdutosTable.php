@@ -122,6 +122,10 @@ class ProdutosTable extends Table
             ->allowEmpty('custo');
 
         $validator
+            ->requirePresence('foto', 'create')
+            ->allowEmpty('foto', 'update');
+
+        $validator
             ->boolean('status')
             ->requirePresence('status', 'create')
             ->notEmpty('status');

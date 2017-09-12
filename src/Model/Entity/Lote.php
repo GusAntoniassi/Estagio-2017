@@ -14,7 +14,7 @@ use App\Model\Entity;;
  * @property int $produto_id
  *
  * @property \App\Model\Entity\Produto $produto
- * @property \App\Model\Entity\BaixaProduto[] $baixa_produto
+ * @property \App\Model\Entity\BaixaProdutos[] $baixa_produto
  */
 class Lote extends Entity
 {

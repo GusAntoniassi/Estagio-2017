@@ -16,17 +16,53 @@ use Cake\Routing\Router;
                         <div class="collapsible-body">
                             <div class="row">
                                 <?= $this->Gus->create(); ?>
-                                <?= $this->Gus->control('id', ['div' => 'col s2 m1 l1', 'label' => 'Id']); ?>
-                                <?= $this->Gus->control('num_lote', ['div' => 'col s2 m1 l1', 'label' => 'Num Lote']); ?>
-                                <?= $this->Gus->control('qtde_estoque', ['div' => 'col s2 m1 l1', 'label' => 'Qtde Estoque']); ?>
-                                <?= $this->Gus->control('data_vencimento', ['div' => 'col s2 m1 l1', 'label' => 'Data Vencimento']); ?>
-                                <?= $this->Gus->control('status', ['type' => 'select', 'data-material-select', 'div' => 'col s2 m1 l1', 'label' => 'Status', 'options' => $this->Gus->getStatusOptions(), 'value' => '']); ?>
-                                <?= $this->Gus->control('status', ['div' => 'col s2 m1 l1', 'label' => 'Status']); ?>
-                                <?= $this->Gus->control('produto_id', ['div' => 'col s2 m1 l1', 'label' => 'Produto Id']); ?>
+                                <?= $this->Gus->control('id', ['div' => 'col s2 m1 l1', 'label' => 'ID']); ?>
+                                <?= $this->Gus->control('num_lote', ['div' => 'col s10 m3 l3', 'label' => 'Nº do lote']); ?>
+                                <?= $this->Gus->control('produto_id',
+                                    [
+                                        'type' => 'select',
+                                        'div' => 'col s9 m4 l4',
+                                        'class' => 'browser-default select2ajax',
+                                        'placeholder' => 'Digite para buscar...',
+                                        'label' => ['text' => 'Produto', 'class' => 'active'],
+                                        'options' => $produtos->toArray()
+                                    ]
+                                ); ?>
+                                <?= $this->Gus->control('status', ['type' => 'select', 'data-material-select', 'div' => 'col s3 m2 l2', 'label' => 'Status', 'options' => $this->Gus->getStatusOptions(), 'value' => '']); ?>
                                 <?= $this->Gus->control('Filtrar', ['div' => 'col s12 m2 l2 right', 'type' => 'submit', 'class' => 'btn waves-effect waves-light']); ?>
                                 <?= $this->Gus->end(); ?>
                             </div>
                         </div>
+
+                        <script>
+                            $(function() {
+                                $.fn.select2.defaults.set('language', 'pt-BR');
+                                $('select[name="produto_id"]').data('ajax', {
+                                    url: '<?= Router::url(['controller' => 'produtos', 'action' => 'select2ajax']); ?>',
+                                    dataType: 'json',
+                                    type: 'GET',
+                                    data: function(params) {
+                                        return {q: params.term}
+                                    },
+                                    processResults: function(data) {
+                                        return {
+                                            results: $.map(data, function(item) {
+                                                return {
+                                                    text: item.name,
+                                                    id: item.id,
+                                                }
+                                            })
+                                        }
+                                    }
+                                });
+                                $('select[name="produto_id"]').select2({
+                                    ajax: $(this).data('ajax'),
+                                    minimumInputLength: 1,
+                                    placeholder: $('select[name="produto_id"]').attr('placeholder'),
+                                    allowClear: true,
+                                });
+                            });
+                        </script>
                     </li>
                 </ul>
             </div>
@@ -47,10 +83,10 @@ use Cake\Routing\Router;
                 <th scope="col">
                     <input type="checkbox" class="filled-in" id="check-all"/><label for="check-all">&nbsp;</label>
                 </th>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('num_lote') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('qtde_estoque') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('data_vencimento') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('id', 'ID') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('num_lote', 'Nº do lote') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('qtde_estoque', 'Qtde em estoque') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('data_vencimento', 'Data de vencimento') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('status') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('produto_id') ?></th>
                 <th scope="col" class="actions"></th>

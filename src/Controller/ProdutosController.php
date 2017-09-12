@@ -221,4 +221,45 @@ class ProdutosController extends AppController
         echo json_encode($produtos);
         die();
     }
+
+    public function getAll()
+    {
+        $conditions = ['status' => true];
+        if (!empty($this->request->getQuery('ajax_id'))) {
+            $conditions['id'] = $this->request->getQuery('ajax_id');
+            $produto = $this->Produtos->findById($this->request->getQuery('ajax_id'))->first();
+            $estados = [$produto->id => $produto->nome];
+        } else {
+            $estados = $this->Produtos->find('list', ['valueField' => 'nome'])
+                ->where($conditions)
+                ->orderAsc('nome');
+        }
+        echo json_encode($estados);
+        die();
+    }
+
+    public function select2ajax() {
+        $query = $this->request->getQuery('q');
+        if (empty($query)) {
+            die(json_encode([]));
+        }
+
+        $query = '%' . mb_strtolower($query) . '%';
+
+        $conditions = ['Produtos.nome LIKE ' => $query];
+        if ($this->request->getQuery('possui_lote') !== null) {
+            $conditions['possui_lote'] = $this->request->getQuery('possui_lote');
+        }
+
+        $produtos = $this->Produtos->find('list', [
+            'valueField' => 'nome'
+        ])->where($conditions);
+
+        $resultados = [];
+        foreach ($produtos as $id => $produto) {
+            $resultados[] = ['id' => $id, 'name' => $produto];
+        }
+        echo json_encode($resultados);
+        die();
+    }
 }

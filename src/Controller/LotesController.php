@@ -43,10 +43,20 @@ class LotesController extends AppController
             ->find('search', ['search' => $this->request->getQueryParams()])
             ->contain(['Produtos']);
 
+        $conditions['id'] = 0;
+        if (!empty($this->request->getQuery('produto_id'))) {
+            $conditions['id'] = $this->request->getQuery('produto_id');
+        }
+
+        $produtos = $this->Lotes->Produtos->find('list', [
+            'valueField' => 'nome',
+            'conditions' => $conditions,
+        ]);
+
         $this->paginate = ['limit' => 20];
         $lotes = $this->paginate($query);
 
-        $this->set(compact('lotes'));
+        $this->set(compact('lotes', 'produtos'));
         $this->set('_serialize', ['lotes']);
 
         $this->set('crumbs', $this->_crumbs);
@@ -62,7 +72,7 @@ class LotesController extends AppController
     public function view($id = null)
     {
         $lote = $this->Lotes->get($id, [
-            'contain' => ['Produtos', 'BaixaProduto']
+            'contain' => ['Produtos', 'BaixaProdutos']
         ]);
 
         $this->set('lote', $lote);

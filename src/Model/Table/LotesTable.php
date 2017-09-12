@@ -12,7 +12,7 @@ use Search\Manager;
  * Lotes Model
  *
  * @property \Cake\ORM\Association\BelongsTo $Produtos
- * @property \Cake\ORM\Association\HasMany $BaixaProduto
+ * @property \Cake\ORM\Association\HasMany $BaixaProdutos
  *
  * @method \App\Model\Entity\Lote get($primaryKey, $options = [])
  * @method \App\Model\Entity\Lote newEntity($data = null, array $options = [])
@@ -43,7 +43,7 @@ class LotesTable extends Table
             'foreignKey' => 'produto_id',
             'joinType' => 'INNER'
         ]);
-        $this->hasMany('BaixaProduto', [
+        $this->hasMany('BaixaProdutos', [
             'foreignKey' => 'lote_id'
         ]);
 
