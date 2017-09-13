@@ -6,6 +6,7 @@ use App\Controller\AppController;
 use Cake\Routing\Router;
 use \Cake\Datasource\Exception\RecordNotFoundException;
 use \Cake\Datasource\ConnectionManager;
+use Cake\View\CellTrait;
 
 /**
  * Produtos Controller
@@ -260,6 +261,23 @@ class ProdutosController extends AppController
             $resultados[] = ['id' => $id, 'name' => $produto];
         }
         echo json_encode($resultados);
+        die();
+    }
+
+    // Action usada apenas para criar novas linhas (via ajax)
+    use CellTrait;
+    public function getLinhaTabela() {
+        $linha = '';
+        $id = $this->request->getQuery('id');
+        $linhaAtual = $this->request->getQuery('linhaAtual');
+        if (!empty($id)) {
+            $produto = $this->Produtos->findById($id)->first();
+            if (!empty($produto)) {
+                $linha = $this->cell('LinhaTabela::produto', [$produto, $linhaAtual]);
+            }
+        }
+
+        echo $linha;
         die();
     }
 }

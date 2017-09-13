@@ -35,7 +35,51 @@ use Cake\Routing\Router;
         <span class="input-group-btn"><a class="btn btn-small waves-effect waves-light refresh" data-href="http://localhost/estagio2017/fornecedores/get-all" onclick="return refreshSelect(event.target || event.srcElement);"><i class="material-icons">autorenew</i></a><a class="btn btn-small waves-effect waves-light edit" href="http://localhost/estagio2017/fornecedores/edit" onclick="return extendEdit(event);"><i class="material-icons">edit</i></a><a class="btn btn-small waves-effect waves-light add" href="http://localhost/estagio2017/fornecedores/add" onclick="return extendAdd(event);"><i class="material-icons">add</i></a></span>
     </div>
     <script>
+//        var templateLinhaProduto = '';
+//        templateLinhaProduto += '<tr class="produto" data-produto-id="{{idProduto}}" data-linha-id="{{linhaTabela}}">';
+//        templateLinhaProduto +=     '<td style="width: 1px; padding-right: 10px;">';
+//        templateLinhaProduto +=         '<input type="hidden" name="compras[itemcompras][{{linhaTabela}}][produto_id]" value="{{idProduto}}" />';
+//        templateLinhaProduto +=         '<a href="#"><img src="{{fotoProduto}}" class="circle" /></a>';
+//        templateLinhaProduto +=     '</td>';
+//        templateLinhaProduto +=     '<td class="left-align"><a href="#">{{nomeProduto}}</a></td>';
+//        templateLinhaProduto +=     '<td class="center-align">';
+//        templateLinhaProduto +=     '<div class="input-field center-align">';
+//        templateLinhaProduto +=         '<input type="number" name="compras[itemcompras][{{linhaTabela}}][quantidade]" value="{{quantidade}}" class="center-align" style="max-width: 75px">';
+//        templateLinhaProduto +=     '</div>';
+//        templateLinhaProduto +=     '</td>';
+//        templateLinhaProduto +=     '<td class="right-align">';
+//        templateLinhaProduto +=         '<div class="input-field right-align">';
+//        templateLinhaProduto +=             '<input type="text" name="compras[itemcompras][{{linhaTabela}}][valor_unitario]" value="{{custo}}" class="right-align" data-type="money" style="max-width: 100px">';
+//        templateLinhaProduto +=         '</div>';
+//        templateLinhaProduto +=     '</td>';
+//        templateLinhaProduto +=     '<td class="right-align">R$ {{total}}</td>';
+//        templateLinhaProduto +=     '<td class="center-align" style="width: 1px">';
+//        templateLinhaProduto +=         '<a href="#" class="remover-item"><i class="material-icons">close</i></a>';
+//        templateLinhaProduto +=     '</td>';
+//        templateLinhaProduto += '</tr>';
+
+//        var templateLinhaLote = '';
+//        templateLinhaLote += '<tr class="lote">';
+//        templateLinhaLote +=     '<td colspan="5">';
+//        templateLinhaLote +=         '<div class="input-field input-small col s3">';
+//        templateLinhaLote +=         '<!-- Apenas na edição -->';
+//        templateLinhaLote +=         '<input type="hidden" name="compras[itemcompras][{{linhaTabela}}][lotes][{{linhaTabelaLote}}][id]" />';
+//        templateLinhaLote +=         '<!-- -->';
+//        templateLinhaLote +=         '<input type="text" id="cod_lote" name="compras[itemcompras][{{linhaTabela}}][lotes][{{linhaTabelaLote}}][num_lote]" value="{{codigoLote}}" />';
+//        templateLinhaLote +=         '<label for="cod_lote">Código do lote</label>';
+//        templateLinhaLote +=     '</div>';
+//        templateLinhaLote +=     '<div class="input-field input-small col s3">';
+//        templateLinhaLote +=         '<input type="text" id="data_lote" name="compras[itemcompras][{{linhaTabela}}][lotes][{{linhaTabelaLote}}][data_vencimento]" value="{{vencimentoLote}}" data-type="date" />';
+//        templateLinhaLote +=         '<label for="data_lote">Data do vencimento</label>';
+//        templateLinhaLote +=     '</div>';
+//        templateLinhaLote +=     '</td>';
+//        templateLinhaLote +=     '<td class="center-align" style="width: 1px">';
+//        templateLinhaLote +=         '<a href="#" class="adicionar-lote"><i class="material-icons">add</i></a>';
+//        templateLinhaLote +=     '</td>';
+//        templateLinhaLote += '</tr>';
+
         var linhaTabela = <?php echo 2; ?>;
+        var linhaTabelaLote = <?php echo 1; ?>;
 
         $(document).ready(function() {
             $('#autocomplete-input').select2({
@@ -53,7 +97,7 @@ use Cake\Routing\Router;
                                     id: item.id,
                                     nome: item.nome,
                                     foto: item.foto,
-                                    custo: item.custo,
+//                                    custo: item.custo,
                                     possuiLote: item.possuiLote,
                                 }
                             })
@@ -78,62 +122,44 @@ use Cake\Routing\Router;
                 }
             }).on('select2:select', function(e) {
                 if (e) {
+                    // TODO: Trocar linhaTabela por uma variável que soma quantas linhas tem
+                    // mesma coisa pro lote
                     $(this).siblings('label').addClass('active');
-                    console.log(e.params);
                     var dados = e.params.data;
                     if (dados) {
-                        var html = '';
-                        var foto = (dados.foto ? dados.foto : 'http://via.placeholder.com/45x45')
-                        var custo = (dados.custo ? dados.custo : 1);
-                        var qtdInicial = 1;
-
-                        html += '<tr class="produto" data-produto-id="' + dados.id + '" data-linha-id="' + linhaTabela + '">';
-                        html +=     '<td style="width: 1px; padding-right: 10px;">';
-                        html +=         '<input type="hidden" name="compras[itemcompras][' + linhaTabela + '][produto_id]" value="' + dados.id + '" />';
-                        html +=         '<a href="#"><img src="' + foto + '" class="circle" /></a>';
-                        html +=     '</td>';
-                        html +=     '<td class="left-align"><a href="#">' + dados.nome + '</a></td>';
-                        html +=     '<td class="center-align">';
-                        html +=     '<div class="input-field center-align">';
-                        html +=         '<input type="number" name="compras[itemcompras][' + linhaTabela + '][quantidade]" value="' + qtdInicial + '" class="center-align" style="max-width: 75px" id="qtde">';
-                        html +=     '</div>';
-                        html +=     '</td>';
-                        html +=     '<td class="right-align">';
-                        html +=         '<div class="input-field right-align">';
-                        html +=             '<input type="text" name="compras[itemcompras][' + linhaTabela + '][valor_unitario]" value="' + custo + '" class="right-align" data-type="money" style="max-width: 100px" id="qtde">';
-                        html +=         '</div>';
-                        html +=     '</td>';
-                        html +=     '<td class="right-align">R$ ' + custo + '</td>';
-                        html +=     '<td class="center-align" style="width: 1px">';
-                        html +=         '<a href="#" class="remover-item"><i class="material-icons">close</i></a>';
-                        html +=     '</td>';
-                        html += '</tr>';
-
-                        if (dados.possuiLote) {
-                            html += '<tr class="lote">';
-                            html +=     '<td colspan="5">';
-                            html +=         '<div class="input-field input-small col s3">';
-                            html +=         '<!-- Apenas na edição -->';
-                            html +=         '<input type="hidden" name="compras[itemcompras][0][lotes][0][id]" />';
-                            html +=         '<!-- -->';
-                            html +=         '<input type="text" id="cod_lote" name="compras[itemcompras][0][lotes][0][num_lote]" />';
-                            html +=         '<label for="cod_lote">Código do lote</label>';
-                            html +=     '</div>';
-                            html +=     '<div class="input-field input-small col s3">';
-                            html +=         '<input type="text" id="data_lote" name="compras[itemcompras][0][lotes][0][data_vencimento]" data-type="date" />';
-                            html +=         '<label for="data_lote">Data do vencimento</label>';
-                            html +=     '</div>';
-                            html +=     '</td>';
-                            html +=     '<td class="center-align" style="width: 1px">';
-                            html +=         '<a href="#" class="adicionar-lote"><i class="material-icons">add</i></a>';
-                            html +=     '</td>';
-                            html += '</tr>';
-                        }
-
-                        $('#tabela-produtos').append(html);
+                        $.get({
+                            url: '<?php echo Router::url(['controller' => 'produtos', 'action' => 'getLinhaTabela']); ?>',
+                            data: {
+                                id: dados.id,
+                                linhaAtual: linhaTabela,
+                            },
+                            dataType: 'html'
+                        }).done(function(html) {
+                            if (html) {
+                                $('#tabela-produtos tbody').append(html).promise().done(function() {
+                                    if (dados.possuiLote) {
+                                        $.get({
+                                            url: '<?php echo Router::url(['controller' => 'lotes', 'action' => 'getLinhaTabela']); ?>',
+                                            data: {
+                                                linhaAtual: linhaTabela,
+                                                linhaAtualLote: linhaTabelaLote,
+                                                produtoId: dados.id,
+                                            },
+                                            dataType: 'html'
+                                        }).done(function(html) {
+                                            if (html) {
+                                                $('#tabela-produtos tbody').append(html);
+                                            }
+                                            linhaTabelaLote++;
+                                        });
+                                    }
+                                    linhaTabela++;
+                                });
+                            } else {
+                                console.error('Erro ao trazer a linha da tabela para o produto ID ' + dados.id);
+                            }
+                        });
                     }
-
-
                     /* Fazer uma tabela com inputs mesmo, sem gravar na sesion nem nada.
                         Quando selecionar, verificar se o produto tem lote ou não, se tiver abrir campos
                         pra digitar a data de validade e o código do lote.
@@ -143,18 +169,10 @@ use Cake\Routing\Router;
                 }
             });
 
-//            $('input.autocomplete').autocomplete({
-//                data: {
-//                    "Apple": null,
-//                    "Microsoft": null,
-//                    "Google": 'https://placehold.it/250x250'
-//                },
-//                limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
-//                onAutocomplete: function(val) {
-//                    // Callback function when value is autcompleted.
-//                },
-//                minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
-//            });
+            $('#tabela-produtos').on('click', '.adicionar-lote', function(e) {
+                var $target = $(e.target);
+                var linhaTabela
+            });
         });
     </script>
     <div class="clearfix"></div>
@@ -171,91 +189,32 @@ use Cake\Routing\Router;
                 </tr>
             </thead>
             <tbody>
-                <!--
-                <tr class="produto" data-produto-id="1" data-linha-id="0">
-                    <td style="width: 1px; padding-right: 10px;">
-                        <input type="hidden" name="compras[itemcompras][0][produto_id]" value="1" />
-                        <a href="#"><img src="http://www.placecage.com/g/45/45" class="circle" /></a>
-                    </td>
-                    <td class="left-align"><a href="#">Filé de pacu</a></td>
-                    <td class="center-align">
-                        <div class="input-field center-align">
-                            <input type="number" name="compras[itemcompras][0][quantidade]" value="3"
-                                   class="center-align" style="max-width: 75px" id="qtde">
-                        </div>
-                    </td>
-                    <td class="right-align">
-                        <div class="input-field right-align">
-                            <input type="text" name="compras[itemcompras][0][valor_unitario]" value="500,00"
-                                   class="right-align" data-type="money" style="max-width: 100px" id="qtde">
-                        </div>
-                    </td>
-                    <td class="right-align">
-                        R$ 1.500,00
-                    </td>
-                    <td class="center-align" style="width: 1px">
-                        <a href="#" class="remover-item" data-row-id="0"><i class="material-icons">close</i></a>
-                    </td>
-                </tr>
-                <tr class="lote">
-                    <td colspan="5">
-                        <div class="input-field input-small col s3">
-                            <?php // Apenas na edição ?>
-                            <input type="hidden" name="compras[itemcompras][0][lotes][0][id]" />
-
-                            <input type="text" id="cod_lote" name="compras[itemcompras][0][lotes][0][num_lote]" />
-                            <label for="cod_lote">Código do lote</label>
-                        </div>
-                        <div class="input-field input-small col s3">
-                            <input type="text" id="data_lote" name="compras[itemcompras][0][lotes][0][data_vencimento]" data-type="date" />
-                            <label for="data_lote">Data do vencimento</label>
-                        </div>
-                    </td>
-                    <td class="center-align" style="width: 1px">
-                        <a href="#" class="adicionar-lote"><i class="material-icons">add</i></a>
-                    </td>
-                </tr>
-                <tr class="produto" data-produto-id="1" data-linha-id="0">
-                    <td style="width: 1px; padding-right: 10px;">
-                        <a href="#"><img src="http://www.placecage.com/45/45" class="circle" /></a>
-                    </td>
-                    <td class="left-align"><a href="#">Filé de sardinha</a></td>
-                    <td class="center-align">
-                        <div class="input-field center-align">
-                            <input type="number" name="compras[itemcompras][1][quantidade]" value="3"
-                                   class="center-align" style="max-width: 75px" id="qtde">
-                        </div>
-                    </td>
-                    <td class="right-align">
-                        <div class="input-field right-align">
-                            <input type="text" name="compras[itemcompras][1][valor_unitario]" value="500,00"
-                                   class="right-align" data-type="money" style="max-width: 100px" id="qtde">
-                        </div>
-                    </td>
-                    <td class="right-align">R$ 1.500,00</td>
-                    <td class="center-align" style="width: 1px">
-                        <a href="#" class="remover-item"><i class="material-icons">close</i></a>
-                    </td>
-                </tr>
-                -->
+                <?php
+                    // Apenas na edição
+                    /*
+                    echo $this->cell('LinhaTabela::produto', [1]);
+                    echo $this->cell('LinhaTabela::lote', [1]);
+                    echo $this->cell('LinhaTabela::produto', [4, 1, 3, 500]);
+                    */
+                ?>
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="3"></td>
                     <td class="right-align"><strong>Valor líquido</strong></td>
-                    <td class="right-align">R$ 1.500,00</td>
+                    <td class="right-align" data-role="valor-liquido">R$ 1.500,00</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td colspan="3"></td>
                     <td class="right-align"><strong>Descontos</strong></td>
-                    <td class="right-align">R$ 500,00</td>
+                    <td class="right-align" data-role="descontos">R$ 500,00</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td colspan="3"></td>
                     <td class="right-align"><strong>Valor total</strong></td>
-                    <td class="right-align">R$ 1.000,00</td>
+                    <td class="right-align" data-role="valor-total">R$ 1.000,00</td>
                     <td></td>
                 </tr>
             </tfoot>

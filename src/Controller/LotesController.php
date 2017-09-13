@@ -6,6 +6,7 @@ use App\Controller\AppController;
 use Cake\Routing\Router;
 use \Cake\Datasource\Exception\RecordNotFoundException;
 use \Cake\Datasource\ConnectionManager;
+use Cake\View\CellTrait;
 
 /**
  * Lotes Controller
@@ -197,5 +198,20 @@ class LotesController extends AppController
             $conn->rollback();
             $this->Flash->error(__('Erro ao excluir o(s) registro(s)! Por favor tente novamente.'));
         }
+    }
+
+    // Action usada apenas para criar novas linhas (via ajax)
+    use CellTrait;
+    public function getLinhaTabela() {
+        $linha = '';
+        $produtoId = $this->request->getQuery('produtoId');
+        if (!empty($produtoId)) {
+            $linhaAtual = ($this->request->getQuery('linhaAtual') ? $this->request->getQuery('linhaAtual') : 0);
+            $linhaAtualLote = ($this->request->getQuery('linhaAtualLote') ? $this->request->getQuery('linhaAtualLote') : 0);
+            $linha = $this->cell('LinhaTabela::lote', [null, $linhaAtual, $linhaAtualLote, $produtoId]);
+        }
+
+        echo $linha;
+        die();
     }
 }
