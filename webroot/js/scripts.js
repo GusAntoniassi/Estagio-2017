@@ -426,3 +426,34 @@ function tipoPessoa(input) {
 	maskInputs();
     Materialize.updateTextFields();
 }
+
+function floatToMoeda(flt, simboloMoeda, simboloMilhares, simboloDecimais, casas) {
+	var numero = '';
+
+	// Definição dos parâmetros padrões
+    simboloMoeda = simboloMoeda || 'R$ ';
+    simboloMilhares = simboloMilhares || ".";
+    simboloDecimais = simboloDecimais || ",";
+	casas = casas || 2;
+
+    numero += simboloMoeda;
+
+    // Se o número for negativo colocar um - na frente
+    var sinal = flt < 0 ? "-" : "";
+    numero += sinal;
+
+    // Armazena o número sem as casas decimais
+    var valorSemDecimais = parseInt(Math.abs(parseInt(flt) || 0).toFixed(2), 10) + "";
+    // Armazena a posição na string onde vai começar o separador de decimais (para números como 1.000 ou 10.000)
+	var inicioDecimais = (valorSemDecimais.length > 3 ? valorSemDecimais.length % 3 : 0);
+
+	// Coloca o símbolo dos milhares anteriormente se for o caso
+	if (inicioDecimais) {
+		numero += valorSemDecimais.substr(0, inicioDecimais) + simboloMilhares;
+	}
+
+    return numero + valorSemDecimais.substr(inicioDecimais).replace(/(\d{3})(?=\d)/g, "$1" + simboloMilhares) + (casas ? simboloDecimais + Math.abs(flt - valorSemDecimais).toFixed(casas).slice(2) : "");
+}
+function moedaToFloat(str) {
+	return parseFloat(str.replace(/[^0-9-,]/g, '').replace(',', '.'));
+}

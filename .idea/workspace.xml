@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8181edc-cae8-49d6-a19a-18742a0159c9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/lote.ctp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/View/Cell/LinhaTabelaCell.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/TestCase/View/Cell/LinhaTabelaCellTest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LotesController.php" afterPath="$PROJECT_DIR$/src/Controller/LotesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ProdutosController.php" afterPath="$PROJECT_DIR$/src/Controller/ProdutosController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/lote.ctp" afterPath="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/lote.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp" afterPath="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Compras/add.ctp" afterPath="$PROJECT_DIR$/src/Template/Compras/add.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/css/style.css" afterPath="$PROJECT_DIR$/webroot/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/css/style.css.map" afterPath="$PROJECT_DIR$/webroot/css/style.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/css/style.scss" afterPath="$PROJECT_DIR$/webroot/css/style.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/js/scripts.js" afterPath="$PROJECT_DIR$/webroot/js/scripts.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,13 +27,32 @@
       <file leaf-file-name="add.ctp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Template/Compras/add.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="125" column="43" lean-forward="false" selection-start-line="125" selection-start-column="43" selection-end-line="125" selection-end-column="43" />
+            <state relative-caret-position="256">
+              <caret line="156" column="33" lean-forward="false" selection-start-line="156" selection-start-column="33" selection-end-line="156" selection-end-column="33" />
               <folding>
                 <element signature="e#6#47#0#PHP" expanded="true" />
-                <marker date="1505273225223" expanded="true" signature="5199:5209" ph="..." />
-                <marker date="1505273225223" expanded="true" signature="6984:6990" ph=" " />
+                <marker date="1505436631131" expanded="true" signature="3446:3452" ph=" " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webroot/css/style.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2551">
+              <caret line="71" column="18" lean-forward="false" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scripts.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webroot/js/scripts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1886">
+              <caret line="183" column="15" lean-forward="false" selection-start-line="183" selection-start-column="8" selection-end-line="183" selection-end-column="15" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -41,8 +60,8 @@
       <file leaf-file-name="add.ctp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Template/Lotes/add.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+            <state relative-caret-position="459">
+              <caret line="57" column="80" lean-forward="true" selection-start-line="56" selection-start-column="16" selection-end-line="57" selection-end-column="80" />
               <folding>
                 <element signature="e#6#45#0#PHP" expanded="true" />
                 <marker date="1505262328563" expanded="true" signature="1534:1574" ph="{...}" />
@@ -54,8 +73,8 @@
       <file leaf-file-name="ProdutosController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ProdutosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="275" column="23" lean-forward="true" selection-start-line="275" selection-start-column="23" selection-end-line="275" selection-end-column="23" />
+            <state relative-caret-position="373">
+              <caret line="275" column="23" lean-forward="false" selection-start-line="275" selection-start-column="23" selection-end-line="275" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -64,8 +83,8 @@
       <file leaf-file-name="LotesController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/LotesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="214" column="14" lean-forward="true" selection-start-line="214" selection-start-column="14" selection-end-line="214" selection-end-column="14" />
+            <state relative-caret-position="407">
+              <caret line="214" column="14" lean-forward="false" selection-start-line="214" selection-start-column="14" selection-end-line="214" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -74,7 +93,7 @@
       <file leaf-file-name="LinhaTabelaCell.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/Cell/LinhaTabelaCell.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
+            <state relative-caret-position="407">
               <caret line="44" column="80" lean-forward="false" selection-start-line="44" selection-start-column="80" selection-end-line="44" selection-end-column="80" />
               <folding>
                 <element signature="e#32#58#0#PHP" expanded="true" />
@@ -86,11 +105,9 @@
       <file leaf-file-name="lote.ctp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Template/Cell/LinhaTabela/lote.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="57" lean-forward="false" selection-start-line="0" selection-start-column="57" selection-end-line="0" selection-end-column="57" />
-              <folding>
-                <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="238">
+              <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -98,14 +115,11 @@
       <file leaf-file-name="produto.ctp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="181" lean-forward="false" selection-start-line="10" selection-start-column="181" selection-end-line="10" selection-end-column="181" />
+            <state relative-caret-position="424">
+              <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
               <folding>
                 <element signature="e#6#45#0#PHP" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -114,7 +128,7 @@
       <file leaf-file-name="ProfferHelper.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/davidyell/proffer/src/View/Helper/ProfferHelper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
+            <state relative-caret-position="544">
               <caret line="33" column="65" lean-forward="true" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="65" />
               <folding>
                 <element signature="e#39#60#0#PHP" expanded="true" />
@@ -123,25 +137,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LotesTable.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Table/LotesTable.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="75" column="39" lean-forward="false" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>padding</find>
-      <find>currency-</find>
-      <find>currency-&gt;</find>
-      <find>currency-&gt;f</find>
-      <find>currency-&gt;form</find>
       <find>currency-&gt;format</find>
       <find>currency-&gt;forma</find>
       <find>curre</find>
@@ -167,6 +166,11 @@
       <find>da</find>
       <find>data_vencimento</find>
       <find>{{vencimentoLote}}</find>
+      <find>$(this</find>
+      <find>transition:</find>
+      <find>transition</find>
+      <find>console</find>
+      <find>.attr(</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -181,7 +185,6 @@
       <replace>pessoa.</replace>
       <replace>(int)$linhaTabela</replace>
       <replace>&lt;?= $quantidade * $custo ?&gt;</replace>
-      <replace />
       <replace>&lt;?= $lote-&gt;data_vencimento ?&gt;</replace>
     </replaceStrings>
     <dirStrings>
@@ -202,7 +205,6 @@
         <option value="$PROJECT_DIR$/src/Controller/FornecedoresController.php" />
         <option value="$PROJECT_DIR$/src/Template/Fornecedores/edit.ctp" />
         <option value="$PROJECT_DIR$/src/Model/Table/PessoasTable.php" />
-        <option value="$PROJECT_DIR$/webroot/js/scripts.js" />
         <option value="$PROJECT_DIR$/webroot/css/materialize.scss" />
         <option value="$PROJECT_DIR$/src/Template/Element/Flash/default.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Element/Flash/error.ctp" />
@@ -226,7 +228,6 @@
         <option value="$PROJECT_DIR$/src/Controller/CidadesController.php" />
         <option value="$PROJECT_DIR$/src/Template/Compras/tabela.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Layout/default.ctp" />
-        <option value="$PROJECT_DIR$/webroot/css/style.scss" />
         <option value="$PROJECT_DIR$/src/Model/Entity/Produto.php" />
         <option value="$PROJECT_DIR$/src/Template/Produtos/edit.ctp" />
         <option value="$PROJECT_DIR$/src/Template/FormaPagamentos/add.ctp" />
@@ -243,13 +244,15 @@
         <option value="$PROJECT_DIR$/src/Template/Lotes/edit.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Produtos/linhaTabelaCompra.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/display.ctp" />
-        <option value="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Lotes/add.ctp" />
-        <option value="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/lote.ctp" />
         <option value="$PROJECT_DIR$/src/Controller/ProdutosController.php" />
         <option value="$PROJECT_DIR$/src/View/Cell/LinhaTabelaCell.php" />
         <option value="$PROJECT_DIR$/src/Controller/LotesController.php" />
+        <option value="$PROJECT_DIR$/webroot/js/scripts.js" />
+        <option value="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Compras/add.ctp" />
+        <option value="$PROJECT_DIR$/webroot/css/style.scss" />
+        <option value="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/lote.ctp" />
       </list>
     </option>
   </component>
@@ -900,7 +903,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="lotescontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/LotesController.php&#10;lotestable&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/LotesTable.php&#10;profferhelper&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/vendor/davidyell/proffer/src/View/Helper/ProfferHelper.php&#10;numberhelper&#9;null&#9;null&#10;compras/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Compras/add.ctp&#10;produ&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/ProdutosController.php&#10;produtoscontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/ProdutosController.php&#10;cidades/index&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/index.ctp&#10;lotes/view&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Lotes/view.ctp&#10;gushelp&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;lotes/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Lotes/edit.ctp&#10;produtostable&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/ProdutosTable.php&#10;script.js&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/scripts.js&#10;estadoscontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/EstadosController.php&#10;cidades/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/add.ctp&#10;estados/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Estados/add.ctp&#10;formapagtable&#9;null&#9;null&#10;formapagamento.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/FormaPagamento.php&#10;formapaga&#9;null&#9;null&#10;gus&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;produto.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Produto.php&#10;produtos/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Produtos/edit.ctp&#10;produto/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Produtos/add.ctp&#10;scss&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/css/style.scss&#10;gushelper&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;default.ct&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Layout/default.ctp&#10;cidades&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/CidadesController.php&#10;default.ctp&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Layout/default.ctp&#10;script.&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/scripts.js&#10;compra/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Compras/add.ctp&#10;produtosta&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/ProdutosTable.php&#10;produto&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/ProdutosTable.php&#10;produtostab&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/ProdutosTable.php&#10;produtos/view&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Produtos/view.ctp&#10;tipoprod/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/TipoProdutos/edit.ctp&#10;htmlhelper&#9;null&#9;null&#10;tipoprodutoscontr&#9;null&#9;null&#10;tipoprodutos/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/TipoProdutos/add.ctp&#10;tipoprodutostab&#9;null&#9;null&#10;tipopr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/TipoProduto.php&#10;tipoProduto&#9;null&#9;null&#10;appcontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/AppController.php&#10;Entity.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity.php&#10;form&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/vendor/cakephp/cakephp/src/View/Helper/FormHelper.php&#10;produtos/add.c&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Produtos/add.ctp&#10;conf/bootstra&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/config/bootstrap.php&#10;cidadescontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/CidadesController.php&#10;comprascontr&#9;null&#9;null&#10;style.s&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/css/style.scss&#10;style.ss&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="style.scs&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/css/style.scss&#10;script&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/scripts.js&#10;lotescontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/LotesController.php&#10;lotestable&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/LotesTable.php&#10;profferhelper&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/vendor/davidyell/proffer/src/View/Helper/ProfferHelper.php&#10;numberhelper&#9;null&#9;null&#10;compras/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Compras/add.ctp&#10;produ&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/ProdutosController.php&#10;produtoscontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/ProdutosController.php&#10;cidades/index&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/index.ctp&#10;lotes/view&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Lotes/view.ctp&#10;gushelp&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;lotes/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Lotes/edit.ctp&#10;produtostable&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/ProdutosTable.php&#10;script.js&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/scripts.js&#10;estadoscontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/EstadosController.php&#10;cidades/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/add.ctp&#10;estados/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Estados/add.ctp&#10;formapagtable&#9;null&#9;null&#10;formapagamento.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/FormaPagamento.php&#10;formapaga&#9;null&#9;null&#10;gus&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;produto.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Produto.php&#10;produtos/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Produtos/edit.ctp&#10;produto/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Produtos/add.ctp&#10;scss&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/css/style.scss&#10;gushelper&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;default.ct&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Layout/default.ctp&#10;cidades&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/CidadesController.php&#10;default.ctp&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Layout/default.ctp&#10;script.&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/scripts.js&#10;compra/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Compras/add.ctp&#10;produtosta&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/ProdutosTable.php&#10;produto&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/ProdutosTable.php&#10;produtostab&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/ProdutosTable.php&#10;produtos/view&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Produtos/view.ctp&#10;tipoprod/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/TipoProdutos/edit.ctp&#10;htmlhelper&#9;null&#9;null&#10;tipoprodutoscontr&#9;null&#9;null&#10;tipoprodutos/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/TipoProdutos/add.ctp&#10;tipoprodutostab&#9;null&#9;null&#10;tipopr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/TipoProduto.php&#10;tipoProduto&#9;null&#9;null&#10;appcontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/AppController.php&#10;Entity.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity.php&#10;form&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/vendor/cakephp/cakephp/src/View/Helper/FormHelper.php&#10;produtos/add.c&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Produtos/add.ctp&#10;conf/bootstra&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/config/bootstrap.php&#10;cidadescontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/CidadesController.php&#10;comprascontr&#9;null&#9;null" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
   </component>
@@ -1036,7 +1039,8 @@
       <workItem from="1504315157826" duration="6555000" />
       <workItem from="1504741133007" duration="186000" />
       <workItem from="1504915164886" duration="6441000" />
-      <workItem from="1505257798680" duration="9056000" />
+      <workItem from="1505257798680" duration="10512000" />
+      <workItem from="1505403038127" duration="9723000" />
     </task>
     <task id="LOCAL-00001" summary="SelectExtends pronto com funcionalidade básica.&#10;Trabalhando no caso de Cidades onde o select de estado depende do comportamento do select de País.">
       <created>1501296478716</created>
@@ -1126,13 +1130,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175836000" />
+    <option name="totallyTimeSpent" value="187015000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22541603" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22844176" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1299,14 +1303,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webroot/css/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3536">
-          <caret line="208" column="23" lean-forward="false" selection-start-line="208" selection-start-column="23" selection-end-line="208" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/common.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1318,9 +1314,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="32" column="22" lean-forward="false" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-          <folding>
-            <element signature="e#48#78#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1328,9 +1321,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="31" column="10" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="31" selection-end-column="10" />
-          <folding>
-            <marker date="1504151377629" expanded="true" signature="1175:1188" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1346,9 +1336,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="9" column="71" lean-forward="false" selection-start-line="9" selection-start-column="71" selection-end-line="9" selection-end-column="71" />
-          <folding>
-            <marker date="1504322962407" expanded="true" signature="2375:2386" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1356,7 +1343,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="16" column="0" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1364,7 +1350,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-51">
           <caret line="9" column="44" lean-forward="false" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1388,7 +1373,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-171">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1396,7 +1380,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1412,14 +1395,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-51">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webroot/js/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="175" column="23" lean-forward="false" selection-start-line="175" selection-start-column="16" selection-end-line="175" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1458,7 +1433,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1466,7 +1440,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="23" column="82" lean-forward="false" selection-start-line="23" selection-start-column="82" selection-end-line="23" selection-end-column="82" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1474,7 +1447,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="86" lean-forward="false" selection-start-line="19" selection-start-column="86" selection-end-line="19" selection-end-column="86" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1482,7 +1454,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="7" column="53" lean-forward="false" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1490,7 +1461,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1502,14 +1472,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Produtos/linhaTabelaCompra">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Produtos/linhaTabelaCompra" />
     <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/View/Cell.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
@@ -1534,14 +1497,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Produtos/getLinhaTabela.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="5" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Produtos/getLinhaTabela.ctp" />
     <entry file="file://$PROJECT_DIR$/tests/Fixture/LotesFixture.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1552,7 +1508,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Table/LotesTable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
+        <state relative-caret-position="1207">
           <caret line="75" column="39" lean-forward="false" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="39" />
           <folding />
         </state>
@@ -1560,7 +1516,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/davidyell/proffer/src/View/Helper/ProfferHelper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
+        <state relative-caret-position="544">
           <caret line="33" column="65" lean-forward="true" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="65" />
           <folding>
             <element signature="e#39#60#0#PHP" expanded="true" />
@@ -1568,33 +1524,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="181" lean-forward="false" selection-start-line="10" selection-start-column="181" selection-end-line="10" selection-end-column="181" />
-          <folding>
-            <element signature="e#6#45#0#PHP" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Cell/LinhaTabela/lote.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="57" lean-forward="false" selection-start-line="0" selection-start-column="57" selection-end-line="0" selection-end-column="57" />
-          <folding>
-            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Cell/LinhaTabelaCell.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
+        <state relative-caret-position="407">
           <caret line="44" column="80" lean-forward="false" selection-start-line="44" selection-start-column="80" selection-end-line="44" selection-end-column="80" />
           <folding>
             <element signature="e#32#58#0#PHP" expanded="true" />
@@ -1602,10 +1534,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/LotesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="214" column="14" lean-forward="false" selection-start-line="214" selection-start-column="14" selection-end-line="214" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ProdutosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="275" column="23" lean-forward="false" selection-start-line="275" selection-start-column="23" selection-end-line="275" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Lotes/add.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        <state relative-caret-position="459">
+          <caret line="57" column="80" lean-forward="true" selection-start-line="56" selection-start-column="16" selection-end-line="57" selection-end-column="80" />
           <folding>
             <element signature="e#6#45#0#PHP" expanded="true" />
             <marker date="1505262328563" expanded="true" signature="1534:1574" ph="{...}" />
@@ -1613,30 +1561,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ProdutosController.php">
+    <entry file="file://$PROJECT_DIR$/webroot/css/style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="275" column="23" lean-forward="true" selection-start-line="275" selection-start-column="23" selection-end-line="275" selection-end-column="23" />
+        <state relative-caret-position="-2551">
+          <caret line="71" column="18" lean-forward="false" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/LotesController.php">
+    <entry file="file://$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="214" column="14" lean-forward="true" selection-start-line="214" selection-start-column="14" selection-end-line="214" selection-end-column="14" />
+        <state relative-caret-position="424">
+          <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+          <folding>
+            <element signature="e#6#45#0#PHP" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Cell/LinhaTabela/lote.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webroot/js/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1886">
+          <caret line="183" column="15" lean-forward="false" selection-start-line="183" selection-start-column="8" selection-end-line="183" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Compras/add.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="125" column="43" lean-forward="false" selection-start-line="125" selection-start-column="43" selection-end-line="125" selection-end-column="43" />
+        <state relative-caret-position="256">
+          <caret line="156" column="33" lean-forward="false" selection-start-line="156" selection-start-column="33" selection-end-line="156" selection-end-column="33" />
           <folding>
             <element signature="e#6#47#0#PHP" expanded="true" />
-            <marker date="1505273225223" expanded="true" signature="5199:5209" ph="..." />
-            <marker date="1505273225223" expanded="true" signature="6984:6990" ph=" " />
+            <marker date="1505436631131" expanded="true" signature="3446:3452" ph=" " />
           </folding>
         </state>
       </provider>

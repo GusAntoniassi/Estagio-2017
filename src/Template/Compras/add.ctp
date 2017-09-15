@@ -32,55 +32,13 @@ use Cake\Routing\Router;
     <div class="input-field input-group col s6">
         <select id="autocomplete-input" class="autocomplete browser-default"></select>
         <label for="autocomplete-input">Produto</label>
-        <span class="input-group-btn"><a class="btn btn-small waves-effect waves-light refresh" data-href="http://localhost/estagio2017/fornecedores/get-all" onclick="return refreshSelect(event.target || event.srcElement);"><i class="material-icons">autorenew</i></a><a class="btn btn-small waves-effect waves-light edit" href="http://localhost/estagio2017/fornecedores/edit" onclick="return extendEdit(event);"><i class="material-icons">edit</i></a><a class="btn btn-small waves-effect waves-light add" href="http://localhost/estagio2017/fornecedores/add" onclick="return extendAdd(event);"><i class="material-icons">add</i></a></span>
+        <span class="input-group-btn">
+            <a class="btn btn-small waves-effect waves-light refresh" data-href="http://localhost/estagio2017/fornecedores/get-all" onclick="return refreshSelect(event.target || event.srcElement);"><i class="material-icons">autorenew</i></a>
+            <a class="btn btn-small waves-effect waves-light edit" href="http://localhost/estagio2017/fornecedores/edit" onclick="return extendEdit(event);"><i class="material-icons">edit</i></a>
+            <a class="btn btn-small waves-effect waves-light add" href="http://localhost/estagio2017/fornecedores/add" onclick="return extendAdd(event);"><i class="material-icons">add</i></a>
+        </span>
     </div>
     <script>
-//        var templateLinhaProduto = '';
-//        templateLinhaProduto += '<tr class="produto" data-produto-id="{{idProduto}}" data-linha-id="{{linhaTabela}}">';
-//        templateLinhaProduto +=     '<td style="width: 1px; padding-right: 10px;">';
-//        templateLinhaProduto +=         '<input type="hidden" name="compras[itemcompras][{{linhaTabela}}][produto_id]" value="{{idProduto}}" />';
-//        templateLinhaProduto +=         '<a href="#"><img src="{{fotoProduto}}" class="circle" /></a>';
-//        templateLinhaProduto +=     '</td>';
-//        templateLinhaProduto +=     '<td class="left-align"><a href="#">{{nomeProduto}}</a></td>';
-//        templateLinhaProduto +=     '<td class="center-align">';
-//        templateLinhaProduto +=     '<div class="input-field center-align">';
-//        templateLinhaProduto +=         '<input type="number" name="compras[itemcompras][{{linhaTabela}}][quantidade]" value="{{quantidade}}" class="center-align" style="max-width: 75px">';
-//        templateLinhaProduto +=     '</div>';
-//        templateLinhaProduto +=     '</td>';
-//        templateLinhaProduto +=     '<td class="right-align">';
-//        templateLinhaProduto +=         '<div class="input-field right-align">';
-//        templateLinhaProduto +=             '<input type="text" name="compras[itemcompras][{{linhaTabela}}][valor_unitario]" value="{{custo}}" class="right-align" data-type="money" style="max-width: 100px">';
-//        templateLinhaProduto +=         '</div>';
-//        templateLinhaProduto +=     '</td>';
-//        templateLinhaProduto +=     '<td class="right-align">R$ {{total}}</td>';
-//        templateLinhaProduto +=     '<td class="center-align" style="width: 1px">';
-//        templateLinhaProduto +=         '<a href="#" class="remover-item"><i class="material-icons">close</i></a>';
-//        templateLinhaProduto +=     '</td>';
-//        templateLinhaProduto += '</tr>';
-
-//        var templateLinhaLote = '';
-//        templateLinhaLote += '<tr class="lote">';
-//        templateLinhaLote +=     '<td colspan="5">';
-//        templateLinhaLote +=         '<div class="input-field input-small col s3">';
-//        templateLinhaLote +=         '<!-- Apenas na edição -->';
-//        templateLinhaLote +=         '<input type="hidden" name="compras[itemcompras][{{linhaTabela}}][lotes][{{linhaTabelaLote}}][id]" />';
-//        templateLinhaLote +=         '<!-- -->';
-//        templateLinhaLote +=         '<input type="text" id="cod_lote" name="compras[itemcompras][{{linhaTabela}}][lotes][{{linhaTabelaLote}}][num_lote]" value="{{codigoLote}}" />';
-//        templateLinhaLote +=         '<label for="cod_lote">Código do lote</label>';
-//        templateLinhaLote +=     '</div>';
-//        templateLinhaLote +=     '<div class="input-field input-small col s3">';
-//        templateLinhaLote +=         '<input type="text" id="data_lote" name="compras[itemcompras][{{linhaTabela}}][lotes][{{linhaTabelaLote}}][data_vencimento]" value="{{vencimentoLote}}" data-type="date" />';
-//        templateLinhaLote +=         '<label for="data_lote">Data do vencimento</label>';
-//        templateLinhaLote +=     '</div>';
-//        templateLinhaLote +=     '</td>';
-//        templateLinhaLote +=     '<td class="center-align" style="width: 1px">';
-//        templateLinhaLote +=         '<a href="#" class="adicionar-lote"><i class="material-icons">add</i></a>';
-//        templateLinhaLote +=     '</td>';
-//        templateLinhaLote += '</tr>';
-
-        var linhaTabela = <?php echo 2; ?>;
-        var linhaTabelaLote = <?php echo 1; ?>;
-
         $(document).ready(function() {
             $('#autocomplete-input').select2({
                 ajax: {
@@ -119,46 +77,63 @@ use Cake\Routing\Router;
                 },
                 templateSelection: function(dados) {
                     return dados.nome;
-                }
+                },
+            // Clicar na tabela handler
             }).on('select2:select', function(e) {
+                var $select2 = $(this);
                 if (e) {
-                    // TODO: Trocar linhaTabela por uma variável que soma quantas linhas tem
-                    // mesma coisa pro lote
-                    $(this).siblings('label').addClass('active');
+                    $select2.siblings('label').addClass('active');
                     var dados = e.params.data;
                     if (dados) {
-                        $.get({
-                            url: '<?php echo Router::url(['controller' => 'produtos', 'action' => 'getLinhaTabela']); ?>',
-                            data: {
-                                id: dados.id,
-                                linhaAtual: linhaTabela,
-                            },
-                            dataType: 'html'
-                        }).done(function(html) {
-                            if (html) {
-                                $('#tabela-produtos tbody').append(html).promise().done(function() {
-                                    if (dados.possuiLote) {
-                                        $.get({
-                                            url: '<?php echo Router::url(['controller' => 'lotes', 'action' => 'getLinhaTabela']); ?>',
-                                            data: {
-                                                linhaAtual: linhaTabela,
-                                                linhaAtualLote: linhaTabelaLote,
-                                                produtoId: dados.id,
-                                            },
-                                            dataType: 'html'
-                                        }).done(function(html) {
-                                            if (html) {
-                                                $('#tabela-produtos tbody').append(html);
-                                            }
-                                            linhaTabelaLote++;
-                                        });
-                                    }
-                                    linhaTabela++;
-                                });
-                            } else {
-                                console.error('Erro ao trazer a linha da tabela para o produto ID ' + dados.id);
-                            }
-                        });
+                        if ($('tr.produto[data-produto-id="' + dados.id + '"]').length > 0) { // Se o produto já existe na tabela
+                            // Incrementar a quantidade em estoque
+                            $('tr.produto[data-produto-id="' + dados.id + '"] .quantidade input').get(0).value++;
+                            setTimeout(function() {
+                                // Limpar o select
+                                $select2.val(null).trigger('change');
+                            }, 100);
+                        } else {
+                            // Quantos produtos já tem na tabela
+                            var linhaTabela = $('tr.produto').length;
+                            $.get({
+                                url: '<?php echo Router::url(['controller' => 'produtos', 'action' => 'getLinhaTabela']); ?>',
+                                data: {
+                                    id: dados.id,
+                                    linhaAtual: linhaTabela,
+                                },
+                                dataType: 'html'
+                            }).done(function(html) {
+                                if (html) {
+                                    $('#tabela-produtos tbody').append(html).promise().done(function() {
+                                        if (dados.possuiLote) {
+                                            // Quantos lotes já tem naquele produto
+                                            var linhaTabelaLote = $('tr.lote[data-produto-id="' + dados.id + '"]').length;
+                                            $.get({
+                                                url: '<?php echo Router::url(['controller' => 'lotes', 'action' => 'getLinhaTabela']); ?>',
+                                                data: {
+                                                    linhaAtual: linhaTabela,
+                                                    linhaAtualLote: linhaTabelaLote,
+                                                    produtoId: dados.id,
+                                                },
+                                                dataType: 'html'
+                                            }).done(function(html) {
+                                                if (html) {
+                                                    $('#tabela-produtos tbody').append(html);
+                                                    maskInputs();
+                                                }
+                                            });
+                                        } else {
+                                            maskInputs();
+                                        }
+                                    });
+                                } else {
+                                    console.error('Erro ao trazer a linha da tabela para o produto ID ' + dados.id);
+                                }
+                                // Limpar o select
+                                $select2.val(null).trigger('change');
+                                atualizaRodape();
+                            });
+                        }
                     }
                     /* Fazer uma tabela com inputs mesmo, sem gravar na sesion nem nada.
                         Quando selecionar, verificar se o produto tem lote ou não, se tiver abrir campos
@@ -169,10 +144,68 @@ use Cake\Routing\Router;
                 }
             });
 
+            // Quantidade change handler
+            $('#tabela-produtos').on('change', 'tbody .quantidade input, tbody .valor-unitario input', function() {
+                var produtoId = $(this).closest('tr.produto').data('produto-id') || 0;
+                atualizaTotalLinha(produtoId);
+                atualizaRodape();
+            });
+            // TODO: Remover produto handler
+            $('#tabela-produtos').on('click', 'tr.produto .remover-item', function(e) {
+                var produtoId = $(e.target).closest('tr.produto').data('produto-id');
+                $('tr[data-produto-id="' + produtoId + '"]').remove();
+                atualizaRodape();
+            });
+
+            // Adicionar lote handler
             $('#tabela-produtos').on('click', '.adicionar-lote', function(e) {
                 var $target = $(e.target);
-                var linhaTabela
+                atualizaRodape();
+//                var linhaTabela
             });
+
+            // TODO: Remover lote handler
+
+            // Pegar o valor total do tr.produto
+            function getValorTotalLinha($tr) {
+                if (!($tr instanceof jQuery)) {
+                    $tr = $($tr);
+                }
+                return parseInt($tr.find('.quantidade input').val(), 10) * moedaToFloat($($tr).find('.valor-unitario input').val());
+
+            }
+            // Atualizar valor total na linha
+            function atualizaTotalLinha(produtoId) {
+                var $tr = $('#tabela-produtos tr.produto[data-produto-id="' + produtoId + '"]');
+                if ($tr.length) {
+                    var valorTotal = getValorTotalLinha($tr);
+                    $tr.find('.valor-total').text(floatToMoeda(valorTotal));
+                } else {
+                    console.error('Erro ao pegar o tr.produto de id ' + produtoId);
+                }
+            }
+            // Atualizar rodapé da compra
+            function atualizaRodape() {
+                if ($('#tabela-produtos tr.produto').length) {
+                    $('#tabela-produtos .sem-produtos').addClass('invisible');
+                    $('#tabela-produtos tfoot').removeClass('invisible');
+
+                    var valorLiquido = 0;
+                    $('tr.produto').each(function(i, $tr) {
+                        valorLiquido += getValorTotalLinha($tr);
+                    });
+                    var descontos = $('#tabela-produtos tfoot .descontos input').val() || 0;
+                    var valorTotal = valorLiquido - descontos;
+
+                    $('#tabela-produtos tfoot .valor-liquido').text(floatToMoeda(valorLiquido));
+                    $('#tabela-produtos tfoot .descontos').text(floatToMoeda(descontos));
+                    $('#tabela-produtos tfoot .valor-total').text(floatToMoeda(valorTotal));
+                } else {
+                    // Esconder o rodapé e mostrar a mensagem "Sem produtos"
+                    $('#tabela-produtos .sem-produtos').removeClass('invisible');
+                    $('#tabela-produtos tfoot').addClass('invisible');
+                }
+            }
         });
     </script>
     <div class="clearfix"></div>
@@ -189,6 +222,7 @@ use Cake\Routing\Router;
                 </tr>
             </thead>
             <tbody>
+                <tr class="sem-produtos"><td colspan="100%">Nenhum produto selecionado!</td></tr>
                 <?php
                     // Apenas na edição
                     /*
@@ -198,23 +232,23 @@ use Cake\Routing\Router;
                     */
                 ?>
             </tbody>
-            <tfoot>
+            <tfoot class="invisible">
                 <tr>
                     <td colspan="3"></td>
                     <td class="right-align"><strong>Valor líquido</strong></td>
-                    <td class="right-align" data-role="valor-liquido">R$ 1.500,00</td>
+                    <td class="right-align valor-liquido">R$ 1.500,00</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td colspan="3"></td>
                     <td class="right-align"><strong>Descontos</strong></td>
-                    <td class="right-align" data-role="descontos">R$ 500,00</td>
+                    <td class="right-align descontos">R$ 500,00</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td colspan="3"></td>
                     <td class="right-align"><strong>Valor total</strong></td>
-                    <td class="right-align" data-role="valor-total">R$ 1.000,00</td>
+                    <td class="right-align valor-total">R$ 1.000,00</td>
                     <td></td>
                 </tr>
             </tfoot>

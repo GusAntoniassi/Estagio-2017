@@ -1,5 +1,5 @@
 <tr class="lote" data-linha-id="<?= $linhaTabelaLote; ?>" data-produto-id="<?= $produtoId; ?>">
-    <td colspan="5">
+    <td colspan="4">
         <div class="input-field input-small col s3">
         <?php if ($lote->id) { ?>
         <input type="hidden" name="compras[itemcompras][<?= $linhaTabela ?>][lotes][<?= $linhaTabelaLote ?>][id]" />
@@ -12,7 +12,10 @@
         <label for="data_lote">Data do vencimento</label>
     </div>
     </td>
+    <td class="right-align">
+        <a class="adicionar-lote"><i class="material-icons">add</i></a>
+    </td>
     <td class="center-align" style="width: 1px">
-        <a href="#" class="adicionar-lote"><i class="material-icons">add</i></a>
+        <a class="remover-lote"><i class="material-icons">close</i></a>
    </td>
 </tr>

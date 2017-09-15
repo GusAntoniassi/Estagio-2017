@@ -68,6 +68,9 @@ body.hide-side-nav {
 .btn input {
 	outline: 0;
 }
+a {
+  cursor: pointer;
+}
 th[scope="col"] {
 	a.asc, a.desc {
 		float: left;
@@ -197,7 +200,7 @@ label.active {
 }
 
 /* Tabela de compras */
-.remover-item i {
+.remover-item i, .remover-lote i {
   color: red;
   line-height: 140%;
 }
@@ -226,5 +229,21 @@ tr.lote {
   label {
     font-size: 0.8rem !important;
     transform: translateY(-140%) !important;
+  }
+}
+/* Compra */
+#tabela-produtos {
+  tfoot, .sem-produtos {
+    transition: 0.3s all ease-in-out;
+  }
+  .sem-produtos.invisible {
+    border-bottom-style: none;
+    & > td {
+      line-height: 0px;
+      font-size: 0px;
+      height: 0px;
+      margin: 0;
+      padding: 0;
+    }
   }
 }
