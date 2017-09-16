@@ -30,32 +30,6 @@ use Cake\Routing\Router;
     <?= $this->Gus->end() ?>
 
     <script>
-        $(function() {
-            $.fn.select2.defaults.set('language', 'pt-BR');
-            $('select[name="estado_id"]').data('ajax', {
-                url: '<?= Router::url(['controller' => 'estados', 'action' => 'select2ajax']); ?>',
-                dataType: 'json',
-                type: 'GET',
-                data: function(params) {
-                    return {q: params.term}
-                },
-                processResults: function(data) {
-                    return {
-                        results: $.map(data, function(item) {
-                            console.log(item);
-                            return {
-                                text: item.name,
-                                id: item.id,
-                            }
-                        })
-                    }
-                }
-            });
-            $('select[name="estado_id"]').select2({
-                ajax: $(this).data('ajax'),
-                minimumInputLength: 1,
-                placeholder: $('select[name="estado_id"]').attr('placeholder'),
-            });
-        });
+        estadoAutocomplete('<?= Router::url(['controller' => 'estados', 'action' => 'select2ajax']); ?>');
     </script>
 </div>

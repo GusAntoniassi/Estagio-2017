@@ -158,4 +158,11 @@ class PessoasTable extends Table
         return $search;
     }
 
+    public function getOrderNomePessoa() {
+        return [
+            // Virtual field não pega no order by, tem que fazer esse CASE maroto
+            "CASE Pessoas.tipo_pessoa WHEN 'F' THEN CONCAT(Pessoas.nome_razaosocial, Pessoas.sobrenome_nomefantasia) END ASC",
+            "CASE Pessoas.tipo_pessoa WHEN 'J' THEN Pessoas.sobrenome_nomefantasia END ASC"
+        ];
+    }
 }

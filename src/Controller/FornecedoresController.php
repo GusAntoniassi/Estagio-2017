@@ -225,4 +225,55 @@ class FornecedoresController extends AppController
             $this->Flash->error(__('Erro ao excluir o(s) registro(s)! Por favor tente novamente.'));
         }
     }
+
+    public function getAll()
+    {
+        $conditions = ['status' => true];
+        if (!empty($this->request->getQuery('ajax_id'))) {
+            $conditions['Fornecedores.id'] = $this->request->getQuery('ajax_id');
+            $fornecedor = $this->Fornecedores->find('all', [
+                'contain' => ['Pessoas'],
+            ])->where($conditions)
+            ->first();
+            $fornecedores = [$fornecedor->id => $fornecedor->pessoa->nome_exibicao];
+        } else {
+            $fornecedores = $this->Fornecedores->find('list', [
+                'contain' => ['Pessoas'],
+                'valueField' => function($fornecedor) {
+                    return $fornecedor->pessoa->nome_exibicao;
+                }
+            ])
+            ->where($conditions)
+            ->order($this->Fornecedores->Pessoas->getOrderNomePessoa());
+        }
+        echo json_encode($fornecedores);
+        die();
+    }
+
+    public function select2ajax() {
+        $query = $this->request->getQuery('q');
+        if (empty($query)) {
+            die(json_encode([]));
+        }
+
+        $query = '%' . mb_strtolower($query) . '%';
+
+        $fornecedores = $this->Fornecedores->find('list', [
+            'contain' => ['Pessoas'],
+            'valueField' => function($fornecedor) {
+                return $fornecedor->pessoa->nome_exibicao;
+            }
+        ])->where(['OR' => [
+                'Pessoas.nome_razaosocial LIKE ' => $query,
+                'Pessoas.sobrenome_nomefantasia LIKE ' => $query
+            ]
+        ])->order($this->Fornecedores->Pessoas->getOrderNomePessoa());
+
+        $resultados = [];
+        foreach ($fornecedores as $id => $fornecedor) {
+            $resultados[] = ['id' => $id, 'name' => $fornecedor];
+        }
+        echo json_encode($resultados);
+        die();
+    }
 }

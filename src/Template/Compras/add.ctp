@@ -25,11 +25,21 @@ use Cake\Routing\Router;
     ]); ?>
     <div class="clearfix"></div>
     <br/>
-    <?= $this->Gus->selectExtends('fornecedor_id', ['J. Martins Atacado', 'Supermercados Planalto', 'Musamar'], [
-        'div' => 'col s5 input-field select2-field',
-        'label' => ['text' => 'Fornecedor', 'class' => 'active'],
-        'controller' => 'fornecedores',
-    ]); ?>
+    <?= $this->Gus->selectAjaxExtends('fornecedor_id',
+        [
+            'div' => 'col s5 input-field',
+            'attributes' => [
+                'class' => 'browser-default select2ajax',
+                'type' => 'select',
+                'placeholder' => 'Digite para buscar...'
+            ],
+            'label' => ['text' => 'Fornecedor', 'class' => 'active'],
+            'controller' => 'fornecedores',
+            'ajax' => true
+        ]
+    );
+
+    ?>
     <div class="input-field col s3">
         <input type="text" id="data" data-type="date" value="<?= date('d/m/Y'); ?>">
         <label for="data">Data da compra</label>
@@ -125,4 +135,8 @@ use Cake\Routing\Router;
     <?= $this->Gus->button('Enviar', ['div' => 'input-field col s2 right', 'class' => 'btn right waves-effect waves-light']) ?>
     <?= $this->Gus->end() ?>
     -->
+
+    <script>
+        fornecedorAutocomplete('<?= Router::url(['controller' => 'fornecedores', 'action' => 'select2ajax']); ?>');
+    </script>
 </div>

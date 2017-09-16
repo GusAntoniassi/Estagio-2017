@@ -239,7 +239,7 @@ class CidadesController extends AppController
             die(json_encode([]));
         }
 
-        $query = mb_strtolower($query) . '%';
+        $query = '%' . mb_strtolower($query) . '%';
 
         $estados = $this->Cidades->find('list', [
             'contain' => ['Estados'],

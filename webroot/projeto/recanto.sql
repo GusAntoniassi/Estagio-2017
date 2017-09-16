@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 02-Set-2017 às 05:02
+-- Generation Time: 16-Set-2017 às 17:10
 -- Versão do servidor: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -65,9 +65,8 @@ CREATE TABLE `cidades` (
 
 INSERT INTO `cidades` (`id`, `nome`, `status`, `estado_id`) VALUES
 (1, 'Umuarama', 1, 1),
-(2, 'Perobal', 1, 1),
-(3, 'Blumenau', 1, 2),
-(4, 'Floripa', 1, 2);
+(2, 'São Paulo', 1, 2),
+(3, 'Florianópolis', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -169,10 +168,8 @@ CREATE TABLE `estados` (
 
 INSERT INTO `estados` (`id`, `nome`, `sigla`, `status`, `pais_id`) VALUES
 (1, 'Paraná', 'PR', 1, 1),
-(2, 'Santa Catarina', 'SC', 1, 1),
-(3, 'São Paulo', 'SP', 1, 1),
-(4, 'Asunción', 'AS', 1, 2),
-(5, 'Castillo', 'CS', 1, 2);
+(2, 'São Paulo', 'SP', 1, 1),
+(3, 'Santa Catarina', 'SC', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -188,6 +185,15 @@ CREATE TABLE `forma_pagamentos` (
   `entrada` decimal(10,4) DEFAULT NULL,
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `forma_pagamentos`
+--
+
+INSERT INTO `forma_pagamentos` (`id`, `nome`, `num_parcelas`, `dias_carencia_primeira_parcela`, `entrada`, `status`) VALUES
+(1, 'À vista', 1, 0, '0.0000', 1),
+(2, '12x sem entrada', 12, 30, '0.0000', 1),
+(3, '6x sem entrada', 6, 30, '0.0000', 1);
 
 -- --------------------------------------------------------
 
@@ -208,9 +214,8 @@ CREATE TABLE `fornecedores` (
 --
 
 INSERT INTO `fornecedores` (`id`, `status`, `comentarios`, `dia_semana_visita`, `pessoa_id`) VALUES
-(3, 1, 'Mais liso que quiabo', 1, 6),
-(6, 0, 'Teste', 1, 11),
-(7, 1, 'Representado pela Sophie que vem de Hilux', 2, 1);
+(1, 1, 'Representado pela Sophie que vem de Hilux', 2, 1),
+(2, 1, 'asfoias', 0, 3);
 
 -- --------------------------------------------------------
 
@@ -226,6 +231,13 @@ CREATE TABLE `funcionarios` (
   `status` tinyint(1) NOT NULL,
   `pessoa_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `funcionarios`
+--
+
+INSERT INTO `funcionarios` (`id`, `data_nascimento`, `horista`, `valor_hora`, `status`, `pessoa_id`) VALUES
+(1, NULL, 1, '5.5000', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -244,11 +256,9 @@ CREATE TABLE `grupo_usuarios` (
 --
 
 INSERT INTO `grupo_usuarios` (`id`, `nome`, `status`) VALUES
-(3, 'Suporte', 1),
-(4, 'Gerência', 1),
-(5, 'Caixa', 1),
-(6, 'Garçom', 1),
-(8, 'Serviços Gerais', 0);
+(1, 'Administrador', 1),
+(2, 'Operador de Caixa', 1),
+(3, 'Funcionário', 1);
 
 -- --------------------------------------------------------
 
@@ -341,6 +351,14 @@ CREATE TABLE `lotes` (
   `produto_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `lotes`
+--
+
+INSERT INTO `lotes` (`id`, `num_lote`, `qtde_estoque`, `data_vencimento`, `status`, `produto_id`) VALUES
+(1, 'L09141B41', 17, '2017-10-12', 1, 2),
+(2, 'ORIGI166', 10, '2017-10-29', 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -394,10 +412,9 @@ CREATE TABLE `paises` (
 
 INSERT INTO `paises` (`id`, `nome`, `sigla`, `status`) VALUES
 (1, 'Brasil', 'BRA', 1),
-(2, 'Paraguay', 'PY', 1),
-(5, 'Venezuela', 'VEN', 1),
-(6, 'Argentina', 'ARG', 1),
-(10, 'Uruguai', 'URU', 1);
+(2, 'Argentina', 'ARG', 1),
+(3, 'Paraguai', 'PAR', 1),
+(4, 'Uruguai', 'URU', 1);
 
 -- --------------------------------------------------------
 
@@ -475,13 +492,9 @@ CREATE TABLE `pessoas` (
 --
 
 INSERT INTO `pessoas` (`id`, `tipo_pessoa`, `nome_razaosocial`, `sobrenome_nomefantasia`, `cpfcnpj`, `rua`, `numero`, `bairro`, `cep`, `telefone_1`, `telefone_2`, `email`, `cidade_id`, `fornecedor_pertencente_id`) VALUES
-(1, 'F', 'Teste', 'teste', '097.190.519-30', 'reasdfs', '4355', 'Ria 4343', '87502-200', '44305614444', '14123120312', 'teste@gosdf.com', 1, NULL),
-(5, 'F', 'Teste', 'Gus', '111.111.111-11', 'aaa', '111', '123123', '11111-111', '(12) 31231-2312', '(12) 3123-1231', '123@aaa.ca', 1, NULL),
-(6, 'J', 'J MARTINS ATACADO', 'Supermercados Planalto', '76.361.807/0001-11', 'Avenida Paraná', '3321', 'Zona III', '87502-000', '(44) 30000-0000', '(44) 30000-0001', 'sac@planalto.com', 1, NULL),
-(11, 'F', 'Fornecedor de Testes', 'Testando', '381.646.135-25', 'Rua Aricanduva', '', 'Zona II', '87502-200', '(44) 3056-1499', '(44) 3051-5112', 'Teste@teazra.csom', 1, NULL),
-(12, 'F', 'Teste', 'aae', '269.184.617-29', 'Rua Maraba', '312', 'Zona I', '87501-100', '(44) 34031-4013', '(40) 32043-0402', 'sadfo@casda.com', 1, NULL),
-(13, 'J', 'Lavínia e Sophie Comercio de Bebidas ME', 'Lavínia Sophie', '61.806.203/0001-64', 'Avenida Nossa Senhora da Paz', '454', 'Boqueirão', '81730-370', '(41) 3928-8225', '(41) 99977-0390', 'qualidade@laviniasophie.com.br', 2, NULL),
-(14, 'F', 'Cauê', 'Levi Alves', '571.392.289-81', 'Rua Coronel Jacinto Ribeiro', '951', 'Ponto Novo', '49097-120', '(79) 2738-6117', '(79) 99122-8457', 'caue.levi.alves@eletrovip.com', 1, NULL);
+(1, 'J', 'Lavínia e Sophie Comercio de Bebidas ME', 'Lavínia Sophie', '61.806.203/0001-64', 'Avenida Nossa Senhora da Paz', '454', 'Boqueirão', '81730-370', '(41) 3928-8225', '(41) 99977-0390', 'qualidade@laviniasophie.com.br', 2, NULL),
+(2, 'F', 'Cauê', 'Levi Alves', '571.392.289-81', 'Rua Coronel Jacinto Ribeiro', '951', 'Ponto Novo', '49097-120', '(79) 2738-6117', '(79) 99122-8457', 'caue.levi.alves@eletrovip.com', 1, NULL),
+(3, 'F', 'Leandro', 'Clementino', '470.438.166-88', 'Rua Santa Catarina', '909', 'Zona II', '87502-040', '(44) 3432-0343', '(99) 3499-4343', 'aaa@teste.com', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -505,13 +518,24 @@ CREATE TABLE `produtos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Extraindo dados da tabela `produtos`
+--
+
+INSERT INTO `produtos` (`id`, `nome`, `produto_acabado`, `foto`, `foto_dir`, `reduz_estoque`, `possui_lote`, `qtde_estoque`, `preco`, `custo`, `status`, `tipo_produto_id`) VALUES
+(1, 'Cerveja Brahma 360ml', 1, 'brahma.png', '3c66b3ae-b43d-4c22-a7aa-31b251aea0f6', 1, 1, NULL, '3.9900', '2.9900', 1, 1),
+(2, 'Cerveja Original 600ml', 1, 'Cerveja-Antarctica-Original-600ml-One-Way-39386.jpg', 'ca5aa0e2-e802-4352-8ecc-dd001f5b3310', 1, 1, 52, '7.9900', '3.9900', 1, 2),
+(3, 'Filé de Tilápia', 1, 'filetilapua.png', '949a3c4a-f0b9-4722-aba7-24f9e4879330', 0, 0, NULL, '29.9900', '0.0000', 1, 3),
+(4, 'Vidrex Lavanda 560ml', 0, 'VEJA-VIDREX-CRISTAL-LAVANDA-PULV-500ML.jpg', '3ba0043b-533e-4a0d-9129-6d3188627bbf', 1, 0, 3, '0.0000', '10.9900', 1, 5),
+(5, 'Combo Filé de Tilápia e Batata Frita', 1, 'file tilapia.png', '1ca2f49b-973d-4c77-b314-136dace055d0', 0, 0, NULL, '41.0000', NULL, 1, 3);
+
+--
 -- Acionadores `produtos`
 --
 DELIMITER $$
 CREATE TRIGGER `verifica_atributos_produto` BEFORE INSERT ON `produtos` FOR EACH ROW BEGIN
 	/* Se está marcado que reduz estoque e não possui lote, o campo qtde_estoque passa a ser obrigatório */
 	IF (NEW.reduz_estoque = 1 AND NEW.possui_lote = 0 AND NEW.qtde_estoque IS NULL) THEN
-		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = "Quantidade em estoque não pode ser NULL";
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = "[TRIGGER] Quantidade em estoque não pode ser NULL";
 	/* Se está marcado que possui lote ou não rediz estoque, silenciosamente setar o valor da qtde_estoque para NULL */
 	ELSEIF ((NEW.possui_lote = 1 OR NEW.reduz_estoque = 0) AND NEW.qtde_estoque IS NOT NULL) THEN
 		SET NEW.qtde_estoque = NULL;
@@ -531,6 +555,17 @@ CREATE TABLE `tipo_produtos` (
   `nome` varchar(80) NOT NULL,
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tipo_produtos`
+--
+
+INSERT INTO `tipo_produtos` (`id`, `nome`, `status`) VALUES
+(1, 'Bebida', 1),
+(2, 'Chopp', 1),
+(3, 'Fritura', 1),
+(4, 'Porção', 1),
+(5, 'Limpeza', 1);
 
 -- --------------------------------------------------------
 
@@ -552,8 +587,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `login`, `senha`, `salt`, `status`, `grupo_usuario_id`) VALUES
-(1, 'gus.antoniassi@gmail.com', '123456', 'fdiojdfiojaiosjd9WJD9ajida', 1, 3),
-(2, 'kleparde@gmail.com', '123456', NULL, 1, 6);
+(1, 'admin', '123456', NULL, 1, 1),
+(2, 'caixa', '123456', NULL, 1, 2),
+(3, 'kleparde', '123456', NULL, 1, 3);
 
 --
 -- Indexes for dumped tables
@@ -769,12 +805,12 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `baixa_produtos`
 --
 ALTER TABLE `baixa_produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `cidades`
 --
 ALTER TABLE `cidades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `comandas`
 --
@@ -799,17 +835,17 @@ ALTER TABLE `conta_recebers`
 -- AUTO_INCREMENT for table `estados`
 --
 ALTER TABLE `estados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `forma_pagamentos`
 --
 ALTER TABLE `forma_pagamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `fornecedores`
 --
 ALTER TABLE `fornecedores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `funcionarios`
 --
@@ -819,7 +855,7 @@ ALTER TABLE `funcionarios`
 -- AUTO_INCREMENT for table `grupo_usuarios`
 --
 ALTER TABLE `grupo_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `item_comandas`
 --
@@ -849,7 +885,7 @@ ALTER TABLE `lancamento_horas`
 -- AUTO_INCREMENT for table `lotes`
 --
 ALTER TABLE `lotes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `movimentacao_caixas`
 --
@@ -864,7 +900,7 @@ ALTER TABLE `orcamentos`
 -- AUTO_INCREMENT for table `paises`
 --
 ALTER TABLE `paises`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `parcela_conta_pagars`
 --
@@ -884,12 +920,12 @@ ALTER TABLE `pedido_compras`
 -- AUTO_INCREMENT for table `pessoas`
 --
 ALTER TABLE `pessoas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tipo_produtos`
 --
@@ -899,7 +935,7 @@ ALTER TABLE `tipo_produtos`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --

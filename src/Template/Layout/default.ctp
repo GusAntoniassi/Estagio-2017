@@ -39,6 +39,7 @@ use Cake\Utility\Inflector;
     <?= $this->Html->script('select2/js/select2.min.js') ?>
     <?= $this->Html->script('select2/js/i18n/pt-BR.js') ?>
     <?= $this->Html->script('scripts.js') ?>
+    <?= $this->Html->script('select2inputs.js') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>

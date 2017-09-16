@@ -42,4 +42,17 @@ class Pessoa extends Entity
         '*' => true,
         'id' => false
     ];
+
+    protected $_virutal = [
+        'nome_exibicao',
+    ];
+
+    // Retorna o nome e sobrenome se for pessoa física, e o nome fantasia se for pessoa jurídica
+    protected function _getNomeExibicao() {
+        if ($this->tipo_pessoa == 'F') {
+            return $this->nome_razaosocial . ' ' . $this->sobrenome_nomefantasia;
+        } else {
+            return $this->sobrenome_nomefantasia;
+        }
+    }
 }
