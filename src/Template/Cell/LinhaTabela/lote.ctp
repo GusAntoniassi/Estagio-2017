@@ -12,10 +12,10 @@
         <label for="data_lote">Data do vencimento</label>
     </div>
     </td>
-    <td class="right-align">
+    <td class="right-align wrapper-adicionar">
         <a class="adicionar-lote"><i class="material-icons">add</i></a>
     </td>
-    <td class="center-align" style="width: 1px">
+    <td class="center-align wrapper-remover" style="width: 1px">
         <a class="remover-lote"><i class="material-icons">close</i></a>
    </td>
 </tr>
