@@ -431,7 +431,9 @@ function floatToMoeda(flt, simboloMoeda, simboloMilhares, simboloDecimais, casas
 	var numero = '';
 
 	// Definição dos parâmetros padrões
-    simboloMoeda = simboloMoeda || 'R$ ';
+	if (typeof simboloMoeda === 'undefined') {
+		simboloMoeda = 'R$ ';
+	}
     simboloMilhares = simboloMilhares || ".";
     simboloDecimais = simboloDecimais || ",";
 	casas = casas || 2;

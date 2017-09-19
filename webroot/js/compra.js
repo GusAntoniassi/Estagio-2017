@@ -1,46 +1,6 @@
 $(document).ready(function() {
-    $('#autocomplete-input').select2({
-        ajax: {
-            url: urlProdutoAutocomplete,
-            dataType: 'json',
-            type: 'GET',
-            data: function(params) {
-                return {q: params.term}
-            },
-            processResults: function(data) {
-                return {
-                    results: $.map(data, function(item) {
-                        return {
-                            id: item.id,
-                            nome: item.nome,
-                            foto: item.foto,
-//                                    custo: item.custo,
-                            possuiLote: item.possuiLote,
-                        }
-                    })
-                }
-            },
-        },
-        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
-        templateResult: function(dados) {
-            if (dados.loading) return null;
-
-            var foto = (dados.foto ? dados.foto : 'http://via.placeholder.com/45x45')
-
-            var html = '<div class="valign-wrapper">' +
-                '<img src="' + foto + '" class="circle">' +
-                '<span>&nbsp; ' + dados.nome + '</span>' +
-                '</div>';
-
-            return html;
-        },
-        templateSelection: function(dados) {
-            return dados.nome;
-        },
-    });
-
     // Clicar na tabela handler
-    $('#autocomplete-input').on('select2:select', function(e) {
+    $('select[name="produto_id"]').on('select2:select', function(e) {
         var $select2 = $(this);
         if (e) {
             $select2.siblings('label').addClass('active');
@@ -51,7 +11,7 @@ $(document).ready(function() {
                     $('tr.produto[data-produto-id="' + dados.id + '"] .quantidade input').get(0).value++;
                     setTimeout(function() {
                         // Limpar o select
-                        $select2.val(null).trigger('change');
+                        // $select2.val(null).trigger('change');
                     }, 100);
                 } else {
                     // Quantos produtos já tem na tabela
@@ -90,6 +50,7 @@ $(document).ready(function() {
                         } else {
                             console.error('Erro ao trazer a linha da tabela para o produto ID ' + dados.id);
                         }
+                        // $select2.val(null).trigger('change');
                         atualizaRodape();
                     });
                 }
@@ -103,6 +64,10 @@ $(document).ready(function() {
         atualizaTotalLinha(produtoId);
         atualizaRodape();
     });
+
+    // Descontos change handler
+    $('#tabela-produtos').on('change', 'tfoot input[name="descontos"]', atualizaRodape);
+
     // Remover produto handler
     $('#tabela-produtos').on('click', 'tr.produto .remover-item', function(e) {
         var produtoId = $(e.target).closest('tr.produto').data('produto-id');
@@ -198,12 +163,23 @@ $(document).ready(function() {
             $('tr.produto').each(function(i, $tr) {
                 valorLiquido += getValorTotalLinha($tr);
             });
-            var descontos = $('#tabela-produtos tfoot .descontos input').val() || 0;
+            var descontos = moedaToFloat($('#tabela-produtos tfoot input[name="descontos"]').val()) || 0;
+            console.log(descontos);
             var valorTotal = valorLiquido - descontos;
+            if (valorTotal < 0) {
+                valorTotal = 0;
+            }
 
-            $('#tabela-produtos tfoot .valor-liquido').text(floatToMoeda(valorLiquido));
-            $('#tabela-produtos tfoot .descontos').text(floatToMoeda(descontos));
-            $('#tabela-produtos tfoot .valor-total').text(floatToMoeda(valorTotal));
+            var $tfoot = $('#tabela-produtos tfoot');
+            // Valor líquido
+            $tfoot.find('.valor-liquido').text(floatToMoeda(valorLiquido));
+            $tfoot.find('input[name="valor_liquido"]').val(valorLiquido);
+            // Descontos
+            // $tfoot.find('.descontos').text(floatToMoeda(descontos));
+            $tfoot.find('input[name="descontos"]').val(floatToMoeda(descontos, ''));
+            // Valor total
+            $tfoot.find('.valor-total').text(floatToMoeda(valorTotal));
+            $tfoot.find('input[name="valor_total"]').val(valorTotal);
         } else {
             // Esconder o rodapé e mostrar a mensagem "Sem produtos"
             $('#tabela-produtos .sem-produtos').removeClass('invisible');
