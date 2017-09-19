@@ -185,4 +185,41 @@ class FormaPagamentosController extends AppController
             $this->Flash->error(__('Erro ao excluir o(s) registro(s)! Por favor tente novamente.'));
         }
     }
+
+    public function getAll()
+    {
+        $conditions = ['status' => true];
+        if (!empty($this->request->getQuery('ajax_id'))) {
+            $conditions['id'] = $this->request->getQuery('ajax_id');
+            $formaPagamento = $this->FormaPagamentos->findById($this->request->getQuery('ajax_id'))->first();
+            $formaPagamentos = [$formaPagamento->id => $formaPagamento->nome];
+        } else {
+            $conditions = [];
+            $formaPagamentos = $this->FormaPagamentos->find('list', ['valueField' => 'nome'])
+                ->where($conditions)
+                ->orderAsc('nome');
+        }
+        echo json_encode($formaPagamentos);
+        die();
+    }
+
+    public function select2ajax() {
+        $query = $this->request->getquery('q');
+        if (empty($query)) {
+            die(json_encode([]));
+        }
+
+        $query = '%' . mb_strtolower($query) . '%';
+
+        $estados = $this->FormaPagamentos->find('list', [
+            'valueField' => 'nome',
+        ])->where(['FormaPagamentos.nome LIKE ' => $query]);
+
+        $resultados = [];
+        foreach ($estados as $id => $estado) {
+            $resultados[] = ['id' => $id, 'name' => $estado];
+        }
+        echo json_encode($resultados);
+        die();
+    }
 }

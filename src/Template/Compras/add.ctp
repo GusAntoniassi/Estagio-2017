@@ -20,7 +20,7 @@ use Cake\Routing\Router;
         'label' => false,
         'type' => 'radio',
         'data-type' => 'tipo-pessoa',
-        'options' => ['0' => 'Compra aberta', 'J' => 'Compra fechada'],
+        'options' => ['0' => 'Compra aberta', '1' => 'Compra fechada'],
         'value' => '0',
     ]); ?>
     <div class="clearfix"></div>
@@ -40,7 +40,7 @@ use Cake\Routing\Router;
     );
     ?>
     <?= $this->Gus->control('data_compra', [
-        'div' => 'col s3 input-field',
+        'div' => 'col s2 input-field',
         'label' => 'Data da compra',
         'type' => 'text',
         'data-type' => 'date',
@@ -48,7 +48,7 @@ use Cake\Routing\Router;
     ]); ?>
 
     <?= $this->Gus->selectExtends('forma_pagamento_id', $formaPagamentos->toArray(), [
-        'div' => 'col s4 input-field select2-field',
+        'div' => 'col s5 input-field select2-field',
         'label' => ['text' => 'Forma de pagamento', 'class' => 'active'],
         'controller' => 'formaPagamentos',
     ]); ?>
@@ -111,36 +111,13 @@ use Cake\Routing\Router;
             </tfoot>
         </table>
     </div>
-    <div class="input-field col s12">
-        <textarea id="textarea1" class="materialize-textarea"></textarea>
-        <label for="textarea1">Comentários</label>
-    </div>
-
-    <!--
-    <?php
-            echo $this->Gus->control('status', ['div' => 'col s12 input-field', 'label' => 'Status', 'checked' => 'checked']);
-            echo $this->Gus->control('valor_liquido', ['div' => 'col s12 input-field', 'label' => 'Valor Liquido']);
-            echo $this->Gus->control('descontos', ['div' => 'col s12 input-field', 'label' => 'Descontos']);
-            echo $this->Gus->control('valor_total', ['div' => 'col s12 input-field', 'label' => 'Valor Total']);
-            echo $this->Gus->control('comentarios', ['div' => 'col s12 input-field', 'label' => 'Comentarios']);
-            echo $this->Gus->selectExtends('pedido_compra_id', $pedidoCompras->toArray(), [
-                'div' => 'col s12 input-field select2-field',
-                'label' => ['text' => 'PedidoCompra', 'class' => 'active'],
-                'controller' => 'pedidoCompras',
-            ]);
-            echo $this->Gus->selectExtends('fornecedor_id', $fornecedores->toArray(), [
-                'div' => 'col s12 input-field select2-field',
-                'label' => ['text' => 'Fornecedor', 'class' => 'active'],
-                'controller' => 'fornecedores',
-            ]);
-    ?>
-    -->
+    <?= $this->Gus->control('comentarios', ['div' => 'col s12 input-field', 'label' => 'Comentários']); ?>
+    <?= $this->Gus->button('Enviar', ['div' => 'input-field col s2 right', 'class' => 'btn right waves-effect waves-light']) ?>
+    <?= $this->Gus->end() ?>
 
     <script>
         fornecedorAutocomplete('<?= Router::url(['controller' => 'fornecedores', 'action' => 'select2ajax']); ?>');
         produtoAutocompleteCompra('<?= Router::url(['controller' => 'produtos', 'action' => 'getProdutosCompraveis']); ?>');
     </script>
 
-    <?= $this->Gus->button('Enviar', ['div' => 'input-field col s2 right', 'class' => 'btn right waves-effect waves-light']) ?>
-    <?= $this->Gus->end() ?>
 </div>

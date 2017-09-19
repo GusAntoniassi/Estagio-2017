@@ -1,4 +1,15 @@
 $(document).ready(function() {
+    // Eventos exclusivos da edição
+    if ($('.compras').hasClass('edit')) {
+        $('input[name="status"]').on('change', function() {
+            // Compra fechada, desabilitar campos
+            if ($(this).val() == '1') {
+                $('input').prop('disabled', true);
+                $('select').prop('disabled', true).trigger('change'); // .trigger('change') atualiza os select2
+            }
+        }).trigger('change');
+    }
+
     // Clicar na tabela handler
     $('select[name="produto_id"]').on('select2:select', function(e) {
         var $select2 = $(this);
@@ -103,6 +114,7 @@ $(document).ready(function() {
             }
         });
     });
+
     // Remover lote handler
     $('#tabela-produtos').on('click', '.remover-lote', function(e) {
         var $target = $(e.target);

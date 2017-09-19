@@ -92,9 +92,9 @@ class ComprasController extends AppController
             }
             $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
-        $pedidoCompras = $this->Compras->PedidoCompras->find('list', ['limit' => 200]);
-        $formaPagamentos = $this->Compras->FormaPagamentos->find('list', ['limit' => 200]);
-        $fornecedores = $this->Compras->Fornecedores->find('list', ['limit' => 200]);
+
+        $formaPagamentos = $this->Compras->FormaPagamentos->find('list', ['valueField' => 'nome']);
+
         $this->set(compact('compra', 'pedidoCompras', 'formaPagamentos', 'fornecedores'));
         $this->set('_serialize', ['compra']);
 
