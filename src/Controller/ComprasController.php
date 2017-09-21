@@ -82,6 +82,11 @@ class ComprasController extends AppController
         $compra = $this->Compras->newEntity();
         if ($this->request->is('post')) {
             $compra = $this->Compras->patchEntity($compra, $this->request->getData());
+
+
+
+            dd($compra);
+            die();
             if ($this->Compras->save($compra)) {
                 if (!empty($this->request->getQuery('extends'))) {
                     $this->_fechaExtends();

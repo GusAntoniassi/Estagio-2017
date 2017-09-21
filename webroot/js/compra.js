@@ -19,7 +19,9 @@ $(document).ready(function() {
             if (dados) {
                 if ($('tr.produto[data-produto-id="' + dados.id + '"]').length > 0) { // Se o produto já existe na tabela
                     // Incrementar a quantidade em estoque
-                    $('tr.produto[data-produto-id="' + dados.id + '"] .quantidade input').get(0).value++;
+                    var $inputQuantidade = $('tr.produto[data-produto-id="' + dados.id + '"] .quantidade input');
+                    $inputQuantidade.get(0).value++;
+                    $inputQuantidade.trigger('change');
                     setTimeout(function() {
                         // Limpar o select
                         // $select2.val(null).trigger('change');
@@ -50,7 +52,10 @@ $(document).ready(function() {
                                         dataType: 'html'
                                     }).done(function(html) {
                                         if (html) {
-                                            $('#tabela-produtos tbody').append(html);
+                                            // Como acabou de criar o produto, vai inserir sempre depois dele
+                                            var $linhaInserir = $('tr.produto[data-produto-id="' + dados.id + '"]');
+                                            $linhaInserir.after(html);
+                                            $linhaInserir.find('.quantidade input').prop('readonly', true);
                                             maskInputs();
                                         }
                                     });
@@ -72,6 +77,24 @@ $(document).ready(function() {
     // Quantidade change handler
     $('#tabela-produtos').on('change', 'tbody .quantidade input, tbody .valor-unitario input', function() {
         var produtoId = $(this).closest('tr.produto').data('produto-id') || 0;
+        atualizaTotalLinha(produtoId);
+        atualizaRodape();
+    });
+
+    // Quantidade lote handler
+    $('#tabela-produtos').on('change', 'tbody .lote .quantidade-lote', function() {
+        var produtoId = $(this).closest('tr.lote').data('produto-id') || 0;
+
+        // Soma a quantidade de todos os lotes
+        var quantidade = 0;
+        $('tr.lote[data-produto-id="' + produtoId + '"] input.quantidade-lote').each(function(i, $el) {
+            if ($($el).val() != '') {
+                quantidade += parseInt($($el).val());
+            }
+        });
+
+        // Seta a soma da quantidade no input de quantidade (que aqui está readonly)
+        $('tr.produto[data-produto-id="' + produtoId + '"] .quantidade input').val(quantidade);
         atualizaTotalLinha(produtoId);
         atualizaRodape();
     });
@@ -106,9 +129,17 @@ $(document).ready(function() {
             dataType: 'html'
         }).done(function(html) {
             if (html) {
-                $('#tabela-produtos tbody').append(html);
+                var $lotesProduto = $('tr.lote[data-produto-id="' + produtoId + '"]');
+                $lotesProduto.last().after(html);
+                var linhaId = $(html).data('linha-id');
                 // Remover o botão de 'adicionar lote' de todos os lotes daquele produtoId, menos o último
-                $('tr.lote[data-produto-id="'+ produtoId +'"]:not(:last-of-type)').find('.adicionar-lote').remove();
+                $lotesProduto.each(function(i, $el) {
+                    if ($($el).data('linha-id') != linhaId) {
+                        $($el).find('.adicionar-lote').remove();
+                    } else {
+                        debugger;
+                    }
+                });
                 maskInputs();
                 atualizaRodape();
             }
