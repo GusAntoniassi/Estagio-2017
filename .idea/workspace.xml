@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8181edc-cae8-49d6-a19a-18742a0159c9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/projeto/recanto_der.mwb" afterPath="$PROJECT_DIR$/webroot/projeto/recanto_der.mwb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ComprasController.php" afterPath="$PROJECT_DIR$/src/Controller/ComprasController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/FuncionariosController.php" afterPath="$PROJECT_DIR$/src/Controller/FuncionariosController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/lote.ctp" afterPath="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/lote.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/js/compra.js" afterPath="$PROJECT_DIR$/webroot/js/compra.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp" afterPath="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,11 +21,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ComprasController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="add.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Template/Compras/add.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="37" column="26" lean-forward="false" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+              <folding>
+                <element signature="e#6#47#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ComprasController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/ComprasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+            <state relative-caret-position="314">
+              <caret line="96" column="56" lean-forward="true" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LotesComprasTable.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Table/LotesComprasTable.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+              <folding>
+                <element signature="e#34#70#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FuncionariosController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/FuncionariosController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="97" column="18" lean-forward="false" selection-start-line="97" selection-start-column="18" selection-end-line="97" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ComprasTable.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Table/ComprasTable.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="53" column="11" lean-forward="false" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -35,18 +78,34 @@
       <file leaf-file-name="lote.ctp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Template/Cell/LinhaTabela/lote.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-              <folding />
+            <state relative-caret-position="153">
+              <caret line="9" column="153" lean-forward="false" selection-start-line="9" selection-start-column="153" selection-end-line="9" selection-end-column="153" />
+              <folding>
+                <marker date="1506046918579" expanded="false" signature="1982:1992" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compra.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="produto.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#div#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
+                <marker date="1506032120702" expanded="false" signature="1597:1607" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="compra.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webroot/js/compra.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-136">
-              <caret line="92" column="13" lean-forward="true" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
+            <state relative-caret-position="578">
+              <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -63,10 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>{{total}}</find>
-      <find>$linhaTabela</find>
-      <find>helper</find>
-      <find>format</find>
       <find>data</find>
       <find>data_venciment</find>
       <find>data_ven</find>
@@ -93,6 +148,10 @@
       <find>val(null</find>
       <find>data-mas</find>
       <find>append</find>
+      <find>compras[itemcompras]</find>
+      <find>beforeSave</find>
+      <find>beforeSave(</find>
+      <find>itemcompras</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -113,6 +172,9 @@
       <replace>$query = '%' . mb_strtolower($query) . '%';</replace>
       <replace>pessoa</replace>
       <replace>$('select[name=&quot;produto_id&quot;]')</replace>
+      <replace>itemcompras</replace>
+      <replace>itemCompras</replace>
+      <replace>item_compras</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\xampp\htdocs\estagio2017\vendor\jrbasso\cake_ptbr\src</dir>
@@ -129,8 +191,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/vendor/cakephp/cakephp/src/View/Helper/FormHelper.php" />
-        <option value="$PROJECT_DIR$/plugins/Gus/src/View/Helper/GusHelper.php" />
         <option value="$PROJECT_DIR$/plugins/Proffer/src/View/Helper/ProfferHelper.php" />
         <option value="$PROJECT_DIR$/src/Template/TipoProdutos/add.ctp" />
         <option value="$PROJECT_DIR$/src/Template/TipoProdutos/edit.ctp" />
@@ -160,7 +220,6 @@
         <option value="$PROJECT_DIR$/src/Controller/ProdutosController.php" />
         <option value="$PROJECT_DIR$/src/View/Cell/LinhaTabelaCell.php" />
         <option value="$PROJECT_DIR$/src/Controller/LotesController.php" />
-        <option value="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp" />
         <option value="$PROJECT_DIR$/webroot/css/style.scss" />
         <option value="$PROJECT_DIR$/src/Template/Cidades/edit.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Cidades/add.ctp" />
@@ -175,11 +234,14 @@
         <option value="$PROJECT_DIR$/webroot/js/select2inputs.js" />
         <option value="$PROJECT_DIR$/webroot/js/scripts.js" />
         <option value="$PROJECT_DIR$/src/Controller/FormaPagamentosController.php" />
-        <option value="$PROJECT_DIR$/src/Template/Compras/add.ctp" />
-        <option value="$PROJECT_DIR$/src/Controller/ComprasController.php" />
-        <option value="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/lote.ctp" />
         <option value="$PROJECT_DIR$/webroot/js/compra.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/Template/Compras/add.ctp" />
+        <option value="$PROJECT_DIR$/src/Controller/FuncionariosController.php" />
+        <option value="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/lote.ctp" />
+        <option value="$PROJECT_DIR$/src/Controller/ComprasController.php" />
+        <option value="$PROJECT_DIR$/src/Model/Table/LotesComprasTable.php" />
       </list>
     </option>
   </component>
@@ -236,200 +298,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estagio2017" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estagio2017" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="davidyell" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="proffer" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estagio2017" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estagio2017" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="davidyell" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="proffer" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Helper" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estagio2017" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estagio2017" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="davidyell" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="proffer" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estagio2017" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estagio2017" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="davidyell" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="proffer" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estagio2017" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estagio2017" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="davidyell" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="proffer" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Behavior" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estagio2017" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estagio2017" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="davidyell" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="proffer" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Component" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estagio2017" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estagio2017" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -466,7 +334,51 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Table" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estagio2017" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Entity" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -578,7 +490,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="lote&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cell/LinhaTabela/lote.ctp&#10;compra/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Compras/add.ctp&#10;compra&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/compra.js&#10;cidadescontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/CidadesController.php&#10;formapagamento&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/FormaPagamentosController.php&#10;comprascon&#9;null&#9;null&#10;produto&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cell/LinhaTabela/produto.ctp&#10;gushelper&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;selectjs&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/select2inputs.js&#10;compra.js&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/compra.js&#10;pessoastabl&#9;null&#9;null&#10;pessoa&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Pessoa.php&#10;fornecedorestabl&#9;null&#9;null&#10;pessoa.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Pessoa.php&#10;estado.ph&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Estado.php&#10;fornecedor&#9;null&#9;null&#10;estadoscontrol&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/EstadosController.php&#10;fornecedorescontr&#9;null&#9;null&#10;default&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Layout/default.ctp&#10;cidades/ed&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/edit.ctp&#10;cidade/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/add.ctp&#10;default.ct&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Layout/default.ctp&#10;style.scs&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/css/style.scss&#10;script&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/scripts.js&#10;lotescontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/LotesController.php&#10;lotestable&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/LotesTable.php&#10;profferhelper&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/vendor/davidyell/proffer/src/View/Helper/ProfferHelper.php&#10;numberhelper&#9;null&#9;null&#10;compras/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Compras/add.ctp&#10;produ&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/ProdutosController.php&#10;produtoscontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/ProdutosController.php&#10;cidades/index&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/index.ctp&#10;lotes/view&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Lotes/view.ctp&#10;gushelp&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;lotes/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Lotes/edit.ctp&#10;produtostable&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/ProdutosTable.php&#10;script.js&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/scripts.js&#10;estadoscontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/EstadosController.php&#10;cidades/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/add.ctp&#10;estados/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Estados/add.ctp&#10;formapagtable&#9;null&#9;null&#10;formapagamento.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/FormaPagamento.php&#10;formapaga&#9;null&#9;null&#10;gus&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;produto.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Produto.php&#10;produtos/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Produtos/edit.ctp&#10;produto/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Produtos/add.ctp&#10;scss&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/css/style.scss&#10;cidades&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/CidadesController.php&#10;default.ctp&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Layout/default.ctp" />
+    <property name="SearchEverywhereHistoryKey" value="table.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/vendor/cakephp/cakephp/src/ORM/Table.php&#10;lotecomptab&#9;null&#9;null&#10;lotescom&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/LotesCompra.php&#10;entity&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity.php&#10;lotescompra&#9;null&#9;null&#10;compras/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Compras/edit.ctp&#10;funcionarioscontr&#9;null&#9;null&#10;pessoascontr&#9;null&#9;null&#10;compra&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/ComprasTable.php&#10;compras/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Compras/add.ctp&#10;produto.&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cell/LinhaTabela/produto.ctp&#10;compratable&#9;null&#9;null&#10;lote&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cell/LinhaTabela/lote.ctp&#10;compra/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Compras/add.ctp&#10;cidadescontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/CidadesController.php&#10;formapagamento&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/FormaPagamentosController.php&#10;comprascon&#9;null&#9;null&#10;produto&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cell/LinhaTabela/produto.ctp&#10;gushelper&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;selectjs&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/select2inputs.js&#10;compra.js&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/compra.js&#10;pessoastabl&#9;null&#9;null&#10;pessoa&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Pessoa.php&#10;fornecedorestabl&#9;null&#9;null&#10;pessoa.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Pessoa.php&#10;estado.ph&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Estado.php&#10;fornecedor&#9;null&#9;null&#10;estadoscontrol&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/EstadosController.php&#10;fornecedorescontr&#9;null&#9;null&#10;default&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Layout/default.ctp&#10;cidades/ed&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/edit.ctp&#10;cidade/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/add.ctp&#10;default.ct&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Layout/default.ctp&#10;style.scs&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/css/style.scss&#10;script&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/scripts.js&#10;lotescontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/LotesController.php&#10;lotestable&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/LotesTable.php&#10;profferhelper&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/vendor/davidyell/proffer/src/View/Helper/ProfferHelper.php&#10;numberhelper&#9;null&#9;null&#10;produ&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/ProdutosController.php&#10;produtoscontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/ProdutosController.php&#10;cidades/index&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/index.ctp&#10;lotes/view&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Lotes/view.ctp&#10;gushelp&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;lotes/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Lotes/edit.ctp&#10;produtostable&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/ProdutosTable.php&#10;script.js&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/scripts.js&#10;estadoscontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/EstadosController.php&#10;cidades/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cidades/add.ctp&#10;estados/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Estados/add.ctp" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
   </component>
@@ -716,7 +628,7 @@
       <workItem from="1504915164886" duration="6441000" />
       <workItem from="1505257798680" duration="10512000" />
       <workItem from="1505403038127" duration="18089000" />
-      <workItem from="1505772638579" duration="14703000" />
+      <workItem from="1505772638579" duration="21849000" />
     </task>
     <task id="LOCAL-00001" summary="SelectExtends pronto com funcionalidade básica.&#10;Trabalhando no caso de Cidades onde o select de estado depende do comportamento do select de País.">
       <created>1501296478716</created>
@@ -802,11 +714,18 @@
       <option name="project" value="LOCAL" />
       <updated>1503892627867</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fui começar a lógica de gravar compra mas acabei achando alguns problemas no javascript que foram arrumados primeiro">
+      <created>1505990438964</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1505990438964</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210084000" />
+    <option name="totallyTimeSpent" value="217230000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
@@ -820,7 +739,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1797235" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2677761" sideWeight="0.5057283" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -919,80 +838,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Template/Produtos/add.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="31" column="10" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="31" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Entity/Produto.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="27" lean-forward="false" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Produtos/edit.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="71" lean-forward="false" selection-start-line="9" selection-start-column="71" selection-end-line="9" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/FormaPagamentos/add.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/FormaPagamentos/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="9" column="44" lean-forward="false" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AppController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="30" column="6" lean-forward="false" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Entity/FormaPagamento.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-171">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/FormaPagamentos/view.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Table/FormaPagamentosTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="107" column="14" lean-forward="true" selection-start-line="107" selection-start-column="14" selection-end-line="107" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Estados/add.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Table/ProdutosTable.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
@@ -1027,6 +872,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="86" lean-forward="false" selection-start-line="19" selection-start-column="86" selection-end-line="19" selection-end-column="86" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1034,6 +880,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="7" column="53" lean-forward="false" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1227,14 +1074,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="26" column="71" lean-forward="false" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webroot/js/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
@@ -1267,32 +1106,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Compras/add.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-629">
-          <caret line="22" column="48" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
-          <folding>
-            <element signature="e#6#47#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ComprasController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Cell/LinhaTabela/lote.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -1303,8 +1116,130 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/webroot/js/compra.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="92" column="13" lean-forward="true" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
+        <state relative-caret-position="578">
+          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Entity/Compra.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="25" column="6" lean-forward="false" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PessoasController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-930">
+          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/FuncionariosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="97" column="18" lean-forward="false" selection-start-line="97" selection-start-column="18" selection-end-line="97" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Compras/edit.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Table/ComprasTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="53" column="11" lean-forward="false" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/PedidoCompras/add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
+            <marker date="1506032120702" expanded="false" signature="1597:1607" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Entity/LotesCompra.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Entity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/cakephp/cakephp/src/ORM/Table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="106" column="2" lean-forward="true" selection-start-line="106" selection-start-column="2" selection-end-line="106" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Cell/LinhaTabela/lote.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="153" lean-forward="false" selection-start-line="9" selection-start-column="153" selection-end-line="9" selection-end-column="153" />
+          <folding>
+            <marker date="1506046918579" expanded="false" signature="1982:1992" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Compras/add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="37" column="26" lean-forward="false" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+          <folding>
+            <element signature="e#6#47#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Table/LotesComprasTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding>
+            <element signature="e#34#70#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ComprasController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="96" column="56" lean-forward="true" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="56" />
           <folding />
         </state>
       </provider>

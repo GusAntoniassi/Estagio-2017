@@ -84,8 +84,6 @@ class FuncionariosController extends AppController
         if ($this->request->is('post')) {
             $pessoa = $this->Funcionarios->Pessoas->patchEntity($pessoa, $this->request->getdata());
             if ($this->Funcionarios->Pessoas->save($pessoa)) {
-                debug($pessoa->id);
-                debug($this->Funcionarios->Pessoas->getPrimaryKey());
                 $data = $this->request->withData('pessoa_id', $pessoa->id);
                 $funcionario = $this->Funcionarios->patchEntity($funcionario, $data);
                 if ($this->Funcionarios->save($funcionario)) {
@@ -97,8 +95,6 @@ class FuncionariosController extends AppController
                     return $this->redirect(['action' => 'index']);
                 }
             }
-            debug($this->Funcionarios->getTable());
-            die();
             $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
         $cidades = $this->Funcionarios->Pessoas->Cidades->find('list');

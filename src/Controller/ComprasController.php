@@ -81,8 +81,35 @@ class ComprasController extends AppController
     {
         $compra = $this->Compras->newEntity();
         if ($this->request->is('post')) {
-            $compra = $this->Compras->patchEntity($compra, $this->request->getData());
+            $compra = $this->Compras->patchEntity($compra, $this->request->getData(), [
+                'associated' => [
+                    'ItemCompras',
+                    'ItemCompras.LotesCompras.Lotes',
+                    'ItemCompras.LotesCompras',
+                ]
+            ]);
 
+            $conn = ConnectionManager::get($this->Compras->defaultConnectionName());
+            $conn->begin();
+
+            try {
+                // Fazer as coisas
+                $result = $this->Compras->save($compra);
+                debug($result->id);
+                $conn->commit();
+
+                // Se o status da compra for FECHADO (1), gerar as parcelas
+                if ($compra->status) {
+
+                } else {
+//                    $conn->commit();
+                    $conn->rollback();
+                    $this->Flash->success(__('Sucesso'));
+                }
+            } catch (\Exception $e) {
+                $this->Flash->error(__('Erro'));
+                debug($e);
+            }
 
 
             dd($compra);
