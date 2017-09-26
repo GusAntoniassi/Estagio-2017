@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -8,18 +7,15 @@ use \Cake\Datasource\Exception\RecordNotFoundException;
 use \Cake\Datasource\ConnectionManager;
 
 /**
- * Compras Controller
+ * ContaPagars Controller
  *
- * @property \App\Model\Table\ComprasTable $Compras
+ * @property \App\Model\Table\ContaPagarsTable $ContaPagars
  *
- * @method \App\Model\Entity\Compra[] paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\ContaPagar[] paginate($object = null, array $settings = [])
  */
-class ComprasController extends AppController
-{
+class ContaPagarsController extends AppController {
     private $_crumbs;
-
-    public function initialize()
-    {
+    public function initialize() {
         parent::initialize();
         $this->loadComponent('Search.Prg', [
             'actions' => 'index',
@@ -27,7 +23,7 @@ class ComprasController extends AppController
 
         $this->_crumbs = [
             'Painel' => Router::url(['controller' => 'usuarios', 'action' => 'dashboard'], true),
-            'Compras' => Router::url(['action' => 'index'])
+            'ContaPagars' => Router::url(['action' => 'index'])
         ];
     }
 
@@ -39,15 +35,16 @@ class ComprasController extends AppController
     public function index()
     {
 
-        $query = $this->Compras
+        $query = $this->ContaPagars
             ->find('search', ['search' => $this->request->getQueryParams()])
-            ->contain(['PedidoCompras', 'FormaPagamentos', 'Fornecedores']);
+                        ->contain(['Fornecedores', 'Compras', 'FormaPagamentos'])
+            ;
 
         $this->paginate = ['limit' => 20];
-        $compras = $this->paginate($query);
+        $contaPagars = $this->paginate($query);
 
-        $this->set(compact('compras'));
-        $this->set('_serialize', ['compras']);
+        $this->set(compact('contaPagars'));
+        $this->set('_serialize', ['contaPagars']);
 
         $this->set('crumbs', $this->_crumbs);
     }
@@ -55,18 +52,18 @@ class ComprasController extends AppController
     /**
      * View method
      *
-     * @param string|null $id Compra id.
+     * @param string|null $id Conta Pagar id.
      * @return \Cake\Http\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-        $compra = $this->Compras->get($id, [
-            'contain' => ['PedidoCompras', 'FormaPagamentos', 'Fornecedores', 'ContaPagars', 'ItemCompras']
+        $contaPagar = $this->ContaPagars->get($id, [
+            'contain' => ['Fornecedores', 'Compras', 'FormaPagamentos', 'ParcelaContaPagars']
         ]);
 
-        $this->set('compra', $compra);
-        $this->set('_serialize', ['compra']);
+        $this->set('contaPagar', $contaPagar);
+        $this->set('_serialize', ['contaPagar']);
 
         $this->_crumbs['Visualização'] = Router::url(['action' => 'view']);
         $this->set('crumbs', $this->_crumbs);
@@ -79,65 +76,10 @@ class ComprasController extends AppController
      */
     public function add()
     {
-        $compra = $this->Compras->newEntity();
+        $contaPagar = $this->ContaPagars->newEntity();
         if ($this->request->is('post')) {
-            $compra = $this->Compras->patchEntity($compra, $this->request->getData(), [
-                'associated' => [
-                    'ItemCompras',
-                    'ItemCompras.LoteCompras.Lotes',
-                    'ItemCompras.LoteCompras',
-                ]
-            ]);
-
-            $conn = ConnectionManager::get($this->Compras->defaultConnectionName());
-            $conn->begin();
-
-            try {
-                $result = $this->Compras->save($compra);
-
-                // Se o status da compra for FECHADO (1), gerar as parcelas
-                if ($compra->status) {
-                    $compra->fecharCompra();
-                    $conn->commit();
-
-                    // Redirecionar para a edição do contas a pagar
-                    $contaPagar = $this->Compras->ContaPagars->findByCompraId($compra->id)->first();
-                    $this->Flash->success(__('Compra salva com sucesso.'));
-                    $this->redirect(['controller' => 'ContaPagars', 'action' => 'edit', $contaPagar->id]);
-                } else {
-                    $conn->commit();
-                    $this->Flash->success(__('Compra salva com sucesso.'));
-                }
-            } catch (\Exception $e) {
-                $this->Flash->error(__('Erro ao salvar a compra. Por favor tente novamente.'));
-                $conn->rollback();
-            }
-        }
-
-        $formaPagamentos = $this->Compras->FormaPagamentos->find('list', ['valueField' => 'nome']);
-
-        $this->set(compact('compra', 'pedidoCompras', 'formaPagamentos', 'fornecedores'));
-        $this->set('_serialize', ['compra']);
-
-        $this->_crumbs['Cadastro'] = Router::url(['action' => 'add']);
-        $this->set('crumbs', $this->_crumbs);
-    }
-
-    /**
-     * Edit method
-     *
-     * @param string|null $id Compra id.
-     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function edit($id = null)
-    {
-        $compra = $this->Compras->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $compra = $this->Compras->patchEntity($compra, $this->request->getData());
-            if ($this->Compras->save($compra)) {
+            $contaPagar = $this->ContaPagars->patchEntity($contaPagar, $this->request->getData());
+            if ($this->ContaPagars->save($contaPagar)) {
                 if (!empty($this->request->getQuery('extends'))) {
                     $this->_fechaExtends();
                 }
@@ -147,11 +89,45 @@ class ComprasController extends AppController
             }
             $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
-        $pedidoCompras = $this->Compras->PedidoCompras->find('list', ['limit' => 200]);
-        $formaPagamentos = $this->Compras->FormaPagamentos->find('list', ['limit' => 200]);
-        $fornecedores = $this->Compras->Fornecedores->find('list', ['limit' => 200]);
-        $this->set(compact('compra', 'pedidoCompras', 'formaPagamentos', 'fornecedores'));
-        $this->set('_serialize', ['compra']);
+        $fornecedores = $this->ContaPagars->Fornecedores->find('list', ['limit' => 200]);
+        $compras = $this->ContaPagars->Compras->find('list', ['limit' => 200]);
+        $formaPagamentos = $this->ContaPagars->FormaPagamentos->find('list', ['limit' => 200]);
+        $this->set(compact('contaPagar', 'fornecedores', 'compras', 'formaPagamentos'));
+        $this->set('_serialize', ['contaPagar']);
+
+        $this->_crumbs['Cadastro'] = Router::url(['action' => 'add']);
+        $this->set('crumbs', $this->_crumbs);
+    }
+
+    /**
+     * Edit method
+     *
+     * @param string|null $id Conta Pagar id.
+     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
+     * @throws \Cake\Network\Exception\NotFoundException When record not found.
+     */
+    public function edit($id = null)
+    {
+        $contaPagar = $this->ContaPagars->get($id, [
+            'contain' => []
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $contaPagar = $this->ContaPagars->patchEntity($contaPagar, $this->request->getData());
+            if ($this->ContaPagars->save($contaPagar)) {
+                if (!empty($this->request->getQuery('extends'))) {
+                    $this->_fechaExtends();
+                }
+                $this->Flash->success(__('Registro salvo com sucesso.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
+        }
+        $fornecedores = $this->ContaPagars->Fornecedores->find('list', ['limit' => 200]);
+        $compras = $this->ContaPagars->Compras->find('list', ['limit' => 200]);
+        $formaPagamentos = $this->ContaPagars->FormaPagamentos->find('list', ['limit' => 200]);
+        $this->set(compact('contaPagar', 'fornecedores', 'compras', 'formaPagamentos'));
+        $this->set('_serialize', ['contaPagar']);
 
         $this->_crumbs['Edição'] = Router::url(['action' => 'edit']);
         $this->set('crumbs', $this->_crumbs);
@@ -160,7 +136,7 @@ class ComprasController extends AppController
     /**
      * Delete method
      *
-     * @param string|null $id Compra id.
+     * @param string|null $id Conta Pagar id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -181,25 +157,23 @@ class ComprasController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
     /**
      * Handle delete method
      *
-     * @param int|array $ids Compras ids.
+     * @param int|array $ids ContaPagars ids.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException Quando o registro não é encontrado.
      */
-    private function _handleDelete($ids)
-    {
+    private function _handleDelete($ids) {
         if (!is_array($ids)) {
             $ids = [$ids];
         }
 
-        $conn = ConnectionManager::get($this->Compras->defaultConnectionName());
+        $conn = ConnectionManager::get($this->ContaPagars->defaultConnectionName());
         $conn->begin();
         try {
             foreach ($ids as $id) {
-                $compra = $this->Compras->get($id);
-                if (!$this->Compras->delete($compra)) {
+                $contaPagar = $this->ContaPagars->get($id);
+                if (!$this->ContaPagars->delete($contaPagar)) {
                     throw new \Exception();
                 }
             }
@@ -212,12 +186,5 @@ class ComprasController extends AppController
             $conn->rollback();
             $this->Flash->error(__('Erro ao excluir o(s) registro(s)! Por favor tente novamente.'));
         }
-    }
-
-    public function getProdutosCompraveis() {
-        $produtos = $this->Compras->find('all')
-            ->where(['status' => true]);
-
-//        echo json_encode()
     }
 }

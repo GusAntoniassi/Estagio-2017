@@ -1,22 +1,29 @@
 <?php
 namespace App\Model\Entity;
 
-use Cake\ORM\Entity;
+use App\Model\Entity;;
 
 /**
- * ItemCompra Entity
+ * ContaPagar Entity
  *
  * @property int $id
- * @property int $produto_id
+ * @property string $descricao
+ * @property float $valor
+ * @property \Cake\I18n\FrozenTime $data_cadastro
+ * @property \Cake\I18n\FrozenTime $data_pagamento
+ * @property bool $pago
+ * @property int $num_parcelas
+ * @property string $comentarios
+ * @property int $fornecedor_id
  * @property int $compra_id
- * @property int $quantidade
- * @property float $valor_unitario
+ * @property int $forma_pagamento_id
  *
- * @property \App\Model\Entity\Produto $produto
+ * @property \App\Model\Entity\Fornecedor $fornecedor
  * @property \App\Model\Entity\Compra $compra
- * @property \App\Model\Entity\LoteCompra[] $lote_compras
+ * @property \App\Model\Entity\FormaPagamento $forma_pagamento
+ * @property \App\Model\Entity\ParcelaContaPagar[] $parcela_conta_pagars
  */
-class ItemCompra extends Entity
+class ContaPagar extends Entity
 {
 
     /**

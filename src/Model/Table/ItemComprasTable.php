@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\ProdutosTable|\Cake\ORM\Association\BelongsTo $Produtos
  * @property \App\Model\Table\ComprasTable|\Cake\ORM\Association\BelongsTo $Compras
- * @property \App\Model\Table\LotesComprasTable|\Cake\ORM\Association\HasMany $LotesCompras
+ * @property \App\Model\Table\LoteComprasTable|\Cake\ORM\Association\HasMany $LoteCompras
  *
  * @method \App\Model\Entity\ItemCompra get($primaryKey, $options = [])
  * @method \App\Model\Entity\ItemCompra newEntity($data = null, array $options = [])
@@ -46,7 +46,7 @@ class ItemComprasTable extends Table
             'foreignKey' => 'compra_id',
             'joinType' => 'INNER'
         ]);
-        $this->hasMany('LotesCompras', [
+        $this->hasMany('LoteCompras', [
             'foreignKey' => 'item_compra_id'
         ]);
     }

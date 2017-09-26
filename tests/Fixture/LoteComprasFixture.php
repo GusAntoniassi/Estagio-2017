@@ -4,10 +4,10 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * LotesComprasFixture
+ * LoteComprasFixture
  *
  */
-class LotesComprasFixture extends TestFixture
+class LoteComprasFixture extends TestFixture
 {
 
     /**
@@ -15,7 +15,7 @@ class LotesComprasFixture extends TestFixture
      *
      * @var string
      */
-    public $table = 'lotes_compras';
+    public $table = 'lote_compras';
 
     /**
      * Fields
@@ -29,13 +29,13 @@ class LotesComprasFixture extends TestFixture
         'item_compra_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'lote_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_indexes' => [
-            'fk_lotes_compras_item_compras1_idx' => ['type' => 'index', 'columns' => ['item_compra_id'], 'length' => []],
-            'fk_lotes_compras_lotes1_idx' => ['type' => 'index', 'columns' => ['lote_id'], 'length' => []],
+            'fk_lote_compras_item_compras1_idx' => ['type' => 'index', 'columns' => ['item_compra_id'], 'length' => []],
+            'fk_lote_compras_lotes1_idx' => ['type' => 'index', 'columns' => ['lote_id'], 'length' => []],
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'fk_lotes_compras_item_compras1' => ['type' => 'foreign', 'columns' => ['item_compra_id'], 'references' => ['item_compras', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
-            'fk_lotes_compras_lotes1' => ['type' => 'foreign', 'columns' => ['lote_id'], 'references' => ['lotes', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'fk_lote_compras_item_compras1' => ['type' => 'foreign', 'columns' => ['item_compra_id'], 'references' => ['item_compras', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'fk_lote_compras_lotes1' => ['type' => 'foreign', 'columns' => ['lote_id'], 'references' => ['lotes', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',

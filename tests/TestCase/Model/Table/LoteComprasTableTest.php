@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\ItemComprasTable;
+use App\Model\Table\LoteComprasTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\ItemComprasTable Test Case
+ * App\Model\Table\LoteComprasTable Test Case
  */
-class ItemComprasTableTest extends TestCase
+class LoteComprasTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\ItemComprasTable
+     * @var \App\Model\Table\LoteComprasTable
      */
-    public $ItemCompras;
+    public $LoteCompras;
 
     /**
      * Fixtures
@@ -24,30 +24,15 @@ class ItemComprasTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
+        'app.lote_compras',
         'app.item_compras',
+        'app.lotes',
         'app.produtos',
         'app.tipo_produtos',
         'app.item_comandas',
         'app.item_orcamentos',
         'app.item_pedido_compras',
-        'app.lotes',
-        'app.baixa_produtos',
-        'app.compras',
-        'app.pedido_compras',
-        'app.forma_pagamentos',
-        'app.conta_pagars',
-        'app.conta_recebers',
-        'app.fornecedores',
-        'app.pessoas',
-        'app.cidades',
-        'app.estados',
-        'app.paises',
-        'app.funcionarios',
-        'app.caixa',
-        'app.comandas',
-        'app.lancamento_horas',
-        'app.orcamentos',
-        'app.lote_compras'
+        'app.baixa_produtos'
     ];
 
     /**
@@ -58,8 +43,8 @@ class ItemComprasTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('ItemCompras') ? [] : ['className' => ItemComprasTable::class];
-        $this->ItemCompras = TableRegistry::get('ItemCompras', $config);
+        $config = TableRegistry::exists('LoteCompras') ? [] : ['className' => LoteComprasTable::class];
+        $this->LoteCompras = TableRegistry::get('LoteCompras', $config);
     }
 
     /**
@@ -69,7 +54,7 @@ class ItemComprasTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->ItemCompras);
+        unset($this->LoteCompras);
 
         parent::tearDown();
     }

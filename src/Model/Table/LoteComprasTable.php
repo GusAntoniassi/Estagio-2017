@@ -10,20 +10,20 @@ use Cake\ORM\TableRegistry;
 use Cake\Validation\Validator;
 
 /**
- * LotesCompras Model
+ * LoteCompras Model
  *
  * @property \App\Model\Table\ItemComprasTable|\Cake\ORM\Association\BelongsTo $ItemCompras
  * @property \App\Model\Table\LotesTable|\Cake\ORM\Association\BelongsTo $Lotes
  *
- * @method \App\Model\Entity\LotesCompra get($primaryKey, $options = [])
- * @method \App\Model\Entity\LotesCompra newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\LotesCompra[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\LotesCompra|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\LotesCompra patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\LotesCompra[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\LotesCompra findOrCreate($search, callable $callback = null, $options = [])
+ * @method \App\Model\Entity\LoteCompra get($primaryKey, $options = [])
+ * @method \App\Model\Entity\LoteCompra newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\LoteCompra[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\LoteCompra|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\LoteCompra patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\LoteCompra[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\LoteCompra findOrCreate($search, callable $callback = null, $options = [])
  */
-class LotesComprasTable extends Table
+class LoteComprasTable extends Table
 {
 
     /**
@@ -36,7 +36,7 @@ class LotesComprasTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('lotes_compras');
+        $this->setTable('lote_compras');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 

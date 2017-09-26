@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\ItemComprasTable;
+use App\Model\Table\ParcelaContaPagarsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\ItemComprasTable Test Case
+ * App\Model\Table\ParcelaContaPagarsTable Test Case
  */
-class ItemComprasTableTest extends TestCase
+class ParcelaContaPagarsTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\ItemComprasTable
+     * @var \App\Model\Table\ParcelaContaPagarsTable
      */
-    public $ItemCompras;
+    public $ParcelaContaPagars;
 
     /**
      * Fixtures
@@ -24,29 +24,30 @@ class ItemComprasTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.item_compras',
-        'app.produtos',
-        'app.tipo_produtos',
-        'app.item_comandas',
-        'app.item_orcamentos',
-        'app.item_pedido_compras',
-        'app.lotes',
-        'app.baixa_produtos',
-        'app.compras',
-        'app.pedido_compras',
-        'app.forma_pagamentos',
+        'app.parcela_conta_pagars',
         'app.conta_pagars',
-        'app.conta_recebers',
         'app.fornecedores',
         'app.pessoas',
         'app.cidades',
         'app.estados',
         'app.paises',
+        'app.conta_recebers',
         'app.funcionarios',
         'app.caixa',
         'app.comandas',
         'app.lancamento_horas',
+        'app.compras',
+        'app.pedido_compras',
         'app.orcamentos',
+        'app.forma_pagamentos',
+        'app.item_pedido_compras',
+        'app.item_compras',
+        'app.produtos',
+        'app.tipo_produtos',
+        'app.item_comandas',
+        'app.item_orcamentos',
+        'app.lotes',
+        'app.baixa_produtos',
         'app.lote_compras'
     ];
 
@@ -58,8 +59,8 @@ class ItemComprasTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('ItemCompras') ? [] : ['className' => ItemComprasTable::class];
-        $this->ItemCompras = TableRegistry::get('ItemCompras', $config);
+        $config = TableRegistry::exists('ParcelaContaPagars') ? [] : ['className' => ParcelaContaPagarsTable::class];
+        $this->ParcelaContaPagars = TableRegistry::get('ParcelaContaPagars', $config);
     }
 
     /**
@@ -69,7 +70,7 @@ class ItemComprasTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->ItemCompras);
+        unset($this->ParcelaContaPagars);
 
         parent::tearDown();
     }

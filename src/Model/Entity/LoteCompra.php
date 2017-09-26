@@ -4,19 +4,17 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * ItemCompra Entity
+ * LoteCompra Entity
  *
  * @property int $id
- * @property int $produto_id
- * @property int $compra_id
  * @property int $quantidade
- * @property float $valor_unitario
+ * @property int $item_compra_id
+ * @property int $lote_id
  *
- * @property \App\Model\Entity\Produto $produto
- * @property \App\Model\Entity\Compra $compra
- * @property \App\Model\Entity\LoteCompra[] $lote_compras
+ * @property \App\Model\Entity\ItemCompra $item_compra
+ * @property \App\Model\Entity\Lote $lote
  */
-class ItemCompra extends Entity
+class LoteCompra extends Entity
 {
 
     /**

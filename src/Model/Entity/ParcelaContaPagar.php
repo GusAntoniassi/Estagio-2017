@@ -1,20 +1,20 @@
 <?php
 namespace App\Model\Entity;
 
-use Cake\ORM\Entity;
+use App\Model\Entity;;
 
 /**
- * LotesCompra Entity
+ * ParcelaContaPagar Entity
  *
  * @property int $id
- * @property int $quantidade
- * @property int $item_compra_id
- * @property int $lote_id
+ * @property float $valor
+ * @property \Cake\I18n\FrozenDate $data_vencimento
+ * @property bool $pago
+ * @property int $conta_pagar_id
  *
- * @property \App\Model\Entity\ItemCompra $item_compra
- * @property \App\Model\Entity\Lote $lote
+ * @property \App\Model\Entity\ContaPagar $conta_pagar
  */
-class LotesCompra extends Entity
+class ParcelaContaPagar extends Entity
 {
 
     /**

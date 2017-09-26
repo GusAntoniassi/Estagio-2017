@@ -2,9 +2,12 @@
 
 namespace App\Model\Table;
 
+use Cake\Datasource\EntityInterface;
+use Cake\Event\Event;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
+use Cake\ORM\TableRegistry;
 use Cake\Validation\Validator;
 use Search\Manager;
 
@@ -115,6 +118,27 @@ class LotesTable extends Table
             ->value('data_vencimento')
             ->value('status');
         return $search;
+    }
+
+    public function beforeSave(Event $event, EntityInterface $entity, \ArrayObject $options) {
+        if (!isset($entity->id)) {
+            $loteIgual = $this->findByNumLote($entity->num_lote)->first();
+            if (!empty($loteIgual)) {
+                if ($loteIgual->produto_id != $entity->produto_id) {
+                    throw new \Exception; // TODO: Verificar, lançar uma exception melhor
+                }
+
+                // Se já existir um lote com aquele código, apenas atualizar os valores do lote
+                $loteIgual->qtde_estoque += $entity->qtde_estoque;
+                $loteIgual->data_vencimento = $entity->data_vencimento;
+                $loteIgual->status = $entity->status;
+
+                $this->save($loteIgual);
+                $event->stopPropagation();
+                return $loteIgual;
+            }
+
+        }
     }
 
 }

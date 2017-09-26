@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\LotesComprasTable;
+use App\Model\Table\ContaPagarsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\LotesComprasTable Test Case
+ * App\Model\Table\ContaPagarsTable Test Case
  */
-class LotesComprasTableTest extends TestCase
+class ContaPagarsTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\LotesComprasTable
+     * @var \App\Model\Table\ContaPagarsTable
      */
-    public $LotesCompras;
+    public $ContaPagars;
 
     /**
      * Fixtures
@@ -24,15 +24,31 @@ class LotesComprasTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.lotes_compras',
+        'app.conta_pagars',
+        'app.fornecedores',
+        'app.pessoas',
+        'app.cidades',
+        'app.estados',
+        'app.paises',
+        'app.conta_recebers',
+        'app.funcionarios',
+        'app.caixa',
+        'app.comandas',
+        'app.lancamento_horas',
+        'app.compras',
+        'app.pedido_compras',
+        'app.orcamentos',
+        'app.forma_pagamentos',
+        'app.item_pedido_compras',
         'app.item_compras',
-        'app.lotes',
         'app.produtos',
         'app.tipo_produtos',
         'app.item_comandas',
         'app.item_orcamentos',
-        'app.item_pedido_compras',
-        'app.baixa_produtos'
+        'app.lotes',
+        'app.baixa_produtos',
+        'app.lote_compras',
+        'app.parcela_conta_pagars'
     ];
 
     /**
@@ -43,8 +59,8 @@ class LotesComprasTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('LotesCompras') ? [] : ['className' => LotesComprasTable::class];
-        $this->LotesCompras = TableRegistry::get('LotesCompras', $config);
+        $config = TableRegistry::exists('ContaPagars') ? [] : ['className' => ContaPagarsTable::class];
+        $this->ContaPagars = TableRegistry::get('ContaPagars', $config);
     }
 
     /**
@@ -54,7 +70,7 @@ class LotesComprasTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->LotesCompras);
+        unset($this->ContaPagars);
 
         parent::tearDown();
     }

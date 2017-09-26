@@ -2,21 +2,21 @@
     <td colspan="4">
         <div class="input-field input-small col s3">
         <?php if ($lote->id) { ?>
-        <input type="hidden" name="item_compras[<?= $linhaTabela ?>][lotes_compras][<?= $linhaTabelaLote ?>][lote][id]" />
+        <input type="hidden" name="item_compras[<?= $linhaTabela ?>][lote_compras][<?= $linhaTabelaLote ?>][lote][id]" />
         <?php } ?>
-        <input type="hidden" name="item_compras[<?= $linhaTabela ?>][lotes_compras][<?= $linhaTabelaLote ?>][lote][status]" value="1" />
+        <input type="hidden" name="item_compras[<?= $linhaTabela ?>][lote_compras][<?= $linhaTabelaLote ?>][lote][status]" value="1" />
         <!-- Quantidade em estoque vai ser usada apenas para novos lotes, o valor real vai ser definido no fechamento da compra -->
-        <input type="hidden" name="item_compras[<?= $linhaTabela ?>][lotes_compras][<?= $linhaTabelaLote ?>][lote][qtde_estoque]" value="0" />
-        <input type="hidden" name="item_compras[<?= $linhaTabela ?>][lotes_compras][<?= $linhaTabelaLote ?>][lote][produto_id]" value="<?= $produtoId; ?>" />
-        <input type="text" id="cod_lote" name="item_compras[<?= $linhaTabela ?>][lotes_compras][<?= $linhaTabelaLote ?>][lote][num_lote]" value="<?= $lote->num_lote ?>" />
+        <input type="hidden" name="item_compras[<?= $linhaTabela ?>][lote_compras][<?= $linhaTabelaLote ?>][lote][qtde_estoque]" value="0" />
+        <input type="hidden" name="item_compras[<?= $linhaTabela ?>][lote_compras][<?= $linhaTabelaLote ?>][lote][produto_id]" value="<?= $produtoId; ?>" />
+        <input type="text" id="cod_lote" name="item_compras[<?= $linhaTabela ?>][lote_compras][<?= $linhaTabelaLote ?>][lote][num_lote]" value="<?= $lote->num_lote ?>" />
         <label for="cod_lote">Código do lote</label>
     </div>
     <div class="input-field input-small col s3">
-        <input type="text" id="data_lote" name="item_compras[<?= $linhaTabela ?>][lotes_compras][<?= $linhaTabelaLote ?>][lote][data_vencimento]" value="<?= $lote->data_vencimento ?>" data-type="date" />
+        <input type="text" id="data_lote" name="item_compras[<?= $linhaTabela ?>][lote_compras][<?= $linhaTabelaLote ?>][lote][data_vencimento]" value="<?= $lote->data_vencimento ?>" data-type="date" />
         <label for="data_lote">Data do vencimento</label>
     </div>
     <div class="input-field input-small col s2">
-        <input type="number" min="1" id="qtde_lote" class="quantidade-lote" name="item_compras[<?= $linhaTabela ?>][lotes_compras][<?= $linhaTabelaLote ?>][quantidade]" value="<?= $lote->qtde_estoque ?>" />
+        <input type="number" min="1" id="qtde_lote" class="quantidade-lote" name="item_compras[<?= $linhaTabela ?>][lote_compras][<?= $linhaTabelaLote ?>][quantidade]" value="<?= $lote->qtde_estoque ?>" />
         <label for="qtde_lote">Quantidade</label>
     </div>
     </td>
