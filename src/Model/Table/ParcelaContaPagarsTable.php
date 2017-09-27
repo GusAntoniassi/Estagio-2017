@@ -42,7 +42,7 @@ class ParcelaContaPagarsTable extends Table
             'foreignKey' => 'conta_pagar_id',
             'joinType' => 'INNER'
         ]);
-        $this->hasMany('Pagamentos', [
+        $this->hasOne('Pagamentos', [
             'foreignKey' => 'parcela_conta_pagar_id'
         ]);
 

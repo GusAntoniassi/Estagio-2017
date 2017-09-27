@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -13,9 +14,12 @@ use \Cake\Datasource\ConnectionManager;
  *
  * @method \App\Model\Entity\ContaPagar[] paginate($object = null, array $settings = [])
  */
-class ContaPagarsController extends AppController {
+class ContaPagarsController extends AppController
+{
     private $_crumbs;
-    public function initialize() {
+
+    public function initialize()
+    {
         parent::initialize();
         $this->loadComponent('Search.Prg', [
             'actions' => 'index',
@@ -37,8 +41,7 @@ class ContaPagarsController extends AppController {
 
         $query = $this->ContaPagars
             ->find('search', ['search' => $this->request->getQueryParams()])
-                        ->contain(['Fornecedores', 'Compras', 'FormaPagamentos'])
-            ;
+            ->contain(['Fornecedores', 'Compras', 'FormaPagamentos']);
 
         $this->paginate = ['limit' => 20];
         $contaPagars = $this->paginate($query);
@@ -109,8 +112,14 @@ class ContaPagarsController extends AppController {
     public function edit($id = null)
     {
         $contaPagar = $this->ContaPagars->get($id, [
-            'contain' => []
+            'contain' => [
+                'Fornecedores',
+                'Fornecedores.Pessoas',
+                'FormaPagamentos',
+                'ParcelaContaPagars',
+                'ParcelaContaPagars.Pagamentos']
         ]);
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $contaPagar = $this->ContaPagars->patchEntity($contaPagar, $this->request->getData());
             if ($this->ContaPagars->save($contaPagar)) {
@@ -123,9 +132,26 @@ class ContaPagarsController extends AppController {
             }
             $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
-        $fornecedores = $this->ContaPagars->Fornecedores->find('list', ['limit' => 200]);
-        $compras = $this->ContaPagars->Compras->find('list', ['limit' => 200]);
-        $formaPagamentos = $this->ContaPagars->FormaPagamentos->find('list', ['limit' => 200]);
+
+        if (!empty($contaPagar)) {
+            // Pegar o nome do fornecedor (da tabela de pessoas)
+            $nomeFornecedor = $contaPagar->fornecedor->pessoa->get('nome_exibicao');
+            $fornecedores = [$contaPagar->fornecedor_id => $nomeFornecedor];
+
+            // Pegar o nome da compra ("Compra #id")
+            if (!empty($contaPagar->compra_id)) {
+                $compras = [$contaPagar->compra_id => 'Compra #' . $contaPagar->compra_id];
+            } else {
+                $compras = [];
+            }
+
+            // Pegar o nome da forma de pagamento
+            $formaPagamentos = [$contaPagar->forma_pagamento_id => $contaPagar->forma_pagamento->nome];
+        } else {
+            $fornecedores = $this->ContaPagars->Fornecedores->find('list', ['limit' => 200]);
+            $compras = $this->ContaPagars->Compras->find('list', ['limit' => 200]);
+            $formaPagamentos = $this->ContaPagars->FormaPagamentos->find('list', ['limit' => 200]);
+        }
         $this->set(compact('contaPagar', 'fornecedores', 'compras', 'formaPagamentos'));
         $this->set('_serialize', ['contaPagar']);
 
@@ -157,13 +183,15 @@ class ContaPagarsController extends AppController {
 
         return $this->redirect(['action' => 'index']);
     }
+
     /**
      * Handle delete method
      *
      * @param int|array $ids ContaPagars ids.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException Quando o registro não é encontrado.
      */
-    private function _handleDelete($ids) {
+    private function _handleDelete($ids)
+    {
         if (!is_array($ids)) {
             $ids = [$ids];
         }

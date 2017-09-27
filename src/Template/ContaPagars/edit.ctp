@@ -1,37 +1,104 @@
 <?php
 /**
-  * @var \App\View\AppView $this
-  */
+ * @var \App\View\AppView $this
+ */
 ?>
 <div class="contaPagars form edit row card-panel">
     <?= $this->element('breadcrumbs', ['crumbs' => $crumbs]); ?>
-    <?php $this->assign('title', 'Edição de ContaPagar'); ?>
+    <?php $this->assign('title', 'Edição de Contas a Pagar'); ?>
 
     <?= $this->Gus->create($contaPagar, ['class' => 'row']) ?>
     <?php
-                    echo $this->Gus->control('descricao', ['div' => 'col s12 input-field', 'label' => 'Descricao']);
-                    echo $this->Gus->control('valor', ['div' => 'col s12 input-field', 'label' => 'Valor']);
-        echo $this->Gus->control('data_cadastro', ['div' => 'col s12 input-field', 'label' => 'Data Cadastro', 'type' => 'text', 'data-type' => 'datetime']);
-        echo $this->Gus->control('data_pagamento', ['div' => 'col s12 input-field', 'label' => 'Data Pagamento', 'type' => 'text', 'data-type' => 'datetime']);
-                    echo $this->Gus->control('pago', ['div' => 'col s12 input-field', 'label' => 'Pago']);
-                    echo $this->Gus->control('num_parcelas', ['div' => 'col s12 input-field', 'label' => 'Num Parcelas']);
-                    echo $this->Gus->control('comentarios', ['div' => 'col s12 input-field', 'label' => 'Comentarios']);
-            echo $this->Gus->selectExtends('fornecedor_id', $fornecedores->toArray(), [
-                'div' => 'col s12 input-field select2-field',
-                'label' => ['text' => 'Fornecedor', 'class' => 'active'],
-                'controller' => 'fornecedores',
-            ]);
-            echo $this->Gus->selectExtends('compra_id', $compras->toArray(), [
-                'div' => 'col s12 input-field select2-field',
-                'label' => ['text' => 'Compra', 'class' => 'active'],
-                'controller' => 'compras',
-            ]);
-            echo $this->Gus->selectExtends('forma_pagamento_id', $formaPagamentos->toArray(), [
-                'div' => 'col s12 input-field select2-field',
-                'label' => ['text' => 'FormaPagamento', 'class' => 'active'],
-                'controller' => 'formaPagamentos',
-            ]);
+    echo $this->Gus->control('descricao', ['div' => 'col s3 input-field', 'label' => 'Descrição', 'disabled']);
+    echo $this->Gus->control('valor', ['div' => 'col s3 input-field', 'label' => 'Valor', 'type' => 'text', 'disabled', 'value' => (!empty($contaPagar->valor) ? $this->Number->currency($contaPagar->valor) : '')]);
+    echo $this->Gus->control('data_cadastro', ['div' => 'col s3 input-field', 'label' => 'Data do cadastro', 'type' => 'text', 'disabled']);
+    echo $this->Gus->control('data_pagamento', ['div' => 'col s3 input-field', 'label' => ['class' => 'active', 'text' => 'Data do pagamento'], 'type' => 'text', 'disabled']);
+    echo $this->Gus->control('forma_pagamento_id', [
+        'div' => 'col s3 input-field select2-field',
+        'data-material-select',
+        'label' => ['text' => 'Forma de pagamento', 'class' => 'active'],
+        'controller' => 'formaPagamentos',
+        'disabled',
+    ]);
+    echo $this->Gus->control('fornecedor_id', [
+        'div' => 'col s3 input-field',
+        'data-material-select',
+        'label' => ['text' => 'Fornecedor', 'class' => 'active'],
+        'disabled',
+    ]);
+    echo $this->Gus->control('compra_id', [
+        'div' => 'col s3 input-field select2-field',
+        'data-material-select',
+        'label' => ['text' => 'Compra', 'class' => 'active'],
+        'controller' => 'compras',
+        'disabled',
+    ]);
+    echo $this->Gus->control('pago', ['div' => 'col s3 input-field', 'label' => 'Situação', 'type' => 'select', 'data-material-select', 'disabled', 'options' => [0 => 'Não pago', 1 => 'Pago']]);
     ?>
+    <div class="clearfix"></div>
+    <br/>
+    <div class="col s12">
+        <legend style="font-size: 20px; font-weight: 300;">Parcelas</legend>
+        <table class="bordered highlight responsive-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Valor</th>
+                    <th>Data de vencimento</th>
+                    <th>Pago?</th>
+                    <th>Data de pagamento</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($contaPagar->parcela_conta_pagars as $parcela) { ?>
+                    <tr <?= ($parcela->pago ? 'class="pago"' : ''); ?>>
+                        <td><?= h($parcela->nome); ?></td>
+                        <td><?= $this->Number->currency($parcela->valor, 'BRL'); ?></td>
+                        <td><?= $this->Time->format($parcela->data_vencimento, 'dd/MM/yyyy'); ?></td>
+                        <td><?= $this->Gus->formataBoolean($parcela->pago); ?></td>
+                        <td><?= (!empty($parcela->pagamento) ? $this->Time->format($parcela->pagamento->data_pagamento, 'dd/MM/yyyy') : ''); ?></td>
+                        <td><a class="waves-effect waves-light btn pagar">Pagar</a></td>
+                    </tr>
+                <?php } ?>
+<!--                <tr class="pago">-->
+<!--                    <td>Entrada</td>-->
+<!--                    <td>R$ 1.530,00</td>-->
+<!--                    <td>26/09/2017</td>-->
+<!--                    <td><span class="ativo">Sim</span></td>-->
+<!--                    <td>26/09/2017</td>-->
+<!--                    <td><a class="waves-effect waves-light btn pagar disabled">Pagar</a></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Parcela 1 de 12</td>-->
+<!--                    <td>R$ 150,00</td>-->
+<!--                    <td>26/10/2017</td>-->
+<!--                    <td><span class="inativo">Não</span></td>-->
+<!--                    <td></td>-->
+<!--                    <td><a class="waves-effect waves-light btn pagar">Pagar</a></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Parcela 2 de 12</td>-->
+<!--                    <td>R$ 150,00</td>-->
+<!--                    <td>26/11/2017</td>-->
+<!--                    <td><span class="inativo">Não</span></td>-->
+<!--                    <td></td>-->
+<!--                    <td><a class="waves-effect waves-light btn pagar">Pagar</a></td>-->
+<!--                </tr>-->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="clearfix"></div>
+    <br/>
+
+    <?= $this->Gus->control('comentarios', ['div' => 'col s12 input-field', 'label' => 'Comentários']); ?>
     <?= $this->Gus->button('Enviar', ['div' => 'input-field col s2 right', 'class' => 'btn right waves-effect waves-light']) ?>
     <?= $this->Gus->end() ?>
+
+    <script>
+        $(document).on('click', '.btn.pagar', function() {
+            alert('Método não implementado!');
+        });
+    </script>
 </div>

@@ -96,6 +96,7 @@ class Compra extends Entity
         // Se tiver entrada, gravar uma parcela para a data atual
         if ($formaPagamento->entrada > 0) {
             $parcelaContaPagars = $parcelaContaPagarsTable->newEntity();
+            $parcelaContaPagars->nome = 'Entrada';
             $parcelaContaPagars->valor = $formaPagamento->entrada;
             $parcelaContaPagars->data_vencimento = $dataParcela;
             $parcelaContaPagars->pago = false;
@@ -114,6 +115,7 @@ class Compra extends Entity
                 $dataParcela = $dataParcela->addMonth(1);
 
                 $parcelaContaPagars = $parcelaContaPagarsTable->newEntity();
+                $parcelaContaPagars->nome = sprintf("Parcela %d de %d", ($i+1), $numParcelas);
                 $parcelaContaPagars->valor = $valorParcela;
                 $parcelaContaPagars->data_vencimento = $dataParcela;
                 $parcelaContaPagars->pago = false;
