@@ -61,30 +61,6 @@
                         <td><a class="waves-effect waves-light btn pagar">Pagar</a></td>
                     </tr>
                 <?php } ?>
-<!--                <tr class="pago">-->
-<!--                    <td>Entrada</td>-->
-<!--                    <td>R$ 1.530,00</td>-->
-<!--                    <td>26/09/2017</td>-->
-<!--                    <td><span class="ativo">Sim</span></td>-->
-<!--                    <td>26/09/2017</td>-->
-<!--                    <td><a class="waves-effect waves-light btn pagar disabled">Pagar</a></td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>Parcela 1 de 12</td>-->
-<!--                    <td>R$ 150,00</td>-->
-<!--                    <td>26/10/2017</td>-->
-<!--                    <td><span class="inativo">Não</span></td>-->
-<!--                    <td></td>-->
-<!--                    <td><a class="waves-effect waves-light btn pagar">Pagar</a></td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>Parcela 2 de 12</td>-->
-<!--                    <td>R$ 150,00</td>-->
-<!--                    <td>26/11/2017</td>-->
-<!--                    <td><span class="inativo">Não</span></td>-->
-<!--                    <td></td>-->
-<!--                    <td><a class="waves-effect waves-light btn pagar">Pagar</a></td>-->
-<!--                </tr>-->
             </tbody>
         </table>
     </div>

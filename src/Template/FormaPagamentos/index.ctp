@@ -48,7 +48,6 @@ use Cake\Routing\Router;
                 <th scope="col"><?= $this->Paginator->sort('nome') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('num_parcelas', 'Nº de parcelas') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('dias_carencia_primeira_parcela', 'Carência') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('entrada') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('status') ?></th>
                 <th scope="col" class="actions"></th>
             </tr>
@@ -63,7 +62,6 @@ use Cake\Routing\Router;
                     <td><?= h($formaPagamento->nome) ?></td>
                     <td><?= $this->Number->format($formaPagamento->num_parcelas) ?></td>
                     <td><?= $this->Number->format($formaPagamento->dias_carencia_primeira_parcela) . ' dia(s)'?></td>
-                    <td><?= $this->Number->currency($formaPagamento->entrada, 'BRL') ?></td>
                     <td><?= $this->Gus->formataStatus($formaPagamento->status) ?></td>
                     <td class="actions">
                         <?= $this->Html->link($this->Gus->materialIcon('edit'), ['action' => 'edit', $formaPagamento->id], ['escape' => false, 'class' => 'btn btn-floating btn-sm waves-effect waves-light edit']) ?>

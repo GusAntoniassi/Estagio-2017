@@ -82,10 +82,6 @@ class FormaPagamentosTable extends Table
             ->notEmpty('dias_carencia_primeira_parcela');
 
         $validator
-            ->decimal('entrada')
-            ->allowEmpty('entrada');
-
-        $validator
             ->boolean('status')
             ->requirePresence('status', 'create')
             ->notEmpty('status');

@@ -28,7 +28,6 @@ class FormaPagamentosFixture extends TestFixture
         'nome' => ['type' => 'string', 'length' => 80, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'num_parcelas' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'dias_carencia_primeira_parcela' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => '0', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'entrada' => ['type' => 'decimal', 'length' => 10, 'precision' => 4, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
         'status' => ['type' => 'boolean', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
@@ -51,7 +50,6 @@ class FormaPagamentosFixture extends TestFixture
             'nome' => 'Lorem ipsum dolor sit amet',
             'num_parcelas' => 1,
             'dias_carencia_primeira_parcela' => 1,
-            'entrada' => 1.5,
             'status' => 1
         ],
     ];

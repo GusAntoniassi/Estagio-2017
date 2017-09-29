@@ -95,6 +95,10 @@ class ComprasController extends AppController
             try {
                 $result = $this->Compras->save($compra);
 
+                if (!$result) {
+                    throw new \Exception;
+                }
+
                 // Se o status da compra for FECHADO (1), gerar as parcelas
                 if ($compra->status) {
                     $compra->fecharCompra();
@@ -102,8 +106,12 @@ class ComprasController extends AppController
 
                     // Redirecionar para a edição do contas a pagar
                     $contaPagar = $this->Compras->ContaPagars->findByCompraId($compra->id)->first();
-                    $this->Flash->success(__('Compra salva com sucesso.'));
-                    $this->redirect(['controller' => 'ContaPagars', 'action' => 'edit', $contaPagar->id]);
+                    if (!empty($contaPagar)) {
+                        $this->Flash->success(__('Compra salva com sucesso.'));
+                        $this->redirect(['controller' => 'ContaPagars', 'action' => 'edit', $contaPagar->id]);
+                    } else {
+                        dd($contaPagar->getErrors());
+                    }
                 } else {
                     $conn->commit();
                     $this->Flash->success(__('Compra salva com sucesso.'));

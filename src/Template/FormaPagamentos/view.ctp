@@ -20,10 +20,6 @@
             <td><?= $this->Number->format($formaPagamento->carencia) ?> dia(s)</td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Entrada') ?></th>
-            <td><?= $this->Number->currency($formaPagamento->entrada, 'BRL') ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Status') ?></th>
             <td><?= $this->Gus->formataStatus($formaPagamento->nome) ?></td>
         </tr>

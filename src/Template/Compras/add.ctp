@@ -63,6 +63,12 @@ use Cake\Routing\Router;
         'controller' => 'produtos',
         'ajax' => true
     ]); ?>
+    <?= $this->Gus->control('entrada', [
+        'div' => 'col s4 input-field',
+        'label' => 'Entrada (R$)',
+        'type' => 'text',
+        'data-type' => 'money'
+    ]); ?>
 
     <div class="clearfix"></div>
     <br/>

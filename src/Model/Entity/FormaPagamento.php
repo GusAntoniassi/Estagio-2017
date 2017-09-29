@@ -10,7 +10,6 @@ use App\Model\Entity;;
  * @property string $nome
  * @property int $num_parcelas
  * @property int $dias_carencia_primeira_parcela
- * @property float $entrada
  * @property bool $status
  *
  * @property \App\Model\Entity\Compra[] $compras

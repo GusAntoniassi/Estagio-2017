@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c8181edc-cae8-49d6-a19a-18742a0159c9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webroot/files/produtos/foto/573c599e-959a-47f3-9acc-53a81aacd1f0/opalao.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webroot/files/produtos/foto/573c599e-959a-47f3-9acc-53a81aacd1f0/thumb_opalao.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webroot/projeto/estados-cidades.sql" />
+    <list default="true" id="c8181edc-cae8-49d6-a19a-18742a0159c9" name="Default" comment="Faltaram esses arquivos aqui no último commit. Oops.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/projeto/recanto_der.mwb" afterPath="$PROJECT_DIR$/webroot/projeto/recanto_der.mwb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ComprasController.php" afterPath="$PROJECT_DIR$/src/Controller/ComprasController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Entity/Compra.php" afterPath="$PROJECT_DIR$/src/Model/Entity/Compra.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Entity/FormaPagamento.php" afterPath="$PROJECT_DIR$/src/Model/Entity/FormaPagamento.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Table/ComprasTable.php" afterPath="$PROJECT_DIR$/src/Model/Table/ComprasTable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Table/FormaPagamentosTable.php" afterPath="$PROJECT_DIR$/src/Model/Table/FormaPagamentosTable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Compras/add.ctp" afterPath="$PROJECT_DIR$/src/Template/Compras/add.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/ContaPagars/edit.ctp" afterPath="$PROJECT_DIR$/src/Template/ContaPagars/edit.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/FormaPagamentos/add.ctp" afterPath="$PROJECT_DIR$/src/Template/FormaPagamentos/add.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/FormaPagamentos/edit.ctp" afterPath="$PROJECT_DIR$/src/Template/FormaPagamentos/edit.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/FormaPagamentos/index.ctp" afterPath="$PROJECT_DIR$/src/Template/FormaPagamentos/index.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/FormaPagamentos/view.ctp" afterPath="$PROJECT_DIR$/src/Template/FormaPagamentos/view.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Fixture/FormaPagamentosFixture.php" afterPath="$PROJECT_DIR$/tests/Fixture/FormaPagamentosFixture.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/projeto/recanto.sql" afterPath="$PROJECT_DIR$/webroot/projeto/recanto.sql" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,8 +34,8 @@
       <file leaf-file-name="Compra.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Entity/Compra.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="117" column="94" lean-forward="false" selection-start-line="117" selection-start-column="94" selection-end-line="117" selection-end-column="94" />
+            <state relative-caret-position="354">
+              <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
               <folding>
                 <element signature="e#35#56#0#PHP" expanded="true" />
               </folding>
@@ -32,47 +43,61 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.ctp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Template/ContaPagars/edit.ctp">
+      <file leaf-file-name="FormaPagamentosTable.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Table/FormaPagamentosTable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-              <folding>
-                <element signature="n#style#0;n#legend#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <marker date="1506483537279" expanded="true" signature="3259:3642" ph="..." />
-                <marker date="1506483537279" expanded="true" signature="3670:4042" ph="..." />
-                <marker date="1506483537279" expanded="true" signature="4070:4442" ph="..." />
-                <marker date="1506483537279" expanded="true" signature="4817:4841" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParcelaContaPagarsTable.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Table/ParcelaContaPagarsTable.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="44" column="21" lean-forward="false" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
+            <state relative-caret-position="22">
+              <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContaPagarsController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/ContaPagarsController.php">
+      <file leaf-file-name="ComprasTable.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Table/ComprasTable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="135" column="12" lean-forward="false" selection-start-line="135" selection-start-column="12" selection-end-line="135" selection-end-column="12" />
+            <state relative-caret-position="216">
+              <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GusHelper.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/Gus/src/View/Helper/GusHelper.php">
+      <file leaf-file-name="add.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Template/FormaPagamentos/add.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2151">
-              <caret line="1" column="19" lean-forward="false" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+            <state relative-caret-position="221">
+              <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Template/FormaPagamentos/edit.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Template/FormaPagamentos/index.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="50" column="60" lean-forward="false" selection-start-line="50" selection-start-column="60" selection-end-line="50" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FormaPagamentosFixture.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Fixture/FormaPagamentosFixture.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="59">
+              <caret line="31" column="27" lean-forward="false" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -81,9 +106,31 @@
       <file leaf-file-name="add.ctp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Template/Compras/add.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="100" column="16" lean-forward="false" selection-start-line="100" selection-start-column="16" selection-end-line="100" selection-end-column="16" />
+            <state relative-caret-position="439">
+              <caret line="67" column="34" lean-forward="false" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ComprasController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ComprasController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="98" column="41" lean-forward="false" selection-start-line="98" selection-start-column="41" selection-end-line="98" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Template/ContaPagars/edit.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1037">
+              <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
+              <folding>
+                <marker date="1506726352633" expanded="true" signature="3593:3617" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,10 +146,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>lotes_com</find>
-      <find>lotes_compra</find>
-      <find>lotes_compras</find>
-      <find>LotesTable</find>
       <find>LotesCompras</find>
       <find>LotesCompra</find>
       <find>type</find>
@@ -129,6 +172,10 @@
       <find>Sim</find>
       <find>td</find>
       <find>readonly</find>
+      <find>e</find>
+      <find>entra</find>
+      <find>entrada</find>
+      <find>contapagar</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -172,14 +219,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Template/Lotes/edit.ctp" />
-        <option value="$PROJECT_DIR$/src/Template/Produtos/linhaTabelaCompra.ctp" />
-        <option value="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/display.ctp" />
-        <option value="$PROJECT_DIR$/src/Template/Lotes/add.ctp" />
-        <option value="$PROJECT_DIR$/src/Controller/ProdutosController.php" />
-        <option value="$PROJECT_DIR$/src/View/Cell/LinhaTabelaCell.php" />
-        <option value="$PROJECT_DIR$/webroot/css/style.scss" />
-        <option value="$PROJECT_DIR$/src/Template/Cidades/edit.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Cidades/add.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Layout/default.ctp" />
         <option value="$PROJECT_DIR$/src/Controller/CidadesController.php" />
@@ -191,7 +230,6 @@
         <option value="$PROJECT_DIR$/src/Controller/FormaPagamentosController.php" />
         <option value="$PROJECT_DIR$/webroot/js/compra.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/Template/Compras/add.ctp" />
         <option value="$PROJECT_DIR$/src/Controller/FuncionariosController.php" />
         <option value="$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Fornecedores/index.ctp" />
@@ -215,14 +253,23 @@
         <option value="$PROJECT_DIR$/tests/Fixture/LoteComprasFixture.php" />
         <option value="$PROJECT_DIR$/tests/TestCase/Model/Table/LoteComprasTableTest.php" />
         <option value="$PROJECT_DIR$/src/Model/Table/LotesTable.php" />
-        <option value="$PROJECT_DIR$/src/Controller/ComprasController.php" />
         <option value="$PROJECT_DIR$/src/Model/Table/FornecedoresTable.php" />
         <option value="$PROJECT_DIR$/src/Template/Produtos/add.ctp" />
         <option value="$PROJECT_DIR$/src/Model/Table/ProdutosTable.php" />
-        <option value="$PROJECT_DIR$/src/Model/Entity/Compra.php" />
         <option value="$PROJECT_DIR$/src/Model/Table/ParcelaContaPagarsTable.php" />
         <option value="$PROJECT_DIR$/src/Controller/ContaPagarsController.php" />
+        <option value="$PROJECT_DIR$/src/Template/FormaPagamentos/view.ctp" />
+        <option value="$PROJECT_DIR$/src/Model/Entity/FormaPagamento.php" />
         <option value="$PROJECT_DIR$/src/Template/ContaPagars/edit.ctp" />
+        <option value="$PROJECT_DIR$/src/Model/Table/FormaPagamentosTable.php" />
+        <option value="$PROJECT_DIR$/src/Model/Table/ComprasTable.php" />
+        <option value="$PROJECT_DIR$/src/Template/FormaPagamentos/add.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/FormaPagamentos/edit.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/FormaPagamentos/index.ctp" />
+        <option value="$PROJECT_DIR$/tests/Fixture/FormaPagamentosFixture.php" />
+        <option value="$PROJECT_DIR$/src/Template/Compras/add.ctp" />
+        <option value="$PROJECT_DIR$/src/Model/Entity/Compra.php" />
+        <option value="$PROJECT_DIR$/src/Controller/ComprasController.php" />
       </list>
     </option>
   </component>
@@ -255,6 +302,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -595,13 +644,11 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="pessoa&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Pessoa.php&#10;parcelaconta&#9;null&#9;null&#10;contapagarscontr&#9;null&#9;null&#10;gushel&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;compra&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Compra.php&#10;compra/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Compras/add.ctp&#10;CONTAPAGARS/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/ContaPagars/edit.ctp&#10;produto/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Produtos/add.ctp&#10;produtostabl&#9;null&#9;null&#10;produto.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Produto.php&#10;fornecedor&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Fornecedor.php&#10;fornece&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/FornecedoresTable.php&#10;cell/lote&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cell/LinhaTabela/lote.ctp&#10;lotestable&#9;null&#9;null&#10;comprascontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/ComprasController.php&#10;formapagamentostable&#9;null&#9;null&#10;contapagar&#9;null&#9;null&#10;compra.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Compra.php&#10;itemcompra&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/ItemCompra.php&#10;forneta&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/FornecedoresTable.php&#10;pagescon&#9;null&#9;null&#10;appview&#9;null&#9;null&#10;apco&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/AppController.php&#10;fornecedorestab&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/FornecedoresTable.php&#10;fornecedoresc&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/FornecedoresController.php&#10;appcontrolle&#9;null&#9;null&#10;appcontr&#9;null&#9;null&#10;funcionario.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Funcionario.php&#10;funcionariostab&#9;null&#9;null&#10;funcionarios&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/FuncionariosController.php&#10;default&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Layout/default.ctp&#10;select&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/select2inputs.js&#10;compra.js&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/compra.js&#10;forncon&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/FornecedoresController.php&#10;forneced/index&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Fornecedores/index.ctp&#10;funcionarios/index&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Funcionarios/index.ctp&#10;app.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/config/app.php&#10;bootstrap&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/config/bootstrap.php&#10;table.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/vendor/cakephp/cakephp/src/ORM/Table.php&#10;lotecomptab&#9;null&#9;null&#10;lotescom&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/LotesCompra.php&#10;entity&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity.php&#10;lotescompra&#9;null&#9;null&#10;compras/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Compras/edit.ctp&#10;funcionarioscontr&#9;null&#9;null&#10;pessoascontr&#9;null&#9;null&#10;compras/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Compras/add.ctp&#10;produto.&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cell/LinhaTabela/produto.ctp&#10;compratable&#9;null&#9;null&#10;lote&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cell/LinhaTabela/lote.ctp" />
+    <property name="SearchEverywhereHistoryKey" value="compra.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Compra.php&#10;comprascontr&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/ComprasController.php&#10;compra/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Compras/add.ctp&#10;comprastable&#9;null&#9;null&#10;contapa/index&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/ContaPagars/index.ctp&#10;pessoa&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Pessoa.php&#10;parcelaconta&#9;null&#9;null&#10;contapagarscontr&#9;null&#9;null&#10;gushel&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/plugins/Gus/src/View/Helper/GusHelper.php&#10;compra&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Compra.php&#10;CONTAPAGARS/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/ContaPagars/edit.ctp&#10;produto/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Produtos/add.ctp&#10;produtostabl&#9;null&#9;null&#10;produto.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Produto.php&#10;fornecedor&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Fornecedor.php&#10;fornece&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/FornecedoresTable.php&#10;cell/lote&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cell/LinhaTabela/lote.ctp&#10;lotestable&#9;null&#9;null&#10;formapagamentostable&#9;null&#9;null&#10;contapagar&#9;null&#9;null&#10;itemcompra&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/ItemCompra.php&#10;forneta&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/FornecedoresTable.php&#10;pagescon&#9;null&#9;null&#10;appview&#9;null&#9;null&#10;apco&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/AppController.php&#10;fornecedorestab&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Table/FornecedoresTable.php&#10;fornecedoresc&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/FornecedoresController.php&#10;appcontrolle&#9;null&#9;null&#10;appcontr&#9;null&#9;null&#10;funcionario.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/Funcionario.php&#10;funcionariostab&#9;null&#9;null&#10;funcionarios&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/FuncionariosController.php&#10;default&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Layout/default.ctp&#10;select&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/select2inputs.js&#10;compra.js&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/webroot/js/compra.js&#10;forncon&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Controller/FornecedoresController.php&#10;forneced/index&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Fornecedores/index.ctp&#10;funcionarios/index&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Funcionarios/index.ctp&#10;app.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/config/app.php&#10;bootstrap&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/config/bootstrap.php&#10;table.php&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/vendor/cakephp/cakephp/src/ORM/Table.php&#10;lotecomptab&#9;null&#9;null&#10;lotescom&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity/LotesCompra.php&#10;entity&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Model/Entity.php&#10;lotescompra&#9;null&#9;null&#10;compras/edit&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Compras/edit.ctp&#10;funcionarioscontr&#9;null&#9;null&#10;pessoascontr&#9;null&#9;null&#10;compras/add&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Compras/add.ctp&#10;produto.&#9;FILE&#9;file://C:/xampp/htdocs/estagio2017/src/Template/Cell/LinhaTabela/produto.ctp" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CakePHP3-Proffer" />
@@ -745,7 +792,9 @@
       <workItem from="1506164966433" duration="837000" />
       <workItem from="1506170326247" duration="11242000" />
       <workItem from="1506252964363" duration="16531000" />
-      <workItem from="1506476244339" duration="6876000" />
+      <workItem from="1506476244339" duration="7082000" />
+      <workItem from="1506526670502" duration="2303000" />
+      <workItem from="1506726700599" duration="722000" />
     </task>
     <task id="LOCAL-00001" summary="SelectExtends pronto com funcionalidade básica.&#10;Trabalhando no caso de Cidades onde o select de estado depende do comportamento do select de País.">
       <created>1501296478716</created>
@@ -852,26 +901,34 @@
       <option name="project" value="LOCAL" />
       <updated>1506485929984</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Faltaram esses arquivos aqui no último commit. Oops.">
+      <created>1506486031490</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1506486031490</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254257000" />
+    <option name="totallyTimeSpent" value="257488000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18253969" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18888889" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32565284" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2677761" sideWeight="0.5057283" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -962,7 +1019,8 @@
     <MESSAGE value="Fui começar a lógica de gravar compra mas acabei achando alguns problemas no javascript que foram arrumados primeiro" />
     <MESSAGE value="Parte de fechamento de compra até então está OK, falta testar tudo certinho e fazer a edição da compra, mas vou pro Contas a Pagar primeiro" />
     <MESSAGE value="Edit do contas a pagar está OK, gerando parcelas tudo filezinho. Falta ajeitar a index e voltar pras outras telas da compra.&#10;Adicionei também um sql das cidades do brasil no banco, pra fazer o esquema de completar pelo CEP funcionar direito" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit do contas a pagar está OK, gerando parcelas tudo filezinho. Falta ajeitar a index e voltar pras outras telas da compra.&#10;Adicionei também um sql das cidades do brasil no banco, pra fazer o esquema de completar pelo CEP funcionar direito" />
+    <MESSAGE value="Faltaram esses arquivos aqui no último commit. Oops." />
+    <option name="LAST_COMMIT_MESSAGE" value="Faltaram esses arquivos aqui no último commit. Oops." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -971,68 +1029,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Template/Cell/LinhaTabela/produto.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="40" lean-forward="false" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Entity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="37" selection-end-line="15" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-510">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/bootstrap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="232" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/Gus/config/bootstrap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-          <folding>
-            <element signature="e#7#31#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Funcionarios/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/Gus/config/materialize-paginator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/cakephp/bake/src/Template/Bake/Plugin/src/Controller/AppController.php.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -1044,7 +1040,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-29">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1076,7 +1071,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="28" column="6" lean-forward="false" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1094,7 +1088,6 @@
         <state relative-caret-position="374">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <caret line="25" column="11" lean-forward="false" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1102,7 +1095,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1117,7 +1109,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="26" column="64" lean-forward="false" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1132,7 +1123,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="43">
           <caret line="44" column="28" lean-forward="true" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1147,7 +1137,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
           <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1169,7 +1158,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1192,14 +1180,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Table/ItemComprasTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="48" column="24" lean-forward="false" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -1232,7 +1212,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="490">
           <caret line="35" column="6" lean-forward="false" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1240,7 +1219,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-267">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1256,7 +1234,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1265,7 +1242,7 @@
         <state relative-caret-position="170">
           <caret line="40" column="34" lean-forward="false" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
           <folding>
-            <element signature="e#34#53#0#PHP" expanded="true" />
+            <element signature="e#34#53#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1274,15 +1251,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="25" column="6" lean-forward="false" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Table/FormaPagamentosTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1290,7 +1258,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="116" lean-forward="false" selection-start-line="18" selection-start-column="116" selection-end-line="18" selection-end-column="116" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1299,32 +1266,14 @@
         <state relative-caret-position="226">
           <caret line="124" column="31" lean-forward="false" selection-start-line="124" selection-start-column="31" selection-end-line="124" selection-end-column="31" />
           <folding>
-            <element signature="e#35#71#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ComprasController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="103" column="32" lean-forward="false" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Entity/Compra.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="117" column="94" lean-forward="false" selection-start-line="117" selection-start-column="94" selection-end-line="117" selection-end-column="94" />
-          <folding>
-            <element signature="e#35#56#0#PHP" expanded="true" />
+            <element signature="e#35#71#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/Gus/src/View/Helper/GusHelper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2151">
+        <state relative-caret-position="17">
           <caret line="1" column="19" lean-forward="false" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
           <folding />
         </state>
@@ -1332,7 +1281,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Table/ParcelaContaPagarsTable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
+        <state relative-caret-position="680">
           <caret line="44" column="21" lean-forward="false" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
           <folding />
         </state>
@@ -1342,37 +1291,130 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
           <caret line="34" column="79" lean-forward="false" selection-start-line="34" selection-start-column="79" selection-end-line="34" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Compras/add.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="100" column="16" lean-forward="false" selection-start-line="100" selection-start-column="16" selection-end-line="100" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ContaPagarsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="2244">
           <caret line="135" column="12" lean-forward="false" selection-start-line="135" selection-start-column="12" selection-end-line="135" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/ContaPagars/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/FormaPagamentos/view.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Entity/FormaPagamento.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/ContaPagars/edit.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+        <state relative-caret-position="1037">
+          <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
           <folding>
-            <element signature="n#style#0;n#legend#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <marker date="1506483537279" expanded="true" signature="3259:3642" ph="..." />
-            <marker date="1506483537279" expanded="true" signature="3670:4042" ph="..." />
-            <marker date="1506483537279" expanded="true" signature="4070:4442" ph="..." />
-            <marker date="1506483537279" expanded="true" signature="4817:4841" ph="..." />
+            <marker date="1506726352633" expanded="true" signature="3593:3617" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Table/ItemComprasTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="48" column="24" lean-forward="false" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/FormaPagamentos/add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/FormaPagamentos/edit.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/FormaPagamentos/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="50" column="60" lean-forward="false" selection-start-line="50" selection-start-column="60" selection-end-line="50" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Fixture/FormaPagamentosFixture.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="31" column="27" lean-forward="false" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Compras/add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="67" column="34" lean-forward="false" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Table/FormaPagamentosTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Entity/Compra.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+          <folding>
+            <element signature="e#35#56#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Table/ComprasTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ComprasController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="98" column="41" lean-forward="false" selection-start-line="98" selection-start-column="41" selection-end-line="98" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>

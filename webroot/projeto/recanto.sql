@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 27-Set-2017 às 06:17
+-- Generation Time: 30-Set-2017 às 01:23
 -- Versão do servidor: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -5666,6 +5666,7 @@ CREATE TABLE `compras` (
   `valor_liquido` decimal(10,4) NOT NULL,
   `descontos` decimal(10,4) NOT NULL DEFAULT '0.0000',
   `valor_total` decimal(10,4) NOT NULL,
+  `entrada` decimal(10,4) DEFAULT NULL,
   `comentarios` text,
   `status` tinyint(1) NOT NULL,
   `pedido_compra_id` int(11) DEFAULT NULL,
@@ -5677,32 +5678,34 @@ CREATE TABLE `compras` (
 -- Extraindo dados da tabela `compras`
 --
 
-INSERT INTO `compras` (`id`, `data_compra`, `valor_liquido`, `descontos`, `valor_total`, `comentarios`, `status`, `pedido_compra_id`, `forma_pagamento_id`, `fornecedor_id`) VALUES
-(10, '2017-09-20', '59.8200', '1.0000', '58.8200', 'teste', 1, NULL, 1, 2),
-(11, '2017-09-21', '2.9900', '0.0000', '2.9900', 'asdf', 0, NULL, 1, 2),
-(12, '2017-09-21', '2.9900', '0.0000', '2.9900', 'asdf', 0, NULL, 1, 2),
-(13, '2017-09-21', '200.3300', '0.0000', '200.3300', 'asdf', 1, NULL, 1, 1),
-(22, '2017-09-21', '14.9500', '0.0000', '14.9500', 'abc\r\n', 0, NULL, 1, 1),
-(33, '2017-09-25', '63.8200', '0.0000', '63.8200', 'abc', 1, NULL, 2, 2),
-(36, '2017-09-25', '1500.0000', '0.0000', '1500.0000', '123123', 1, NULL, 4, 2),
-(39, '2017-09-25', '2.9900', '0.0000', '2.9900', '', 1, NULL, 1, 1),
-(41, '2017-09-25', '2.9900', '0.0000', '2.9900', '', 1, NULL, 1, 1),
-(42, '2017-09-25', '2.9900', '0.0000', '2.9900', '', 1, NULL, 1, 1),
-(43, '2017-09-25', '2.9900', '0.0000', '2.9900', '', 1, NULL, 1, 1),
-(45, '2017-09-25', '2.9900', '0.0000', '2.9900', '', 1, NULL, 1, 1),
-(46, '2017-09-25', '2.9900', '0.0000', '2.9900', '', 1, NULL, 1, 1),
-(47, '2017-09-25', '2.9900', '0.0000', '2.9900', '', 1, NULL, 1, 1),
-(48, '2017-09-25', '120.0000', '0.0000', '120.0000', '', 1, NULL, 1, 1),
-(49, '2017-09-25', '120.0000', '0.0000', '120.0000', '', 1, NULL, 1, 1),
-(50, '2017-09-25', '120.0000', '0.0000', '120.0000', '', 1, NULL, 1, 1),
-(51, '2017-09-25', '120.0000', '0.0000', '120.0000', '', 1, NULL, 1, 1),
-(52, '2017-09-25', '120.0000', '0.0000', '120.0000', '', 1, NULL, 1, 1),
-(53, '2017-09-25', '120.0000', '0.0000', '120.0000', '', 1, NULL, 1, 1),
-(54, '2017-09-25', '10.0000', '0.0000', '10.0000', 'a', 1, NULL, 1, 1),
-(55, '2017-09-25', '10.0000', '0.0000', '10.0000', 'a', 1, NULL, 1, 1),
-(56, '2017-09-27', '170.8300', '0.8300', '170.0000', 'Happy Hour 27/09', 1, NULL, 4, 2),
-(57, '2017-09-27', '59500.0000', '500.0000', '59000.0000', 'Sonho realizado', 1, NULL, 3, 1),
-(58, '2017-09-27', '59559.8500', '559.8500', '59000.0000', 'Teste', 0, NULL, 1, 2);
+INSERT INTO `compras` (`id`, `data_compra`, `valor_liquido`, `descontos`, `valor_total`, `entrada`, `comentarios`, `status`, `pedido_compra_id`, `forma_pagamento_id`, `fornecedor_id`) VALUES
+(10, '2017-09-20', '59.8200', '1.0000', '58.8200', NULL, 'teste', 1, NULL, 1, 2),
+(11, '2017-09-21', '2.9900', '0.0000', '2.9900', NULL, 'asdf', 0, NULL, 1, 2),
+(12, '2017-09-21', '2.9900', '0.0000', '2.9900', NULL, 'asdf', 0, NULL, 1, 2),
+(13, '2017-09-21', '200.3300', '0.0000', '200.3300', NULL, 'asdf', 1, NULL, 1, 1),
+(22, '2017-09-21', '14.9500', '0.0000', '14.9500', NULL, 'abc\r\n', 0, NULL, 1, 1),
+(33, '2017-09-25', '63.8200', '0.0000', '63.8200', NULL, 'abc', 1, NULL, 2, 2),
+(36, '2017-09-25', '1500.0000', '0.0000', '1500.0000', NULL, '123123', 1, NULL, 4, 2),
+(39, '2017-09-25', '2.9900', '0.0000', '2.9900', NULL, '', 1, NULL, 1, 1),
+(41, '2017-09-25', '2.9900', '0.0000', '2.9900', NULL, '', 1, NULL, 1, 1),
+(42, '2017-09-25', '2.9900', '0.0000', '2.9900', NULL, '', 1, NULL, 1, 1),
+(43, '2017-09-25', '2.9900', '0.0000', '2.9900', NULL, '', 1, NULL, 1, 1),
+(45, '2017-09-25', '2.9900', '0.0000', '2.9900', NULL, '', 1, NULL, 1, 1),
+(46, '2017-09-25', '2.9900', '0.0000', '2.9900', NULL, '', 1, NULL, 1, 1),
+(47, '2017-09-25', '2.9900', '0.0000', '2.9900', NULL, '', 1, NULL, 1, 1),
+(48, '2017-09-25', '120.0000', '0.0000', '120.0000', NULL, '', 1, NULL, 1, 1),
+(49, '2017-09-25', '120.0000', '0.0000', '120.0000', NULL, '', 1, NULL, 1, 1),
+(50, '2017-09-25', '120.0000', '0.0000', '120.0000', NULL, '', 1, NULL, 1, 1),
+(51, '2017-09-25', '120.0000', '0.0000', '120.0000', NULL, '', 1, NULL, 1, 1),
+(52, '2017-09-25', '120.0000', '0.0000', '120.0000', NULL, '', 1, NULL, 1, 1),
+(53, '2017-09-25', '120.0000', '0.0000', '120.0000', NULL, '', 1, NULL, 1, 1),
+(54, '2017-09-25', '10.0000', '0.0000', '10.0000', NULL, 'a', 1, NULL, 1, 1),
+(55, '2017-09-25', '10.0000', '0.0000', '10.0000', NULL, 'a', 1, NULL, 1, 1),
+(56, '2017-09-27', '170.8300', '0.8300', '170.0000', NULL, 'Happy Hour 27/09', 1, NULL, 4, 2),
+(57, '2017-09-27', '59500.0000', '500.0000', '59000.0000', NULL, 'Sonho realizado', 1, NULL, 3, 1),
+(58, '2017-09-27', '59559.8500', '559.8500', '59000.0000', NULL, 'Teste', 0, NULL, 1, 2),
+(59, '2017-09-29', '44.8500', '0.0000', '44.8500', '1500.0000', 'aaa', 0, NULL, 2, 2),
+(60, '2017-09-29', '14.9500', '0.0000', '14.9500', '1500.0000', 'aaa', 1, NULL, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -5745,7 +5748,10 @@ INSERT INTO `conta_pagars` (`id`, `descricao`, `valor`, `data_cadastro`, `data_p
 (19, 'Compra #54', '10.0000', '2017-09-25 22:51:00', NULL, 0, 1, NULL, 1, 54, 1),
 (20, 'Compra #55', '10.0000', '2017-09-25 22:51:10', NULL, 0, 1, '', 1, 55, 1),
 (21, 'Compra #56', '170.0000', '2017-09-27 00:26:44', NULL, 0, 13, NULL, 2, 56, 4),
-(22, 'Compra #57', '59000.0000', '2017-09-27 00:48:18', NULL, 0, 6, 'Tá dando mais prejuízo do que lucro', 1, 57, 3);
+(22, 'Compra #57', '59000.0000', '2017-09-27 00:48:18', NULL, 0, 6, 'Tá dando mais prejuízo do que lucro', 1, 57, 3),
+(23, 'Compra #0', '2.9900', '2017-09-29 20:17:12', NULL, 0, 13, NULL, 2, NULL, 2),
+(24, 'Compra #0', '2.9900', '2017-09-29 20:18:37', NULL, 0, 13, NULL, 2, NULL, 2),
+(29, 'Compra #60', '14.9500', '2017-09-29 20:22:28', NULL, 0, 13, NULL, 2, 60, 2);
 
 -- --------------------------------------------------------
 
@@ -5824,7 +5830,6 @@ CREATE TABLE `forma_pagamentos` (
   `nome` varchar(80) DEFAULT NULL,
   `num_parcelas` int(11) NOT NULL DEFAULT '1',
   `dias_carencia_primeira_parcela` int(11) NOT NULL DEFAULT '0',
-  `entrada` decimal(10,4) DEFAULT NULL,
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -5832,11 +5837,11 @@ CREATE TABLE `forma_pagamentos` (
 -- Extraindo dados da tabela `forma_pagamentos`
 --
 
-INSERT INTO `forma_pagamentos` (`id`, `nome`, `num_parcelas`, `dias_carencia_primeira_parcela`, `entrada`, `status`) VALUES
-(1, 'À vista', 1, 0, '0.0000', 1),
-(2, '12x sem entrada', 12, 30, '0.0000', 1),
-(3, '6x sem entrada', 6, 30, '0.0000', 1),
-(4, '1 + 12 de 1.500 sem juros', 12, 0, '1500.0000', 1);
+INSERT INTO `forma_pagamentos` (`id`, `nome`, `num_parcelas`, `dias_carencia_primeira_parcela`, `status`) VALUES
+(1, 'À vista', 1, 0, 1),
+(2, '12x sem entrada', 12, 30, 1),
+(3, '6x sem entrada', 6, 30, 1),
+(4, '1 + 12 de 1.500 sem juros', 12, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -5964,7 +5969,9 @@ INSERT INTO `item_compras` (`id`, `produto_id`, `compra_id`, `quantidade`, `valo
 (55, 3, 56, 6, '20.0000'),
 (56, 7, 57, 1, '59500.0000'),
 (57, 7, 58, 1, '59500.0000'),
-(58, 2, 58, 15, '3.9900');
+(58, 2, 58, 15, '3.9900'),
+(59, 1, 59, 15, '2.9900'),
+(60, 1, 60, 5, '2.9900');
 
 -- --------------------------------------------------------
 
@@ -6039,7 +6046,9 @@ INSERT INTO `lotes` (`id`, `num_lote`, `qtde_estoque`, `data_vencimento`, `statu
 (29, 'a12312', 5, '2017-09-15', 1, 1),
 (30, 'AAA1515', 5, '2017-09-30', 1, 1),
 (31, 'AAA1616', 12, '2017-09-29', 1, 1),
-(32, 'ABC6666', 0, '2017-11-04', 1, 2);
+(32, 'ABC6666', 0, '2017-11-04', 1, 2),
+(33, 'aaaa', 0, '2017-09-29', 1, 1),
+(34, 'aaaaa', 5, '2017-09-16', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -6072,7 +6081,9 @@ INSERT INTO `lote_compras` (`id`, `quantidade`, `item_compra_id`, `lote_id`) VAL
 (35, 1, 45, 29),
 (36, 5, 54, 30),
 (37, 12, 54, 31),
-(38, 15, 58, 32);
+(38, 15, 58, 32),
+(39, 15, 59, 33),
+(40, 5, 60, 34);
 
 -- --------------------------------------------------------
 
@@ -6221,7 +6232,46 @@ INSERT INTO `parcela_conta_pagars` (`id`, `nome`, `valor`, `data_vencimento`, `p
 (114, 'Parcela 3 de 6', '9833.3300', '2017-12-27', 0, 22),
 (115, 'Parcela 4 de 6', '9833.3300', '2018-01-27', 0, 22),
 (116, 'Parcela 5 de 6', '9833.3300', '2018-02-27', 0, 22),
-(117, 'Parcela 6 de 6', '9833.3300', '2018-03-27', 0, 22);
+(117, 'Parcela 6 de 6', '9833.3300', '2018-03-27', 0, 22),
+(118, 'Entrada', '1500.0000', '2017-09-29', 0, 23),
+(119, 'Parcela 1 de 12', '0.2500', '2017-10-29', 0, 23),
+(120, 'Parcela 2 de 12', '0.2500', '2017-11-29', 0, 23),
+(121, 'Parcela 3 de 12', '0.2500', '2017-12-29', 0, 23),
+(122, 'Parcela 4 de 12', '0.2500', '2018-01-29', 0, 23),
+(123, 'Parcela 5 de 12', '0.2500', '2018-02-28', 0, 23),
+(124, 'Parcela 6 de 12', '0.2500', '2018-03-28', 0, 23),
+(125, 'Parcela 7 de 12', '0.2500', '2018-04-28', 0, 23),
+(126, 'Parcela 8 de 12', '0.2500', '2018-05-28', 0, 23),
+(127, 'Parcela 9 de 12', '0.2500', '2018-06-28', 0, 23),
+(128, 'Parcela 10 de 12', '0.2500', '2018-07-28', 0, 23),
+(129, 'Parcela 11 de 12', '0.2500', '2018-08-28', 0, 23),
+(130, 'Parcela 12 de 12', '0.2500', '2018-09-28', 0, 23),
+(131, 'Entrada', '1500.0000', '2017-09-29', 0, 24),
+(132, 'Parcela 1 de 12', '0.2500', '2017-10-29', 0, 24),
+(133, 'Parcela 2 de 12', '0.2500', '2017-11-29', 0, 24),
+(134, 'Parcela 3 de 12', '0.2500', '2017-12-29', 0, 24),
+(135, 'Parcela 4 de 12', '0.2500', '2018-01-29', 0, 24),
+(136, 'Parcela 5 de 12', '0.2500', '2018-02-28', 0, 24),
+(137, 'Parcela 6 de 12', '0.2500', '2018-03-28', 0, 24),
+(138, 'Parcela 7 de 12', '0.2500', '2018-04-28', 0, 24),
+(139, 'Parcela 8 de 12', '0.2500', '2018-05-28', 0, 24),
+(140, 'Parcela 9 de 12', '0.2500', '2018-06-28', 0, 24),
+(141, 'Parcela 10 de 12', '0.2500', '2018-07-28', 0, 24),
+(142, 'Parcela 11 de 12', '0.2500', '2018-08-28', 0, 24),
+(143, 'Parcela 12 de 12', '0.2500', '2018-09-28', 0, 24),
+(144, 'Entrada', '1500.0000', '2017-09-29', 0, 29),
+(145, 'Parcela 1 de 12', '1.2500', '2017-10-29', 0, 29),
+(146, 'Parcela 2 de 12', '1.2500', '2017-11-29', 0, 29),
+(147, 'Parcela 3 de 12', '1.2500', '2017-12-29', 0, 29),
+(148, 'Parcela 4 de 12', '1.2500', '2018-01-29', 0, 29),
+(149, 'Parcela 5 de 12', '1.2500', '2018-02-28', 0, 29),
+(150, 'Parcela 6 de 12', '1.2500', '2018-03-28', 0, 29),
+(151, 'Parcela 7 de 12', '1.2500', '2018-04-28', 0, 29),
+(152, 'Parcela 8 de 12', '1.2500', '2018-05-28', 0, 29),
+(153, 'Parcela 9 de 12', '1.2500', '2018-06-28', 0, 29),
+(154, 'Parcela 10 de 12', '1.2500', '2018-07-28', 0, 29),
+(155, 'Parcela 11 de 12', '1.2500', '2018-08-28', 0, 29),
+(156, 'Parcela 12 de 12', '1.2500', '2018-09-28', 0, 29);
 
 -- --------------------------------------------------------
 
@@ -6652,12 +6702,12 @@ ALTER TABLE `comandas`
 -- AUTO_INCREMENT for table `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 --
 -- AUTO_INCREMENT for table `conta_pagars`
 --
 ALTER TABLE `conta_pagars`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `conta_recebers`
 --
@@ -6697,7 +6747,7 @@ ALTER TABLE `item_comandas`
 -- AUTO_INCREMENT for table `item_compras`
 --
 ALTER TABLE `item_compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 --
 -- AUTO_INCREMENT for table `item_orcamentos`
 --
@@ -6717,12 +6767,12 @@ ALTER TABLE `lancamento_horas`
 -- AUTO_INCREMENT for table `lotes`
 --
 ALTER TABLE `lotes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `lote_compras`
 --
 ALTER TABLE `lote_compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `movimentacao_caixas`
 --
@@ -6747,7 +6797,7 @@ ALTER TABLE `paises`
 -- AUTO_INCREMENT for table `parcela_conta_pagars`
 --
 ALTER TABLE `parcela_conta_pagars`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
 --
 -- AUTO_INCREMENT for table `parcela_conta_recebers`
 --

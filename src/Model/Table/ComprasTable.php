@@ -95,6 +95,10 @@ class ComprasTable extends Table
             ->notEmpty('valor_total');
 
         $validator
+            ->decimal('entrada')
+            ->allowEmpty('entrada');
+
+        $validator
             ->allowEmpty('comentarios');
 
         $validator

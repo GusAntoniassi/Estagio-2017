@@ -15,6 +15,7 @@ use Cake\ORM\TableRegistry;
  * @property float $valor_liquido
  * @property float $descontos
  * @property float $valor_total
+ * @property float $entrada
  * @property string $comentarios
  * @property bool $status
  * @property int $pedido_compra_id
@@ -75,11 +76,9 @@ class Compra extends Entity
         $contaPagar->data_cadastro = Time::now();
         $contaPagar->pago = false;
 
-
-
         $numParcelas = $formaPagamento->num_parcelas;
         // Se possuir entrada, incrementar a parcela em 1
-        if ($formaPagamento->entrada > 0) {
+        if ($this->entrada > 0) {
             $numParcelas++;
         }
         $contaPagar->num_parcelas = $numParcelas;
@@ -94,10 +93,10 @@ class Compra extends Entity
         $parcelaContaPagarsTable = TableRegistry::get('ParcelaContaPagars');
         $dataParcela = Time::now();
         // Se tiver entrada, gravar uma parcela para a data atual
-        if ($formaPagamento->entrada > 0) {
+        if ($this->entrada > 0) {
             $parcelaContaPagars = $parcelaContaPagarsTable->newEntity();
             $parcelaContaPagars->nome = 'Entrada';
-            $parcelaContaPagars->valor = $formaPagamento->entrada;
+            $parcelaContaPagars->valor = $this->entrada;
             $parcelaContaPagars->data_vencimento = $dataParcela;
             $parcelaContaPagars->pago = false;
             $parcelaContaPagars->conta_pagar_id = $contaPagar->id;
