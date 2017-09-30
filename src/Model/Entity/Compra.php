@@ -46,6 +46,7 @@ class Compra extends Entity
     ];
 
     public function fecharCompra() {
+        dd($this);
         /*=========== Entrada de estoque ==========*/
         foreach ($this->item_compras as $itemCompra) {
             if (empty($itemCompra->lote_compras)) { // Não possui lote, baixa de estoque direto no produto

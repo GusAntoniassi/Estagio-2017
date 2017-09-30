@@ -38,7 +38,7 @@ class LinhaTabelaCell extends Cell
     public function lote(Lote $lote = null, $linhaTabela = 0, $linhaTabelaLote = 0, $produtoId = 0) {
         if ($lote === null) {
             $lote = TableRegistry::get('Lotes')->newEntity();
-        } else {
+        } else if (empty($produtoId)) {
             $produtoId = $lote->produto->id;
         }
 

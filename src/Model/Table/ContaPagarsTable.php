@@ -51,7 +51,8 @@ class ContaPagarsTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->hasMany('ParcelaContaPagars', [
-            'foreignKey' => 'conta_pagar_id'
+            'foreignKey' => 'conta_pagar_id',
+            'dependent' => true,
         ]);
 
         $this->addBehavior('Search.Search');

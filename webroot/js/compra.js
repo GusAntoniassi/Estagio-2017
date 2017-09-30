@@ -1,13 +1,8 @@
 $(document).ready(function() {
-    // Eventos exclusivos da edição
+    // Desabilitar todos os campos da tabela
     if ($('.compras').hasClass('edit')) {
-        $('input[name="status"]').on('change', function() {
-            // Compra fechada, desabilitar campos
-            if ($(this).val() == '1') {
-                $('input').prop('disabled', true);
-                $('select').prop('disabled', true).trigger('change'); // .trigger('change') atualiza os select2
-            }
-        }).trigger('change');
+        $('#tabela-produtos input').prop('disabled', true);
+        $('.remover-item, .adicionar-lote, .remover-lote').remove();
     }
 
     // Clicar na tabela handler

@@ -110,11 +110,12 @@ class ComprasController extends AppController
                         $this->Flash->success(__('Compra salva com sucesso.'));
                         $this->redirect(['controller' => 'ContaPagars', 'action' => 'edit', $contaPagar->id]);
                     } else {
-                        dd($contaPagar->getErrors());
+                        throw new \Exception;
                     }
                 } else {
                     $conn->commit();
                     $this->Flash->success(__('Compra salva com sucesso.'));
+                    $this->redirect(['controller' => 'compras']);
                 }
             } catch (\Exception $e) {
                 $this->Flash->error(__('Erro ao salvar a compra. Por favor tente novamente.'));
@@ -141,24 +142,63 @@ class ComprasController extends AppController
     public function edit($id = null)
     {
         $compra = $this->Compras->get($id, [
-            'contain' => []
+            'contain' => [
+                'Fornecedores',
+                'Fornecedores.Pessoas',
+                'ItemCompras',
+                'ItemCompras.LoteCompras',
+                'ItemCompras.Produtos',
+                'ItemCompras.LoteCompras.Lotes',
+            ]
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $compra = $this->Compras->patchEntity($compra, $this->request->getData());
-            if ($this->Compras->save($compra)) {
-                if (!empty($this->request->getQuery('extends'))) {
-                    $this->_fechaExtends();
-                }
-                $this->Flash->success(__('Registro salvo com sucesso.'));
 
-                return $this->redirect(['action' => 'index']);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $compra = $this->Compras->patchEntity($compra, $this->request->getData(), [
+                'associated' => [
+                    'ItemCompras',
+                    'ItemCompras.LoteCompras.Lotes',
+                    'ItemCompras.LoteCompras',
+                ]
+            ]);
+
+            $conn = ConnectionManager::get($this->Compras->defaultConnectionName());
+            $conn->begin();
+
+            try {
+                $result = $this->Compras->save($compra);
+
+                if (!$result) {
+                    throw new \Exception;
+                }
+
+                // Se o status da compra for FECHADO (1), gerar as parcelas
+                if ($compra->status) {
+                    $compra->fecharCompra();
+                    $conn->commit();
+
+                    // Redirecionar para a edição do contas a pagar
+                    $contaPagar = $this->Compras->ContaPagars->findByCompraId($compra->id)->first();
+                    if (!empty($contaPagar)) {
+                        $this->Flash->success(__('Compra salva com sucesso.'));
+                        $this->redirect(['controller' => 'ContaPagars', 'action' => 'edit', $contaPagar->id]);
+                    } else {
+                        throw new \Exception;
+                    }
+                } else {
+                    $conn->commit();
+                    $this->Flash->success(__('Compra salva com sucesso.'));
+                    $this->redirect(['controller' => 'compras']);
+                }
+            } catch (\Exception $e) {
+                $this->Flash->error(__('Erro ao salvar a compra. Por favor tente novamente.'));
+                $conn->rollback();
             }
-            $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
-        $pedidoCompras = $this->Compras->PedidoCompras->find('list', ['limit' => 200]);
+
         $formaPagamentos = $this->Compras->FormaPagamentos->find('list', ['limit' => 200]);
-        $fornecedores = $this->Compras->Fornecedores->find('list', ['limit' => 200]);
-        $this->set(compact('compra', 'pedidoCompras', 'formaPagamentos', 'fornecedores'));
+        $fornecedor = $compra->fornecedor->pessoa->nome_exibicao;
+
+        $this->set(compact('compra', 'pedidoCompras', 'formaPagamentos', 'fornecedor'));
         $this->set('_serialize', ['compra']);
 
         $this->_crumbs['Edição'] = Router::url(['action' => 'edit']);

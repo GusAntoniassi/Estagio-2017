@@ -104,7 +104,7 @@ class ComprasTable extends Table
         $validator
             ->boolean('status')
             ->requirePresence('status', 'create')
-            ->notEmpty('status');
+            ->allowEmpty('status', 'update');
 
         return $validator;
     }

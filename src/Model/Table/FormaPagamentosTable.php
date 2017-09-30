@@ -37,7 +37,7 @@ class FormaPagamentosTable extends Table
         parent::initialize($config);
 
         $this->setTable('forma_pagamentos');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nome');
         $this->setPrimaryKey('id');
 
         $this->hasMany('Compras', [
