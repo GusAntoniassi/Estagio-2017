@@ -1,9 +1,14 @@
 <?php
 namespace App\Model\Table;
 
+use App\Model\Entity\ContaPagar;
+use Cake\Datasource\EntityInterface;
+use Cake\Event\Event;
+use Cake\I18n\Time;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
+use Cake\ORM\TableRegistry;
 use Cake\Validation\Validator;
 use Search\Manager;
 
@@ -81,8 +86,7 @@ class ContaPagarsTable extends Table
 
         $validator
             ->dateTime('data_cadastro', 'dmy')
-            ->requirePresence('data_cadastro', 'create')
-            ->notEmpty('data_cadastro');
+            ->allowEmpty('data_cadastro');
 
         $validator
             ->dateTime('data_pagamento', 'dmy')
@@ -90,13 +94,11 @@ class ContaPagarsTable extends Table
 
         $validator
             ->boolean('pago')
-            ->requirePresence('pago', 'create')
-            ->notEmpty('pago');
+            ->allowEmpty('data_cadastro');
 
         $validator
             ->integer('num_parcelas')
-            ->requirePresence('num_parcelas', 'create')
-            ->notEmpty('num_parcelas');
+            ->allowEmpty('num_parcelas');
 
         $validator
             ->allowEmpty('comentarios');
@@ -135,6 +137,17 @@ class ContaPagarsTable extends Table
             ])
             ->value('status');
         return $search;
+    }
+
+    public function beforeSave(Event $event, ContaPagar $entity, \ArrayObject $options) {
+        $entity->data_cadastro = Time::now();
+        if (empty($entity->num_parcelas) && !empty($entity->forma_pagamento_id)) {
+            $formaPagamentosTable = TableRegistry::get('FormaPagamentos');
+            $formaPagamento = $formaPagamentosTable->findById($entity->forma_pagamento_id)->first();
+
+            $entity->num_parcelas = $formaPagamento->num_parcelas;
+        }
+        return true;
     }
 
 }

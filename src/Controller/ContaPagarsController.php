@@ -83,16 +83,19 @@ class ContaPagarsController extends AppController
         if ($this->request->is('post')) {
             $contaPagar = $this->ContaPagars->patchEntity($contaPagar, $this->request->getData());
             if ($this->ContaPagars->save($contaPagar)) {
-                if (!empty($this->request->getQuery('extends'))) {
-                    $this->_fechaExtends();
+                if ($contaPagar->geraParcelas()) {
+                    return $this->redirect(['action' => 'edit', $contaPagar->id]);
                 }
-                $this->Flash->success(__('Registro salvo com sucesso.'));
-
-                return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('Erro ao salvar o registro. Por favor tente novamente.'));
         }
-        $fornecedores = $this->ContaPagars->Fornecedores->find('list', ['limit' => 200]);
+        $fornecedores = $this->ContaPagars->Fornecedores->find('list', [
+            'limit' => 200,
+            'contain' => ['Pessoas'],
+            'valueField' => function($fornecedor) {
+                return $fornecedor->pessoa->nome_exibicao;
+            }
+        ]);
         $compras = $this->ContaPagars->Compras->find('list', ['limit' => 200]);
         $formaPagamentos = $this->ContaPagars->FormaPagamentos->find('list', ['limit' => 200]);
         $this->set(compact('contaPagar', 'fornecedores', 'compras', 'formaPagamentos'));
@@ -119,7 +122,6 @@ class ContaPagarsController extends AppController
                 'ParcelaContaPagars',
                 'ParcelaContaPagars.Pagamentos']
         ]);
-
         if ($this->request->is(['patch', 'post', 'put'])) {
             $contaPagar = $this->ContaPagars->patchEntity($contaPagar, $this->request->getData());
             if ($this->ContaPagars->save($contaPagar)) {

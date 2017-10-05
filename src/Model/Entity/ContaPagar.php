@@ -1,7 +1,11 @@
 <?php
 namespace App\Model\Entity;
 
-use App\Model\Entity;;
+use App\Model\Entity;
+use Cake\I18n\Time;
+use Cake\ORM\TableRegistry;
+
+;
 
 /**
  * ContaPagar Entity
@@ -39,4 +43,54 @@ class ContaPagar extends Entity
         '*' => true,
         'id' => false
     ];
+
+    public function geraParcelas($entrada = 0, $dias_carencia = 0) {
+        $numParcelas = $this->num_parcelas;
+
+        // Gerar parcelas
+        $parcelaContaPagarsTable = TableRegistry::get('ParcelaContaPagars');
+        $dataParcela = Time::now();
+        // Se tiver entrada, gravar uma parcela para a data atual
+        if ($entrada > 0) {
+            $parcelaContaPagars = $parcelaContaPagarsTable->newEntity();
+            $parcelaContaPagars->nome = 'Entrada';
+            $parcelaContaPagars->valor = $entrada;
+            $parcelaContaPagars->data_vencimento = $dataParcela;
+            $parcelaContaPagars->pago = false;
+            $parcelaContaPagars->conta_pagar_id = $this->id;
+            $parcelaContaPagarsTable->save($parcelaContaPagars);
+            $numParcelas--;
+        }
+
+        // Adicionar a carência necessária
+        if ($dias_carencia > 0) {
+            $dataParcela->addDays($dias_carencia);
+        }
+
+        if ($numParcelas > 0) {
+            // Valor de cada uma das parcelas, ignorar casas decimais após as 2 primeiras
+            $valorParcela = bcdiv($this->valor, $numParcelas, 2);
+
+            // Gravar as parcelas restantes
+            for ($i = 1; $i <= $numParcelas; $i++) {
+                $parcelaContaPagars = $parcelaContaPagarsTable->newEntity();
+                $parcelaContaPagars->nome = sprintf("Parcela %d de %d", $i, $numParcelas);
+                if ($i == $numParcelas) { // Se for a última parcela, acrescentar o que sobrou da divisão
+                    $sobra = ($this->valor - ($valorParcela * $numParcelas));
+                    $parcelaContaPagars->valor = $valorParcela + $sobra;
+                } else {
+                    $parcelaContaPagars->valor = $valorParcela;
+                }
+                $parcelaContaPagars->data_vencimento = $dataParcela;
+                $parcelaContaPagars->pago = false;
+                $parcelaContaPagars->conta_pagar_id = $this->id;
+                $parcelaContaPagarsTable->save($parcelaContaPagars);
+
+                // FIXO: Intervalo entre parcelas é de um mês
+                $dataParcela = $dataParcela->addMonth(1);
+            }
+        }
+
+        return true;
+    }
 }

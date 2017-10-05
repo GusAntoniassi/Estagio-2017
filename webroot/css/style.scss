@@ -82,6 +82,10 @@ th[scope="col"] {
 		}
 	}
 }
+.input-field.select {
+  z-index: 1;
+}
+
 .filtros .submit .btn {
 	height: 46px;
 	width: 100%;

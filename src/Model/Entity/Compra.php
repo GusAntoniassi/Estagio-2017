@@ -46,7 +46,6 @@ class Compra extends Entity
     ];
 
     public function fecharCompra() {
-        dd($this);
         /*=========== Entrada de estoque ==========*/
         foreach ($this->item_compras as $itemCompra) {
             if (empty($itemCompra->lote_compras)) { // Não possui lote, baixa de estoque direto no produto
@@ -91,38 +90,7 @@ class Compra extends Entity
         $contaPagarsTable->save($contaPagar);
 
         // Gerar parcelas
-        $parcelaContaPagarsTable = TableRegistry::get('ParcelaContaPagars');
-        $dataParcela = Time::now();
-        // Se tiver entrada, gravar uma parcela para a data atual
-        if ($this->entrada > 0) {
-            $parcelaContaPagars = $parcelaContaPagarsTable->newEntity();
-            $parcelaContaPagars->nome = 'Entrada';
-            $parcelaContaPagars->valor = $this->entrada;
-            $parcelaContaPagars->data_vencimento = $dataParcela;
-            $parcelaContaPagars->pago = false;
-            $parcelaContaPagars->conta_pagar_id = $contaPagar->id;
-            $parcelaContaPagarsTable->save($parcelaContaPagars);
-            $numParcelas--;
-        }
-
-        if ($numParcelas > 0) {
-            // Valor de cada uma das parcelas
-            $valorParcela = round($this->valor_total / $numParcelas, 2);
-
-            // Gravar as parcelas restantes
-            for ($i = 0; $i < $numParcelas; $i++) {
-                // FIXO: Intervalo entre parcelas é de um mês
-                $dataParcela = $dataParcela->addMonth(1);
-
-                $parcelaContaPagars = $parcelaContaPagarsTable->newEntity();
-                $parcelaContaPagars->nome = sprintf("Parcela %d de %d", ($i+1), $numParcelas);
-                $parcelaContaPagars->valor = $valorParcela;
-                $parcelaContaPagars->data_vencimento = $dataParcela;
-                $parcelaContaPagars->pago = false;
-                $parcelaContaPagars->conta_pagar_id = $contaPagar->id;
-                $parcelaContaPagarsTable->save($parcelaContaPagars);
-            }
-        }
+        $contaPagar->geraParcelas($this->entrada, $formaPagamento->dias_carencia_primeira_parcela);
 
         return true;
     }
