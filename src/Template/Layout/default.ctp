@@ -58,7 +58,7 @@ use Cake\Utility\Inflector;
 				</ul>
 			</div>
 		</nav>
-		<ul class="side-nav fixed hide-on-med-and-down">
+		<ul class="side-nav fixed">
             <li class="logo">
                 <a id="logo-container" href="<?= Router::url(['controller' => 'users', 'action' => 'dashboard']); ?>" class="brand-logo" title="Clique aqui para ir ao painel">
                 <?= $this->Html->image('recanto.svg', ['alt' => 'Logomarca do Recanto do Peixe']); ?>
@@ -97,6 +97,12 @@ use Cake\Utility\Inflector;
             });
             $('#expandir-menu').click(function() {
                 $('body').toggleClass('hide-side-nav');
+            })
+
+            $(document).ready(function() {
+                if (window.innerWidth < 768) {
+                    $('#expandir-menu').trigger('click');
+                }
             })
         </script>
 	</header>

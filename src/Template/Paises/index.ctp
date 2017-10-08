@@ -19,7 +19,7 @@ use Cake\Routing\Router;
                                 <?= $this->Gus->control('id', ['div' => 'col s2 m1 l1', 'label' => 'ID']); ?>
                                 <?= $this->Gus->control('nome', ['div' => 'col s5 m5 l6', 'label' => 'Nome']); ?>
                                 <?= $this->Gus->control('sigla', ['div' => 'col s2 m2 l1', 'label' => 'Sigla']); ?>
-                                <?= $this->Gus->control('status', ['type' => 'select', 'data-material-select', 'div' => 'col s3 m2 l2', 'label' => 'Status', 'options' => $this->Gus->getStatusOptions(), 'value' => '']); ?>
+                                <?= $this->Gus->control('status', ['type' => 'select', 'data-material-select', 'div' => 'col s3 m2 l2', 'label' => 'Status', 'options' => $this->Gus->getStatusOptions()]); ?>
                                 <?= $this->Gus->control('Filtrar', ['div' => 'col s12 m2 l2 right', 'type' => 'submit', 'class' => 'btn waves-effect waves-light']); ?>
                                 <?= $this->Gus->end(); ?>
                             </div>

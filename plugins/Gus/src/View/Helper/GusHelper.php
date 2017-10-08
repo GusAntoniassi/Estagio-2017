@@ -141,6 +141,14 @@ class GusHelper extends FormHelper {
         }
     }
 
+	public function formataStatusCompra($status) {
+	    if (!empty($status)) {
+            return '<span class="ativo">Aberta</span>';
+        } else {
+            return '<span class="inativo">Fechada</span>';
+        }
+    }
+
     public function formataBoolean($status) {
         if (!empty($status)) {
             return '<span class="ativo">Sim</span>';
@@ -154,6 +162,14 @@ class GusHelper extends FormHelper {
 	        '' => 'Todos',
 	        1 => 'Ativo',
             0 => 'Inativo'
+        ];
+    }
+
+    public function getStatusOptionsCompra() {
+	    return [
+	        '' => 'Todos',
+	        1 => 'Aberta',
+            0 => 'Fechada'
         ];
     }
 

@@ -51,7 +51,7 @@ if (!empty($indexColumns)) {
                             <?= $this->Gus->create(); ?>
                             <% foreach ($fields as $field): %>
                             <% if ($field == 'status') { %>
-                            <?= $this->Gus->control('<%= $field %>', ['type' => 'select', 'data-material-select', 'div' => 'col s2 m1 l1', 'label' => '<%= Inflector::humanize($field) %>', 'options' => $this->Gus->getStatusOptions(), 'value' => '']); ?>
+                            <?= $this->Gus->control('<%= $field %>', ['type' => 'select', 'data-material-select', 'div' => 'col s2 m1 l1', 'label' => '<%= Inflector::humanize($field) %>', 'options' => $this->Gus->getStatusOptions()]); ?>
                             <?= $this->Gus->control('<%= $field %>', ['div' => 'col s2 m1 l1', 'label' => '<%= Inflector::humanize($field) %>']); ?>
                             <% } else { %>
                             <?= $this->Gus->control('<%= $field %>', ['div' => 'col s2 m1 l1', 'label' => '<%= Inflector::humanize($field) %>']); ?>

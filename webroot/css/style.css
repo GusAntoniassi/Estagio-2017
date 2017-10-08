@@ -161,8 +161,9 @@ body.hide-side-nav header, body.hide-side-nav main, body.hide-side-nav footer {
 }
 
 @media only screen and (max-width: 992px) {
-  header, main, footer {
-    padding-left: 0;
+  .side-nav.fixed {
+    -webkit-transform: translateX(0) !important;
+            transform: translateX(0) !important;
   }
 }
 .btn input {
@@ -370,4 +371,5 @@ tr.lote td {
   margin: 0;
   padding: 0;
 }
+
 /*# sourceMappingURL=style.css.map */

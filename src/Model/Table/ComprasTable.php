@@ -138,7 +138,9 @@ class ComprasTable extends Table
                 'before' => true,
                 'after' => true,
             ])
-            ->value('status');
+            ->value('status')
+            ->value('forma_pagamento_id')
+            ->value('fornecedor_id');
         return $search;
     }
 

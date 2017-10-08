@@ -41,12 +41,22 @@ class ComprasController extends AppController
 
         $query = $this->Compras
             ->find('search', ['search' => $this->request->getQueryParams()])
-            ->contain(['PedidoCompras', 'FormaPagamentos', 'Fornecedores']);
+            ->contain(['PedidoCompras', 'FormaPagamentos', 'Fornecedores', 'Fornecedores.Pessoas']);
 
-        $this->paginate = ['limit' => 20];
+        $this->paginate = ['limit' => 20, 'order' => ['Compras.id' => 'desc']];
         $compras = $this->paginate($query);
 
-        $this->set(compact('compras'));
+        $formaPagamentos = $this->Gus->getOptionsArray($this->Compras->FormaPagamentos->find('list', ['limit' => 200]));
+        $fornecedores = $this->Compras->Fornecedores->find('list', [
+            'limit' => 200,
+            'contain' => ['Pessoas'],
+            'valueField' => function($fornecedor) {
+                return $fornecedor->pessoa->nome_exibicao;
+            }
+        ]);
+        $fornecedores = $this->Gus->getOptionsArray($fornecedores);
+
+        $this->set(compact('compras', 'formaPagamentos', 'fornecedores'));
         $this->set('_serialize', ['compras']);
 
         $this->set('crumbs', $this->_crumbs);

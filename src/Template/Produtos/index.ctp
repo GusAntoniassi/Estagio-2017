@@ -21,7 +21,7 @@ use Cake\Routing\Router;
                                 <?= $this->Gus->control('tipo_produto_id', ['div' => 'col s12 m5 l5', 'label' => 'Tipo de produto', 'type' => 'select', 'data-material-select']); ?>
                                 <?= $this->Gus->control('preco', ['div' => 'col s6 m4 l4', 'label' => 'Preço (R$)', 'data-type' => 'money']); ?>
                                 <?= $this->Gus->control('custo', ['div' => 'col s6 m4 l4', 'label' => 'Custo (R$)', 'data-type' => 'money']); ?>
-                                <?= $this->Gus->control('status', ['type' => 'select', 'data-material-select', 'div' => 'col s12 m2 l2', 'label' => 'Status', 'options' => $this->Gus->getStatusOptions(), 'value' => '']); ?>
+                                <?= $this->Gus->control('status', ['type' => 'select', 'data-material-select', 'div' => 'col s12 m2 l2', 'label' => 'Status', 'options' => $this->Gus->getStatusOptions()]); ?>
                                 <?= $this->Gus->control('Filtrar', ['div' => 'col s12 m2 l2 right', 'type' => 'submit', 'class' => 'btn waves-effect waves-light']); ?>
                                 <?= $this->Gus->end(); ?>
                             </div>
