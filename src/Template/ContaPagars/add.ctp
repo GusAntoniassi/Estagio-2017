@@ -5,7 +5,7 @@
 ?>
 <div class="contaPagars form add row card-panel">
     <?= $this->element('breadcrumbs', ['crumbs' => $crumbs]); ?>
-    <?php $this->assign('title', 'Cadastro de ContaPagar'); ?>
+    <?php $this->assign('title', 'Cadastro de Conta a Pagar'); ?>
 
     <?= $this->Gus->create($contaPagar, ['class' => 'row']) ?>
     <?php

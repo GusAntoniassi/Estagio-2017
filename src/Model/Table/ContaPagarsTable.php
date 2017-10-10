@@ -131,10 +131,14 @@ class ContaPagarsTable extends Table
         $search = new Manager($this);
         $search
             ->value('id')
-            ->like('nome', [
+            ->like('descricao', [
                 'before' => true,
                 'after' => true,
             ])
+            ->value('valor')
+            ->value('pago')
+            ->value('fornecedor_id')
+            ->value('forma_pagamento_id')
             ->value('status');
         return $search;
     }

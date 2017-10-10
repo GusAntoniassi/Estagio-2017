@@ -27,7 +27,7 @@ class ContaPagarsController extends AppController
 
         $this->_crumbs = [
             'Painel' => Router::url(['controller' => 'usuarios', 'action' => 'dashboard'], true),
-            'ContaPagars' => Router::url(['action' => 'index'])
+            'Contas a Pagar' => Router::url(['action' => 'index'])
         ];
     }
 
@@ -38,15 +38,34 @@ class ContaPagarsController extends AppController
      */
     public function index()
     {
-
         $query = $this->ContaPagars
             ->find('search', ['search' => $this->request->getQueryParams()])
-            ->contain(['Fornecedores', 'Compras', 'FormaPagamentos']);
+            ->contain(['Fornecedores', 'Fornecedores.Pessoas', 'Compras', 'FormaPagamentos']);
 
-        $this->paginate = ['limit' => 20];
+        $this->paginate = [
+            'limit' => 20,
+            'contain' => ['Fornecedores', 'Fornecedores.Pessoas', 'FormaPagamentos'],
+            'sortWhitelist' => ['ContaPagars.id', 'ContaPagars.descricao', 'ContaPagars.valor',
+                'ContaPagars.data_cadastro', 'ContaPagars.data_pagamento', 'ContaPagars.pago',
+                'ContaPagars.data_pagamento', 'Pessoas.nome_razaosocial', 'FormaPagamentos.nome'
+            ],
+            'order' => ['ContaPagars.id' => 'DESC']
+        ];
+
         $contaPagars = $this->paginate($query);
 
-        $this->set(compact('contaPagars'));
+        $fornecedores = $this->ContaPagars->Fornecedores->find('list', [
+            'limit' => 200,
+            'contain' => ['Pessoas'],
+            'valueField' => function ($fornecedor) {
+                return $fornecedor->pessoa->nome_exibicao;
+            }
+        ]);
+        $fornecedores = $this->Gus->getOptionsArray($fornecedores);
+
+        $formaPagamentos = $this->Gus->getOptionsArray($this->ContaPagars->FormaPagamentos->find('list', ['limit' => 200]));
+
+        $this->set(compact('contaPagars', 'fornecedores', 'formaPagamentos'));
         $this->set('_serialize', ['contaPagars']);
 
         $this->set('crumbs', $this->_crumbs);
@@ -92,7 +111,7 @@ class ContaPagarsController extends AppController
         $fornecedores = $this->ContaPagars->Fornecedores->find('list', [
             'limit' => 200,
             'contain' => ['Pessoas'],
-            'valueField' => function($fornecedor) {
+            'valueField' => function ($fornecedor) {
                 return $fornecedor->pessoa->nome_exibicao;
             }
         ]);
