@@ -4,7 +4,7 @@
   */
 use Cake\Routing\Router;
 ?>
-<div class="compras form edit row card-panel">
+<div class="compras form edit compra-disabled row card-panel">
     <?= $this->element('breadcrumbs', ['crumbs' => $crumbs]); ?>
     <?php $this->assign('title', 'Edição de Compra'); ?>
 

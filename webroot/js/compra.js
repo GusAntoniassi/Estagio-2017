@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // Desabilitar todos os campos da tabela
-    if ($('.compras').hasClass('edit')) {
+    if ($('.compras').hasClass('compra-disabled')) {
         $('#tabela-produtos input').prop('disabled', true);
         $('.remover-item, .adicionar-lote, .remover-lote').remove();
     }

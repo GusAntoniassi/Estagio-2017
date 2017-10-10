@@ -78,6 +78,23 @@ class ComprasController extends AppController
         $this->set('compra', $compra);
         $this->set('_serialize', ['compra']);
 
+        $compra = $this->Compras->get($id, [
+            'contain' => [
+                'Fornecedores',
+                'Fornecedores.Pessoas',
+                'ItemCompras',
+                'ItemCompras.LoteCompras',
+                'ItemCompras.Produtos',
+                'ItemCompras.LoteCompras.Lotes',
+            ]
+        ]);
+
+        $formaPagamentos = $this->Compras->FormaPagamentos->find('list', ['limit' => 200]);
+        $fornecedor = $compra->fornecedor->pessoa->nome_exibicao;
+
+        $this->set(compact('compra', 'pedidoCompras', 'formaPagamentos', 'fornecedor'));
+        $this->set('_serialize', ['compra']);
+
         $this->_crumbs['Visualização'] = Router::url(['action' => 'view']);
         $this->set('crumbs', $this->_crumbs);
     }
