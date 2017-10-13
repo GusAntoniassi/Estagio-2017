@@ -69,12 +69,12 @@ class ContaPagar extends Entity
 
         // Adicionar a carência necessária
         if ($dias_carencia > 0) {
-            $dataCadastro->addDays($dias_carencia);
+            $dataCadastro = $dataCadastro->addDays($dias_carencia);
         }
 
         if ($numParcelas > 0) {
             // Valor de cada uma das parcelas, ignorar casas decimais após as 2 primeiras
-            $valorParcela = bcdiv($valorConta, $numParcelas, 2);
+            $valorParcela = bcdiv(number_format($valorConta, 2, '.', ''), (string)$numParcelas, '2');
 
             // Gravar as parcelas restantes
             for ($i = 1; $i <= $numParcelas; $i++) {
