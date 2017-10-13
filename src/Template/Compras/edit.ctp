@@ -58,7 +58,8 @@ use Cake\Routing\Router;
         'label' => 'Entrada (R$)',
         'type' => 'text',
         'disabled',
-        'data-type' => 'money'
+        'data-type' => 'money',
+        'value' => $this->Number->format($compra->entrada, ['places' => 2])
     ]); ?>
 
     <div class="clearfix"></div>

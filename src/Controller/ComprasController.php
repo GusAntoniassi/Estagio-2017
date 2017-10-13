@@ -275,6 +275,10 @@ class ComprasController extends AppController
             foreach ($ids as $id) {
                 $compra = $this->Compras->get($id);
                 if (!$this->Compras->delete($compra)) {
+                    $erros = $compra->getErrors();
+                    if (!empty($erros['status'])) {
+                        throw new \Exception($erros['status']['validaCompraFechada']);
+                    }
                     throw new \Exception();
                 }
             }
@@ -285,7 +289,11 @@ class ComprasController extends AppController
             $this->Flash->error(__('Não foi possível excluir pois um dos registros selecionados já está relacionado a outro registro.'));
         } catch (\Exception $e) {
             $conn->rollback();
-            $this->Flash->error(__('Erro ao excluir o(s) registro(s)! Por favor tente novamente.'));
+            if (!empty($e->getMessage())) {
+                $this->Flash->error($e->getMessage());
+            } else {
+                $this->Flash->error(__('Erro ao excluir o(s) registro(s)! Por favor tente novamente.'));
+            }
         }
     }
 

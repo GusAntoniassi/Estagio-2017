@@ -56,7 +56,8 @@ class ComprasTable extends Table
             'foreignKey' => 'compra_id'
         ]);
         $this->hasMany('ItemCompras', [
-            'foreignKey' => 'compra_id'
+            'foreignKey' => 'compra_id',
+            'dependent' => true,
         ]);
 
         $this->addBehavior('Search.Search');
@@ -121,6 +122,13 @@ class ComprasTable extends Table
         $rules->add($rules->existsIn(['pedido_compra_id'], 'PedidoCompras'));
         $rules->add($rules->existsIn(['forma_pagamento_id'], 'FormaPagamentos'));
         $rules->add($rules->existsIn(['fornecedor_id'], 'Fornecedores'));
+
+        $rules->addDelete(function ($entity, $options) {
+            return !$entity->status;
+        }, 'validaCompraFechada', [
+            'errorField' => 'status',
+            'message' => 'Não é possível excluir uma compra que já foi fechada!'
+        ]);
 
         return $rules;
     }

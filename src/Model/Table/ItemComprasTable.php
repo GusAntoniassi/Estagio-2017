@@ -47,7 +47,8 @@ class ItemComprasTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->hasMany('LoteCompras', [
-            'foreignKey' => 'item_compra_id'
+            'foreignKey' => 'item_compra_id',
+            'dependent' => true,
         ]);
     }
 

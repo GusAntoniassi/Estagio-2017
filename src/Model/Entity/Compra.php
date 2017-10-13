@@ -73,7 +73,7 @@ class Compra extends Entity
         $contaPagar = $contaPagarsTable->newEntity();
         $contaPagar->descricao = 'Compra #' . (int) $this->id;
         $contaPagar->valor = $this->valor_total;
-        $contaPagar->data_cadastro = Time::now();
+        $contaPagar->data_cadastro = Time::now(); // Data de cadastro é sempre a data do sistema
         $contaPagar->pago = false;
 
         $numParcelas = $formaPagamento->num_parcelas;
@@ -90,7 +90,7 @@ class Compra extends Entity
         $contaPagarsTable->save($contaPagar);
 
         // Gerar parcelas
-        $contaPagar->geraParcelas($this->entrada, $formaPagamento->dias_carencia_primeira_parcela);
+        $contaPagar->geraParcelas($this->entrada, $formaPagamento->dias_carencia_primeira_parcela, $this->data_compra);
 
         return true;
     }

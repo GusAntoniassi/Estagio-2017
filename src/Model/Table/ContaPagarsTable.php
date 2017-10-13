@@ -119,6 +119,15 @@ class ContaPagarsTable extends Table
         $rules->add($rules->existsIn(['compra_id'], 'Compras'));
         $rules->add($rules->existsIn(['forma_pagamento_id'], 'FormaPagamentos'));
 
+        $rules->addDelete(function ($entity, $options) {
+            return empty($entity->compra_id); // Permite excluir apenas se não houver compra_id
+        }, 'validaContaPagar', [
+            'errorField' => 'status',
+            'message' => 'Não é possível excluir uma conta a pagar gerada a partir de uma compra!'
+        ]);
+
+        // TODO: Validar excluir com uma ou mais parcelas pagas
+
         return $rules;
     }
 

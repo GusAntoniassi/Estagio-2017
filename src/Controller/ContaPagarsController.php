@@ -223,7 +223,12 @@ class ContaPagarsController extends AppController
             foreach ($ids as $id) {
                 $contaPagar = $this->ContaPagars->get($id);
                 if (!$this->ContaPagars->delete($contaPagar)) {
-                    throw new \Exception();
+                    $erros = $contaPagar->getErrors();
+                    if (!empty($erros['status'])) {
+                        throw new \Exception($erros['status']['validaContaPagar']);
+                    } else {
+                        throw new \Exception();
+                    }
                 }
             }
             $conn->commit();
@@ -233,7 +238,11 @@ class ContaPagarsController extends AppController
             $this->Flash->error(__('Não foi possível excluir pois um dos registros selecionados já está relacionado a outro registro.'));
         } catch (\Exception $e) {
             $conn->rollback();
-            $this->Flash->error(__('Erro ao excluir o(s) registro(s)! Por favor tente novamente.'));
+            if (!empty($e->getMessage())) {
+                $this->Flash->error($e->getMessage());
+            } else {
+                $this->Flash->error(__('Erro ao excluir o(s) registro(s)! Por favor tente novamente.'));
+            }
         }
     }
 }
