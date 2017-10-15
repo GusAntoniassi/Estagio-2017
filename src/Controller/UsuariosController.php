@@ -184,4 +184,11 @@ class UsuariosController extends AppController
             $this->Flash->error(__('Erro ao excluir o(s) registro(s)! Por favor tente novamente.'));
         }
     }
+
+    public function dashboard() {
+        $this->_crumbs = [
+            'Painel' => Router::url(['controller' => 'usuarios', 'action' => 'dashboard'], true),
+        ];
+        $this->set('crumbs', $this->_crumbs);
+    }
 }
