@@ -54,10 +54,12 @@ class PessoasTable extends Table
             'foreignKey' => 'pessoa_id'
         ]);
         $this->hasMany('Fornecedores', [
-            'foreignKey' => 'pessoa_id'
+            'foreignKey' => 'pessoa_id',
+            'dependent' => true,
         ]);
         $this->hasMany('Funcionarios', [
-            'foreignKey' => 'pessoa_id'
+            'foreignKey' => 'pessoa_id',
+            'dependent' => true,
         ]);
 
         $this->addBehavior('Search.Search');
@@ -108,7 +110,11 @@ class PessoasTable extends Table
             ->allowEmpty('bairro');
 
         $validator
-            ->notEmpty('cep');
+            ->notEmpty('cep')
+            ->add('cep', 'length', [
+                'rule' => ['lengthBetween', 9, 9], // A culpa disso daqui é do CakePHP, que só fornece os métodos lengthBetween, minLength e maxLength
+                'message' => 'CEP inválido!'
+            ]);
 
         $validator
             ->requirePresence('telefone_1', 'create')
@@ -116,6 +122,9 @@ class PessoasTable extends Table
 
         $validator
             ->allowEmpty('telefone_2');
+
+        $validator
+            ->notEmpty('cidade_id');
 
         $validator
             ->email('email')
@@ -133,7 +142,7 @@ class PessoasTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['cpfcnpj']));
+        $rules->add($rules->isUnique(['cpfcnpj'], 'Este CPF/CNPJ já foi cadastrado!'));
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->existsIn(['cidade_id'], 'Cidades'));
         $rules->add($rules->existsIn(['fornecedor_pertencente_id'], 'Fornecedores'));

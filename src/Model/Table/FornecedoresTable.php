@@ -1,9 +1,12 @@
 <?php
 namespace App\Model\Table;
 
+use App\Model\Entity\Fornecedor;
+use Cake\Event\Event;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
+use Cake\ORM\TableRegistry;
 use Cake\Validation\Validator;
 use Search\Manager;
 
@@ -125,6 +128,4 @@ class FornecedoresTable extends Table
             ->value('status');
         return $search;
     }
-
-
 }

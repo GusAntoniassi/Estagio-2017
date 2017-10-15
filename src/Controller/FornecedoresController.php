@@ -210,8 +210,18 @@ class FornecedoresController extends AppController
         $conn->begin();
         try {
             foreach ($ids as $id) {
-                $fornecedor = $this->Fornecedores->get($id);
-                if (!$this->Fornecedores->delete($fornecedor)) {
+                $fornecedor = $this->Fornecedores->get($id, [
+                    'contain' => ['Pessoas', 'Pessoas.Funcionarios']
+                ]);
+
+                // Se aquela pessoa também é um funcionário, excluir apenas o fornecedor
+                if (!empty($fornecedor->pessoa->funcionarios)) {
+                    $excluiu = $this->Fornecedores->delete($fornecedor);
+                } else {
+                    $excluiu = ($this->Fornecedores->Pessoas->delete($fornecedor->pessoa));
+                }
+
+                if (!$excluiu) {
                     throw new \Exception();
                 }
             }

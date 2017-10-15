@@ -31,7 +31,7 @@ use Cake\Routing\Router;
     <?php
         echo $this->Gus->control('pessoa.nome_razaosocial', ['div' => 'col s6 input-field', 'label' => $this->Gus->getPessoaLabel('nome_razaosocial', $tipoPessoa)]);
         echo $this->Gus->control('pessoa.sobrenome_nomefantasia', ['div' => 'col s6 input-field', 'label' => $this->Gus->getPessoaLabel('sobrenome_nomefantasia', $tipoPessoa)]);
-        echo $this->Gus->control('pessoa.cpfcnpj', ['div' => 'col s3 input-field', 'label' => $this->Gus->getPessoaLabel('cpfcnpj', $tipoPessoa), 'data-type' => 'cpf']);
+        echo $this->Gus->control('pessoa.cpfcnpj', ['div' => 'col s3 input-field', 'label' => $this->Gus->getPessoaLabel('cpfcnpj', $tipoPessoa), 'data-type' => ($tipoPessoa == 'F' ? 'cpf' : 'cnpj')]);
         echo $this->Gus->control('pessoa.email', ['div' => 'col s3 input-field', 'label' => 'E-mail']);
         echo $this->Gus->control('pessoa.telefone_1', ['div' => 'col s3 input-field', 'label' => 'Telefone principal', 'data-type' => 'phone']);
         echo $this->Gus->control('pessoa.telefone_2', ['div' => 'col s3 input-field', 'label' => 'Telefone secundário', 'data-type' => 'phone']);

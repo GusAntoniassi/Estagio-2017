@@ -330,20 +330,37 @@ function completaCep() {
             }, (25 * i))
         });
 
+        $('input[data-type="cep"]')
+			.addClass('form-error invalid')
+			.closest('.input-field').addClass('has-error')
+				.append('<div class="error-message">CEP inválido!</div>');
+
+        $('select[data-cep="cidade"]').prop('required', false);
+        $('input[data-type="cep"]').closest('form').find('.progress').addClass('invisible');
+
         deferred.reject();
 	};
 	var erroConexao = function() {
 		alert('Houve um erro ao buscar o CEP solicitado. Por favor recarregue a página e tente novamente.');
 
+		// Permitir digitar os dados manualmente se não tiver conexão
         $('.cep-toggle').each(function(i, input) {
             setTimeout(function() {
-                $(input).addClass('invisible');
+                $(input).removeClass('invisible');
                 $(input).val('');
             }, (25 * i))
         });
+        $('input[data-type="cep"]').closest('form').find('.progress').addClass('invisible');
+        $('select[data-cep="cidade"]').prop('required', true);
 
-		deferred.reject();
-	}
+        deferred.reject();
+	};
+
+    $('input[data-type="cep"]')
+        .removeClass('form-error invalid')
+        .closest('.input-field').addClass('has-error')
+			.find('.error-message').remove();
+
 	var cep = $('input[data-type="cep"]').val();
 
 	if (cep.length != 9) {
@@ -351,13 +368,14 @@ function completaCep() {
 		return;
 	}
 
+
 	$('input[data-type="cep"]').closest('form').find('.progress').removeClass('invisible');
 
 	$.get({
 		url: 'https://viacep.com.br/ws/' + cep + '/json/',
 		dataType: 'json',
 	}).done(function(json) {
-		if (!json) {
+		if (!json || json.erro) {
 			cepInvalido();
 			return;
 		}
@@ -394,6 +412,7 @@ function completaCep() {
                 minimumInputLength: 1,
                 placeholder: $select.attr('placeholder')
             });
+            $('select[data-cep="cidade"]').prop('required', true);
             Materialize.updateTextFields();
 			// reconstruir o select2
 			$('.cep-toggle').each(function(i, input) {
