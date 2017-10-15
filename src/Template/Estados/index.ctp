@@ -63,7 +63,7 @@ use Cake\Routing\Router;
                     <td><?= h($estado->nome) ?></td>
                     <td><?= h($estado->sigla) ?></td>
                     <td><?= $this->Gus->formataStatus($estado->status) ?></td>
-                    <td><?= $estado->has('pais') ? $this->Html->link($estado->pais->nome, ['controller' => 'Paises', 'action' => 'view', $estado->pais->id]) : '' ?></td>
+                    <td><?= $estado->has('pais') ? $estado->pais->nome : '' ?></td>
                     <td class="actions">
                         <?= $this->Html->link($this->Gus->materialIcon('edit'), ['action' => 'edit', $estado->id], ['escape' => false, 'class' => 'btn btn-floating btn-sm waves-effect waves-light edit']) ?>
                     </td>

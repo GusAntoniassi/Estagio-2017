@@ -14,7 +14,6 @@ Configure::write('paginas', [
         ['nome' => 'Formas de pagamento', 'controller' => 'forma_pagamentos'],
         ['nome' => 'Usuários', 'controller' => 'usuarios'],
         ['nome' => 'Grupos de usuário', 'controller' => 'grupo_usuarios'],
-        ['nome' => 'Países', 'controller' => 'paises'],
         ['nome' => 'Estados', 'controller' => 'estados'],
         ['nome' => 'Cidades', 'controller' => 'cidades'],
     ],

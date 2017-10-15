@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('País') ?></th>
-            <td><?= $estado->has('pais') ? $this->Html->link($estado->pais->nome, ['controller' => 'Paises', 'action' => 'view', $estado->pais->id]) : '' ?></td>
+            <td><?= $estado->has('pais') ? $estado->pais->nome : '' ?></td>
         </tr>
     </table>
 </div>
