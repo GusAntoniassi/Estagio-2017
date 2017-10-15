@@ -191,7 +191,13 @@ function refreshSelect(target) {
         }
 
         var selected = $select.val();
-        if ($select.hasClass('select2ajax')) {
+		// Caso específico do produto na compra, que possui várias propriedades de formatação no Select2
+        if ($select.data('select2props')) {
+        	var props = $select.data('select2props');
+        	$.extend(props, {data: data});
+        	console.log(props);
+			$select.empty().select2(props);
+		} else if ($select.hasClass('select2ajax')) {
 			$select.empty().select2({
 				data: data,
 				ajax: $select.data('ajax'),

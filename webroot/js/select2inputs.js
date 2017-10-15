@@ -37,7 +37,7 @@ function fornecedorAutocomplete(url) {
 }
 
 function produtoAutocompleteCompra(url) {
-    $('select[name="produto_id"]').select2({
+    var select2props = {
         ajax: {
             url: url,
             dataType: 'json',
@@ -72,11 +72,16 @@ function produtoAutocompleteCompra(url) {
             return html;
         },
         templateSelection: function(dados) { // Formata os dados dentro do select
-            // Se o ID não estiver setado, então a selection atual é o placeholder
-            if (!dados.id) {
+            console.log(dados);
+            console.log('templateSelection');
+            // Se o ID ou no nome não estiver setado, então a selection atual é o placeholder
+            if (!dados.id || !dados.nome) {
                 return dados.text;
             }
             return dados.nome;
         },
-    });
+    };
+    $('select[name="produto_id"]')
+        .data('select2props', select2props)
+        .select2(select2props);
 }
