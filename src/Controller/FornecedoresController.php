@@ -273,11 +273,17 @@ class FornecedoresController extends AppController
             'valueField' => function($fornecedor) {
                 return $fornecedor->pessoa->nome_exibicao;
             }
-        ])->where(['OR' => [
-                'Pessoas.nome_razaosocial LIKE ' => $query,
-                'Pessoas.sobrenome_nomefantasia LIKE ' => $query
+        ])->where(
+            [
+                'AND' => [
+                    'status' => true,
+                    'OR' => [
+                        'Pessoas.nome_razaosocial LIKE ' => $query,
+                        'Pessoas.sobrenome_nomefantasia LIKE ' => $query
+                    ]
+                ],
             ]
-        ])->order($this->Fornecedores->Pessoas->getOrderNomePessoa());
+        )->order($this->Fornecedores->Pessoas->getOrderNomePessoa());
 
         $resultados = [];
         foreach ($fornecedores as $id => $fornecedor) {

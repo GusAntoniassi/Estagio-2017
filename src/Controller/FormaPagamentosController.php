@@ -194,7 +194,6 @@ class FormaPagamentosController extends AppController
             $formaPagamento = $this->FormaPagamentos->findById($this->request->getQuery('ajax_id'))->first();
             $formaPagamentos = [$formaPagamento->id => $formaPagamento->nome];
         } else {
-            $conditions = [];
             $formaPagamentos = $this->FormaPagamentos->find('list', ['valueField' => 'nome'])
                 ->where($conditions)
                 ->orderAsc('nome');
@@ -211,12 +210,12 @@ class FormaPagamentosController extends AppController
 
         $query = '%' . mb_strtolower($query) . '%';
 
-        $estados = $this->FormaPagamentos->find('list', [
+        $formaPagamentos = $this->FormaPagamentos->find('list', [
             'valueField' => 'nome',
         ])->where(['FormaPagamentos.nome LIKE ' => $query]);
 
         $resultados = [];
-        foreach ($estados as $id => $estado) {
+        foreach ($formaPagamentos as $id => $estado) {
             $resultados[] = ['id' => $id, 'name' => $estado];
         }
         echo json_encode($resultados);

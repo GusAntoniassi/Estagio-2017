@@ -150,7 +150,8 @@ class ComprasController extends AppController
             }
         }
 
-        $formaPagamentos = $this->Compras->FormaPagamentos->find('list', ['valueField' => 'nome']);
+        $formaPagamentos = $this->Compras->FormaPagamentos->find('list', ['valueField' => 'nome'])
+            ->where(['status' => true]);
 
         $this->set(compact('compra', 'pedidoCompras', 'formaPagamentos', 'fornecedores'));
         $this->set('_serialize', ['compra']);

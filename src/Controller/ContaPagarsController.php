@@ -114,9 +114,9 @@ class ContaPagarsController extends AppController
             'valueField' => function ($fornecedor) {
                 return $fornecedor->pessoa->nome_exibicao;
             }
-        ]);
+        ])->where(['status' => true]);
         $compras = $this->ContaPagars->Compras->find('list', ['limit' => 200]);
-        $formaPagamentos = $this->ContaPagars->FormaPagamentos->find('list', ['limit' => 200]);
+        $formaPagamentos = $this->ContaPagars->FormaPagamentos->find('list', ['limit' => 200])->where(['status' => true]);
         $this->set(compact('contaPagar', 'fornecedores', 'compras', 'formaPagamentos'));
         $this->set('_serialize', ['contaPagar']);
 
