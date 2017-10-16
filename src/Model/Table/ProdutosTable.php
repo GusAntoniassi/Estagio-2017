@@ -59,7 +59,9 @@ class ProdutosTable extends Table
             'foreignKey' => 'produto_id'
         ]);
         $this->hasMany('Lotes', [
-            'foreignKey' => 'produto_id'
+            'foreignKey' => 'produto_id',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
         ]);
 
         $this->addBehavior('Search.Search');

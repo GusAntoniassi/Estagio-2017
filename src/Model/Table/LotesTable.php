@@ -47,7 +47,8 @@ class LotesTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->hasMany('BaixaProdutos', [
-            'foreignKey' => 'lote_id'
+            'foreignKey' => 'lote_id',
+            'dependent' => true
         ]);
 
         $this->addBehavior('Search.Search');
