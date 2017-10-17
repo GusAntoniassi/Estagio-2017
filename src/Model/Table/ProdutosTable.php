@@ -111,6 +111,7 @@ class ProdutosTable extends Table
             ->requirePresence('possui_lote', 'create')
             ->notEmpty('possui_lote');
 
+        // TODO: Tirar validação, deixar default 0
         $validator
             ->integer('qtde_estoque')
             ->allowEmpty('qtde_estoque');

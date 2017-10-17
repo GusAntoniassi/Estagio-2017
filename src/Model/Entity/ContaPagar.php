@@ -79,7 +79,11 @@ class ContaPagar extends Entity
             // Gravar as parcelas restantes
             for ($i = 1; $i <= $numParcelas; $i++) {
                 $parcelaContaPagars = $parcelaContaPagarsTable->newEntity();
-                $parcelaContaPagars->nome = sprintf("Parcela %d de %d", $i, $numParcelas);
+                if ($numParcelas == 1) {
+                    $parcelaContaPagars->nome = 'Parcela única';
+                } else {
+                    $parcelaContaPagars->nome = sprintf("Parcela %d de %d", $i, $numParcelas);
+                }
                 if ($i == $numParcelas) { // Se for a última parcela, acrescentar o que sobrou da divisão
                     $sobra = ($valorConta - ($valorParcela * $numParcelas));
                     $parcelaContaPagars->valor = $valorParcela + $sobra;

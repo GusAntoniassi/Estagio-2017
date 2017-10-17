@@ -12,7 +12,6 @@ use Cake\Routing\Router;
     <?php
     echo $this->Gus->control('status', ['div' => 'col s12 input-field', 'label' => 'Status', 'checked' => 'checked']);
     echo $this->Gus->control('num_lote', ['div' => 'col s12 m4 l5 input-field', 'label' => 'Número do lote']);
-    echo $this->Gus->control('qtde_estoque', ['div' => 'col s12 m4 l3 input-field', 'label' => 'Qtde em estoque', 'type' => 'number', 'min' => 0]);
     echo $this->Gus->control('data_vencimento', ['div' => 'col s12 m4 l4 input-field', 'label' => 'Data de vencimento', 'type' => 'text', 'data-type' => 'date']);
     echo $this->Gus->selectAjaxExtends('produto_id',
         [

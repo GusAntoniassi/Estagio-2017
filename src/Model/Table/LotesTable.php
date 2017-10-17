@@ -70,10 +70,10 @@ class LotesTable extends Table
             ->requirePresence('num_lote', 'create')
             ->notEmpty('num_lote');
 
+        // TODO: Tirar validação, deixar default 0
         $validator
             ->integer('qtde_estoque')
-            ->requirePresence('qtde_estoque', 'create')
-            ->notEmpty('qtde_estoque');
+            ->allowEmpty('qtde_estoque');
 
         $validator
             ->date('data_vencimento', 'dmy')

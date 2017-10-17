@@ -38,7 +38,6 @@
     ?>
     <?php
     echo $this->Gus->control('preco', ['div' => 'col s6 m3 input-field', 'label' => 'Preço (R$)', 'type' => 'text', 'data-type' => 'money']);
-    echo $this->Gus->control('qtde_estoque', ['div' => 'col s6 m3 input-field', 'label' => 'Qtde. em estoque']);
     ?>
     <?= $this->Gus->button('Enviar', ['div' => 'input-field col s2 right', 'class' => 'btn right waves-effect waves-light']) ?>
     <?= $this->Gus->end() ?>
@@ -47,11 +46,6 @@
         $('#produto-acabado').on('change', function() {
             $('#preco').closest('.input-field').toggleClass('invisible', !$(this).prop('checked'));
         });
-        $('#reduz-estoque, #possui-lote').on('change', function() {
-            // Se 'reduz estoque' estiver marcado e 'possui lote' não estiver marcado, mostrar a qtde em estoque, caso contrário esconder
-            $('#qtde-estoque').closest('.input-field').toggleClass('invisible', !($('#reduz-estoque').prop('checked') && !$('#possui-lote').prop('checked')));
-        });
-
-        $('#produto-acabado, #reduz-estoque').trigger('change');
+        $('#produto-acabado').trigger('change');
     </script>
 </div>

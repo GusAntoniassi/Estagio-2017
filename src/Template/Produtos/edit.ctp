@@ -35,7 +35,7 @@
     <div class="clearfix"></div>
     <?php
     echo $this->Gus->control('preco', ['div' => 'col s6 m3 input-field', 'label' => 'Preço (R$)', 'type' => 'text', 'data-type' => 'money', 'value' => $this->Number->currency($produto->preco, 'BRL')]);
-    echo $this->Gus->control('qtde_estoque', ['div' => 'col s6 m3 input-field', 'label' => 'Qtde. em estoque']);
+    echo $this->Gus->control('qtde_estoque', ['div' => 'col s6 m3 input-field', 'label' => ['text' => 'Qtde. em estoque', 'class' => 'active'], 'readonly']);
     ?>
     <?php if ($produto->foto) { ?>
         <div class="col s6">
