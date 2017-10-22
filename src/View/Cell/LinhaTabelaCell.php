@@ -35,13 +35,17 @@ class LinhaTabelaCell extends Cell
         $this->set(compact('produto', 'linhaTabela', 'quantidade', 'custo'));
     }
 
-    public function lote(Lote $lote = null, $linhaTabela = 0, $linhaTabelaLote = 0, $produtoId = 0) {
+    public function lote(Lote $lote = null, $linhaTabela = 0, $linhaTabelaLote = 0, $produtoId = 0, $quantidade = null) {
         if ($lote === null) {
             $lote = TableRegistry::get('Lotes')->newEntity();
         } else if (empty($produtoId)) {
             $produtoId = $lote->produto->id;
         }
 
-        $this->set(compact('lote', 'linhaTabela', 'linhaTabelaLote', 'produtoId'));
+        if ($quantidade === null) {
+            $quantidade = $lote->qtde_estoque;
+        }
+
+        $this->set(compact('lote', 'linhaTabela', 'linhaTabelaLote', 'produtoId', 'quantidade'));
     }
 }

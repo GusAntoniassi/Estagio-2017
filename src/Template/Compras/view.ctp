@@ -88,6 +88,7 @@ use Cake\Routing\Router;
                                 $linhaTabela, // linhaTabela
                                 $linhaTabelaLote, // linhaTabelaLote
                                 $itemCompra->produto->id, // produtoId
+                                $loteCompra->quantidade
                             ]);
                         }
                     }

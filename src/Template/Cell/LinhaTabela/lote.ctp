@@ -16,7 +16,7 @@
         <label for="data_lote">Data do vencimento</label>
     </div>
     <div class="input-field input-small col s2">
-        <input type="number" min="1" id="qtde_lote" class="quantidade-lote" name="item_compras[<?= $linhaTabela ?>][lote_compras][<?= $linhaTabelaLote ?>][quantidade]" value="<?= $lote->qtde_estoque ?>" />
+        <input type="number" min="1" id="qtde_lote" class="quantidade-lote" name="item_compras[<?= $linhaTabela ?>][lote_compras][<?= $linhaTabelaLote ?>][quantidade]" value="<?= $quantidade ?>" />
         <label for="qtde_lote">Quantidade</label>
     </div>
     </td>
