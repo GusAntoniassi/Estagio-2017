@@ -147,6 +147,13 @@ class ComprasController extends AppController
             } catch (\Exception $e) {
                 $this->Flash->error(__('Erro ao salvar a compra. Por favor tente novamente.'));
                 $conn->rollback();
+                // Buscar os dados dos produtos pra montar a tabela
+                if (!empty($compra->item_compras)) {
+                    foreach ($compra->item_compras as $idx => $itemCompra) {
+                        $produto = $this->Compras->ItemCompras->Produtos->findById($itemCompra->produto_id)->first();
+                        $compra->item_compras[$idx]->produto = $produto;
+                    }
+                }
             }
         }
 

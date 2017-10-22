@@ -44,7 +44,7 @@ use Cake\Routing\Router;
         'label' => 'Data da compra',
         'type' => 'text',
         'data-type' => 'date',
-        'value' => date('d/m/Y') // Data atual
+//        'value' => (!empty($compra->get('data_compra')) ? $compra->get('data_compra') : date('d/m/Y')) // Data atual
     ]); ?>
 
     <?= $this->Gus->selectExtends('forma_pagamento_id', $formaPagamentos->toArray(), [
@@ -84,17 +84,31 @@ use Cake\Routing\Router;
                 </tr>
             </thead>
             <tbody>
-                <tr class="sem-produtos"><td colspan="100%">Nenhum produto selecionado!</td></tr>
-                <?php
-                    // Apenas na edição
-                    /*
-                    echo $this->cell('LinhaTabela::produto', [1]);
-                    echo $this->cell('LinhaTabela::lote', [1]);
-                    echo $this->cell('LinhaTabela::produto', [4, 1, 3, 500]);
-                    */
+                <?php if (empty($compra->item_compras)) { ?>
+                    <tr class="sem-produtos"><td colspan="100%">Nenhum produto selecionado!</td></tr>
+                <?php } else {
+                    foreach ($compra->item_compras as $linhaTabela => $itemCompra) {
+                        echo $this->cell('LinhaTabela::produto', [
+                            $itemCompra->produto,        // produto
+                            $linhaTabela,                // linhaTabela
+                            $itemCompra->quantidade,     // quantidade
+                            $itemCompra->valor_unitario, // custo
+                        ]);
+                        if (!empty($itemCompra->lote_compras)) {
+                            foreach ($itemCompra->lote_compras as $linhaTabelaLote => $loteCompra) {
+                                echo $this->cell('LinhaTabela::lote', [
+                                    $loteCompra->lote, // lote
+                                    $linhaTabela, // linhaTabela
+                                    $linhaTabelaLote, // linhaTabelaLote
+                                    $itemCompra->produto->id, // produtoId
+                                ]);
+                            }
+                        }
+                    }
+                }
                 ?>
             </tbody>
-            <tfoot class="invisible">
+            <tfoot <?= (empty($compra->item_compras) ? 'class="invisible"' : ''); ?>>
                 <tr>
                     <td colspan="3"></td>
                     <td class="right-align"><strong>Valor líquido</strong></td>

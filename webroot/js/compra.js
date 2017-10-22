@@ -71,6 +71,12 @@ $(document).ready(function() {
 
     // Quantidade change handler
     $('#tabela-produtos').on('change', 'tbody .quantidade input, tbody .valor-unitario input', function() {
+        // Valida qtde. menor que 1
+        if (parseInt($(this).val(), 10) <= 0) {
+            $(this).val(1);
+            return;
+        }
+
         var produtoId = $(this).closest('tr.produto').data('produto-id') || 0;
         atualizaTotalLinha(produtoId);
         atualizaRodape();
@@ -78,6 +84,12 @@ $(document).ready(function() {
 
     // Quantidade lote handler
     $('#tabela-produtos').on('change', 'tbody .lote .quantidade-lote', function() {
+        // Valida qtde. menor que 1
+        if (parseInt($(this).val(), 10) <= 0) {
+            $(this).val(1);
+            return;
+        }
+
         var produtoId = $(this).closest('tr.lote').data('produto-id') || 0;
 
         // Soma a quantidade de todos os lotes
@@ -224,4 +236,16 @@ $(document).ready(function() {
             $('#tabela-produtos tfoot').addClass('invisible');
         }
     }
+    atualizaRodape();
+
+    $(function() {
+        // Verifica se a data está vazia, se estiver seta a data atual nela
+        if ($('#data-compra').val().length <= 0) {
+            var date = new Date();
+            $('#data-compra')
+                .val(date.getDate() + '/' + (date.getMonth()+1) + '/' + date.getFullYear())
+                ;
+            Materialize.updateTextFields();
+        }
+    })
 });

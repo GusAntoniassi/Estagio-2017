@@ -1,6 +1,7 @@
 <?php
 namespace App\Model\Table;
 
+use Cake\I18n\Date;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
@@ -78,7 +79,14 @@ class ComprasTable extends Table
         $validator
             ->date('data_compra', 'dmy')
             ->requirePresence('data_compra', 'create')
-            ->notEmpty('data_compra');
+            ->notEmpty('data_compra')
+            ->add('data_compra', 'validaDataFutura',  [
+                'rule' => function ($valor, $contexto) {
+                    $date = Date::createFromFormat('d/m/Y', $valor);
+                    return (!$date->isFuture());
+                },
+                'message' => 'Data não pode ser futura!'
+            ]);
 
         $validator
             ->decimal('valor_liquido')
@@ -88,7 +96,12 @@ class ComprasTable extends Table
         $validator
             ->decimal('descontos')
             ->requirePresence('descontos', 'create')
-            ->notEmpty('descontos');
+            ->notEmpty('descontos')
+            ->add('descontos', 'menorQueValorLiquido', [
+                'rule' => 'validaMenorQueValorLiquido',
+                'message' => 'Desconto não pode ser maior que o valor líquido!',
+                'provider' => 'table',
+            ]);
 
         $validator
             ->decimal('valor_total')
@@ -97,7 +110,12 @@ class ComprasTable extends Table
 
         $validator
             ->decimal('entrada')
-            ->allowEmpty('entrada');
+            ->allowEmpty('entrada')
+            ->add('entrada', 'menorQueValorTotal', [
+                'rule' => 'validaMenorQueValorTotal',
+                'message' => 'Entrada não pode ser maior que o valor total!',
+                'provider' => 'table',
+            ]);
 
         $validator
             ->allowEmpty('comentarios');
@@ -108,6 +126,13 @@ class ComprasTable extends Table
             ->allowEmpty('status', 'update');
 
         return $validator;
+    }
+
+    public function validaMenorQueValorLiquido($valor, $table) {
+        return ($this->getFloat($valor) <= $this->getFloat($table['data']['valor_liquido']));
+    }
+    public function validaMenorQueValorTotal($valor, $table) {
+        return ($this->getFloat($valor) <= $this->getFloat($table['data']['valor_total']));
     }
 
     /**
@@ -152,4 +177,16 @@ class ComprasTable extends Table
         return $search;
     }
 
+    private function getFloat($str) {
+        if(strstr($str, ",")) {
+            $str = str_replace(".", "", $str); // replace dots (thousand seps) with blancs
+            $str = str_replace(",", ".", $str); // replace ',' with '.'
+        }
+
+        if(preg_match("#([0-9\.]+)#", $str, $match)) { // search for number that may contain '.'
+            return floatval($match[0]);
+        } else {
+            return floatval($str); // take some last chances with floatval
+        }
+    }
 }

@@ -117,5 +117,9 @@ use Cake\Routing\Router;
             </tfoot>
         </table>
     </div>
-    <?= $this->Gus->control('comentarios', ['div' => 'col s12 input-field', 'label' => 'Comentários', 'disabled']); ?>
+    <?= $this->Gus->control('comentarios', [
+        'div' => 'col s12 input-field',
+        'label' => 'Comentários', 'disabled',
+        'value' => $compra->comentarios,
+    ]); ?>
 </div>
