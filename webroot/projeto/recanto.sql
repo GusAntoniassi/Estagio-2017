@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 30-Set-2017 às 01:23
+-- Generation Time: 22-Out-2017 às 18:48
 -- Versão do servidor: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -40,7 +40,7 @@ CREATE TABLE `baixa_produtos` (
 --
 DELIMITER $$
 CREATE TRIGGER `baixa_produto_e_zera_lote` AFTER INSERT ON `baixa_produtos` FOR EACH ROW BEGIN
-	UPDATE lote SET qtde_estoque = 0
+	UPDATE lotes SET qtde_estoque = 0
     WHERE id = NEW.lote_id;
 END
 $$
@@ -5679,33 +5679,8 @@ CREATE TABLE `compras` (
 --
 
 INSERT INTO `compras` (`id`, `data_compra`, `valor_liquido`, `descontos`, `valor_total`, `entrada`, `comentarios`, `status`, `pedido_compra_id`, `forma_pagamento_id`, `fornecedor_id`) VALUES
-(10, '2017-09-20', '59.8200', '1.0000', '58.8200', NULL, 'teste', 1, NULL, 1, 2),
-(11, '2017-09-21', '2.9900', '0.0000', '2.9900', NULL, 'asdf', 0, NULL, 1, 2),
-(12, '2017-09-21', '2.9900', '0.0000', '2.9900', NULL, 'asdf', 0, NULL, 1, 2),
-(13, '2017-09-21', '200.3300', '0.0000', '200.3300', NULL, 'asdf', 1, NULL, 1, 1),
-(22, '2017-09-21', '14.9500', '0.0000', '14.9500', NULL, 'abc\r\n', 0, NULL, 1, 1),
-(33, '2017-09-25', '63.8200', '0.0000', '63.8200', NULL, 'abc', 1, NULL, 2, 2),
-(36, '2017-09-25', '1500.0000', '0.0000', '1500.0000', NULL, '123123', 1, NULL, 4, 2),
-(39, '2017-09-25', '2.9900', '0.0000', '2.9900', NULL, '', 1, NULL, 1, 1),
-(41, '2017-09-25', '2.9900', '0.0000', '2.9900', NULL, '', 1, NULL, 1, 1),
-(42, '2017-09-25', '2.9900', '0.0000', '2.9900', NULL, '', 1, NULL, 1, 1),
-(43, '2017-09-25', '2.9900', '0.0000', '2.9900', NULL, '', 1, NULL, 1, 1),
-(45, '2017-09-25', '2.9900', '0.0000', '2.9900', NULL, '', 1, NULL, 1, 1),
-(46, '2017-09-25', '2.9900', '0.0000', '2.9900', NULL, '', 1, NULL, 1, 1),
-(47, '2017-09-25', '2.9900', '0.0000', '2.9900', NULL, '', 1, NULL, 1, 1),
-(48, '2017-09-25', '120.0000', '0.0000', '120.0000', NULL, '', 1, NULL, 1, 1),
-(49, '2017-09-25', '120.0000', '0.0000', '120.0000', NULL, '', 1, NULL, 1, 1),
-(50, '2017-09-25', '120.0000', '0.0000', '120.0000', NULL, '', 1, NULL, 1, 1),
-(51, '2017-09-25', '120.0000', '0.0000', '120.0000', NULL, '', 1, NULL, 1, 1),
-(52, '2017-09-25', '120.0000', '0.0000', '120.0000', NULL, '', 1, NULL, 1, 1),
-(53, '2017-09-25', '120.0000', '0.0000', '120.0000', NULL, '', 1, NULL, 1, 1),
-(54, '2017-09-25', '10.0000', '0.0000', '10.0000', NULL, 'a', 1, NULL, 1, 1),
-(55, '2017-09-25', '10.0000', '0.0000', '10.0000', NULL, 'a', 1, NULL, 1, 1),
-(56, '2017-09-27', '170.8300', '0.8300', '170.0000', NULL, 'Happy Hour 27/09', 1, NULL, 4, 2),
-(57, '2017-09-27', '59500.0000', '500.0000', '59000.0000', NULL, 'Sonho realizado', 1, NULL, 3, 1),
-(58, '2017-09-27', '59559.8500', '559.8500', '59000.0000', NULL, 'Teste', 0, NULL, 1, 2),
-(59, '2017-09-29', '44.8500', '0.0000', '44.8500', '1500.0000', 'aaa', 0, NULL, 2, 2),
-(60, '2017-09-29', '14.9500', '0.0000', '14.9500', '1500.0000', 'aaa', 1, NULL, 2, 2);
+(84, '2017-10-22', '6.9900', '0.0000', '6.9900', NULL, '', 1, NULL, 1, 3),
+(87, '2017-10-22', '10.9900', '0.0000', '10.9900', '0.9900', '', 0, NULL, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -5732,26 +5707,8 @@ CREATE TABLE `conta_pagars` (
 --
 
 INSERT INTO `conta_pagars` (`id`, `descricao`, `valor`, `data_cadastro`, `data_pagamento`, `pago`, `num_parcelas`, `comentarios`, `fornecedor_id`, `compra_id`, `forma_pagamento_id`) VALUES
-(6, 'Compra #33', '63.8200', '2017-09-25 22:06:57', NULL, 0, 12, NULL, 2, 33, 2),
-(7, 'Compra #36', '1500.0000', '2017-09-25 22:38:08', NULL, 0, 13, NULL, 2, 36, 4),
-(8, 'Compra #39', '2.9900', '2017-09-25 22:39:54', NULL, 0, 1, NULL, 1, 39, 1),
-(9, 'Compra #41', '2.9900', '2017-09-25 22:40:12', NULL, 0, 1, NULL, 1, 41, 1),
-(10, 'Compra #42', '2.9900', '2017-09-25 22:43:00', NULL, 0, 1, NULL, 1, 42, 1),
-(11, 'Compra #43', '2.9900', '2017-09-25 22:43:09', NULL, 0, 1, NULL, 1, 43, 1),
-(12, 'Compra #45', '2.9900', '2017-09-25 22:44:18', NULL, 0, 1, NULL, 1, 45, 1),
-(13, 'Compra #48', '120.0000', '2017-09-25 22:45:50', NULL, 0, 1, NULL, 1, 48, 1),
-(14, 'Compra #49', '120.0000', '2017-09-25 22:47:54', NULL, 0, 1, NULL, 1, 49, 1),
-(15, 'Compra #50', '120.0000', '2017-09-25 22:48:02', NULL, 0, 1, NULL, 1, 50, 1),
-(16, 'Compra #51', '120.0000', '2017-09-25 22:48:08', NULL, 0, 1, NULL, 1, 51, 1),
-(17, 'Compra #52', '120.0000', '2017-09-25 22:48:12', NULL, 0, 1, NULL, 1, 52, 1),
-(18, 'Compra #53', '120.0000', '2017-09-25 22:50:24', NULL, 0, 1, NULL, 1, 53, 1),
-(19, 'Compra #54', '10.0000', '2017-09-25 22:51:00', NULL, 0, 1, NULL, 1, 54, 1),
-(20, 'Compra #55', '10.0000', '2017-09-25 22:51:10', NULL, 0, 1, '', 1, 55, 1),
-(21, 'Compra #56', '170.0000', '2017-09-27 00:26:44', NULL, 0, 13, NULL, 2, 56, 4),
-(22, 'Compra #57', '59000.0000', '2017-09-27 00:48:18', NULL, 0, 6, 'Tá dando mais prejuízo do que lucro', 1, 57, 3),
-(23, 'Compra #0', '2.9900', '2017-09-29 20:17:12', NULL, 0, 13, NULL, 2, NULL, 2),
-(24, 'Compra #0', '2.9900', '2017-09-29 20:18:37', NULL, 0, 13, NULL, 2, NULL, 2),
-(29, 'Compra #60', '14.9500', '2017-09-29 20:22:28', NULL, 0, 13, NULL, 2, 60, 2);
+(82, 'Compra #84', '6.9900', '2017-10-22 14:40:05', NULL, 0, 1, NULL, 3, 84, 1),
+(83, 'Conta de Luz - Outubro', '447.8300', '2017-10-22 14:44:41', NULL, 0, 1, NULL, 5, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -5839,9 +5796,9 @@ CREATE TABLE `forma_pagamentos` (
 
 INSERT INTO `forma_pagamentos` (`id`, `nome`, `num_parcelas`, `dias_carencia_primeira_parcela`, `status`) VALUES
 (1, 'À vista', 1, 0, 1),
-(2, '12x sem entrada', 12, 30, 1),
-(3, '6x sem entrada', 6, 30, 1),
-(4, '1 + 12 de 1.500 sem juros', 12, 0, 1);
+(2, '12x sem juros', 12, 30, 1),
+(3, '6x sem juros', 6, 30, 1),
+(5, '3x sem juros', 3, 30, 1);
 
 -- --------------------------------------------------------
 
@@ -5862,8 +5819,9 @@ CREATE TABLE `fornecedores` (
 --
 
 INSERT INTO `fornecedores` (`id`, `status`, `comentarios`, `dia_semana_visita`, `pessoa_id`) VALUES
-(1, 1, 'Representado pela Sophie que vem de Hilux', 2, 1),
-(2, 1, 'asfoias', 0, 3);
+(2, 0, 'asfoias', 0, 3),
+(3, 1, 'Teste', 1, 4),
+(5, 1, '', 0, 6);
 
 -- --------------------------------------------------------
 
@@ -5945,33 +5903,8 @@ CREATE TABLE `item_compras` (
 --
 
 INSERT INTO `item_compras` (`id`, `produto_id`, `compra_id`, `quantidade`, `valor_unitario`) VALUES
-(1, 1, 13, 67, '2.9900'),
-(10, 1, 22, 5, '2.9900'),
-(30, 1, 33, 18, '2.9900'),
-(31, 3, 33, 1, '10.0000'),
-(34, 1, 36, 15, '100.0000'),
-(37, 1, 39, 1, '2.9900'),
-(39, 1, 41, 1, '2.9900'),
-(40, 1, 42, 1, '2.9900'),
-(41, 1, 43, 1, '2.9900'),
-(43, 1, 45, 1, '2.9900'),
-(44, 1, 46, 1, '2.9900'),
-(45, 1, 47, 1, '2.9900'),
-(46, 3, 48, 12, '10.0000'),
-(47, 3, 49, 12, '10.0000'),
-(48, 3, 50, 12, '10.0000'),
-(49, 3, 51, 12, '10.0000'),
-(50, 3, 52, 12, '10.0000'),
-(51, 3, 53, 12, '10.0000'),
-(52, 3, 54, 1, '10.0000'),
-(53, 3, 55, 1, '10.0000'),
-(54, 1, 56, 17, '2.9900'),
-(55, 3, 56, 6, '20.0000'),
-(56, 7, 57, 1, '59500.0000'),
-(57, 7, 58, 1, '59500.0000'),
-(58, 2, 58, 15, '3.9900'),
-(59, 1, 59, 15, '2.9900'),
-(60, 1, 60, 5, '2.9900');
+(85, 2, 84, 1, '6.9900'),
+(86, 4, 87, 1, '10.9900');
 
 -- --------------------------------------------------------
 
@@ -6026,7 +5959,7 @@ CREATE TABLE `lancamento_horas` (
 CREATE TABLE `lotes` (
   `id` int(11) NOT NULL,
   `num_lote` varchar(255) NOT NULL,
-  `qtde_estoque` int(11) NOT NULL,
+  `qtde_estoque` int(11) NOT NULL DEFAULT '0',
   `data_vencimento` date NOT NULL,
   `status` tinyint(1) NOT NULL,
   `produto_id` int(11) NOT NULL
@@ -6039,16 +5972,7 @@ CREATE TABLE `lotes` (
 INSERT INTO `lotes` (`id`, `num_lote`, `qtde_estoque`, `data_vencimento`, `status`, `produto_id`) VALUES
 (1, 'L09141B41', 17, '2017-10-12', 1, 2),
 (2, 'ORIGI166', 10, '2017-10-29', 1, 2),
-(5, 'aaa', 0, '2017-09-23', 1, 1),
-(26, 'a123', 6, '2017-09-29', 1, 1),
-(27, 'a666', 160, '2017-09-29', 1, 1),
-(28, 'a666', 15, '2017-09-30', 1, 1),
-(29, 'a12312', 5, '2017-09-15', 1, 1),
-(30, 'AAA1515', 5, '2017-09-30', 1, 1),
-(31, 'AAA1616', 12, '2017-09-29', 1, 1),
-(32, 'ABC6666', 0, '2017-11-04', 1, 2),
-(33, 'aaaa', 0, '2017-09-29', 1, 1),
-(34, 'aaaaa', 5, '2017-09-16', 1, 1);
+(38, 'ORIGI868', 1, '2017-10-22', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -6068,22 +5992,7 @@ CREATE TABLE `lote_compras` (
 --
 
 INSERT INTO `lote_compras` (`id`, `quantidade`, `item_compra_id`, `lote_id`) VALUES
-(5, 5, 10, 5),
-(26, 6, 30, 26),
-(27, 12, 30, 27),
-(28, 15, 34, 28),
-(29, 1, 37, 29),
-(30, 1, 39, 29),
-(31, 1, 40, 29),
-(32, 1, 41, 29),
-(33, 1, 43, 29),
-(34, 1, 44, 29),
-(35, 1, 45, 29),
-(36, 5, 54, 30),
-(37, 12, 54, 31),
-(38, 15, 58, 32),
-(39, 15, 59, 33),
-(40, 5, 60, 34);
+(3, 1, 85, 38);
 
 -- --------------------------------------------------------
 
@@ -6151,10 +6060,7 @@ CREATE TABLE `paises` (
 --
 
 INSERT INTO `paises` (`id`, `nome`, `sigla`, `status`) VALUES
-(1, 'Brasil', 'BRA', 1),
-(2, 'Argentina', 'ARG', 1),
-(3, 'Paraguai', 'PAR', 1),
-(4, 'Uruguai', 'URU', 1);
+(1, 'Brasil', 'BRA', 1);
 
 -- --------------------------------------------------------
 
@@ -6176,102 +6082,8 @@ CREATE TABLE `parcela_conta_pagars` (
 --
 
 INSERT INTO `parcela_conta_pagars` (`id`, `nome`, `valor`, `data_vencimento`, `pago`, `conta_pagar_id`) VALUES
-(61, NULL, '5.3200', '2017-10-25', 0, 6),
-(62, NULL, '5.3200', '2017-11-25', 0, 6),
-(63, NULL, '5.3200', '2017-12-25', 0, 6),
-(64, NULL, '5.3200', '2018-01-25', 0, 6),
-(65, NULL, '5.3200', '2018-02-25', 0, 6),
-(66, NULL, '5.3200', '2018-03-25', 0, 6),
-(67, NULL, '5.3200', '2018-04-25', 0, 6),
-(68, NULL, '5.3200', '2018-05-25', 0, 6),
-(69, NULL, '5.3200', '2018-06-25', 0, 6),
-(70, NULL, '5.3200', '2018-07-25', 0, 6),
-(71, NULL, '5.3200', '2018-08-25', 0, 6),
-(72, NULL, '5.3200', '2018-09-25', 0, 6),
-(73, NULL, '1500.0000', '2017-09-25', 0, 7),
-(74, NULL, '125.0000', '2017-10-25', 0, 7),
-(75, NULL, '125.0000', '2017-11-25', 0, 7),
-(76, NULL, '125.0000', '2017-12-25', 0, 7),
-(77, NULL, '125.0000', '2018-01-25', 0, 7),
-(78, NULL, '125.0000', '2018-02-25', 0, 7),
-(79, NULL, '125.0000', '2018-03-25', 0, 7),
-(80, NULL, '125.0000', '2018-04-25', 0, 7),
-(81, NULL, '125.0000', '2018-05-25', 0, 7),
-(82, NULL, '125.0000', '2018-06-25', 0, 7),
-(83, NULL, '125.0000', '2018-07-25', 0, 7),
-(84, NULL, '125.0000', '2018-08-25', 0, 7),
-(85, NULL, '125.0000', '2018-09-25', 0, 7),
-(86, NULL, '2.9900', '2017-10-25', 0, 8),
-(87, NULL, '2.9900', '2017-10-25', 0, 9),
-(88, NULL, '2.9900', '2017-10-25', 0, 10),
-(89, NULL, '2.9900', '2017-10-25', 0, 11),
-(90, NULL, '2.9900', '2017-10-25', 0, 12),
-(91, NULL, '120.0000', '2017-10-25', 0, 13),
-(92, NULL, '120.0000', '2017-10-25', 0, 14),
-(93, NULL, '120.0000', '2017-10-25', 0, 15),
-(94, NULL, '120.0000', '2017-10-25', 0, 16),
-(95, NULL, '120.0000', '2017-10-25', 0, 17),
-(96, NULL, '120.0000', '2017-10-25', 0, 18),
-(97, NULL, '10.0000', '2017-10-25', 0, 19),
-(98, NULL, '10.0000', '2017-10-25', 0, 20),
-(99, 'Entrada', '1500.0000', '2017-09-27', 0, 21),
-(100, 'Parcela 1 de 12', '14.1700', '2017-10-27', 0, 21),
-(101, 'Parcela 2 de 12', '14.1700', '2017-11-27', 0, 21),
-(102, 'Parcela 3 de 12', '14.1700', '2017-12-27', 0, 21),
-(103, 'Parcela 4 de 12', '14.1700', '2018-01-27', 0, 21),
-(104, 'Parcela 5 de 12', '14.1700', '2018-02-27', 0, 21),
-(105, 'Parcela 6 de 12', '14.1700', '2018-03-27', 0, 21),
-(106, 'Parcela 7 de 12', '14.1700', '2018-04-27', 0, 21),
-(107, 'Parcela 8 de 12', '14.1700', '2018-05-27', 0, 21),
-(108, 'Parcela 9 de 12', '14.1700', '2018-06-27', 0, 21),
-(109, 'Parcela 10 de 12', '14.1700', '2018-07-27', 0, 21),
-(110, 'Parcela 11 de 12', '14.1700', '2018-08-27', 0, 21),
-(111, 'Parcela 12 de 12', '14.1700', '2018-09-27', 0, 21),
-(112, 'Parcela 1 de 6', '9833.3300', '2017-10-27', 0, 22),
-(113, 'Parcela 2 de 6', '9833.3300', '2017-11-27', 0, 22),
-(114, 'Parcela 3 de 6', '9833.3300', '2017-12-27', 0, 22),
-(115, 'Parcela 4 de 6', '9833.3300', '2018-01-27', 0, 22),
-(116, 'Parcela 5 de 6', '9833.3300', '2018-02-27', 0, 22),
-(117, 'Parcela 6 de 6', '9833.3300', '2018-03-27', 0, 22),
-(118, 'Entrada', '1500.0000', '2017-09-29', 0, 23),
-(119, 'Parcela 1 de 12', '0.2500', '2017-10-29', 0, 23),
-(120, 'Parcela 2 de 12', '0.2500', '2017-11-29', 0, 23),
-(121, 'Parcela 3 de 12', '0.2500', '2017-12-29', 0, 23),
-(122, 'Parcela 4 de 12', '0.2500', '2018-01-29', 0, 23),
-(123, 'Parcela 5 de 12', '0.2500', '2018-02-28', 0, 23),
-(124, 'Parcela 6 de 12', '0.2500', '2018-03-28', 0, 23),
-(125, 'Parcela 7 de 12', '0.2500', '2018-04-28', 0, 23),
-(126, 'Parcela 8 de 12', '0.2500', '2018-05-28', 0, 23),
-(127, 'Parcela 9 de 12', '0.2500', '2018-06-28', 0, 23),
-(128, 'Parcela 10 de 12', '0.2500', '2018-07-28', 0, 23),
-(129, 'Parcela 11 de 12', '0.2500', '2018-08-28', 0, 23),
-(130, 'Parcela 12 de 12', '0.2500', '2018-09-28', 0, 23),
-(131, 'Entrada', '1500.0000', '2017-09-29', 0, 24),
-(132, 'Parcela 1 de 12', '0.2500', '2017-10-29', 0, 24),
-(133, 'Parcela 2 de 12', '0.2500', '2017-11-29', 0, 24),
-(134, 'Parcela 3 de 12', '0.2500', '2017-12-29', 0, 24),
-(135, 'Parcela 4 de 12', '0.2500', '2018-01-29', 0, 24),
-(136, 'Parcela 5 de 12', '0.2500', '2018-02-28', 0, 24),
-(137, 'Parcela 6 de 12', '0.2500', '2018-03-28', 0, 24),
-(138, 'Parcela 7 de 12', '0.2500', '2018-04-28', 0, 24),
-(139, 'Parcela 8 de 12', '0.2500', '2018-05-28', 0, 24),
-(140, 'Parcela 9 de 12', '0.2500', '2018-06-28', 0, 24),
-(141, 'Parcela 10 de 12', '0.2500', '2018-07-28', 0, 24),
-(142, 'Parcela 11 de 12', '0.2500', '2018-08-28', 0, 24),
-(143, 'Parcela 12 de 12', '0.2500', '2018-09-28', 0, 24),
-(144, 'Entrada', '1500.0000', '2017-09-29', 0, 29),
-(145, 'Parcela 1 de 12', '1.2500', '2017-10-29', 0, 29),
-(146, 'Parcela 2 de 12', '1.2500', '2017-11-29', 0, 29),
-(147, 'Parcela 3 de 12', '1.2500', '2017-12-29', 0, 29),
-(148, 'Parcela 4 de 12', '1.2500', '2018-01-29', 0, 29),
-(149, 'Parcela 5 de 12', '1.2500', '2018-02-28', 0, 29),
-(150, 'Parcela 6 de 12', '1.2500', '2018-03-28', 0, 29),
-(151, 'Parcela 7 de 12', '1.2500', '2018-04-28', 0, 29),
-(152, 'Parcela 8 de 12', '1.2500', '2018-05-28', 0, 29),
-(153, 'Parcela 9 de 12', '1.2500', '2018-06-28', 0, 29),
-(154, 'Parcela 10 de 12', '1.2500', '2018-07-28', 0, 29),
-(155, 'Parcela 11 de 12', '1.2500', '2018-08-28', 0, 29),
-(156, 'Parcela 12 de 12', '1.2500', '2018-09-28', 0, 29);
+(278, 'Parcela única', '6.9900', '2017-10-22', 0, 82),
+(279, 'Parcela única', '447.8300', '2017-10-22', 0, 83);
 
 -- --------------------------------------------------------
 
@@ -6335,9 +6147,10 @@ CREATE TABLE `pessoas` (
 --
 
 INSERT INTO `pessoas` (`id`, `tipo_pessoa`, `nome_razaosocial`, `sobrenome_nomefantasia`, `cpfcnpj`, `rua`, `numero`, `bairro`, `cep`, `telefone_1`, `telefone_2`, `email`, `cidade_id`, `fornecedor_pertencente_id`) VALUES
-(1, 'J', 'Lavínia e Sophie Comercio de Bebidas ME', 'Lavínia Sophie', '61.806.203/0001-64', 'Avenida Nossa Senhora da Paz', '454', 'Boqueirão', '81730-370', '(41) 3928-8225', '(41) 99977-0390', 'qualidade@laviniasophie.com.br', 2, NULL),
 (2, 'F', 'Cauê', 'Levi Alves', '571.392.289-81', 'Rua Coronel Jacinto Ribeiro', '951', 'Ponto Novo', '49097-120', '(79) 2738-6117', '(79) 99122-8457', 'caue.levi.alves@eletrovip.com', 1, NULL),
-(3, 'F', 'Leandro', 'Clementino', '470.438.166-88', 'Rua Santa Catarina', '909', 'Zona II', '87502-040', '(44) 3432-0343', '(99) 3499-4343', 'aaa@teste.com', 1, NULL);
+(3, 'F', 'Leandro', 'Clementino', '470.438.166-88', 'Rua Santa Catarina', '909', 'Zona II', '87502-040', '(44) 3432-0343', '(99) 3499-4343', 'aaa@teste.com', 3172, NULL),
+(4, 'F', 'Gustavo', 'Antoniassi', '782.822.377-36', 'Rua Aricanduva', '4355', 'Zona II', '87504-360', '(44) 3666-9999', '(44) 99999-9999', 'gus.antoniassi@gmail.com', 3172, NULL),
+(6, 'J', 'Companhia Paranaense de Energia', 'Copel', '76.483.817/0001-20', 'Rua Coronel Dulcídio', '800', 'Batel', '80420-170', '(41) 3310-5050', '', 'copel@copel.com', 2878, NULL);
 
 -- --------------------------------------------------------
 
@@ -6368,20 +6181,19 @@ INSERT INTO `produtos` (`id`, `nome`, `produto_acabado`, `foto`, `foto_dir`, `re
 (1, 'Cerveja Brahma 360ml', 1, 'brahma.png', '3c66b3ae-b43d-4c22-a7aa-31b251aea0f6', 1, 1, NULL, '3.9900', '2.9900', 1, 1),
 (2, 'Cerveja Original 600ml', 1, 'Cerveja-Antarctica-Original-600ml-One-Way-39386.jpg', 'ca5aa0e2-e802-4352-8ecc-dd001f5b3310', 1, 1, 52, '7.9900', '3.9900', 1, 2),
 (3, 'Filé de Tilápia', 1, 'filetilapua.png', '949a3c4a-f0b9-4722-aba7-24f9e4879330', 0, 0, 81, '29.9900', '0.0000', 1, 3),
-(4, 'Vidrex Lavanda 560ml', 0, 'VEJA-VIDREX-CRISTAL-LAVANDA-PULV-500ML.jpg', '3ba0043b-533e-4a0d-9129-6d3188627bbf', 1, 0, 3, '0.0000', '10.9900', 1, 5),
+(4, 'Vidrex Lavanda 560ml', 0, 'VEJA-VIDREX-CRISTAL-LAVANDA-PULV-500ML.jpg', '3ba0043b-533e-4a0d-9129-6d3188627bbf', 1, 0, 24, '0.0000', '10.9900', 1, 5),
 (5, 'Combo Filé de Tilápia e Batata Frita', 1, 'file tilapia.png', '1ca2f49b-973d-4c77-b314-136dace055d0', 0, 0, NULL, '41.0000', NULL, 1, 3),
-(6, 'Teste', 0, 'aaa.png', '1ca887cf-acd0-4ee9-b4f6-8b54a1decee1', 0, 1, NULL, '0.0000', '1.1100', 1, 1),
-(7, 'Opala Diplomata \'87', 0, 'opalao.jpg', '573c599e-959a-47f3-9acc-53a81aacd1f0', 1, 0, 1, NULL, '59500.0000', 1, 6);
+(7, 'Opala Diplomata \'87', 0, 'opalao.jpg', '573c599e-959a-47f3-9acc-53a81aacd1f0', 1, 0, 3, '0.0000', '59500.0000', 1, 6);
 
 --
 -- Acionadores `produtos`
 --
 DELIMITER $$
 CREATE TRIGGER `verifica_atributos_produto` BEFORE INSERT ON `produtos` FOR EACH ROW BEGIN
-	/* Se está marcado que reduz estoque e não possui lote, o campo qtde_estoque passa a ser obrigatório */
+	/* Se está marcado que reduz estoque e não possui lote, o campo qtde_estoque passa a ser obrigatório -- setar o valor de 0 se ele não foi passado */
 	IF (NEW.reduz_estoque = 1 AND NEW.possui_lote = 0 AND NEW.qtde_estoque IS NULL) THEN
-		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = "[TRIGGER] Quantidade em estoque não pode ser NULL";
-	/* Se está marcado que possui lote ou não rediz estoque, silenciosamente setar o valor da qtde_estoque para NULL */
+		SET NEW.qtde_estoque = 0;
+	/* Se está marcado que possui lote ou não reduz estoque, silenciosamente setar o valor da qtde_estoque para NULL */
 	ELSEIF ((NEW.possui_lote = 1 OR NEW.reduz_estoque = 0) AND NEW.qtde_estoque IS NOT NULL) THEN
 		SET NEW.qtde_estoque = NULL;
     END IF;
@@ -6692,7 +6504,7 @@ ALTER TABLE `baixa_produtos`
 -- AUTO_INCREMENT for table `cidades`
 --
 ALTER TABLE `cidades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5565;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5566;
 --
 -- AUTO_INCREMENT for table `comandas`
 --
@@ -6702,12 +6514,12 @@ ALTER TABLE `comandas`
 -- AUTO_INCREMENT for table `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 --
 -- AUTO_INCREMENT for table `conta_pagars`
 --
 ALTER TABLE `conta_pagars`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 --
 -- AUTO_INCREMENT for table `conta_recebers`
 --
@@ -6722,12 +6534,12 @@ ALTER TABLE `estados`
 -- AUTO_INCREMENT for table `forma_pagamentos`
 --
 ALTER TABLE `forma_pagamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `fornecedores`
 --
 ALTER TABLE `fornecedores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `funcionarios`
 --
@@ -6747,7 +6559,7 @@ ALTER TABLE `item_comandas`
 -- AUTO_INCREMENT for table `item_compras`
 --
 ALTER TABLE `item_compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 --
 -- AUTO_INCREMENT for table `item_orcamentos`
 --
@@ -6767,12 +6579,12 @@ ALTER TABLE `lancamento_horas`
 -- AUTO_INCREMENT for table `lotes`
 --
 ALTER TABLE `lotes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT for table `lote_compras`
 --
 ALTER TABLE `lote_compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `movimentacao_caixas`
 --
@@ -6792,12 +6604,12 @@ ALTER TABLE `pagamentos`
 -- AUTO_INCREMENT for table `paises`
 --
 ALTER TABLE `paises`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `parcela_conta_pagars`
 --
 ALTER TABLE `parcela_conta_pagars`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=280;
 --
 -- AUTO_INCREMENT for table `parcela_conta_recebers`
 --
@@ -6812,12 +6624,12 @@ ALTER TABLE `pedido_compras`
 -- AUTO_INCREMENT for table `pessoas`
 --
 ALTER TABLE `pessoas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `recebimentos`
 --
@@ -6827,7 +6639,7 @@ ALTER TABLE `recebimentos`
 -- AUTO_INCREMENT for table `tipo_produtos`
 --
 ALTER TABLE `tipo_produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --

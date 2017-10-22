@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8181edc-cae8-49d6-a19a-18742a0159c9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/files/produtos/foto/8e9ce13d-ceb0-40d5-98ad-8edd50250fa5/logo.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webroot/files/produtos/foto/8e9ce13d-ceb0-40d5-98ad-8edd50250fa5/thumb_logo.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ComprasController.php" afterPath="$PROJECT_DIR$/src/Controller/ComprasController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Table/ComprasTable.php" afterPath="$PROJECT_DIR$/src/Model/Table/ComprasTable.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Compras/add.ctp" afterPath="$PROJECT_DIR$/src/Template/Compras/add.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Compras/view.ctp" afterPath="$PROJECT_DIR$/src/Template/Compras/view.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/js/compra.js" afterPath="$PROJECT_DIR$/webroot/js/compra.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webroot/projeto/recanto.sql" afterPath="$PROJECT_DIR$/webroot/projeto/recanto.sql" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,8 +31,8 @@
       <file leaf-file-name="ComprasTable.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Model/Table/ComprasTable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="131" column="88" lean-forward="false" selection-start-line="131" selection-start-column="88" selection-end-line="131" selection-end-column="88" />
+            <state relative-caret-position="186">
+              <caret line="122" column="18" lean-forward="true" selection-start-line="122" selection-start-column="18" selection-end-line="122" selection-end-column="18" />
               <folding>
                 <element signature="e#34#53#0#PHP" expanded="true" />
               </folding>
@@ -909,7 +903,7 @@
       <workItem from="1507834087809" duration="9825000" />
       <workItem from="1508071275759" duration="14400000" />
       <workItem from="1508204181348" duration="2106000" />
-      <workItem from="1508604147483" duration="12483000" />
+      <workItem from="1508604147483" duration="12565000" />
     </task>
     <task id="LOCAL-00001" summary="SelectExtends pronto com funcionalidade básica.&#10;Trabalhando no caso de Cidades onde o select de estado depende do comportamento do select de País.">
       <created>1501296478716</created>
@@ -1135,11 +1129,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508641415586</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Ajustes finais regra de negócio compra">
+      <created>1508690865035</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1508690865035</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="324472000" />
+    <option name="totallyTimeSpent" value="324554000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1240,7 +1241,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Alterações no visual finalizadas - Ficou topezera demais" />
     <MESSAGE value="Alterações no cadastro de cidade para fazer o Select2 com AJAX e Extends. Funcionalidade está OK, faltam ajustes visuais no cadastro de cidade." />
     <MESSAGE value="Ajustes cadastro cidade finalizados" />
     <MESSAGE value="Criado o cadastro de forma de pagamento&#10;Ajustes de internacionalização para mensagens de erro em português&#10;Instalação do plugin Localized para i18n e validações BR&#10;Cadastro de funcionários implementado, action add apenas, com autocompletar de CEP e jogo de botões para pessoa física/juridica&#10;&#10;TODO:&#10;- Outras actions do fornecedor&#10;- Validação CEP, CPF/CNPJ e telefones&#10;- Exibir mensagem de erro no formulário" />
@@ -1265,7 +1265,8 @@
     <MESSAGE value="Correção movimentações com status inativo, agora não traz mais os registros" />
     <MESSAGE value="Correção conta a pagar mostrar &quot;Parcela única&quot; e cadastro de produto/lote não permitir edição da quantidade em estoque" />
     <MESSAGE value="Ajuste cadastros botão de filtrar na resolução 1024px" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajuste cadastros botão de filtrar na resolução 1024px" />
+    <MESSAGE value="Ajustes finais regra de negócio compra" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajustes finais regra de negócio compra" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1685,8 +1686,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Table/ComprasTable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="131" column="88" lean-forward="false" selection-start-line="131" selection-start-column="88" selection-end-line="131" selection-end-column="88" />
+        <state relative-caret-position="186">
+          <caret line="122" column="18" lean-forward="true" selection-start-line="122" selection-start-column="18" selection-end-line="122" selection-end-column="18" />
           <folding>
             <element signature="e#34#53#0#PHP" expanded="true" />
           </folding>
