@@ -191,7 +191,7 @@ th[scope="col"] a.asc:after, th[scope="col"] a.asc:after, th[scope="col"] a.desc
   height: 46px;
   width: 100%;
 }
-.filtros .submit .btn input {
+.filtros .submit .btn button {
   height: 100%;
 }
 
@@ -371,5 +371,4 @@ tr.lote td {
   margin: 0;
   padding: 0;
 }
-
 /*# sourceMappingURL=style.css.map */

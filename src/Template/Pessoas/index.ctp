@@ -29,7 +29,7 @@ use Cake\Routing\Router;
                                                                                                                 <?= $this->Gus->control('email', ['div' => 'col s2 m1 l1', 'label' => 'Email']); ?>
                                                                                                                 <?= $this->Gus->control('cidade_id', ['div' => 'col s2 m1 l1', 'label' => 'Cidade Id']); ?>
                                                                                                                 <?= $this->Gus->control('fornecedor_pertencente_id', ['div' => 'col s2 m1 l1', 'label' => 'Fornecedor Pertencente Id']); ?>
-                                                                                    <?= $this->Gus->control('Filtrar', ['div' => 'col s12 m2 l2 right', 'type' => 'submit', 'class' => 'btn waves-effect waves-light']); ?>
+                                                                                    <?= $this->Gus->button('<i class="material-icons">filter_list</i>', ['div' => 'input-field col s12 m2 l2 right submit', 'type' => 'submit', 'class' => 'btn waves-effect waves-light']); ?>
                             <?= $this->Gus->end(); ?>
                         </div>
                     </div>
