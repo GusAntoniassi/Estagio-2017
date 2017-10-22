@@ -59,6 +59,7 @@ class ComprasTable extends Table
         $this->hasMany('ItemCompras', [
             'foreignKey' => 'compra_id',
             'dependent' => true,
+            'cascadeCallbacks' => true,
         ]);
 
         $this->addBehavior('Search.Search');
