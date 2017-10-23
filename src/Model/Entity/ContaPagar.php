@@ -102,4 +102,41 @@ class ContaPagar extends Entity
 
         return true;
     }
+
+    /**
+     * @param ParcelaContaPagar $parcela
+     */
+    public function pagaParcela($parcela) {
+        $parcelasTable = TableRegistry::get('ParcelaContaPagars');
+        if (is_numeric($parcela)) {
+            // TODO: Find parcela pelo ID
+        }
+
+        $time = Time::now();
+        $pagamentosTable = TableRegistry::get('Pagamentos');
+        /**
+         * @var $pagamento Pagamento
+         */
+        $pagamento = $pagamentosTable->newEntity();
+        // TODO: Permitir pagamento parcial
+        $pagamento->valor_pago = $parcela->valor;
+        $pagamento->data_pagamento = $time;
+        $pagamento->pagamento_integral = true;
+        $pagamento->parcela_conta_pagar_id = $parcela->id;
+        $pagamentosTable->save($pagamento);
+
+        $parcela->pago = true;
+        $parcelasTable->save($parcela);
+
+        $parcelasPagas = $parcelasTable->find('parcelasPagas', [
+            'conta_pagar_id' => $this->id
+        ]);
+
+        if ($parcelasPagas->count() >= $this->num_parcelas) {
+            $this->pago = true;
+            $this->data_pagamento = $time;
+            $contaPagarsTable = TableRegistry::get('ContaPagars');
+            $contaPagarsTable->save($this);
+        }
+    }
 }

@@ -43,7 +43,8 @@ class ParcelaContaPagarsTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->hasOne('Pagamentos', [
-            'foreignKey' => 'parcela_conta_pagar_id'
+            'foreignKey' => 'parcela_conta_pagar_id',
+            'dependent' => true,
         ]);
 
         $this->addBehavior('Search.Search');
@@ -110,4 +111,8 @@ class ParcelaContaPagarsTable extends Table
         return $search;
     }
 
+    public function findParcelasPagas(Query $query, array $options) {
+        $contaPagarId = $options['conta_pagar_id'];
+        return $query->where(['conta_pagar_id' => $contaPagarId, 'pago' => true]);
+    }
 }

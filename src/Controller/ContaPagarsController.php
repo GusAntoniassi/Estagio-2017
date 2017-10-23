@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Network\Exception\NotFoundException;
+use Cake\ORM\TableRegistry;
 use Cake\Routing\Router;
 use \Cake\Datasource\Exception\RecordNotFoundException;
 use \Cake\Datasource\ConnectionManager;
@@ -243,6 +245,43 @@ class ContaPagarsController extends AppController
             } else {
                 $this->Flash->error(__('Erro ao excluir o(s) registro(s)! Por favor tente novamente.'));
             }
+        }
+    }
+
+    public function pagaParcela() {
+        if ($this->request->is('post')) {
+            $parcelaId = $this->request->getData('parcela_id');
+            $contaId = $this->request->getData('conta_id');
+            if (empty($parcelaId) || empty($contaId)) {
+                throw new \InvalidArgumentException('ID da parcela ou da conta faltando!');
+            }
+
+            $contaPagar = $this->ContaPagars->findById($contaId);
+            if (empty($contaPagar)) {
+                throw new NotFoundException('Conta não encontrada');
+            } else {
+                $contaPagar = $contaPagar->first();
+            }
+
+            $parcela = $this->ContaPagars->ParcelaContaPagars->findById($parcelaId);
+            if (empty($parcela)) {
+                throw new NotFoundException('Parcela não encontrada');
+            } else {
+                $parcela = $parcela->first();
+            }
+
+            $json = [];
+            try {
+                $contaPagar->pagaParcela($parcela);
+                $json['success'] = 'true';
+                $this->Flash->success('Parcela paga com sucesso');
+            } catch (\Exception $e) {
+                $json['error'] = 'true';
+                $json['exception'] = $e->getMessage();
+            }
+
+            echo json_encode($json);
+            die();
         }
     }
 }

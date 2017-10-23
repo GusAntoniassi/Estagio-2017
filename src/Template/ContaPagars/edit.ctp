@@ -51,14 +51,26 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($contaPagar->parcela_conta_pagars as $parcela) { ?>
+                <?php foreach ($contaPagar->parcela_conta_pagars as $idx => $parcela) { ?>
                     <tr <?= ($parcela->pago ? 'class="pago"' : ''); ?>>
                         <td><?= h($parcela->nome); ?></td>
                         <td><?= $this->Number->currency($parcela->valor, 'BRL'); ?></td>
                         <td><?= $this->Time->format($parcela->data_vencimento, 'dd/MM/yyyy'); ?></td>
                         <td><?= $this->Gus->formataBoolean($parcela->pago); ?></td>
-                        <td><?= (!empty($parcela->pagamento) ? $this->Time->format($parcela->pagamento->data_pagamento, 'dd/MM/yyyy') : ''); ?></td>
-                        <td><a class="waves-effect waves-light btn pagar">Pagar</a></td>
+
+                        <?php if (empty($parcela->pagamento)) { ?>
+                            <td></td>
+                            <td>
+                                <a class="waves-effect waves-light btn pagar">Pagar</a>
+                                <input type="hidden" name="parcela[<?= $idx ?>][id]" value="<?= $parcela->id ?>" />
+                            </td>
+                        <?php } else { ?>
+                            <td><?= (!empty($parcela->pagamento) ? $this->Time->format($parcela->pagamento->data_pagamento, 'dd/MM/yyyy') : ''); ?></td>
+                            <td>
+                                <a class="waves-effect waves-light btn disabled">Paga</a>
+                            </td>
+                        <?php } ?>
+
                     </tr>
                 <?php } ?>
             </tbody>
@@ -73,8 +85,36 @@
     <?= $this->Gus->end() ?>
 
     <script>
+        var idConta = '<?php echo $contaPagar->id; ?>';
+
         $(document).on('click', '.btn.pagar', function() {
-            alert('Método não implementado!');
+            var idParcela = $(this).siblings('input[type="hidden"]').val();
+
+            var trataErro = function(json) {
+                if (typeof json !== 'undefined' && json.length) {
+                    console.error(json);
+                }
+
+//                alert('Houve um problema ao realizar o pagamento da parcela. \nPor favor atualize a página e tente novamente.');
+            };
+
+            $.post({
+                url: '<?= \Cake\Routing\Router::url(['action' => 'pagaParcela'], true); ?>',
+                data: {
+                    parcela_id: idParcela,
+                    conta_id: idConta,
+                },
+            }).done(function(json) {
+                try {
+                    json = JSON.parse(json);
+                } catch (e) {
+                    console.error(e);
+                    trataErro();
+                }
+                if (json['success']) {
+                    window.location.reload();
+                }
+            }).fail(trataErro);
         });
     </script>
 </div>

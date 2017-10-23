@@ -58,6 +58,7 @@ class ContaPagarsTable extends Table
         $this->hasMany('ParcelaContaPagars', [
             'foreignKey' => 'conta_pagar_id',
             'dependent' => true,
+            'cascadeCallbacks' => true
         ]);
 
         $this->addBehavior('Search.Search');
@@ -127,6 +128,16 @@ class ContaPagarsTable extends Table
         ]);
 
         // TODO: Validar excluir com uma ou mais parcelas pagas
+        $rules->addDelete(function ($entity, $options) {
+             $parcelasTable = TableRegistry::get('ParcelaContaPagars');
+             $parcelasPagas = $parcelasTable->find('parcelasPagas', [
+                'conta_pagar_id' => $entity->id,
+             ]);
+             return ($parcelasPagas->count() <= 0);
+        }, 'validaContaPagar', [
+            'errorField' => 'status',
+            'message' => 'Não é possível excluir uma conta que possui uma ou mais parcelas pagas!'
+        ]);
 
         return $rules;
     }
@@ -153,7 +164,9 @@ class ContaPagarsTable extends Table
     }
 
     public function beforeSave(Event $event, ContaPagar $entity, \ArrayObject $options) {
-        $entity->data_cadastro = Time::now();
+        if ($entity->isNew()) {
+            $entity->data_cadastro = Time::now();
+        }
         if (empty($entity->num_parcelas) && !empty($entity->forma_pagamento_id)) {
             $formaPagamentosTable = TableRegistry::get('FormaPagamentos');
             $formaPagamento = $formaPagamentosTable->findById($entity->forma_pagamento_id)->first();
